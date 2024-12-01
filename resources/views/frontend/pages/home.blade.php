@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('This is the Home page.', 'Home')
+@section('This page is the Home.', 'Home')
 @section('main')
     <!-- ##### Right Side Cart Area ##### -->
     <div class="cart-bg-overlay"></div>
