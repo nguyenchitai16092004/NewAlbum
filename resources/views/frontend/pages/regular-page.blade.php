@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('This is the Regular page.', 'Regular')
+@section('This page is the Regular.', 'Regular')
 @section('main')
     <div class="cart-bg-overlay"></div>
 
