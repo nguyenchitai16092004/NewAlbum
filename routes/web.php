@@ -30,10 +30,10 @@ Route::get('/contact', function () {
 });
 /*End Route FE */
 /*Route BE */
-Route::get('/admin/dashboard', function () {
+Route::get('/admin/', function () {
     return view('backend.pages.dashboard');
 });
-Route::get('/admin/', function () {
+Route::get('/admin/dashboard', function () {
     return view('backend.pages.dashboard');
 });
 Route::get('/admin/oders', function () {
