@@ -8,7 +8,7 @@
                     <div class="product-status-wrap drp-lst">
                         <h4>Departments List</h4>
                         <div class="add-product">
-                            <a href="add-department.html">Add Departments</a>
+                            <a href="{{ route('Add_Product') }}">Add Product</a>
                         </div>
                         <div class="asset-inner">
                             <table>

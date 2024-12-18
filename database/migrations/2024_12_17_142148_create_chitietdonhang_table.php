@@ -12,19 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('chitietdonhang', function (Blueprint $table) {
-            $table->unsignedBigInteger('MaHD');
+            $table->unsignedBigInteger('MaDH');
             $table->unsignedBigInteger('MaSP');
+            $table->primary(['MaHD', 'MaSP']);
             $table->integer('SoLuong');
             $table->string('TenSP', 255);
             $table->decimal('DonGia', 10, 2);
             $table->decimal('TongTien', 10, 2);
-            $table->integer('TrangThai');
             $table->string('HinhAnh', 255);
-            $table->primary(['MaHD', 'MaSP']);
             $table->timestamps(); 
             
             // Định nghĩa khóa ngoại
-            $table->foreign('MaHD')->references('MaHD')->on('DONHANG');
+            $table->foreign('MaDH')->references('MaDH')->on('DONHANG');
             $table->foreign('MaSP')->references('MaSP')->on('SANPHAM');
 
         });
