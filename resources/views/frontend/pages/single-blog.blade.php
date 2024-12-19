@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('This is the Single-Blog page.', 'Single-Blog')
+@section('This page is the Single-Blog.', 'Single-Blog')
 @section('main')
     <!-- ##### Right Side Cart Area ##### -->
     <div class="cart-bg-overlay"></div>
