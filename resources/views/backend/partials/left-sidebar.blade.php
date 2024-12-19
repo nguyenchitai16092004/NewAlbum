@@ -130,12 +130,8 @@
                                         class="mini-sub-pro">Band/Singer</span></a></li>
                         </ul>
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li><a title="Rounded Charts" href="{{ asset('admin/add-band-singer') }}"><span
+                            <li><a title="Rounded Charts" href="{{ route('Index_Add_Band') }}"><span
                                         class="mini-sub-pro">Add Band/Singer</span></a></li>
-                        </ul>
-                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li><a title="Rounded Charts" href="{{ asset('admin/edit-band-singer') }}"><span
-                                        class="mini-sub-pro">Edit Band/Singer</span></a></li>
                         </ul>
                     </li>
                     <li>
