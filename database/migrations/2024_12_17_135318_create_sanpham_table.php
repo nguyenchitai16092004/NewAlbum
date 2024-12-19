@@ -14,37 +14,23 @@ return new class extends Migration
         Schema::create('SANPHAM', function (Blueprint $table) {
             $table->id('MaSP');
             $table->unsignedBigInteger('MaMT')->nullable();
-
             $table->unsignedBigInteger('MaNhomNhacCaSi')->nullable();
             $table->unsignedBigInteger('MaSPGG')->nullable();
-
             $table->string('TenSP', 255);
             $table->decimal('GiaNhap', 10, 2)->nullable();
             $table->decimal('GiaBan', 10, 2)->nullable();
             $table->text('MoTa')->nullable();
             $table->integer('SoLuong')->nullable();
-
-
             $table->integer('LoaiHang')->nullable();
-
             $table->boolean('TrangThai')->default(1);
             $table->date('NgayTao')->nullable();
             $table->unsignedBigInteger('MaLoaiSP')->nullable();
             $table->integer('LuotXem')->default(0);
             $table->string('Slug', 255)->nullable();
-
-            $table->unsignedBigInteger('MaNhomNhacCaSi')->nullable();
-            $table->unsignedBigInteger('MaSPGG')->nullable();
-
-           // Định nghĩa khóa ngoại
-            $table->foreign('MaLoaiSP')->references('MaLoaiSP')->on('LOAISP')->onDelete('cascade');
-            $table->foreign('MaMT')->references('MaMT')->on('MOTA')->onDelete('set null');
-
             $table->string('HinhAnh',255);
 
            // Định nghĩa khóa ngoại
             $table->foreign('MaLoaiSP')->references('MaLoaiSP')->on('LOAISP')->onDelete('cascade');
-
             $table->foreign('MaNhomNhacCaSi')->references('MaNhomNhacCaSi')->on('NHOMNHACCASI')->onDelete('set null');
             $table->foreign('MaSPGG')->references('MaSPGG')->on('SANPHAMGIAMGIA')->onDelete('set null');
             $table->timestamps(); 

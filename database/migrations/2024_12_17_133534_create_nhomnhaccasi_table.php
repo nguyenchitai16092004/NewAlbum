@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('NHOMNHACCASI', function (Blueprint $table) {
             $table->id('MaNhomNhacCaSi');
             $table->string('TenNhomNhacCaSi', 255);
-            $table->boolean('GioiTinh')->nullable();
-            $table->string('Loai', 50);
+            $table->boolean('GioiTinh');
+            $table->boolean('Loai');
             $table->timestamps();
         });
     }
