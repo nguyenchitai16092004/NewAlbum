@@ -1,6 +1,9 @@
 <?php
 
+
 use App\Http\Controllers\BandController;
+
+
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\Framework\Attributes\Group;
@@ -144,6 +147,7 @@ Route::prefix('/admin')->group(function(){
         Route::get('/delete', [ProductController::class, 'Delete'])->name('Delete_Product');
     });
 
+
     //Route cho nhóm nhạc ca sĩ
     Route::get('/band-singer', [BandController::class, 'index'])->name('Index_Band');
 
@@ -161,4 +165,6 @@ Route::prefix('/admin')->group(function(){
         Route::get('/Edit-band/{id}', [BandController::class, 'Show'])->name('Index_Edit_Band');
         Route::get('/Edit/{id}', [BandController::class, 'Edit'])->name('Edit_Band');
     });     
+
+
 });
