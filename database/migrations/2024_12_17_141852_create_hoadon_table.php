@@ -11,20 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('DONHANG', function (Blueprint $table) {
-            $table->id('MaDH'); 
+        Schema::create('HOADON', function (Blueprint $table) {
+            $table->id('MaHD'); 
             $table->unsignedBigInteger('MaQL'); 
-            $table->unsignedBigInteger('MaDC'); 
+            $table->unsignedBigInteger('MaKH'); 
             $table->unsignedBigInteger('MaPTTT'); 
             $table->string('PhuongThuc', 50);
             $table->date('NgayLap');
             $table->decimal('TongTien', 10, 2);
             $table->boolean('TrangThai'); 
+            $table->boolean('PTTT');
+            $table->boolean('TrangThaiTT');
             $table->timestamps(); 
 
             // Định nghĩa khóa ngoại
             $table->foreign('MaQL')->references('MaQL')->on('QUANLY');
-            $table->foreign('MaDC')->references('MaDC')->on('DIACHI');
+            $table->foreign('MaKH')->references('MaKH')->on('KHACHHANG');
             $table->foreign('MaPTTT')->references('MaPTTT')->on('PHUONGTHUCTHANHTOAN');
 
         });
