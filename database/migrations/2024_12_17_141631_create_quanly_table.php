@@ -23,7 +23,6 @@ return new class extends Migration
             $table->boolean('GioiTinh'); 
             $table->string('HinhAnh', 255)->nullable(); 
             $table->boolean('TrangThai');
-            $table->timestamps(); 
         });
     }
 

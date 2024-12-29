@@ -19,7 +19,6 @@ return new class extends Migration
             $table->date('NgayCapNhat');
             $table->boolean('TrangThai'); 
             $table->unsignedBigInteger('MaQL'); 
-            $table->timestamps(); 
             
             // Định nghĩa khóa ngoại
             $table->foreign('MaQL')->references('MaQL')->on('QUANLY');

@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('chitietdonhang', function (Blueprint $table) {
-            $table->unsignedBigInteger('MaDH');
+        Schema::create('CHITIETHOADON', function (Blueprint $table) {
+            $table->unsignedBigInteger('MaHD');
             $table->unsignedBigInteger('MaSP');
             $table->primary(['MaDH', 'MaSP']);
             $table->integer('SoLuong');
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->timestamps(); 
             
             // Định nghĩa khóa ngoại
-            $table->foreign('MaDH')->references('MaDH')->on('DONHANG');
+            $table->foreign('MaHD')->references('MaHD')->on('HOADON');
             $table->foreign('MaSP')->references('MaSP')->on('SANPHAM');
 
         });

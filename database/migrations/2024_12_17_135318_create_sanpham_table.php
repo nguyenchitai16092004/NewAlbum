@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('MaMT')->nullable();
             $table->unsignedBigInteger('MaNhomNhacCaSi')->nullable();
             $table->unsignedBigInteger('MaSPGG')->nullable();
+            $table->unsignedBigInteger('MaLoaiSP')->nullable();
             $table->string('TenSP', 255);
             $table->decimal('GiaNhap', 10, 2)->nullable();
             $table->decimal('GiaBan', 10, 2)->nullable();
@@ -24,7 +25,6 @@ return new class extends Migration
             $table->integer('LoaiHang')->nullable();
             $table->boolean('TrangThai')->default(1);
             $table->date('NgayTao')->nullable();
-            $table->unsignedBigInteger('MaLoaiSP')->nullable();
             $table->integer('LuotXem')->default(0);
             $table->string('Slug', 255)->nullable();
             $table->string('HinhAnh',255);

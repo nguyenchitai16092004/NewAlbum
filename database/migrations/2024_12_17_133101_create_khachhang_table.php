@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Tạo bảng KHACHHANG
         Schema::create('KHACHHANG', function (Blueprint $table) {
             $table->id('MaKH');
             $table->string('TenKH', 255);
@@ -21,10 +22,24 @@ return new class extends Migration
             $table->string('MatKhau', 255)->nullable();
             $table->boolean('TrangThai')->default(1);
             $table->boolean('GioiTinh')->nullable();
-            $table->binary('HinhAnh',255);
-            $table->timestamps(); 
+            $table->binary('HinhAnh', 255);
+            $table->timestamps();
+        });
+    
+        // Tạo bảng SANPHAMYEUTHICH (Thực thể yếu)
+        Schema::create('SanPhamYeuThich', function (Blueprint $table) {
+            $table->unsignedBigInteger('MaKH');
+            $table->unsignedBigInteger('MaSP');
+            $table->date('NgayYeuThich')->nullable();
+    
+            $table->primary(['MaKH', 'MaSP']);
+    
+            $table->foreign('MaKH')->references('MaKH')->on('KHACHHANG')->onDelete('cascade');
+    
+            $table->foreign('MaSP')->references('MaSP')->on('SANPHAM')->onDelete('cascade');
         });
     }
+    
 
     /**
      * Reverse the migrations.
