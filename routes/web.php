@@ -90,6 +90,6 @@ Route::prefix('/admin')->group(function () {
 
         //Sửa loại sản phẩm
         Route::get('/Edit-category/{id}', [CategoryController::class, 'Show'])->name('Index_Edit_Category');
-        Route::get('/Edit/{id}', [CategoryController::class, 'Edit'])->name('Edit_C ategory');
+        Route::get('/Edit/{id}', [CategoryController::class, 'Edit'])->name('Edit_Category');
     });
 });

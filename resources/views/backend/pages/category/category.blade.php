@@ -29,7 +29,7 @@
                                                 </button>
                                             </form>
                                             <form
-                                                action="{{ route('Delete_Band', ['id' => $item->MaLoaiSP]) }}"method="POST">
+                                                action="{{ route('Delete_Category', ['id' => $item->MaLoaiSP]) }}"method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button data-toggle="tooltip" title="Xóa" class="pd-setting-ed">
