@@ -23,7 +23,7 @@
                                         <td>{{ $item->TenLoaiSP }}</td>
                                         <td>
                                             <form
-                                                action="{{ route('Index_Edit_Band', ['id' => $item->MaLoaiSP]) }}"method="GET">
+                                                action="{{ route('Index_Edit_Category', ['id' => $item->MaLoaiSP]) }}"method="GET">
                                                 <button data-toggle="tooltip" title="Sửa" class="pd-setting-ed">
                                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                 </button>

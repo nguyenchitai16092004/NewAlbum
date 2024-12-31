@@ -19,33 +19,31 @@ class CategoryController extends Controller
             'TenLoaiSP' => 'required|string|max:255',
         ]); 
 
-        $loaiSP = new LOAISP();
-        $loaiSP->TenloaiSP = $request->input('TenLoaiSP');
-        $loaiSP->save();
+        $categories = new LOAISP();
+        $categories->TenloaiSP = $request->input('TenLoaiSP');
+        $categories->save();
 
-        return redirect()->route('Index_Category')->with('success', 'Thêm nhóm nhạc/ca sĩ thành công!');
+        return redirect()->route('Index_Category');
     }
 
     public function Delete($id)
     {
-        $loaiSP = LOAISP::findOrFail($id);
-        $loaiSP->delete();
-        return redirect()->route('Index_Category')->with('success', 'Thêm nhóm nhạc/ca sĩ thành công!');
+        $categories = LOAISP::findOrFail($id);
+        $categories->delete();
+        return redirect()->route('Index_Category');
     }
 
     public function Show($id)
     {
-        $band = LOAISP::findOrFail($id);
-        return view('backend.pages.category.edit-category', compact('band'));
+        $categories = LOAISP::findOrFail($id);
+        return view('backend.pages.category.edit-category', compact('categories'));
     }
 
     public function Edit(Request $request, $id)
     {
-        $loaiSP = LOAISP::findOrFail($id);
-        $loaiSP->TenloaiSP = $request->input('TenloaiSP');
-        $loaiSP->GioiTinh = $request->input('GioiTinh');
-        $loaiSP->Loai = $request->input('Loai');
-        $loaiSP->save();
+        $categories = LOAISP::findOrFail($id);
+        $categories->TenloaiSP = $request->input('TenloaiSP');
+        $categories->save();
         return redirect()->route('Index_Category');
     }
 }

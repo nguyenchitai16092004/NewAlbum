@@ -55,11 +55,7 @@
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
                             <li><a title="Rounded Charts" href="{{ asset('admin/add-category') }}"><span
                                         class="mini-sub-pro">Add Category</span></a></li>
-                        </ul>
-                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li><a title="Rounded Charts" href="{{ asset('admin/edit-category') }}"><span
-                                        class="mini-sub-pro">Edit Category</span></a></li>
-                        </ul>
+                        </ul
                     </li>
                     <li>
                         <a class="has-arrow" href="{{ asset('admin/product') }}" aria-expanded="false"><span
@@ -72,10 +68,6 @@
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
                             <li><a title="Rounded Charts" href="{{ asset('admin/add-product') }}"><span
                                         class="mini-sub-pro">Add Product</span></a></li>
-                        </ul>
-                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li><a title="Rounded Charts" href="{{ asset('admin/edit-product') }}"><span
-                                        class="mini-sub-pro">Edit Product</span></a></li>
                         </ul>
                     </li>
                     <li>
@@ -99,10 +91,6 @@
                             <li><a title="Rounded Charts" href="{{ asset('admin/add-employee-management') }}"><span
                                         class="mini-sub-pro">Add Employee Management</span></a></li>
                         </ul>
-                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li><a title="Rounded Charts" href="{{ asset('admin/edit-employee-management') }}"><span
-                                        class="mini-sub-pro">Edit Employee Management</span></a></li>
-                        </ul>
                     </li>
                     <li>
                         <a class="has-arrow" href="{{ asset('admin/staff-management') }}"
@@ -115,10 +103,6 @@
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
                             <li><a title="Rounded Charts" href="{{ asset('admin/add-staff-management') }}"><span
                                         class="mini-sub-pro">Add Staff Management</span></a></li>
-                        </ul>
-                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li><a title="Rounded Charts" href="{{ asset('admin/edit-staff-management') }}"><span
-                                        class="mini-sub-pro">Edit Staff Management</span></a></li>
                         </ul>
                     </li>
                     <li>
@@ -145,10 +129,6 @@
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
                             <li><a title="Rounded Charts" href="{{ asset('admin/add-customer-management') }}"><span
                                         class="mini-sub-pro">Add Customer Management</span></a></li>
-                        </ul>
-                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li><a title="Rounded Charts" href="{{ asset('admin/edit-customer-management') }}"><span
-                                        class="mini-sub-pro">Edit Customer Management</span></a></li>
                         </ul>
                     </li>
                     <li id="removable">
