@@ -51,13 +51,7 @@ return new class extends Migration
 
             $table->string('HinhAnh',255);
 
-           // Định nghĩa khóa ngoại
-            $table->foreign('MaLoaiSP')->references('MaLoaiSP')->on('LOAISP')->onDelete('cascade');
-            $table->foreign('MaNhomNhacCaSi')->references('MaNhomNhacCaSi')->on('NHOMNHACCASI')->onDelete('set null');
-            $table->foreign('MaSPGG')->references('MaSPGG')->on('SANPHAMGIAMGIA')->onDelete('set null');
-            $table->timestamps(); 
-        
-
+    
         });
     }
 
