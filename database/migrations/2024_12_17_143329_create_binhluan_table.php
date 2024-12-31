@@ -17,7 +17,9 @@ return new class extends Migration
             $table->integer('SoSao');
             $table->text('NoiDung'); 
             $table->primary(['MaSP', 'MaKH']); 
+
             $table->timestamps();
+
 
             // Định nghĩa khóa ngoại
             $table->foreign('MaSP')->references('MaSP')->on('SANPHAM'); 

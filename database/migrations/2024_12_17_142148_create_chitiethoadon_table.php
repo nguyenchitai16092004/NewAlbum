@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create('CHITIETHOADON', function (Blueprint $table) {
             $table->unsignedBigInteger('MaHD');
             $table->unsignedBigInteger('MaSP');
+
             $table->primary(['MaHD', 'MaSP']);
+
+            $table->primary(['MaDH', 'MaSP']);
+
             $table->integer('SoLuong');
             $table->string('TenSP', 255);
             $table->decimal('DonGia', 10, 2);

@@ -18,8 +18,12 @@ return new class extends Migration
             $table->decimal('GiaNhap', 10, 2);
             $table->integer('SoLuong'); 
             $table->decimal('TongTien', 10, 2); 
+
             $table->timestamps();
             
+
+
+
             // Định nghĩa khóa chính cho cặp cột MaPN và MaSP
             $table->primary(['MaPN', 'MaSP']);
             
