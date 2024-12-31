@@ -27,6 +27,28 @@ return new class extends Migration
             $table->date('NgayTao')->nullable();
             $table->integer('LuotXem')->default(0);
             $table->string('Slug', 255)->nullable();
+
+            $table->string('HinhAnh', 255);
+
+            // Định nghĩa khóa ngoại
+            $table->foreign('MaLoaiSP')->references('MaLoaiSP')->on('LOAISP')->onDelete('cascade');
+            $table->foreign('MaNhomNhacCaSi')->references('MaNhomNhacCaSi')->on('NHOMNHACCASI')->onDelete('set null');
+            $table->foreign('MaSPGG')->references('MaSPGG')->on('SANPHAMGIAMGIA')->onDelete('set null');
+            $table->timestamps();
+        });
+
+        // Tạo bảng SANPHAMYEUTHICH (Thực thể yếu)
+        Schema::create('SanPhamYeuThich', function (Blueprint $table) {
+            $table->unsignedBigInteger('MaKH');
+            $table->unsignedBigInteger('MaSP');
+            $table->date('NgayYeuThich')->nullable();
+
+            $table->primary(['MaKH', 'MaSP']);
+
+            $table->foreign('MaKH')->references('MaKH')->on('KHACHHANG')->onDelete('cascade');
+
+            $table->foreign('MaSP')->references('MaSP')->on('SANPHAM')->onDelete('cascade');
+
             $table->string('HinhAnh',255);
 
            // Định nghĩa khóa ngoại
@@ -35,6 +57,7 @@ return new class extends Migration
             $table->foreign('MaSPGG')->references('MaSPGG')->on('SANPHAMGIAMGIA')->onDelete('set null');
             $table->timestamps(); 
         
+
         });
     }
 

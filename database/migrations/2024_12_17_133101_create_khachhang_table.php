@@ -25,6 +25,7 @@ return new class extends Migration
             $table->binary('HinhAnh', 255);
             $table->timestamps();
         });
+
     
         // Tạo bảng SANPHAMYEUTHICH (Thực thể yếu)
         Schema::create('SanPhamYeuThich', function (Blueprint $table) {

@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('SDT', 15); 
             $table->string('Email', 255); 
             $table->text('TinNhan'); 
+
+            $table->timestamps();
+
             
             $table->foreign('MaKH')->references('MaKH')->on('KHACHHANG');
         });
