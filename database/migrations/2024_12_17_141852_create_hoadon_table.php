@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id('MaHD'); 
             $table->unsignedBigInteger('MaQL'); 
             $table->unsignedBigInteger('MaKH'); 
+
+
+            $table->unsignedBigInteger('MaPTTT'); 
+
             $table->string('PhuongThuc', 50);
             $table->date('NgayLap');
             $table->decimal('TongTien', 10, 2);
@@ -26,6 +30,10 @@ return new class extends Migration
             // Định nghĩa khóa ngoại
             $table->foreign('MaQL')->references('MaQL')->on('QUANLY');
             $table->foreign('MaKH')->references('MaKH')->on('KHACHHANG');
+
+
+            $table->foreign('MaPTTT')->references('MaPTTT')->on('PHUONGTHUCTHANHTOAN');
+
 
         });
     }

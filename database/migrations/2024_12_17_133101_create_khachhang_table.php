@@ -25,6 +25,20 @@ return new class extends Migration
             $table->binary('HinhAnh', 255);
             $table->timestamps();
         });
+
+    
+        // Tạo bảng SANPHAMYEUTHICH (Thực thể yếu)
+        Schema::create('SanPhamYeuThich', function (Blueprint $table) {
+            $table->unsignedBigInteger('MaKH');
+            $table->unsignedBigInteger('MaSP');
+            $table->date('NgayYeuThich')->nullable();
+    
+            $table->primary(['MaKH', 'MaSP']);
+    
+            $table->foreign('MaKH')->references('MaKH')->on('KHACHHANG')->onDelete('cascade');
+    
+            $table->foreign('MaSP')->references('MaSP')->on('SANPHAM')->onDelete('cascade');
+        });
     }
     
 
