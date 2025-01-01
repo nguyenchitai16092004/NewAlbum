@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('Twitter', 255); 
             $table->string('Instagram', 255);
             $table->string('SDT', 15);
+
+            $table->timestamps();
+
         });
     }
 

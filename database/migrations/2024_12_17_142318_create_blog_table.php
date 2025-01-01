@@ -16,7 +16,10 @@ return new class extends Migration
             $table->unsignedBigInteger('MaQL');
             $table->string('TenTG', 255);
             $table->longText('NoiDung');
+
+
             $table->date('NgayTao'); 
+
             $table->timestamps(); 
 
             // Định nghĩa khóa ngoại

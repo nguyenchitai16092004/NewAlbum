@@ -5,8 +5,13 @@ use App\Http\Controllers\BandController;
 
 
 use App\Http\Controllers\ProductController;
+
+use App\Http\Controllers\CategoryController;
+
 use Illuminate\Support\Facades\Route;
 use PHPUnit\Framework\Attributes\Group;
+
+/*Route FE */
 
 /*Route FE */
 
@@ -37,51 +42,55 @@ Route::get('/contact', function () {
 
 
 //Back end
-Route::prefix('/admin')->group(function(){
+
+
+Route::prefix('/admin')->group(function () {
+
     // Route cho trang dashboard
     Route::view('/', 'backend.pages.dashboard');
     Route::view('/dashboard', 'backend.pages.dashboard');
-    
-    // Route cho trang đơn hàng
-    Route::view('/orders', 'backend.pages.orders');
 
-    // Route cho trang liên hệ
-    Route::view('/contact', 'backend.pages.contact');
-    
     // Route cho sản phẩm
-    Route::get('/product', [ProductController::class, 'index'])->name('Index_Product');
-
-    // Route cho các thao tác với sản phẩm
-    Route::prefix('product')->group(function()
-    {
-        // Route thêm sản phẩm
-        Route::view('/add-product' , 'backend.pages.product.add-product')->name('Add_Product');
-
+    Route::prefix('product')->group(function () {
+        Route::get('/', [ProductController::class, 'Index'])->name('Index_Product');
+        // Thêm sản phẩm
+        Route::view('/add-product', 'backend.pages.product.add-product')->name('Add_Product');
         Route::get('/add', [ProductController::class, 'Add']);
-         // Route sửa sản phẩm
+        // Sửa sản phẩm
         Route::get('/edit', [ProductController::class, 'Edit'])->name('Edit_Product');
-         // Route xóa sản phẩm
+        // Xóa sản phẩm
         Route::get('/delete', [ProductController::class, 'Delete'])->name('Delete_Product');
     });
 
-
-    //Route cho nhóm nhạc ca sĩ
-    Route::get('/band-singer', [BandController::class, 'index'])->name('Index_Band');
-
-    //Route cho các thao tác với nhóm nhạc ca sĩ
-    Route::prefix('band_singer')-> group(function()
-    {
-        //Thêm nhóm nhạc ca sĩ
+    // Route cho nhóm nhạc ca sĩ
+    Route::prefix('band-singer')->group(function () {
+        Route::get('/', [BandController::class, 'Index'])->name('Index_Band');
+        // Thêm nhóm nhạc ca sĩ
         Route::view('/add-band', 'backend.pages.band_singer.add-band-singer')->name('Index_Add_Band');
         Route::post('/add', [BandController::class, 'Add'])->name('Add_Singer');
+        // Sửa nhóm nhạc ca sĩ
+        Route::get('/edit-band/{id}', [BandController::class, 'Show'])->name('Index_Edit_Band');
+        Route::get('/edit/{id}', [BandController::class, 'Edit'])->name('Edit_Band');
+        // Xóa nhóm nhạc ca sĩ
+        Route::delete('/delete/{id}', [BandController::class, 'Delete'])->name('Delete_Band');
+    });
 
-        //Xóa nhóm nhạc ca sĩ
-        Route::delete('/Delete/{id}', [BandController::class, 'Delete'])->name('Delete_Band');
+    // Route cho loại sản phẩm
+    Route::prefix('category')->group(function () {
+        Route::get('/', [CategoryController::class, 'Index'])->name('Index_Category');
+        // Thêm loại sản phẩm
+        Route::view('/add-category', 'backend.pages.category.add-category')->name('Index_Add_Category');
+        Route::post('/add', [CategoryController::class, 'Add'])->name('Add_Category');
+        // Sửa loại sản phẩm
+        Route::get('/edit-category/{id}', [CategoryController::class, 'Show'])->name('Index_Edit_Category');
+        Route::get('/edit/{id}', [CategoryController::class, 'Edit'])->name('Edit_Category');
+        // Xóa loại sản phẩm
+        Route::delete('/delete/{id}', [CategoryController::class, 'Delete'])->name('Delete_Category');
+    });
 
-        //Sửa nhóm nhạc ca sĩ
-        Route::get('/Edit-band/{id}', [BandController::class, 'Show'])->name('Index_Edit_Band');
-        Route::get('/Edit/{id}', [BandController::class, 'Edit'])->name('Edit_Band');
-    });     
+    // Route cho đơn hàng
+    Route::view('/orders', 'backend.pages.orders');
 
-
+    // Route cho liên hệ
+    Route::view('/contact', 'backend.pages.contact');
 });

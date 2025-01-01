@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('TenNhomNhacCaSi', 255);
             $table->boolean('GioiTinh');
             $table->boolean('Loai');
+
+            $table->timestamps();
+
         });
     }
 

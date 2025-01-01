@@ -1,5 +1,5 @@
     <!-- ##### Footer Area Start ##### -->
-    <footer class="footer_area clearfix">
+    <footer style="background-color: #7FA1C3;" class="footer_area clearfix">
         <div class="container">
             <div class="row">
                 <!-- Single Widget Area -->
@@ -7,7 +7,8 @@
                     <div class="single_widget_area d-flex mb-30">
                         <!-- Logo -->
                         <div class="footer-logo mr-50">
-                            <a href="#"><img src="img/core-img/logo2.png" alt=""></a>
+                            <a class="nav-brand" href="{{ asset('/') }}"><img class="logo"
+                                    src="img/core-img/logo.jpeg" alt=""></a>
                         </div>
                         <!-- Footer Menu -->
                         <div class="footer_menu">
