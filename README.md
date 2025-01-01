@@ -74,3 +74,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 - Trong file .env hãy sửa dòng  SESSION_DRIVER=database --> SESSION_DRIVER=file //không chạy dòng này nếu đã có dữ liệu
 ** php artisan migrate //chạy dòng này nếu đã có dữ liệu
 
+
+
