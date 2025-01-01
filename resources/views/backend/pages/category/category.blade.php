@@ -8,7 +8,9 @@
                     <div class="product-status-wrap drp-lst">
                         <h4>Departments List</h4>
                         <div class="add-product">
+
                             <a href="{{ Route('Index_Add_Category') }}">Add Category</a>
+
                         </div>
                         <div class="asset-inner">
                             <table>
