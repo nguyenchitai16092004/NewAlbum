@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('SANPHAM', function (Blueprint $table) {
             $table->id('MaSP');
-            $table->unsignedBigInteger('MaMT')->nullable();
             $table->unsignedBigInteger('MaNhomNhacCaSi')->nullable();
             $table->unsignedBigInteger('MaSPGG')->nullable();
             $table->unsignedBigInteger('MaLoaiSP')->nullable();
@@ -22,9 +21,8 @@ return new class extends Migration
             $table->decimal('GiaBan', 10, 2)->nullable();
             $table->text('MoTa')->nullable();
             $table->integer('SoLuong')->nullable();
-            $table->integer('LoaiHang')->nullable();
+            $table->boolean('LoaiHang')->nullable();
             $table->boolean('TrangThai')->default(1);
-            $table->date('NgayTao')->nullable();
             $table->integer('LuotXem')->default(0);
             $table->string('Slug', 255)->nullable();
 

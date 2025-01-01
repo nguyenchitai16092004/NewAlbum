@@ -21,6 +21,7 @@ return new class extends Migration
             $table->boolean('TrangThai'); 
             $table->boolean('PTTT');
             $table->boolean('TrangThaiTT');
+            $table->string('DiaChi',255);
             $table->timestamps(); 
 
             // Định nghĩa khóa ngoại
