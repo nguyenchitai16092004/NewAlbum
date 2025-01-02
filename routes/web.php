@@ -42,6 +42,12 @@ Route::get('/contact', function () {
 Route::get('/wishlist', function () {
     return view('frontend.pages.wishlist');
 });
+Route::get('/popup', function () {
+    return view('frontend.partials.popup.popup');
+});
+Route::get('/cart', function () {
+    return view('frontend.pages.cart');
+});
 
 //Back end
 
