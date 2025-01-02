@@ -1,4 +1,4 @@
-    <!-- ##### Header Area Start ##### -->
+   <!-- ##### Header Area Start ##### -->
     <header  class="header_area">
         <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
             <!-- Classy Menu -->
@@ -60,10 +60,12 @@
                                     <li><a href="{{ asset('/regular-page') }}">Regular Page</a></li>
                                     <li><a href="{{ asset('/contact') }}">Contact</a></li>
                                     <li><a href="{{ asset('/wishlist') }}">Wishlist</a></li>
+                                    <li><a href="{{ asset('/wishlist') }}">About Us</a></li>
                                 </ul>
                             </li>
                             <li><a style="color: white;" href="{{ asset('/blog') }}">Blog</a></li>
                             <li><a style="color: white;" href="{{ asset('/contact') }}">Contact</a></li>
+                            <li><a style="color: white;" href="{{ asset('/aboutus') }}">About Us</a></li>
                         </ul>
                     </div>
                     <!-- Nav End -->

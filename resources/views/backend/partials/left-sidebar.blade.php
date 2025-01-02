@@ -26,12 +26,10 @@
                     <li>
                         <a href="{{ asset('admin/bill') }}" aria-expanded="false">
                             <span class="fa fa-file icon-wrap"></span>
-                            <span class="">Bill</span>
+                            <span class="mini-click-non">Bill Management</span>
                         </a>                                                                      
-                        <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="Departments List" href="{{ asset('admin/bill') }}"><span
-                                        class="mini-sub-pro">Bill</span></a></li>
-                        </ul>
+
+                           
 
                     </li>
                     <li>
