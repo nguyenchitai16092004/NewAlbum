@@ -1,129 +1,48 @@
 @extends('backend.layouts.master')
 @section('This page is Home Admin', 'Home Admin')
 @section('main')
+
+    <div class="product-status-wrap drp-lst">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4>Comments List</h4>
+            <div class="d-flex " style="gap: 10px;">
+                <!-- Dropdown 1 -->
+                <select class="form-select" style="width: 150px; font-size: 14px; padding: 5px;">
+                    <option selected>Filter by Stars</option>
+                    <option value="5">5 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="2">2 Stars</option>
+                    <option value="1">1 Star</option>
+                </select>
+
+                <!-- Dropdown 2 -->
+                <select class="form-select" style="width: 150px; font-size: 14px; padding: 5px;">
+                    <option selected>Sort by</option>
+                    <option value="date_asc">Date (Oldest)</option>
+                    <option value="date_desc">Date (Newest)</option>
+                    <option value="stars_asc">Stars (Lowest)</option>
+                    <option value="stars_desc">Stars (Highest)</option>
+                </select>
+            </div>
+        </div>
+    </div>
     <div class="product-status mg-b-15">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="product-status-wrap drp-lst">
-                        <h4>Departments List</h4>
-                        <div class="add-product">
-                            <a href="add-department.html">Add Departments</a>
-                        </div>
+                    <div class="product-status-wrap drp-lst">   
                         <div class="asset-inner">
                             <table>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Name of Dept.</th>
-                                    <th>Status</th>
-                                    <th>Head</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>No. of Students</th>
-                                    <th>Setting</th>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Computer</td>
-                                    <td>
-                                        <button class="pd-setting">Active</button>
-                                    </td>
-                                    <td>John Alva</td>
-                                    <td>admin@gmail.com</td>
-                                    <td>01962067309</td>
-                                    <td>1500</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i
-                                                class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i
-                                                class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Mechanical</td>
-                                    <td>
-                                        <button class="ps-setting">Paused</button>
-                                    </td>
-                                    <td>John Alva</td>
-                                    <td>admin@gmail.com</td>
-                                    <td>01962067309</td>
-                                    <td>1700</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i
-                                                class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i
-                                                class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>MBA</td>
-                                    <td>
-                                        <button class="ds-setting">Disabled</button>
-                                    </td>
-                                    <td>John Alva</td>
-                                    <td>admin@gmail.com</td>
-                                    <td>01962067309</td>
-                                    <td>1500</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i
-                                                class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i
-                                                class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>BBA</td>
-                                    <td>
-                                        <button class="pd-setting">Active</button>
-                                    </td>
-                                    <td>John Alva</td>
-                                    <td>admin@gmail.com</td>
-                                    <td>01962067309</td>
-                                    <td>1200</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i
-                                                class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i
-                                                class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>CSE</td>
-                                    <td>
-                                        <button class="pd-setting">Active</button>
-                                    </td>
-                                    <td>John Alva</td>
-                                    <td>admin@gmail.com</td>
-                                    <td>01962067309</td>
-                                    <td>1800</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i
-                                                class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i
-                                                class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>MBA</td>
-                                    <td>
-                                        <button class="ps-setting">Paused</button>
-                                    </td>
-                                    <td>John Alva</td>
-                                    <td>admin@gmail.com</td>
-                                    <td>01962067309</td>
-                                    <td>1000</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i
-                                                class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i
-                                                class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
+                                    <th>ID</th>
+                                    <th>ID Product</th>
+                                    <th>ID Customer</th>
+                                    <th>Number of Starts</th>
+                                    <th>Content</th>
+                                    <th>Action</th>
+                                </tr>   
+
                             </table>
                         </div>
                         <div class="custom-pagination">

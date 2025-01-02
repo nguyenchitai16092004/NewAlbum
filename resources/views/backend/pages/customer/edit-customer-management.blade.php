@@ -5,126 +5,68 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="product-payment-inner-st">
-                        <ul id="myTabedu1" class="tab-review-design">
-                            <li class="active"><a href="#description">Edit Department</a></li>
-                            <li><a href="#reviews"> Account Information</a></li>
-                            <li><a href="#INFORMATION">Social Information</a></li>
-                        </ul>
-                        <div id="myTabContent" class="tab-content custom-product-edit">
-                            <div class="product-tab-list tab-pane fade active in" id="description">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="review-content-section">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="devit-card-custom">
-                                                        <div class="form-group">
-                                                            <input name="number" type="text" class="form-control"
-                                                                placeholder="Name" value="CSE">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Head"
-                                                                value="John Alva">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Email"
-                                                                value="john@gmail.com">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="devit-card-custom">
-                                                        <div class="form-group">
-                                                            <input type="number" class="form-control" placeholder="Phone"
-                                                                value="01962067309">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control"
-                                                                placeholder="No. of Students" value="1500">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Status"
-                                                                value="Active">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="payment-adress">
-                                                        <button type="submit"
-                                                            class="btn btn-primary waves-effect waves-light">Submit</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="product-payment-inner-st style="background: rgba(255, 255, 255, 0.9);">
+                    
+                <h3 class="text-center mb-4">Edit Customer</h3>
+                <form>
+                    <div class="row">
+                        <!-- Left Column -->
+                        <div class="col-md-6">
+                            <div class="form-group mb-4">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter Name">
                             </div>
-                            <div class="product-tab-list tab-pane fade" id="reviews">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="review-content-section">
-                                            <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    <div class="devit-card-custom">
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Email">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="number" class="form-control" placeholder="Phone">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="password" class="form-control"
-                                                                placeholder="Password">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="password" class="form-control"
-                                                                placeholder="Confirm Password">
-                                                        </div>
-                                                        <a href="#!"
-                                                            class="btn btn-primary waves-effect waves-light">Submit</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="form-group mb-4">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter Email">
                             </div>
-                            <div class="product-tab-list tab-pane fade" id="INFORMATION">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="review-content-section">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="devit-card-custom">
-                                                        <div class="form-group">
-                                                            <input type="url" class="form-control"
-                                                                placeholder="Facebook URL">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="url" class="form-control"
-                                                                placeholder="Twitter URL">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="url" class="form-control"
-                                                                placeholder="Google Plus">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="url" class="form-control"
-                                                                placeholder="Linkedin URL">
-                                                        </div>
-                                                        <button type="submit"
-                                                            class="btn btn-primary waves-effect waves-light">Submit</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="form-group mb-4">
+                                <label for="birthday">Birthday</label>
+                                <input type="date" class="form-control" id="birthday">
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="number">Phone Number</label>
+                                <input type="text" class="form-control" id="number" placeholder="Enter Phone Number">
                             </div>
                         </div>
+
+                        <!-- Right Column -->
+                        <div class="col-md-6">
+                            <div class="form-group mb-4">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control" id="address" placeholder="Enter Address">
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="account">Account</label>
+                                <input type="text" class="form-control" id="account" placeholder="Enter Account">
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Enter Password">
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="gender">Gender</label>
+                                <select class="form-control" id="gender">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Upload -->
+                    <div class="form-group mb-4">
+                        <label for="image">Image</label>
+                        <input type="file" class="form-control-file" id="image" style="display: block; margin: 0 auto;">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="Edit" class="btn btn-primary">Edit</button>
+                    </div>
+                </form>
+            </div>
                     </div>
                 </div>
             </div>
