@@ -7,15 +7,15 @@
                     <div class="single_widget_area d-flex mb-30">
                         <!-- Logo -->
                         <div class="footer-logo mr-50">
-                            <a class="nav-brand" href="{{ asset('/') }}"><img class="logo"
+                            <a class="nav-brand" href="{{ asset('/') }}"><img class="logo logo-footer"
                                     src="img/core-img/logo.jpeg" alt=""></a>
                         </div>
                         <!-- Footer Menu -->
                         <div class="footer_menu" style="text-align: left;">
                             <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; align-items: flex-start;">
                                 <li><a href="{{ asset('/shop') }}">Shop</a></li>
-                                <li><a href="{{ asset('/blog') }}">Blog</a></li>
                                 <li><a href="{{ asset('/contact') }}">Contact</a></li>
+                                <li><a href="{{ asset('/blog') }}">Blog</a></li>
                             </ul>
                         </div>
 
@@ -25,12 +25,8 @@
                 <div class="col-12 col-md-6">
                     <div class="single_widget_area mb-30">
                         <ul class="footer_widget_menu">
-                            <li><a href="#">Order Status</a></li>
-                            <li><a href="#">SUPPORT@SOULS</a></li>
-                            <li><a href="#">Shipping and Delivery</a></li>
-                            <li><a href="#">Guides</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">SUPPORT@NEWALBUM.COM</a></li>
+                            <li><a href="#">0123456789</a></li>
                         </ul>
                     </div>
                 </div>
@@ -56,16 +52,9 @@
                 <div class="col-12 col-md-6">
                     <div class="single_widget_area">
                         <div class="footer_social_area">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i
-                                    class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i
-                                    class="fa fa-instagram" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i
-                                    class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i
-                                    class="fa fa-pinterest" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Youtube"><i
-                                    class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><img width="50px" src="img/core-img/twitter.png" alt=""></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><img width="50px" src="img/core-img/instagram.png" alt=""></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><img width="50px" src="img/core-img/facebook.png" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -78,9 +67,8 @@
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script> All rights reserved | Made with <i class="fa fa-heart-o"
-                            aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>,
-                        distributed by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+                        </script> All rights reserved | Made with group <i class="fa fa-heart-o"
+                            aria-hidden="true"></i> by <a href="#" target="_blank">Hoi Ban Tron.</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>

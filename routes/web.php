@@ -40,15 +40,13 @@ Route::get('/contact', function () {
     return view('frontend.pages.contact');
 
 });
+
 //Back end
 
-});
 Route::get('/wishlist', function () {
     return view('frontend.pages.wishlist');
 });
-Route::get('/aboutus', function () {
-    return view('frontend.pages.aboutus');
-});
+
 
 //Back end
 
