@@ -1,0 +1,41 @@
+.form-container {
+    max-width: 800px;
+    margin: auto;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.form-container h3 {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #555;
+}
+
+.form-control {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.form-control-file {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: #0a0f13;
+    border-color: #f5f7fa;
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}

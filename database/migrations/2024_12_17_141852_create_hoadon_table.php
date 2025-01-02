@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id('MaHD'); 
             $table->unsignedBigInteger('MaQL'); 
             $table->unsignedBigInteger('MaKH');
+
             $table->string('PhuongThuc', 50);
             $table->date('NgayLap');
             $table->decimal('TongTien', 10, 2);

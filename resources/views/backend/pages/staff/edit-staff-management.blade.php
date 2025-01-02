@@ -1,13 +1,13 @@
 @extends('backend.layouts.master')
 @section('This page is Add Library', 'Add Library')
 @section('main')
-    <div class="single-pro-review-area mt-t-30 mg-b-15">
+<div class="single-pro-review-area mt-t-30 mg-b-15">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="product-payment-inner-st style="background: rgba(255, 255, 255, 0.9);">
-                       
-                <h3 class="text-center mb-4">Add New Customer</h3>
+                    
+                <h3 class="text-center mb-4">Edit Staff</h3>
                 <form>
                     <div class="row">
                         <!-- Left Column -->
@@ -63,7 +63,7 @@
 
                     <!-- Submit Button -->
                     <div class="text-center">
-                        <button type="add" class="btn btn-primary">Add</button>
+                        <button type="Edit" class="btn btn-primary">Edit</button>
                     </div>
                 </form>
             </div>
@@ -72,6 +72,4 @@
             </div>
         </div>
     </div>
-    <script src="js/dropzone/dropzone.js"></script>
-
 @stop

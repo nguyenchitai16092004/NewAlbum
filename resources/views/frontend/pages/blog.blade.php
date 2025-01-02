@@ -2,7 +2,6 @@
 @section('This page is the Blog.', 'Blog')
 @section('main')
     <div class="cart-bg-overlay"></div>
-
     <div class="right-side-cart-area">
 
         <!-- Cart Button -->
@@ -82,19 +81,22 @@
     <!-- ##### Right Side Cart End ##### -->
 
     <!-- ##### Breadcumb Area Start ##### -->
-    <div class="breadcumb_area breadcumb-style-two bg-img" style="background-image: url(img/bg-img/breadcumb2.jpg);">
+    <div class="breadcumb_area breadcumb-style-two bg-img" style="background-image: url(img/bg-img/kpopblog.png);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="page-title text-center">
-                        <h2>Fashion Blog</h2>
+                        <h2 style="color:black">K-Pop Blog</h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- ##### Breadcumb Area End ##### -->
-
+    <div class="search-container" style="margin-top: 40px">
+        <input type="text" placeholder="Search...">
+        <button type="submit">Submit</button>
+    </div>
     <!-- ##### Blog Wrapper Area Start ##### -->
     <div class="blog-wrapper section-padding-80">
         <div class="container">
@@ -237,6 +239,20 @@
             </div>
         </div>
     </div>
+    <!-- Pagination -->
+    <nav aria-label="navigation" >
+                        <ul class="pagination mt-50 mb-70">
+                            <li class="page-item"><a class="page-link" href="#"><i
+                                        class="fa fa-angle-left"></i></a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">...</a></li>
+                            <li class="page-item"><a class="page-link" href="#">21</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i
+                                        class="fa fa-angle-right"></i></a></li>
+                        </ul>
+                    </nav>
     <!-- ##### Blog Wrapper Area End ##### -->
 
 @stop
