@@ -13,8 +13,6 @@ use PHPUnit\Framework\Attributes\Group;
 
 /*Route FE */
 
-/*Route FE */
-
 Route::get('/', function () {
     return view('frontend.pages.home');
 });
