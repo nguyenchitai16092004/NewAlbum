@@ -46,6 +46,48 @@
             smartSpeed: 1000
         });
     }
+    //Pre-Oders
+    if ($.fn.owlCarousel) {
+        $(".pre-oders-product").owlCarousel({
+            items: 4,
+            margin: 30,
+            loop: true,
+            nav: false,
+            dots: false,
+            autoplay: false,
+            autoplayTimeout: 5000,
+            smartSpeed: 1000,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                576: {
+                    items: 2,
+                },
+                768: {
+                    items: 3,
+                },
+                992: {
+                    items: 4,
+                },
+            },
+        });
+        $(".pre-oders-product").owlCarousel({
+            items: 1,
+            margin: 0,
+            loop: true,
+            nav: true,
+            navText: [
+                "<img src='img/core-img/long-arrow-left.svg' alt=''>",
+                "<img src='img/core-img/long-arrow-right.svg' alt=''>",
+            ],
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            smartSpeed: 1000,
+        });
+    }
+
 
     // :: Header Cart Active Code
     var cartbtn1 = $('#essenceCartBtn');

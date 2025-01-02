@@ -52,7 +52,7 @@ a {
     transition: all 500ms ease 0s;
     text-decoration: none;
     outline: 0 solid transparent;
-    color: #000;
+    color: white;
     font-weight: 600;
     font-size: 15px;
 }
@@ -62,7 +62,7 @@ a:focus {
     transition: all 500ms ease 0s;
     text-decoration: none;
     outline: 0 solid transparent;
-    color: #210cdd;
+    color: white;
     font-weight: 600;
     font-size: 16px;
 }
@@ -184,11 +184,15 @@ img {
 }
 
 /* Section Heading */
-.new_arrivals_area h2{
+.new_arrivals_area h2 {
     font-size: 30px;
     margin-bottom: 0;
     text-transform: capitalize;
     font-weight: 600;
+    text-align: center;
+}
+.new_arrivals_area {
+    margin-right: 10px;
 }
 .section-heading {
     margin-bottom: 50px;
@@ -202,15 +206,13 @@ img {
 
 /* Miscellaneous */
 .bg-img {
-    background-position: center center;
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #fae1b6;
 }
 .banner {
     display: flex;
-    position: relative;
-    right: 50px;
 }
 
 .bg-white {
@@ -262,6 +264,9 @@ img {
 .logo {
     width: 50%;
 }
+.footer-logo img {
+    width: 20% !important;
+}
 /* ScrollUp */
 #scrollUp {
     background-color: #ff084e;
@@ -295,7 +300,7 @@ img {
     text-transform: uppercase;
     font-size: 12px;
     line-height: 50px;
-    background-color: #0315ff;
+    background-color: black;
     letter-spacing: 1.5px;
     font-weight: 600;
 }
@@ -996,163 +1001,49 @@ img {
 }
 
 /* :: 6.0 Top Catagory Area CSS */
-/* CSS chính */
-.top_catagory_area {
-    padding: 40px 0;
+.top-catagory {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 130px;
+}
+.ctn-top-catagory {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Căn giữa các phần tử */
-    gap: 20px; /* Khoảng cách giữa các phần tử */
+    justify-content: center;
+    column-gap: 80px;
 }
-
-.container-col-1,
-.container-col-2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.single_catagory_area {
-    background-color: #f8f8f8;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
-    padding: 20px;
-}
-
 .prod-1 {
-    grid-column: span 2; /* Chiếm 2 cột nếu trong Grid layout */
-    width: auto; /* Tự động điều chỉnh theo kích thước bố cục */
-    position: relative;
-    right: 250px;
-}
-
-.prod-1 .single_catagory_area {
-    height: 380px;
-    width: 700px;
-}
-
-.prod-1 .name-pro {
-    margin-left: 100px;
-    width: 500px;
-}
-
-.prod-1 .single_catagory_area img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
-.prod-2,
-.prod-3 {
-    grid-column: span 1; /* Mỗi sản phẩm chiếm 1 cột */
-    width: auto; /* Tự động điều chỉnh theo bố cục */
-}
-
-.prod-3 {
-    position: relative;
-    left: 250px;
-}
-
-.prod-2 {
-    position: relative;
-    left: 160px;
-}
-
-.name-pro {
-    margin-top: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    width: 100%; /* Đảm bảo căn giữa */
-    text-align: center;
-}
-
-.pre-oder span {
-    display: inline-block;
-    background-color: red;
+    width: 650px;
+    height: 350px;
     color: white;
-    font-size: 13px;
-    font-weight: bold;
-    border-radius: 20px;
-    padding: 5px 15px;
-    margin-top: 5px;
-    width: 6vw;
+    background-color: #000000;
+    margin-top: 50px;
+}
+.prod-2 {
+    width: 350px;
+    height: 350px;
+    color: white;
+    background-color: #000000;
+    margin-top: 50px;
+}
+.prod-3 {
+    width: 350px;
+    height: 350px;
+    color: white;
+    background-color: #000000;
+    margin-top: 50px;
+}
+.img-prod-1 img {
+    width: 650px;
+    height: 350px;
+    object-fit: cover; /* Đảm bảo hình ảnh được cắt gọn mà không méo */
+}
+.ctn-desc {
+    margin-top: 18px;
 }
 
-/* CSS Media Queries */
-@media (max-width: 1024px) {
-    .prod-1 {
-        right: 0;
-    }
-
-    .prod-1 .single_catagory_area {
-        height: 300px;
-        width: 100%;
-    }
-
-    .prod-1 .name-pro {
-        margin-left: 0;
-        width: 100%;
-    }
-
-    .prod-3 {
-        left: 0;
-    }
-
-    .prod-2 {
-        left: 0;
-    }
-}
-
-@media (max-width: 768px) {
-    .container-col-1,
-    .container-col-2 {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
-    .prod-1 {
-        grid-column: span 1;
-    }
-
-    .prod-1 .single_catagory_area {
-        height: 290px;
-    }
-}
-
-@media (max-width: 576px) {
-    .top_catagory_area {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .container-col-1,
-    .container-col-2 {
-        grid-template-columns: 1fr;
-    }
-
-    .single_catagory_area {
-        padding: 15px;
-    }
-
-    .prod-1 .single_catagory_area {
-        height: auto;
-    }
-
-    .name-pro {
-        font-size: 12px;
-    }
-
-    .pre-oder span {
-        font-size: 10px;
-        padding: 3px 10px;
-    }
-}
 /*New Arrivals*/
-hr{
+hr {
     border: 1px solid black;
 }
 /* :: 7.0 CTA Area CSS */
@@ -1204,22 +1095,45 @@ hr{
 }
 
 /* :: 8.0 Popular Products Area CSS */
+.col-12 {
+    width: 100%;
+    height: auto;
+}
+.container {
+    width: 100%;
+    max-width: 100%; /* Đảm bảo không bị giới hạn bởi chiều rộng */
+    padding: 0 90px; /* Điều chỉnh padding nếu cần */
+    margin-left: 10px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .single-product-wrapper {
     position: relative;
     z-index: 1;
     margin-bottom: 50px;
     overflow: hidden;
     background-color: #ffffff;
+    height: auto;
 }
 .single-product-wrapper .product-img {
     position: relative;
     z-index: 1;
     overflow: hidden;
+    width: 100%; /* Đặt chiều rộng cố định */
+    height: 300px; /* Đặt chiều cao cố định (tuỳ chỉnh theo yêu cầu) */
+    background-color: #e7e6e1;
 }
 .single-product-wrapper .product-img img {
     width: 100%;
+    height: 100%;
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
+    object-fit: cover; /* Đảm bảo hình ảnh được cắt gọn mà không méo */
 }
 .single-product-wrapper .product-img .hover-img {
     -webkit-transition-duration: 500ms;
@@ -1286,6 +1200,26 @@ hr{
     letter-spacing: 0.75px;
     font-weight: 600;
 }
+.price {
+    font-size: 20px !important;
+}
+.pre-oder-new-arrivals {
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 0.75px;
+    font-weight: 600;
+    background-color: red;
+    width: 80px;
+    height: 15px;
+    border-radius: 10px;
+    border: 1px solid red;
+}
+.pre-oder-new-arrivals span {
+    color: white !important;
+    margin-left: 10px;
+}
+
 .single-product-wrapper .product-description h6 {
     color: #222222;
     margin-bottom: 5px;
@@ -1369,8 +1303,9 @@ hr{
     }
 }
 .pagination {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1; 
+  left: 40%;
 }
 .pagination .page-item .page-link {
     width: 40px;
@@ -1382,10 +1317,13 @@ hr{
     padding: 0;
     text-align: center;
     color: #787878;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .pagination .page-item .page-link:hover,
 .pagination .page-item .page-link:focus {
-    color: #0315ff;
+    color: #000000;
     box-shadow: none;
 }
 .pagination .page-item:first-child {
@@ -1404,7 +1342,6 @@ hr{
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
-
 /* :: 9.0 Brands Area CSS */
 .brands-area {
     position: relative;
@@ -1541,6 +1478,17 @@ hr{
     color: #dc0345;
     font-weight: 700;
 }
+.view-all {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    width: 150px;
+    height: 50px;
+    align-items: center;
+    margin-left: 46%;
+    background-color: black;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .single_product_details_area .single_product_desc .product-price {
         font-size: 20px;
@@ -1608,48 +1556,31 @@ hr{
     background-color: #252525;
     padding: 70px 0 60px;
 }
+
 .footer_area .single_widget_area .footer_menu ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
+    margin-right: 180px;
 }
 .footer_area .single_widget_area .footer_menu ul li a {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    color: white;
     display: block;
-    font-weight: 400;
     font-family: "Ubuntu", sans-serif;
     padding: 0 10px;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 .footer_area .single_widget_area .footer_menu ul li a:hover,
 .footer_area .single_widget_area .footer_menu ul li a:focus {
-    color: #ffffff;
-}
-.footer_area .single_widget_area .footer_widget_menu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+    color: black;
+    font-size: 19px;
 }
 .footer_area .single_widget_area .footer_widget_menu li {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    width: 50%;
+    text-align: right;
 }
-.footer_area .single_widget_area .footer_widget_menu li a {
-    display: block;
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.6);
-    display: block;
-    font-weight: 400;
-    margin-bottom: 10px;
-}
+
 .footer_area .single_widget_area .footer_widget_menu li a:hover,
 .footer_area .single_widget_area .footer_widget_menu li a:focus {
-    color: #ffffff;
+    color: black;
 }
 .footer_area .single_widget_area .footer_heading h6 {
     color: #ffffff;
@@ -1697,6 +1628,7 @@ hr{
     display: inline-block;
     padding: 0 10px;
     font-size: 16px;
+    float: right;
 }
 
 /* :: 12.0 Breadcumb Area CSS */
@@ -2014,6 +1946,29 @@ hr{
 }
 
 /* :: 15.0 Blog Area CSS */
+/* style.css */
+.search-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    width: 220px;
+    margin-left: 100px;
+  }
+  .search-container input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 9px;
+    font-size: 16px;
+  }
+  .search-container button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
 .blog-wrapper {
     position: relative;
     z-index: 1;
@@ -2115,7 +2070,7 @@ hr{
     }
 }
 .blog-wrapper .single-blog-area .hover-content .hover-post-title a:hover {
-    color: #0315ff;
+    color: #000000;
 }
 @media only screen and (max-width: 767px) {
     .blog-wrapper .single-blog-area .hover-content p {
@@ -2134,7 +2089,7 @@ hr{
     font-size: 12px;
     font-weight: 600;
     margin-bottom: 0;
-    color: #0315ff;
+    color: #000000;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-top: 50px;
@@ -2273,7 +2228,7 @@ hr{
     i {
     margin-right: 30px;
     font-size: 30px;
-    color: #0315ff;
+    color: #000000;
 }
 .single-blog-wrapper
     .single-blog-content-wrapper
@@ -2426,6 +2381,10 @@ hr{
 }
 
 /* :: 17.0 Contact Area CSS */
+.contact-header {
+    font-size: 3rem;
+    text-align: center;
+}
 .contact-area {
     position: relative;
     z-index: 1;
@@ -2525,6 +2484,113 @@ hr{
     color: #0315ff;
 }
 
-/* ##### The End ##### */
+.contact-area .form {
+    width: 60%;
+    margin: 0 auto;
+}
 
-/*# sourceMappingURL=core-style.css.map */
+.contact-area .form h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-area .form form {
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.contact-area .form form input[type="text"],
+.contact-area .form form input[type="email"],
+.contact-area .form form input[type="tel"],
+.contact-area .form form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+}
+
+.contact-area .form form textarea {
+    height: 100px;
+}
+
+.contact-area .form form button {
+    background-color: #000000;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-area .contact-info {
+    width: 100%;
+    padding: 50px 5%;
+}
+
+.contact-area .contact-info h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.contact-area .contact-info p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #000000;
+}
+
+.contact-area .contact-info .contact-address p {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #000000;
+}
+.contact-area .contact-info .contact-address p span {
+    padding: 50px 5%;
+}
+.contact-area .contact-info h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.contact-area .contact-info p {
+    font-size: 16px;
+    font-weight: 300;
+}
+.contact-area .contact-info .contact-address p {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.contact-area .contact-info .contact-address p span {
+    font-weight: 600;
+    color: #000000;
+    width: 100px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.contact-area .contact-info .contact-address p:last-child {
+    margin-top: 100px;
+}
+
+.contact-area .contact-info .contact-address p:last-child a {
+    font-size: 14px;
+    font-weight: 300;
+    color: #000000;
+}
+
+.contact-area .contact-info .contact-address p:last-child a:hover {
+    color: #0315ff;
+}
+.contact-area .contact-info .contact-address p:last-child {
+    margin-top: 100px;
+}
+.contact-area .contact-info .contact-address p:last-child a {
+    font-size: 14px;
+    font-weight: 300;
+}
+.contact-area .contact-info .contact-address p:last-child a:hover {
+    color: #0315ff;
+}
+
+/* ##### The End ##### */
