@@ -39,7 +39,9 @@ Route::get('/regular-page', function () {
 Route::get('/contact', function () {
     return view('frontend.pages.contact');
 });
-
+Route::get('/wishlist', function () {
+    return view('frontend.pages.wishlist');
+});
 
 //Back end
 

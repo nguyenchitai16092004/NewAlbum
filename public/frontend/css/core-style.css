@@ -1389,8 +1389,8 @@ hr {
     }
 }
 .pagination {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1; 
 }
 .pagination .page-item .page-link {
     width: 40px;
@@ -1402,6 +1402,9 @@ hr {
     padding: 0;
     text-align: center;
     color: #787878;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
 }
 .pagination .page-item .page-link:hover,
 .pagination .page-item .page-link:focus {
@@ -2458,6 +2461,10 @@ hr {
 }
 
 /* :: 17.0 Contact Area CSS */
+.contact-header {
+    font-size: 3rem;
+    text-align: center; 
+  }
 .contact-area {
     position: relative;
     z-index: 1;
@@ -2523,6 +2530,103 @@ hr {
         flex: 0 0 100%;
         max-width: 100%;
         width: 100%;
+        padding: 50px 5%; 
+  } 
+}
+    .contact-area .contact-info h2 {
+      font-size: 30px;
+      margin-bottom: 20px; 
+}
+    .contact-area .contact-info p {
+      font-size: 16px;
+      font-weight: 300;
+}
+    .contact-area .contact-info .contact-address p {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 10px; 
+}
+      .contact-area .contact-info .contact-address p span {
+        font-weight: 600;
+        color: #000000;
+        width: 100px;
+        display: inline-block;
+        text-transform: uppercase; 
+}
+      .contact-area .contact-info .contact-address p:last-child {
+        margin-top: 100px;
+}
+        .contact-area .contact-info .contact-address p:last-child a {
+          font-size: 14px;
+          font-weight: 300;
+}
+          .contact-area .contact-info .contact-address p:last-child a:hover {
+            color: #0315ff; 
+}
+    
+  .contact-area .form {
+    width: 60%;
+    margin: 0 auto;
+  }
+  
+  .contact-area .form h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .contact-area .form form {
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .contact-area .form form input[type="text"],
+  .contact-area .form form input[type="email"],
+  .contact-area .form form input[type="tel"],
+  .contact-area .form form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+  }
+  
+  .contact-area .form form textarea {
+    height: 100px;
+  }
+  
+  .contact-area .form form button {
+    background-color: #000000;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .contact-area .contact-info {
+    width: 100%;
+    padding: 50px 5%;
+  }
+  
+  .contact-area .contact-info h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #000000;
+  }
+  
+  .contact-area .contact-info p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #000000;
+  }
+  
+  .contact-area .contact-info .contact-address p {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #000000; 
+  
+  .contact-area .contact-info .contact-address p span {
+=======
         padding: 50px 5%;
     }
 }
@@ -2545,6 +2649,21 @@ hr {
     width: 100px;
     display: inline-block;
     text-transform: uppercase;
+  }
+  
+  .contact-area .contact-info .contact-address p:last-child {
+    margin-top: 100px;
+  }
+  
+  .contact-area .contact-info .contact-address p:last-child a {
+    font-size: 14px;
+    font-weight: 300;
+    color: #000000;
+  }
+  
+  .contact-area .contact-info .contact-address p:last-child a:hover {
+    color: #0315ff;
+  }
 }
 .contact-area .contact-info .contact-address p:last-child {
     margin-top: 100px;
@@ -2556,7 +2675,4 @@ hr {
 .contact-area .contact-info .contact-address p:last-child a:hover {
     color: #0315ff;
 }
-
 /* ##### The End ##### */
-
-/*# sourceMappingURL=core-style.css.map */
