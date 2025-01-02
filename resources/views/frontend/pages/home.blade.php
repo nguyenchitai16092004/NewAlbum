@@ -107,96 +107,104 @@
             <a href="#" class="next">&gt;</a>
         </div>
     </section>
-
-    <!-- ##### Welcome Area End ##### -->
-
     <!-- ##### Top Catagory Area Start ##### -->
-    <div class="top_catagory_area section-padding-80 clearfix">
-        <div class="container-col-1">
-            <div class="row justify-content-center hot-prod">
-                <!-- Single Catagory -->
-                <div class="col-12 col-sm-6 col-md-4 prod-1">
-                    <div class="single_catagory_area prod-catagory d-flex align-items-center justify-content-center bg-img">
-                        <div class="catagory-content">
-                            <a href="#"><img src="img/product-img/prod1.jpg" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="name-pro np-1">
-                        <a href="#">[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</a>
-                        <div class="pre-oder">
-                            <span>Pre&ndash;oder</span>
-                        </div>
-                    </div>
+    <section class="top-catagory">
+        <div class="container ctn-top-catagory">
+            <div class="prod-1">
+                <div class="img-prod-1">
+                    <img src="img/product-img/prod1.jpg" alt="">
                 </div>
-                <!-- Single Catagory -->
-                <div class="col-12 col-sm-6 col-md-4 prod-2">
-                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img">
-                        <div class="catagory-content">
-                            <a href="#"><img class="product-image" src="img/product-img/prod2.jpg" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="name-pro">
-                        <a href="#">KISS OF LIFE 2025 Season's Greeting + POB
+                <div class="name-pro np-1">
+                    <div class="product-description">
+                        <a href="single-product-details.html">
+                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
                         </a>
-                    </div>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="col-12 col-sm-6 col-md-4 prod-3">
-                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img">
-                        <div class="catagory-content">
-                            <a href="#"><img class="product-image" src="img/product-img/prod3.jpg"
-                                    alt=""></a>
-                        </div>
-                    </div>
-                    <div class="name-pro">
-                        <a href="#">TWICE 14th Mini Album - STRATEGY</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-col-2">
-            <div class="row justify-content-center">
-                <!-- Single Catagory -->
-                <div class="col-12 col-sm-6 col-md-4 prod-1">
-                    <div
-                        class="single_catagory_area prod-catagory d-flex align-items-center justify-content-center bg-img">
-                        <div class="catagory-content">
-                            <a href="#"><img src="img/product-img/prod4.jpg" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="name-pro np-1">
-                        <a href="#">[PRE-ORDER] Stray Kids 2025 Season's Greetings [Street Kis]</a>
-                        <div class="pre-oder">
+                        <div class="pre-oder-new-arrivals">
                             <span>Pre&ndash;oder</span>
                         </div>
                     </div>
                 </div>
-                <!-- Single Catagory -->
-                <div class="col-12 col-sm-6 col-md-4 prod-2">
-                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img">
-                        <div class="catagory-content">
-                            <a href="#"><img src="img/product-img/prod5.jpg" alt=""></a>
+            </div>
+            <div class="prod-2">
+                <div class="img-prod">
+                    <img src="img/product-img/prod1.jpg" alt="">
+                </div>
+                <div class="name-pro np-1 ctn-desc">
+                    <div class="product-description">
+                        <a href="single-product-details.html">
+                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
+                        </a>
+                        <div class="pre-oder-new-arrivals">
+                            <span>Pre&ndash;oder</span>
                         </div>
-                    </div>
-                    <div class="name-pro">
-                        <a href="#">P1HARMONY 2025 Season's Greetings</a>
                     </div>
                 </div>
-                <!-- Single Catagory -->
-                <div class="col-12 col-sm-6 col-md-4 prod-3">
-                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img">
-                        <div class="catagory-content">
-                            <a href="#"><img src="img/product-img/prod6.jpg" alt=""></a></a>
+            </div>
+            <div class="prod-3">
+                <div class="img-prod">
+                    <img src="img/product-img/prod1.jpg" alt="">
+                </div>
+                <div class="name-pro np-1 ctn-desc">
+                    <div class="product-description">
+                        <a href="single-product-details.html">
+                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
+                        </a>
+                        <div class="pre-oder-new-arrivals">
+                            <span>Pre&ndash;oder</span>
                         </div>
-                    </div>
-                    <div class="name-pro">
-                        <a href="#">Twice 2025 Season's Greetings [Collector] + POB</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div style="margin-top: 90px;" class="container ctn-top-catagory">
+            <div class="prod-1">
+                <div class="img-prod-1">
+                    <img src="img/product-img/prod1.jpg" alt="">
+                </div>
+                <div class="name-pro np-1">
+                    <div class="product-description">
+                        <a href="single-product-details.html">
+                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
+                        </a>
+                        <div class="pre-oder-new-arrivals">
+                            <span>Pre&ndash;oder</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="prod-2">
+                <div class="img-prod">
+                    <img src="img/product-img/prod1.jpg" alt="">
+                </div>
+                <div class="name-pro np-1 ctn-desc">
+                    <div class="product-description">
+                        <a href="single-product-details.html">
+                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
+                        </a>
+                        <div class="pre-oder-new-arrivals">
+                            <span>Pre&ndash;oder</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="prod-3">
+                <div class="img-prod">
+                    <img src="img/product-img/prod1.jpg" alt="">
+                </div>
+                <div class="name-pro np-1 ctn-desc">
+                    <div class="product-description">
+                        <a href="single-product-details.html">
+                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
+                        </a>
+                        <div class="pre-oder-new-arrivals">
+                            <span>Pre&ndash;oder</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
     <!-- ##### New Arrivals Area Start ##### -->
     <section class="new_arrivals_area section-padding-80 clearfix">
         <h2>NEW ARRIVALS</h2>
@@ -209,7 +217,6 @@
                 </div>
             </div>
         </div>
-
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -245,7 +252,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- Single Product -->
                         <div class="single-product-wrapper">
                             <!-- Product Image -->
@@ -267,7 +273,6 @@
                                     <h6>[Pre-oder]Born Pink (Gray Ver)</h6>
                                 </a>
                                 <p class="product-price price">650.000 VND</p>
-
                                 <!-- Hover Content -->
                                 <div class="hover-content">
                                     <!-- Add to Cart -->

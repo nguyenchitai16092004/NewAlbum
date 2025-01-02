@@ -191,6 +191,9 @@ img {
     font-weight: 600;
     text-align: center;
 }
+.new_arrivals_area{
+    margin-right: 10px;
+}
 .section-heading {
     margin-bottom: 50px;
     position: relative;
@@ -995,136 +998,45 @@ img {
 }
 
 /* :: 6.0 Top Catagory Area CSS */
-/* CSS chính */
-/* CSS chính cho layout */
-.top_catagory_area {
-    padding: 90px 0;
-}
-
-.single_catagory_area {
-    position: relative;
-    background-color: #f8f8f8;
-    height: 300px;
-    border: 1px solid #ddd;
-    overflow: hidden;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 300px;
-    height: 270px;
-    margin-left: 120px;
-}
-
-.single_catagory_area:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.catagory-content img {
-    max-width: 100%;
+.top-catagory{
+    width: 100%;
     height: auto;
-    display: block;
+    margin-top: 20px;
+    margin-bottom: 130px;
 }
-
-.name-pro {
-    text-align: center;
-    margin-top: 10px;
-    margin-left: 100px;
-    width: 300px;
-    height: 100px;
-
+.ctn-top-catagory{
+    display: flex;
+    justify-content: center;
+    column-gap: 80px;
 }
-
-.name-pro a {
-    font-size: 16px;
-    color: #333;
-    text-decoration: none;
-
-}
-
-.name-pro a:hover {
-    color: red;
-}
-
-.pre-oder {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 120px;
-    border: 1px solid red;
-    border-radius: 10px;
-    background-color: red;
-    width: 80px;
-    height: 15px;
-    text-transform: uppercase;
-    font-size: 10px;
+.prod-1{
+    width: 650px;
+    height: 350px;
     color: white;
-    letter-spacing: 0.75px;
-    font-weight: 600;
+    background-color: #000000;
+    margin-top: 50px;
 }
-
-.container-col-2 {
-    margin-top: 5px;
+.prod-2{
+    width: 350px;
+    height: 350px;
+    color: white;
+    background-color: #000000;
+    margin-top: 50px;
 }
-.prod-catagory {
-    width: 500px !important;
-    height: auto;
+.prod-3{
+    width: 350px;
+    height: 350px;
+    color: white;
+    background-color: #000000;
+    margin-top: 50px;
 }
-.np-1 {
-    position: relative;
-    left: 90px;
+.img-prod-1 img{
+    width: 650px;
+    height: 350px;
+    object-fit: cover; /* Đảm bảo hình ảnh được cắt gọn mà không méo */
 }
-
-/* Chiều rộng riêng cho .prod-1 */
-.prod-1 {
-    width: 100%;
-}
-
-@media (min-width: 768px) {
-    .prod-1 {
-        width: 60%; /* Chiều rộng lớn hơn so với các sản phẩm khác */
-    }
-}
-
-@media (min-width: 992px) {
-    .prod-1 {
-        width: 50%;
-    }
-}
-
-.prod-2,
-.prod-3 {
-    width: 100%;
-}
-.prod-2 {
-    position: relative;
-    left: 95px;
-}
-
-@media (min-width: 768px) {
-    .prod-2,
-    .prod-3 {
-        width: 45%;
-    }
-}
-
-/* Media queries cho giao diện responsive */
-@media (max-width: 576px) {
-    .single_catagory_area {
-        height: 250px;
-    }
-
-    .name-pro a {
-        font-size: 14px;
-    }
-
-    .pre-oder {
-        font-size: 12px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .single_catagory_area {
-        height: 350px;
-    }
+.ctn-desc{
+    margin-top: 18px;
 }
 
 /*New Arrivals*/
@@ -1180,7 +1092,7 @@ hr {
 }
 
 /* :: 8.0 Popular Products Area CSS */
-.col-12{
+.col-12 {
     width: 100%;
     height: auto;
 }
@@ -1215,7 +1127,7 @@ hr {
 }
 .single-product-wrapper .product-img img {
     width: 100%;
-     height: 100%;
+    height: 100%;
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
     object-fit: cover; /* Đảm bảo hình ảnh được cắt gọn mà không méo */
@@ -1285,10 +1197,10 @@ hr {
     letter-spacing: 0.75px;
     font-weight: 600;
 }
-.price{
+.price {
     font-size: 20px !important;
 }
-.single-product-wrapper .product-description .pre-oder-new-arrivals{
+.pre-oder-new-arrivals {
     font-size: 10px;
     text-transform: uppercase;
     margin-bottom: 15px;
@@ -1299,9 +1211,8 @@ hr {
     height: 15px;
     border-radius: 10px;
     border: 1px solid red;
-
 }
-.single-product-wrapper .product-description .pre-oder-new-arrivals span{
+.pre-oder-new-arrivals span {
     color: white !important;
     margin-left: 10px;
 }
@@ -1427,7 +1338,6 @@ hr {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
-
 
 /* :: 9.0 Brands Area CSS */
 .brands-area {
@@ -1566,7 +1476,7 @@ hr {
     font-weight: 700;
 }
 .view-all {
-    display: flex; 
+    display: flex;
     justify-content: center;
     border: 1px solid black;
     width: 150px;
