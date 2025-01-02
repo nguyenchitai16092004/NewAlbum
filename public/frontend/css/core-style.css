@@ -1391,6 +1391,7 @@ hr {
 .pagination {
   position: relative;
   z-index: 1; 
+  left: 40%;
 }
 .pagination .page-item .page-link {
     width: 40px;
@@ -1408,7 +1409,7 @@ hr {
 }
 .pagination .page-item .page-link:hover,
 .pagination .page-item .page-link:focus {
-    color: #0315ff;
+    color: #000000;
     box-shadow: none;
 }
 .pagination .page-item:first-child {
@@ -1427,8 +1428,6 @@ hr {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
-
-
 /* :: 9.0 Brands Area CSS */
 .brands-area {
     position: relative;
@@ -2049,6 +2048,29 @@ hr {
 }
 
 /* :: 15.0 Blog Area CSS */
+/* style.css */
+.search-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    width: 220px;
+    margin-left: 100px;
+  }
+  .search-container input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 9px;
+    font-size: 16px;
+  }
+  .search-container button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
 .blog-wrapper {
     position: relative;
     z-index: 1;
@@ -2150,7 +2172,7 @@ hr {
     }
 }
 .blog-wrapper .single-blog-area .hover-content .hover-post-title a:hover {
-    color: #0315ff;
+    color: #000000;
 }
 @media only screen and (max-width: 767px) {
     .blog-wrapper .single-blog-area .hover-content p {
@@ -2169,7 +2191,7 @@ hr {
     font-size: 12px;
     font-weight: 600;
     margin-bottom: 0;
-    color: #0315ff;
+    color: #000000;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-top: 50px;
@@ -2308,7 +2330,7 @@ hr {
     i {
     margin-right: 30px;
     font-size: 30px;
-    color: #0315ff;
+    color: #000000;
 }
 .single-blog-wrapper
     .single-blog-content-wrapper
@@ -2461,218 +2483,93 @@ hr {
 }
 
 /* :: 17.0 Contact Area CSS */
+/* Style the contact header */
 .contact-header {
     font-size: 3rem;
     text-align: center; 
-  }
-.contact-area {
-    position: relative;
-    z-index: 1;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-}
-.contact-area .google-map {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 60%;
-    flex: 0 0 60%;
-    max-width: 60%;
-    width: 60%;
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    .contact-area .google-map {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 55%;
-        flex: 0 0 55%;
-        max-width: 55%;
-        width: 55%;
-    }
-}
-@media only screen and (max-width: 767px) {
-    .contact-area .google-map {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
-        width: 100%;
-    }
-}
-.contact-area .google-map #googleMap {
-    width: 100%;
-    height: 685px;
-}
-@media only screen and (max-width: 767px) {
-    .contact-area .google-map #googleMap {
-        height: 400px;
-    }
-}
-.contact-area .contact-info {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 40%;
-    flex: 0 0 40%;
-    max-width: 40%;
-    width: 40%;
-    padding: 50px 5%;
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    .contact-area .contact-info {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 45%;
-        flex: 0 0 45%;
-        max-width: 45%;
-        width: 45%;
-        padding: 50px 3%;
-    }
-}
-@media only screen and (max-width: 767px) {
-    .contact-area .contact-info {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
-        width: 100%;
-        padding: 50px 5%; 
-  } 
-}
-    .contact-area .contact-info h2 {
-      font-size: 30px;
-      margin-bottom: 20px; 
-}
-    .contact-area .contact-info p {
-      font-size: 16px;
-      font-weight: 300;
-}
-    .contact-area .contact-info .contact-address p {
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 10px; 
-}
-      .contact-area .contact-info .contact-address p span {
-        font-weight: 600;
-        color: #000000;
-        width: 100px;
-        display: inline-block;
-        text-transform: uppercase; 
-}
-      .contact-area .contact-info .contact-address p:last-child {
-        margin-top: 100px;
-}
-        .contact-area .contact-info .contact-address p:last-child a {
-          font-size: 14px;
-          font-weight: 300;
-}
-          .contact-area .contact-info .contact-address p:last-child a:hover {
-            color: #0315ff; 
-}
-    
-  .contact-area .form {
-    width: 60%;
-    margin: 0 auto;
+    margin-bottom: 50px; 
   }
   
-  .contact-area .form h1 {
-    font-size: 30px;
-    margin-bottom: 20px;
-    text-align: center;
+  /* Style the contact area */
+  .contact-area {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%; 
+  }
+  
+  /* Style the contact form */
+  .contact-area .form {
+    width: 50%; 
+    background-color: #FFF8F3; 
+    padding: 30px; 
+    border-radius: 5px; 
   }
   
   .contact-area .form form {
-    padding: 20px;
-    border: 1px solid #ccc;
+    display: flex; 
+    flex-wrap: wrap; 
   }
   
   .contact-area .form form input[type="text"],
   .contact-area .form form input[type="email"],
-  .contact-area .form form input[type="tel"],
-  .contact-area .form form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
+  .contact-area .form form input[type="tel"] {
+    width: 100%; 
+    padding: 15px; 
+    margin-bottom: 10px;
     border: 1px solid #ccc;
   }
   
   .contact-area .form form textarea {
-    height: 100px;
+    width: 100%; 
+    padding: 15px; 
+    margin-bottom: 10px; 
+    border: 1px solid #ccc; 
+    height: 150px; 
   }
   
   .contact-area .form form button {
-    background-color: #000000;
-    color: white;
-    padding: 15px 20px;
-    border: none;
-    cursor: pointer;
+    background-color: #333; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    cursor: pointer; 
+    transition: background-color 0.2s ease-in-out; 
   }
   
+  .contact-area .form form button:hover {
+    background-color: #000000; 
+  }
+  
+ 
   .contact-area .contact-info {
-    width: 100%;
-    padding: 50px 5%;
+    width: 50%; 
+    padding: 30px;
   }
   
   .contact-area .contact-info h2 {
-    font-size: 30px;
+    font-size: 24px;
     margin-bottom: 20px;
-    color: #000000;
   }
   
   .contact-area .contact-info p {
-    font-size: 16px;
-    font-weight: 300;
-    color: #000000;
+    font-size: 16px; 
+    line-height: 1.5; 
+    margin-bottom: 10px; 
   }
   
-  .contact-area .contact-info .contact-address p {
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #000000; 
-  
-  .contact-area .contact-info .contact-address p span {
-=======
-        padding: 50px 5%;
-    }
-}
-.contact-area .contact-info h2 {
-    font-size: 30px;
-    margin-bottom: 20px;
-}
-.contact-area .contact-info p {
-    font-size: 16px;
-    font-weight: 300;
-}
-.contact-area .contact-info .contact-address p {
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-.contact-area .contact-info .contact-address p span {
-    font-weight: 600;
-    color: #000000;
-    width: 100px;
-    display: inline-block;
-    text-transform: uppercase;
+  .contact-area .contact-info i {
+    margin-right: 10px; 
+    color: #333;
   }
   
-  .contact-area .contact-info .contact-address p:last-child {
-    margin-top: 100px;
+  .contact-area .contact-info a {
+    color: #333; 
+    text-decoration: none; 
+    transition: color 0.2s ease-in-out; 
   }
   
-  .contact-area .contact-info .contact-address p:last-child a {
-    font-size: 14px;
-    font-weight: 300;
-    color: #000000;
+  .contact-area .contact-info a:hover {
+    color: #4CAF50; 
   }
-  
-  .contact-area .contact-info .contact-address p:last-child a:hover {
-    color: #0315ff;
-  }
-}
-.contact-area .contact-info .contact-address p:last-child {
-    margin-top: 100px;
-}
-.contact-area .contact-info .contact-address p:last-child a {
-    font-size: 14px;
-    font-weight: 300;
-}
-.contact-area .contact-info .contact-address p:last-child a:hover {
-    color: #0315ff;
-}
 /* ##### The End ##### */

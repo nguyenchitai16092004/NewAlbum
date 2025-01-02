@@ -30,10 +30,6 @@
                     <li>
                         <a href="{{ asset('admin/bill') }}" aria-expanded="false">
                             <span class="fa fa-file icon-wrap"></span>
-
-                            <span class="">Bill</span>
-                        </a>                                                                      
-
                             <span class="mini-click-non">Bill Management</span>
                         </a>                                                                      
 
