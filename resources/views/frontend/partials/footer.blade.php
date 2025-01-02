@@ -10,13 +10,14 @@
                             <a href="#"><img src="img/core-img/logo2.png" alt=""></a>
                         </div>
                         <!-- Footer Menu -->
-                        <div class="footer_menu">
-                            <ul>
+                        <div class="footer_menu" style="text-align: left;">
+                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; align-items: flex-start;">
                                 <li><a href="{{ asset('/shop') }}">Shop</a></li>
                                 <li><a href="{{ asset('/blog') }}">Blog</a></li>
                                 <li><a href="{{ asset('/contact') }}">Contact</a></li>
                             </ul>
                         </div>
+
                     </div>
                 </div>
                 <!-- Single Widget Area -->
