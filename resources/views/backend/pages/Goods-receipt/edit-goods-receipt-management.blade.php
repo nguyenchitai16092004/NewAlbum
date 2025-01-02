@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="product-status-wrap drp-lst">
-                        <h4>Departments List</h4>
+                        <h4>Customers List</h4>
                         <div class="add-product">
                             <a href="add-department.html">Add Departments</a>
                         </div>

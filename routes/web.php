@@ -13,8 +13,6 @@ use PHPUnit\Framework\Attributes\Group;
 
 /*Route FE */
 
-/*Route FE */
-
 Route::get('/', function () {
     return view('frontend.pages.home');
 });
@@ -38,7 +36,11 @@ Route::get('/regular-page', function () {
 });
 Route::get('/contact', function () {
     return view('frontend.pages.contact');
+
 });
+
+//Back end
+
 Route::get('/wishlist', function () {
     return view('frontend.pages.wishlist');
 });
@@ -48,6 +50,7 @@ Route::get('/popup', function () {
 Route::get('/cart', function () {
     return view('frontend.pages.cart');
 });
+
 
 //Back end
 
@@ -96,6 +99,27 @@ Route::prefix('/admin')->group(function () {
         Route::delete('/delete/{id}', [CategoryController::class, 'Delete'])->name('Delete_Category');
     });
 
+    // Route cho liên hệ
+    Route::view('/contact', 'backend.pages.contact');
+
+    // Route cho đơn hàng
+    Route::view('/bill', 'backend.pages.bill');
+
+    // Route cho bình luận
+    Route::view('/comments', 'backend.pages.comments');
+
+    // Route cho thống kê
+    Route::view('/statistic', 'backend.pages.statistic');
+
+    //Route cho quản lý khách hàng
+    Route::view(uri: '/customer-management', view: 'backend.pages.customer.customer-management');
+    Route::view(uri: '/add-customer-management', view: 'backend.pages.customer.add-customer-management');
+    Route::view(uri: '/edit-customer-management', view: 'backend.pages.customer.edit-customer-management');
+
+    //Route cho quản lý nhân viên
+    Route::view(uri: '/staff-management', view: 'backend.pages.staff.staff-management');
+    Route::view(uri: '/add-staff-management', view: 'backend.pages.staff.add-staff-management');
+    Route::view(uri: '/edit-staff-management', view: 'backend.pages.staff.edit-staff-management');
     // Route cho đơn hàng
     Route::view('/orders', 'backend.pages.orders');
 

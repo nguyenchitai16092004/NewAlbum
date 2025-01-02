@@ -1004,13 +1004,11 @@ img {
     margin-top: 20px;
     margin-bottom: 130px;
 }
-
 .ctn-top-catagory {
     display: flex;
     justify-content: center;
     column-gap: 80px;
 }
-
 .prod-1 {
     width: 650px;
     height: 350px;
@@ -1352,6 +1350,7 @@ hr {
 .pagination {
     position: relative;
     z-index: 1;
+
 }
 
 .pagination .page-item .page-link {
@@ -1371,7 +1370,7 @@ hr {
 
 .pagination .page-item .page-link:hover,
 .pagination .page-item .page-link:focus {
-    color: #0315ff;
+    color: #000000;
     box-shadow: none;
 }
 
@@ -1394,7 +1393,6 @@ hr {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
-
 /* :: 9.0 Brands Area CSS */
 .brands-area {
     position: relative;
@@ -1637,19 +1635,17 @@ hr {
 }
 
 .footer_area .single_widget_area .footer_menu ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
+    margin-right: 180px;
 }
 
 .footer_area .single_widget_area .footer_menu ul li a {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    color: white;
     display: block;
-    font-weight: 400;
     font-family: "Ubuntu", sans-serif;
     padding: 0 10px;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 
 .footer_area .single_widget_area .footer_menu ul li a:hover,
@@ -1683,7 +1679,7 @@ hr {
 
 .footer_area .single_widget_area .footer_widget_menu li a:hover,
 .footer_area .single_widget_area .footer_widget_menu li a:focus {
-    color: #ffffff;
+    color: black;
 }
 
 .footer_area .single_widget_area .footer_heading h6 {
@@ -1738,6 +1734,7 @@ hr {
     display: inline-block;
     padding: 0 10px;
     font-size: 16px;
+    float: right;
 }
 
 /* :: 12.0 Breadcumb Area CSS */
@@ -2108,6 +2105,29 @@ hr {
 }
 
 /* :: 15.0 Blog Area CSS */
+/* style.css */
+.search-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    width: 220px;
+    margin-left: 100px;
+  }
+  .search-container input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 9px;
+    font-size: 16px;
+  }
+  .search-container button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
 .blog-wrapper {
     position: relative;
     z-index: 1;
@@ -2224,7 +2244,7 @@ hr {
 }
 
 .blog-wrapper .single-blog-area .hover-content .hover-post-title a:hover {
-    color: #0315ff;
+    color: #000000;
 }
 
 @media only screen and (max-width: 767px) {
@@ -2246,7 +2266,7 @@ hr {
     font-size: 12px;
     font-weight: 600;
     margin-bottom: 0;
-    color: #0315ff;
+    color: #000000;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-top: 50px;
@@ -2393,7 +2413,7 @@ hr {
 .single-blog-wrapper .single-blog-content-wrapper .single-blog--text blockquote h6 i {
     margin-right: 30px;
     font-size: 30px;
-    color: #0315ff;
+    color: #000000;
 }
 
 .single-blog-wrapper .single-blog-content-wrapper .single-blog--text blockquote span {
@@ -2538,7 +2558,6 @@ hr {
     font-size: 3rem;
     text-align: center;
 }
-
 .contact-area {
     position: relative;
     z-index: 1;
@@ -2640,15 +2659,16 @@ hr {
     text-transform: uppercase;
 }
 
+
 .contact-area .contact-info .contact-address p:last-child {
     margin-top: 100px;
 }
+
 
 .contact-area .contact-info .contact-address p:last-child a {
     font-size: 14px;
     font-weight: 300;
 }
-
 .contact-area .contact-info .contact-address p:last-child a:hover {
     color: #0315ff;
 }
