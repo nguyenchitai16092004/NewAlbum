@@ -20,13 +20,7 @@ return new class extends Migration
             $table->boolean('TrangThai'); 
             $table->unsignedBigInteger('MaQL'); 
             $table->timestamps();
-
-            $table->date('NgayTao'); 
-            $table->date('NgayCapNhat');
-            $table->boolean('TrangThai'); 
-            $table->unsignedBigInteger('MaQL'); 
-
-            
+           
             // Định nghĩa khóa ngoại
             $table->foreign('MaQL')->references('MaQL')->on('QUANLY');
         });

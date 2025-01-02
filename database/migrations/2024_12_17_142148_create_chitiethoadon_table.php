@@ -17,8 +17,6 @@ return new class extends Migration
 
             $table->primary(['MaHD', 'MaSP']);
 
-            $table->primary(['MaDH', 'MaSP']);
-
             $table->integer('SoLuong');
             $table->string('TenSP', 255);
             $table->decimal('DonGia', 10, 2);
