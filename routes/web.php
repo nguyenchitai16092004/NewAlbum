@@ -1,8 +1,6 @@
 <?php
 
-
 use App\Http\Controllers\BandController;
-
 
 use App\Http\Controllers\ProductController;
 
