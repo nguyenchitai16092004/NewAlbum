@@ -2,17 +2,19 @@
 <html lang="en">
 
 <head>
+    <base href="{{ asset('/frontend') }}/">
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Essence - Fashion Ecommerce Template</title>
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <title>@yield('title')</title>
+    <link rel="icon" href="img/core-img/logo.ico">
     <link rel="stylesheet" href="css/core-style.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
-<body>
+<body style="background-color: #FFF8F3;">
     @include('frontend.partials.header')
     @yield('main')
     @include('frontend.partials.footer')

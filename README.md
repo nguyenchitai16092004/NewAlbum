@@ -64,3 +64,15 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Cách chạy project Laravel
+- Sau khi clone project này từ github. Hãy chạy các lệnh sau để có thể khởi chạy dự án:
+** composer install
+** cp .env.example .env
+** npm install //nếu chạy dòng này có lỗi có thể bỏ qua
+** php artisan key:generate
+- Trong file .env hãy sửa dòng  SESSION_DRIVER=database --> SESSION_DRIVER=file //không chạy dòng này nếu đã có dữ liệu
+** php artisan migrate //chạy dòng này nếu đã có dữ liệu
+
+
+

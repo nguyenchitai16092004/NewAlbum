@@ -72,4 +72,6 @@
             </div>
         </div>
     </div>
+    <script src="js/dropzone/dropzone.js"></script>
+
 @stop

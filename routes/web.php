@@ -1,6 +1,19 @@
 <?php
 
+
+use App\Http\Controllers\BandController;
+
+
+use App\Http\Controllers\ProductController;
+
+use App\Http\Controllers\CategoryController;
+
 use Illuminate\Support\Facades\Route;
+use PHPUnit\Framework\Attributes\Group;
+
+/*Route FE */
+
+/*Route FE */
 
 Route::get('/', function () {
     return view('frontend.pages.home');
@@ -25,10 +38,17 @@ Route::get('/regular-page', function () {
 });
 Route::get('/contact', function () {
     return view('frontend.pages.contact');
-<<<<<<< Updated upstream
-=======
+
 });
 //Back end
+
+});
+Route::get('/wishlist', function () {
+    return view('frontend.pages.wishlist');
+});
+
+//Back end
+
 
 Route::prefix('/admin')->group(function () {
 
@@ -95,5 +115,9 @@ Route::prefix('/admin')->group(function () {
     Route::view(uri: '/staff-management', view: 'backend.pages.staff.staff-management');
     Route::view(uri: '/add-staff-management', view: 'backend.pages.staff.add-staff-management');
     Route::view(uri: '/edit-staff-management', view: 'backend.pages.staff.edit-staff-management');
->>>>>>> Stashed changes
+    // Route cho đơn hàng
+    Route::view('/orders', 'backend.pages.orders');
+
+    // Route cho liên hệ
+    Route::view('/contact', 'backend.pages.contact');
 });

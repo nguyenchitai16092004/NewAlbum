@@ -32,6 +32,7 @@
                             <li><a title="Departments List" href="{{ asset('admin/bill') }}"><span
                                         class="mini-sub-pro">Bill</span></a></li>
                         </ul>
+
                     </li>
                     <li>
                         <a href="{{ asset('admin/statistic') }}" aria-expanded="false">

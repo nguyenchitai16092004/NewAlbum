@@ -75,7 +75,6 @@
   <!-- custom-style
   ============================================ -->
   <link rel="stylesheet" href="css/custom-style.css">
-  
 </head>
 
 <body>

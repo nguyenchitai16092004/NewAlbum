@@ -1,6 +1,7 @@
 @extends('backend.layouts.master')
 @section('This page is Home Admin', 'Home Admin')
 @section('main')
+
     <div class="product-status-wrap drp-lst">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h4>Comments List</h4>
@@ -26,8 +27,6 @@
             </div>
         </div>
     </div>
-
-
     <div class="product-status mg-b-15">
         <div class="container-fluid">
             <div class="row">
@@ -43,6 +42,7 @@
                                     <th>Content</th>
                                     <th>Action</th>
                                 </tr>   
+
                             </table>
                         </div>
                         <div class="custom-pagination">
