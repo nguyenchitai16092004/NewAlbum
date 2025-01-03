@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-.cart-container {
-=======
-
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
@@ -21,180 +17,184 @@ h4, h5, p {
 }
 
 .container {
->>>>>>> Stashed changes
     width: 80%;
     margin: 0 auto;
 }
 
-<<<<<<< Updated upstream
 table {
-=======
-/* Table Styling */
-.cart-container table {
->>>>>>> Stashed changes
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-th,
-td {
-    padding: 15px;
+.cart-container th, .cart-container td {
+    padding: 12px;
     text-align: center;
+    border: 1px solid #ddd;
+    font-size: 14px;
 }
 
-tbody td img {
-    width: 150px;
-    height: 130px
+.cart-container th {
+    background-color: #000;
+    color: #fff;
+    text-transform: uppercase;
 }
 
-.total {
-    font-weight: bold;
-    margin-top: 20px;
+.cart-container tbody td img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
 }
 
-.checkout {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-
-<<<<<<< Updated upstream
 .quantity-buttons {
-    height: 180px;
-    display: inline-flex;
-    gap: 5px;
-    padding-left: 75px;
-=======
-.quantity-buttons{
+    margin-top: 2px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
-    height: 127px;
->>>>>>> Stashed changes
+    padding-left: 75px;
 }
 
 .quantity-buttons button {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #ccc;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
     border-radius: 4px;
-    background-color: #f9f9f9;
-    color: #333;
-    font-size: 18px;
     cursor: pointer;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 0;
-    margin-top: 58px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    font-size: 18px;
 }
 
 .quantity-buttons button:hover {
-    background-color: #e0e0e0;
-    border-color: #999;
+    background-color: #000;
+    color: #fff;
 }
 
-.quantity-buttons .quantity {
+/* Delete Button */
+.delete {
+    background-color: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
     font-size: 16px;
-    color: #333;
-    min-width: 20px;
-    margin-top: 60px;
-    text-align: center;
 }
 
-<<<<<<< Updated upstream
-=======
 .delete:hover {
     color: #f00;
 }
-
-/* Note and Total Section */
->>>>>>> Stashed changes
 .container-cart {
-    max-width: 400px;
-    margin: 0;
-    padding: 20px;
     display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 10px;
-}
-.container-cart .btn-left, 
-.btn-right{
-    padding: 10px;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.note{
-    margin-left: 70px;
-}
-.note textarea {
-    width: 550px;
-    height: 300px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.update {
-    background-color: #000000;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn-right{
-    position: absolute; 
-    right: 50px; 
-    margin-right: 45px; 
-    margin-top: 0;
-    width: 600px;
-    height: 400px;
-}
-
-.total .container-text{
-    padding: 10px;
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-}
-
-.total p {
-    padding-top: 30px;
-    padding-left: 23px;
-    padding-right: 28px;
-    font-size: 25px;
-    font-weight: bold;
-    color: #000000;
-    
-}
-
-.total button{
-    width: 500px;
-    padding: 13px;
-    margin-left: 35px;
+    flex-wrap: wrap; /* Hỗ trợ hiển thị trên các màn hình nhỏ */
+    justify-content: space-between; /* Khoảng cách đều giữa các khối */
+    gap: 20px;
     margin-top: 20px;
+    padding: 20px; /* Tăng padding để thoáng hơn */
+    background-color: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px; /* Bo góc nhẹ hơn */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
 }
 
-.checkout {
+.note {
+    flex: 1;
+    min-width: 300px; /* Đảm bảo không quá nhỏ trên màn hình hẹp */
+    background-color: #ffffff; /* Màu trắng tinh khiết */
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Bo góc mềm mại */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng rõ hơn */
+    padding: 20px;
+}
+
+.note h5 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: bold;
+    text-align: center; /* Căn giữa tiêu đề */
+}
+
+.note textarea {
+    width: 100%;
+    height: 120px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    resize: none; /* Không cho phép thay đổi kích thước */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease; /* Hiệu ứng mượt khi chỉnh sửa */
+}
+.note textarea:focus {
+    border-color: #000; /* Đổi màu viền khi được chọn */
+    outline: none;
+}
+
+.note .update {
+    margin-top: 10px;
     background-color: #000000;
-    color: white;
-    padding: 10px 20px;
+    color: #ffffff;
     border: none;
+    padding: 12px 20px;
     border-radius: 5px;
     cursor: pointer;
-<<<<<<< Updated upstream
-=======
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease; /* Hiệu ứng hover mượt mà */
+}
+
+.note .update:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+/* Khung bao tổng hợp */
+.container-summary {
+    background-color: #fff; /* Nền trắng */
+    border: 1px solid #ddd; /* Viền nhạt */
+    border-radius: 10px; /* Bo góc khung */
+    padding: 20px; /* Khoảng cách bên trong */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    display: flex;
+    flex-direction: column; /* Xếp dọc các phần */
+    gap: 20px; /* Khoảng cách giữa các phần */
+    max-width: 400px; /* Đặt chiều rộng tối đa */
+    margin: 0 auto; /* Căn giữa khung */
+}
+
+/* Phần tổng cộng */
+.total {
+    text-align: center;
+}
+
+.subtotal-section {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.container-text p {
+    margin: 5px 0;
+}
+
+/* Nút Checkout */
+.checkout-section button {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
 }
@@ -211,76 +211,123 @@ tbody td img {
     justify-content:left;
     gap: 10px;
     margin-top: 10px;
->>>>>>> Stashed changes
 }
 
 .payment-methods img {
     width: 50px;
     height: 50px;
-    margin-left: 35px;
-    margin-top: 30px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background-color: #f9f9f9;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.terms #terms{
-    margin-left: 10px;
-    width: 10%;
-    margin-top: 8px;
+.payment-methods img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-<<<<<<< Updated upstream
 .terms {
     display: flex;
     align-items: center;
     margin: 0%;
     padding-top: 50px;
-=======
 
 /* Điều khoản */
-.terms {
+.terms-section {
     font-size: 14px;
     color: #666;
     text-align: left;
 }
 
-.terms input[type="checkbox"] {
-    width: 20px;
-    height: 13px;
-    margin-top: 14px;
+.terms-section input[type="checkbox"] {
+    margin-right: 10px;
 }
 
-.terms label {
+.terms-section label {
     display: flex;
     align-items: center;
     cursor: pointer;
-    margin-top: 10px;
->>>>>>> Stashed changes
 }
-
-.container-product{
-    margin-top: 60px;
-}
-
-.container-product h4{ 
+/* Product Section */
+.container-product {
+    margin: 50px auto;
+    padding: 30px; /* Tăng khoảng cách bên trong */
+    background-color: #fff; /* Nền trắng */
+    border-radius: 15px; /* Bo góc mềm mại */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    max-width: 1400px; /* Giới hạn chiều rộng container */
     text-align: center;
 }
-
-.container-product .line{ 
-    height: 2px; 
-    background-color: #000; 
-    width: 100%; 
-    margin: 20px 0;
+.container-product h4 {
+    font-size: 24px; /* Tăng kích thước chữ */
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #000; /* Chữ đen */
+    text-transform: uppercase; /* Viết hoa toàn bộ */
+    letter-spacing: 1.5px; /* Tạo khoảng cách giữa các chữ */
+}
+.container-product.line {
+    width: 70%; /* Đường gạch ngang ngắn */
+    height: 3px;
+    background-color: #000; /* Màu đen */
+    margin: 15px auto;
+    border-radius: 5px; /* Bo góc đường gạch */
 }
 
 .container-product .row {
-    display: flex; 
-    justify-content: space-between; 
-    gap: 10px; 
+    display: flex;
+    flex-wrap: wrap; /* Đảm bảo hiển thị tốt trên các thiết bị nhỏ */
+    gap: 20px; /* Khoảng cách giữa các sản phẩm */
+    justify-content: center; /* Căn giữa sản phẩm */
 }
 
 .product {
-    flex: 1; 
-    max-width: calc(25% - 10px);
+    flex: 1 1 calc(25% - 20px); /* 4 sản phẩm trên mỗi hàng */
+    max-width: 220px; /* Giới hạn chiều rộng */
     text-align: center;
+    border: 2px solid #000; /* Đường viền đen */
+    padding: 20px; /* Khoảng cách bên trong rộng rãi */
+    border-radius: 15px; /* Bo góc sản phẩm */
+    background-color: #fff; /* Nền trắng */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng hover mượt */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
 }
-img {
-    width: 80%;
+
+.product:hover {
+    transform: translateY(-10px); /* Nâng sản phẩm lên khi hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Đổ bóng đậm hơn */
+}
+
+.product img {
+    width: 100%;
+    border-radius: 10px; /* Bo góc ảnh */
+    margin-bottom: 15px;
+    transition: transform 0.3s ease; /* Hiệu ứng hover mượt */
+}
+
+.product img:hover {
+    transform: scale(1.1); /* Phóng to ảnh khi hover */
+}
+
+.product p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000; /* Chữ đen */
+    margin: 10px 0 5px;
+    text-transform: uppercase; /* Viết hoa tên sản phẩm */
+}
+
+.product .price {
+    font-size: 14px;
+    font-weight: normal;
+    color: #555; /* Màu chữ xám nhạt */
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+}
+
+.product .price::before {
+    content: "Price: ";
+    font-weight: bold;
+    color: #000; /* Màu chữ đen cho nhãn */
 }

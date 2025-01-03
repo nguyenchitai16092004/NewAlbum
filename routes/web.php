@@ -2,14 +2,11 @@
 
 
 use App\Http\Controllers\BandController;
-
-
 use App\Http\Controllers\ProductController;
-
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\GoodController;
 
 use Illuminate\Support\Facades\Route;
-use PHPUnit\Framework\Attributes\Group;
 
 /*Route FE */
 
@@ -38,9 +35,9 @@ Route::get('/contact', function () {
     return view('frontend.pages.contact');
 
 });
-
-//Back end
-
+Route::get('/about-us', function () {
+    return view('frontend.pages.about-us');
+});
 Route::get('/wishlist', function () {
     return view('frontend.pages.wishlist');
 });
@@ -50,20 +47,54 @@ Route::get('/popup', function () {
 Route::get('/cart', function () {
     return view('frontend.pages.cart');
 });
-<<<<<<< Updated upstream
-
-
-//Back end
-=======
 Route::get('/single-product-details', function () {
     return view('frontend.pages.single-product-details');
 });
-Route::get('/search', function () {
-    return view('frontend.pages.search');
+Route::get('/new-arrival', function () {
+    return view('frontend.pages.new-arrival');
 });
->>>>>>> Stashed changes
-
-
+Route::get('/get-up-50', function () {
+    return view('frontend.pages.get-up-50');
+});
+Route::get('/pre-oders', function () {
+    return view('frontend.pages.pre-oders');
+});
+Route::get('/our-blog-post', function () {
+    return view('frontend.pages.our-blog-post');
+});
+Route::get('/oder-history', function () {
+    return view('frontend.pages.oder-history');
+});
+Route::get('/new-arrival', function () {
+    return view('frontend.pages.new-arrival');
+});
+Route::get('/get-up-50', function () {
+    return view('frontend.pages.get-up-50');
+});
+Route::get('/pre-oders', function () {
+    return view('frontend.pages.pre-oders');
+});
+Route::get('/our-blog-post', function () {
+    return view('frontend.pages.our-blog-post');
+});
+Route::get('/oder-history', function () {
+    return view('frontend.pages.oder-history');
+});
+Route::get('/new-arrival', function () {
+    return view('frontend.pages.new-arrival');
+});
+Route::get('/get-up-50', function () {
+    return view('frontend.pages.get-up-50');
+});
+Route::get('/pre-oders', function () {
+    return view('frontend.pages.pre-oders');
+});
+Route::get('/our-blog-post', function () {
+    return view('frontend.pages.our-blog-post');
+});
+Route::get('/oder-history', function () {
+    return view('frontend.pages.oder-history');
+});
 /*Route BE */
 Route::prefix('/admin')->group(function () {
 
@@ -109,6 +140,11 @@ Route::prefix('/admin')->group(function () {
         Route::delete('/delete/{id}', [CategoryController::class, 'Delete'])->name('Delete_Category');
     });
 
+    // Route cho phiếu nhập
+    Route::prefix('goods-receipt')->group(function(){
+        Route::get('/',[GoodController::class,'Index'])->name('Index_Goods');
+    });
+
     // Route cho liên hệ
     Route::view('/contact', 'backend.pages.contact');
 
@@ -135,4 +171,6 @@ Route::prefix('/admin')->group(function () {
 
     // Route cho liên hệ
     Route::view('/contact', 'backend.pages.contact');
+
+    
 });

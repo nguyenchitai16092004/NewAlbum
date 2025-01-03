@@ -1,13 +1,13 @@
 @extends('frontend.layouts.master')
 @section('This page is the AboutUs.', 'AboutUs')
 @section('main')
-<link rel="stylesheet" href="css/aboutus.css">
+<link rel="stylesheet" href="css/about-us.css">
 <div class="about-us">
   <h2>About Us</h2>
   <div class="about-us">
-  <div class="flex-container">
-    <div class="image-container">
-      <img src="img/core-img/logo.jpeg" alt="Record player icon">
+  <div>
+    <div class="image-container" style="">
+      <img src="img/core-img/logo.jpeg" alt="Record player icon" style="max-width: 100%; height: auto;">
     </div>
     <div class="text-container">
       <p>NewAlbum is an online store launched in 2024 that specializes in selling K-pop albums and exclusive goods from top K-pop idols. Catering to the growing global fanbase of K-pop, NewAlbum offers a wide range of products, including albums, merchandise, and limited-edition items, providing fans with a one-stop shop for connecting with their favorite artists. NewAlbum prides itself on offering high-quality products and reliable shipping, ensuring that fans around the world can enjoy authentic K-pop experiences from the comfort of their homes.</p>
