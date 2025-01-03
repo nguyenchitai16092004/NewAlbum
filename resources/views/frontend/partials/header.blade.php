@@ -60,7 +60,6 @@
                                     <li><a href="{{ asset('/regular-page') }}">Regular Page</a></li>
                                     <li><a href="{{ asset('/contact') }}">Contact</a></li>
                                     <li><a href="{{ asset('/wishlist') }}">Wishlist</a></li>
-                                    <li><a href="{{ asset('/wishlist') }}">About Us</a></li>
                                 </ul>
                             </li>
                             <li><a style="color: white;" href="{{ asset('/blog') }}">Blog</a></li>

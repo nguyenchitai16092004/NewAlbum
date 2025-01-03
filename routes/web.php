@@ -35,9 +35,10 @@ Route::get('/contact', function () {
     return view('frontend.pages.contact');
 
 });
-
+Route::get('/aboutus', function () {
+    return view('frontend.pages.aboutus');
+});
 //Back end
-
 Route::get('/wishlist', function () {
     return view('frontend.pages.wishlist');
 });

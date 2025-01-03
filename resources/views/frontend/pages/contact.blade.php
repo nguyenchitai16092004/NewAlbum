@@ -81,7 +81,7 @@
         </div>
     </div>
     <!-- ##### Right Side Cart End ##### -->
-    <h1 class="contact-header">Contact</h1>
+    <h1 class="contact-header" style="margin-top: 100px">Contact</h1>
     <div class="contact-area d-flex align-items-center" style="margin-top: 10px">
         <div class="form">
             <form>

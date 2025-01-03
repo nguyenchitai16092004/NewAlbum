@@ -2554,6 +2554,7 @@ hr {
 }
 
 /* :: 17.0 Contact Area CSS */
+/* Style the contact header */
 .contact-header {
     font-size: 3rem;
     text-align: center;
@@ -2719,8 +2720,28 @@ hr {
 .contact-area .contact-info h2 {
     font-size: 30px;
     margin-bottom: 20px;
-    color: #000000;
-}
+  }
+  
+  .contact-area .contact-info p {
+    font-size: 16px; 
+    line-height: 1.5; 
+    margin-bottom: 10px; 
+  }
+  
+  .contact-area .contact-info i {
+    margin-right: 10px; 
+    color: #333;
+  }
+  
+  .contact-area .contact-info a {
+    color: #333; 
+    text-decoration: none; 
+    transition: color 0.2s ease-in-out; 
+  }
+  
+  .contact-area .contact-info a:hover {
+    color: #4CAF50; 
+  }
 
 .contact-area .contact-info p {
     font-size: 16px;
@@ -2789,5 +2810,4 @@ hr {
 .contact-area .contact-info .contact-address p:last-child a:hover {
     color: #0315ff;
 }
-
 /* ##### The End ##### */
