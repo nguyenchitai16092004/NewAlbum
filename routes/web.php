@@ -95,6 +95,9 @@ Route::get('/our-blog-post', function () {
 Route::get('/oder-history', function () {
     return view('frontend.pages.oder-history');
 });
+Route::get('/search', function () {
+    return view('frontend.pages.search');
+});
 
 Route::get('/search', function () {
     return view('frontend.pages.search');
