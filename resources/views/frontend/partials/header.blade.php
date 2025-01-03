@@ -75,11 +75,8 @@
             <!-- Header Meta Data -->
             <div class="header-meta d-flex clearfix justify-content-end">
                 <!-- Search Area -->
-                <div class="search-area">
-                    <form action="#" method="post">
-                        <input type="search" name="search" id="headerSearch" placeholder="Type for search">
-                        <button type="submit"><i  class="fa fa-search" aria-hidden="true"></i></button>
-                    </form>
+                <div class="favourite-area">
+                   <a href="{{ asset('/search') }}"><img src="img/core-img/search.svg" alt=""></a>
                 </div>
                 <!-- Favourite Area -->
                 <div class="favourite-area">

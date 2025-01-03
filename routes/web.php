@@ -95,7 +95,11 @@ Route::get('/our-blog-post', function () {
 Route::get('/oder-history', function () {
     return view('frontend.pages.oder-history');
 });
-/*Route BE */
+
+Route::get('/search', function () {
+    return view('frontend.pages.search');
+});
+
 Route::prefix('/admin')->group(function () {
 
     // Route cho trang dashboard
