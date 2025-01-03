@@ -7,7 +7,7 @@
                 <a class="nav-brand" href="{{ asset('/') }}"><img class="logo" src="img/core-img/logo.jpeg" alt=""></a>
                 <!-- Navbar Toggler -->
                 <div class="classy-navbar-toggler">
-                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    <span class="navbarToggler"><span ></span><span></span><span></span></span>
                 </div>
                 <!-- Menu -->
                 <div class="classy-menu">
@@ -18,7 +18,7 @@
                     <!-- Nav Start -->
                     <div class="classynav">
                         <ul >
-                            <li><a style="color: white;" href="#">Shop</a>
+                            <li><a style="color: white;" href="#">Shop <i class="fa-solid fa-angle-down" style="color: #ffffff;"></i></a>
                                 <div class="megamenu">
                                     <ul class="single-mega cn-col-4">
                                         <li  class="title">Women's Collection</li>
@@ -49,7 +49,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li><a  style="color: white;" href="#">Pages</a>
+                            <li><a  style="color: white;" href="#">Pages <i class="fa-solid fa-angle-down" style="color: #ffffff;"></i></a>
                                 <ul  class="dropdown">
                                     <li><a  href="{{ asset('/') }}">Home</a></li>
                                     <li><a href="{{ asset('/shop') }}">Shop</a></li>
@@ -60,6 +60,8 @@
                                     <li><a href="{{ asset('/regular-page') }}">Regular Page</a></li>
                                     <li><a href="{{ asset('/contact') }}">Contact</a></li>
                                     <li><a href="{{ asset('/wishlist') }}">Wishlist</a></li>
+                                    <li><a href="{{ asset('/about-us') }}">About Us</a></li>
+
                                 </ul>
                             </li>
                             <li><a style="color: white;" href="{{ asset('/blog') }}">Blog</a></li>

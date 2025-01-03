@@ -1,5 +1,5 @@
     <!-- ##### Footer Area Start ##### -->
-    <footer style="background-color: #7FA1C3;" class="footer_area clearfix">
+    <footer style="background-color: black;" class="footer_area clearfix">
         <div class="container">
             <div class="row">
                 <!-- Single Widget Area -->
@@ -11,8 +11,8 @@
                                     src="img/core-img/logo.jpeg" alt=""></a>
                         </div>
                         <!-- Footer Menu -->
-                        <div class="footer_menu" style="text-align: left;">
-                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; align-items: flex-start;">
+                        <div class="footer_menu">
+                            <ul>
                                 <li><a href="{{ asset('/shop') }}">Shop</a></li>
                                 <li><a href="{{ asset('/contact') }}">Contact</a></li>
                                 <li><a href="{{ asset('/blog') }}">Blog</a></li>
@@ -52,9 +52,13 @@
                 <div class="col-12 col-md-6">
                     <div class="single_widget_area">
                         <div class="footer_social_area">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><img width="50px" src="img/core-img/twitter.png" alt=""></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><img width="50px" src="img/core-img/instagram.png" alt=""></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><img width="50px" src="img/core-img/facebook.png" alt=""></a>
+
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><img
+                                    width="50px" src="img/core-img/instagram.png" alt=""></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><img
+                                    width="50px" src="img/core-img/twitter.png" alt=""></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><img
+                                    width="50px" src="img/core-img/facebook.png" alt=""></a>
                         </div>
                     </div>
                 </div>

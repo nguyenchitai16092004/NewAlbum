@@ -24,9 +24,12 @@
                                         <h2 style="text-align: center">Register</h2>
                                         <form id="registerForm">
                                             @csrf
-                                            <input type="text" id="username" name="username" placeholder="Full Name" required>
-                                            <input type="email" id="email" name="email" placeholder="Email" required>
-                                            <input type="password" id="password" name="password" placeholder="Password" required>
+                                            <input type="text" id="username" name="username" placeholder="Full Name"
+                                                required>
+                                            <input type="email" id="email" name="email" placeholder="Email"
+                                                required>
+                                            <input type="password" id="password" name="password" placeholder="Password"
+                                                required>
                                             <div class="button-container">
                                                 <button type="submit" class="btn-register">Register</button>
                                             </div>
@@ -43,7 +46,8 @@
                                     <h2 style="text-align: center">Forgot Password</h2>
                                     <form id="forgotpassForm">
                                         @csrf
-                                        <input type="text" id="email" name="email" placeholder="Email" required>
+                                        <input type="text" id="email" name="email" placeholder="Email"
+                                            required>
                                         <div class="button-container">
                                             <button id="openPopupOtp" class="btn-send">Send</button>
                                             <!-- Popup OTP Code-->
@@ -53,7 +57,8 @@
                                                     <h2 style="text-align: center">Enter OTP Code</h2>
                                                     <form id="otpcodeForm">
                                                         @csrf
-                                                        <input type="text" id="otp" name="otp" placeholder="OTP" required>
+                                                        <input type="text" id="otp" name="otp"
+                                                            placeholder="OTP" required>
                                                         <div class="button-container">
                                                             <button id="openPopupChange" class="btn-send">Send</button>
                                                             <!-- Popup thay đổi password -->
@@ -63,10 +68,15 @@
                                                                     <h2 style="text-align: center">Enter OTP Code</h2>
                                                                     <form id="changepassForm">
                                                                         @csrf
-                                                                        <input type="text" id="password" name="password" placeholder="Password" required>
-                                                                        <input type="re-password" id="re-password" name="re-password" placeholder="Re-password" required>
+                                                                        <input type="text" id="password"
+                                                                            name="password" placeholder="Password"
+                                                                            required>
+                                                                        <input type="re-password" id="re-password"
+                                                                            name="re-password" placeholder="Re-password"
+                                                                            required>
                                                                         <div class="button-container">
-                                                                            <button type="submit" class="btn-submit">Submit</button>
+                                                                            <button type="submit"
+                                                                                class="btn-submit">Submit</button>
                                                                         </div>
                                                                     </form>
                                                                 </div>
