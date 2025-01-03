@@ -501,6 +501,9 @@ img {
     color: white;
     font-size: 14px;
 }
+.header_area .search-area form button i {
+    color: white;
+}
 
 @media only screen and (max-width: 767px) {
     .header_area .search-area form button {
@@ -1715,7 +1718,7 @@ hr {
 .footer_area {
     position: relative;
     z-index: 1;
-    background-color: #252525;
+    background-color: black;
     padding: 70px 0 60px;
 }
 
@@ -1735,20 +1738,11 @@ hr {
 
 .footer_area .single_widget_area .footer_menu ul li a:hover,
 .footer_area .single_widget_area .footer_menu ul li a:focus {
-    color: black;
-    font-size: 19px;
-}
     color: #ffffff;
 }
-
-.footer_area .single_widget_area .footer_widget_menu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+.footer_area .single_widget_area .footer_widget_menu{
+    float: right;
 }
-
 .footer_area .single_widget_area .footer_widget_menu li {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 50%;
@@ -1759,16 +1753,20 @@ hr {
 .footer_area .single_widget_area .footer_widget_menu li a {
     display: block;
     font-size: 12px;
-    color: rgba(255, 255, 255, 0.6);
+    color: white;
     display: block;
     font-weight: 400;
     margin-bottom: 10px;
+}
+#input-mail::placeholder {
+    color: white;
 }
 
 .footer_area .single_widget_area .footer_widget_menu li a:hover,
 .footer_area .single_widget_area .footer_widget_menu li a:focus {
     font-size: 14px;
 }
+
 
 .footer_area .single_widget_area .footer_heading h6 {
     color: #ffffff;
@@ -1782,7 +1780,9 @@ hr {
     z-index: 1;
     width: 270px;
 }
-
+.footer_area .single_widget_area .subscribtion_form{
+    float: left;
+}
 @media only screen and (max-width: 767px) {
     .footer_area .single_widget_area .subscribtion_form form {
         margin-bottom: 50px;
@@ -1793,17 +1793,11 @@ hr {
     width: 100%;
     border: none;
     border-bottom: 2px solid rgba(255, 255, 255, 0.6);
-    color: rgba(255, 255, 255, 0.6);
+    color: white;
     font-size: 12px;
     height: 35px;
     background-color: transparent;
-    outline: none; 
 }
-.footer_area .single_widget_area .subscribtion_form form input:focus {
-    border-bottom-color: #ffffff;
-    color: #ffffff;
-}
-
 .footer_area .single_widget_area .subscribtion_form form input:focus {
     border-bottom-color: #ffffff;
     color: #ffffff;
@@ -1829,7 +1823,6 @@ hr {
     font-size: 16px;
     float: right;
 }
-
 /* :: 12.0 Breadcumb Area CSS */
 .breadcumb_area {
     position: relative;
