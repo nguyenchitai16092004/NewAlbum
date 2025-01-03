@@ -61,6 +61,7 @@
                                     <li><a href="{{ asset('/contact') }}">Contact</a></li>
                                     <li><a href="{{ asset('/wishlist') }}">Wishlist</a></li>
                                     <li><a href="{{ asset('/about-us') }}">About Us</a></li>
+
                                 </ul>
                             </li>
                             <li><a style="color: white;" href="{{ asset('/blog') }}">Blog</a></li>
@@ -86,12 +87,10 @@
                     <a href="#"><img src="img/core-img/heart.svg" alt=""></a>
                 </div>
                 <!-- User Login Info -->
-                <div class="user-login-info">
-                    <a href="#"><img src="img/core-img/user.svg" alt=""></a>
-                </div>
+                @include('frontend.partials.popup.popup')
                 <!-- Cart Area -->
                 <div class="cart-area">
-                    <a href="#" id="essenceCartBtn"><img src="img/core-img/bag.svg" alt="">
+                    <a href="{{ asset('/cart') }}" id="essenceCartBtn"><img src="img/core-img/bag.svg" alt="">
                         <span>3</span></a>
                 </div>
             </div>

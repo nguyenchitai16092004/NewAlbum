@@ -10,6 +10,7 @@
     <title>@yield('title')</title>
     <link rel="icon" href="img/core-img/logo.ico">
     <link rel="stylesheet" href="css/core-style.css">
+    <link rel="stylesheet" href="css/popup.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
@@ -25,6 +26,7 @@
     <script src="js/plugins.js"></script>
     <script src="js/classy-nav.min.js"></script>
     <script src="js/active.js"></script>
+    <script src="js/popup.js"></script>
 
 </body>
 

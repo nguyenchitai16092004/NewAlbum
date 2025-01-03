@@ -2,16 +2,11 @@
 
 
 use App\Http\Controllers\BandController;
-
-
 use App\Http\Controllers\ProductController;
-
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\GoodController;
 
 use Illuminate\Support\Facades\Route;
-use PHPUnit\Framework\Attributes\Group;
-
-/*Route FE */
 
 /*Route FE */
 
@@ -42,8 +37,6 @@ Route::get('/contact', function () {
 Route::get('/wishlist', function () {
     return view('frontend.pages.wishlist');
 });
-<<<<<<< Updated upstream
-=======
 Route::get('/popup', function () {
     return view('frontend.partials.popup.popup');
 });
@@ -53,7 +46,7 @@ Route::get('/cart', function () {
 Route::get('/about-us', function () {
     return view('frontend.pages.aboutus');
 });
->>>>>>> Stashed changes
+
 
 
 /*Route BE */
@@ -101,6 +94,11 @@ Route::prefix('/admin')->group(function () {
         Route::delete('/delete/{id}', [CategoryController::class, 'Delete'])->name('Delete_Category');
     });
 
+    // Route cho phiếu nhập
+    Route::prefix('goods-receipt')->group(function(){
+        Route::get('/',[GoodController::class,'Index'])->name('Index_Goods');
+    });
+
     // Route cho liên hệ
     Route::view('/contact', 'backend.pages.contact');
 
@@ -127,4 +125,6 @@ Route::prefix('/admin')->group(function () {
 
     // Route cho liên hệ
     Route::view('/contact', 'backend.pages.contact');
+
+    
 });

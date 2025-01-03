@@ -13,12 +13,10 @@ return new class extends Migration
     {
         Schema::create('PHIEUNHAP', function (Blueprint $table) {
             $table->id('MaPN');
-            $table->decimal('TongTien', 10, 2); 
-            $table->date('NgayNhap');
-
-            $table->date('NgayCapNhat');
-            $table->boolean('TrangThai'); 
             $table->unsignedBigInteger('MaQL'); 
+            $table->string('TenPN',50);
+            $table->decimal('TongTien', 10, 2); 
+            $table->string('DiaChiNH', 255); 
             $table->timestamps();
            
             // Định nghĩa khóa ngoại

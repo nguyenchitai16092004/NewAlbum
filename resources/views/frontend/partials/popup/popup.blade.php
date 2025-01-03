@@ -1,3 +1,4 @@
+
 <!-- User Login Info -->
 <div class="user-login-info">
     <a href="#" id="userIcon"><img src="img/core-img/user.svg" alt="User"></a>
