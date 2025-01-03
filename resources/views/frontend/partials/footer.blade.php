@@ -1,5 +1,5 @@
     <!-- ##### Footer Area Start ##### -->
-    <footer style="background-color: black;" class="footer_area clearfix">
+    <footer class="footer_area clearfix">
         <div class="container">
             <div class="row">
                 <!-- Single Widget Area -->
@@ -41,8 +41,8 @@
                         </div>
                         <div class="subscribtion_form">
                             <form action="#" method="post">
-                                <input type="email" name="mail" class="mail" placeholder="Your email here">
-                                <button type="submit" class="submit"><i class="fa fa-long-arrow-right"
+                                <input type="email" name="mail" class="mail" id="input-mail" placeholder="Your email here">
+                                <button  type="submit" class="submit"><i class="fa fa-long-arrow-right"
                                         aria-hidden="true"></i></button>
                             </form>
                         </div>
@@ -52,7 +52,6 @@
                 <div class="col-12 col-md-6">
                     <div class="single_widget_area">
                         <div class="footer_social_area">
-
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><img
                                     width="50px" src="img/core-img/instagram.png" alt=""></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><img
@@ -66,7 +65,7 @@
 
             <div class="row mt-5">
                 <div class="col-md-12 text-center">
-                    <p>
+                    <p style="color: white;">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         Copyright &copy;
                         <script>

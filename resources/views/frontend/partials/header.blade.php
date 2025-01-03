@@ -7,7 +7,7 @@
                 <a class="nav-brand" href="{{ asset('/') }}"><img class="logo" src="img/core-img/logo.jpeg" alt=""></a>
                 <!-- Navbar Toggler -->
                 <div class="classy-navbar-toggler">
-                    <span class="navbarToggler"><span ></span><span></span><span></span></span>
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
                 </div>
                 <!-- Menu -->
                 <div class="classy-menu">
@@ -18,7 +18,7 @@
                     <!-- Nav Start -->
                     <div class="classynav">
                         <ul >
-                            <li><a style="color: white;" href="#">Shop <i class="fa-solid fa-angle-down" style="color: #ffffff;"></i></a>
+                            <li><a style="color: white;" href="#">Shop<i class="fa-solid fa-angle-down" style="color: #ffffff;"></i></a>
                                 <div class="megamenu">
                                     <ul class="single-mega cn-col-4">
                                         <li  class="title">Women's Collection</li>
@@ -60,8 +60,6 @@
                                     <li><a href="{{ asset('/regular-page') }}">Regular Page</a></li>
                                     <li><a href="{{ asset('/contact') }}">Contact</a></li>
                                     <li><a href="{{ asset('/wishlist') }}">Wishlist</a></li>
-                                    <li><a href="{{ asset('/about-us') }}">About Us</a></li>
-
                                 </ul>
                             </li>
                             <li><a style="color: white;" href="{{ asset('/blog') }}">Blog</a></li>
@@ -79,7 +77,7 @@
                 <div class="search-area">
                     <form action="#" method="post">
                         <input type="search" name="search" id="headerSearch" placeholder="Type for search">
-                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <button type="submit"><i  class="fa fa-search" aria-hidden="true"></i></button>
                     </form>
                 </div>
                 <!-- Favourite Area -->
