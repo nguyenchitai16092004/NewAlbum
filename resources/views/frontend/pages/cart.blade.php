@@ -1,5 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title', 'Shop')
+
 @section('main')
 <link rel="stylesheet" href="css/cart.css">
 <div class="favorites">
@@ -47,7 +48,6 @@
         <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
     </ul>
 </nav>
-
 <div class="container-cart">
     <!-- Ghi chú -->
     <div class="note">

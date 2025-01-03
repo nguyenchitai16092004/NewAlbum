@@ -85,12 +85,10 @@
                     <a href="#"><img src="img/core-img/heart.svg" alt=""></a>
                 </div>
                 <!-- User Login Info -->
-                <div class="user-login-info">
-                    <a href="#"><img src="img/core-img/user.svg" alt=""></a>
-                </div>
+                @include('frontend.partials.popup.popup')
                 <!-- Cart Area -->
                 <div class="cart-area">
-                    <a href="#" id="essenceCartBtn"><img src="img/core-img/bag.svg" alt="">
+                    <a href="{{ asset('/cart') }}" id="essenceCartBtn"><img src="img/core-img/bag.svg" alt="">
                         <span>3</span></a>
                 </div>
             </div>
