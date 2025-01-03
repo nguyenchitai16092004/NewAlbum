@@ -1,8 +1,8 @@
 @extends('frontend.layouts.master')
-@section('title', 'Cart')
+@section('title', 'Shop')
+
 @section('main')
 <link rel="stylesheet" href="css/cart.css">
-<link rel="stylesheet" href="css/pagination.css">
 <div class="favorites">
     <h1 style="text-align: center">Your Cart</h1>
 </div>
@@ -21,7 +21,7 @@
         </thead>
         <tbody>
             <tr>
-                <td><img src="img/product-img/BTS - Lightstick.jpg" alt="Sản phẩm"></td>
+                <td><img src="img/product-img/BTS-Lightstick.jpg" alt="BTS Lightstick"></td>
                 <td>BTS Official Light Stick</td>
                 <td>1,827,680 VNĐ</td>
                 <td class="quantity-buttons">
@@ -80,10 +80,6 @@
     <h4>Before your checkout, have you considered:</h4>
     <div class="line"></div>
     <div class="row">
-        <div class="col-md-3 product">
-            <img src="img/product-img/[Poster] BTS – Proof.jpg" alt="Sản phẩm 1">
-            <p>[Poster] BTS – Proof</p>
-        </div>
         <div class="product">
             <img src="img/product-img/Poster-BTS-Proof.jpg" alt="Poster BTS Proof">
             <p>Poster BTS Proof</p>
@@ -94,9 +90,15 @@
             <p>Poster BTS Proof</p>
             <span class="price">200,000 VNĐ</span>
         </div>
-        <div class="col-md-3 product">
-            <img src="img/product-img/[Poster] BTS – Proof.jpg" alt="Sản phẩm 4">
-            <p>[Poster] BTS – Proof</p>
+        <div class="product">
+            <img src="img/product-img/Poster-BTS-Proof.jpg" alt="Poster BTS Proof">
+            <p>Poster BTS Proof</p>
+            <span class="price">200,000 VNĐ</span>
+        </div>
+        <div class="product">
+            <img src="img/product-img/Poster-BTS-Proof.jpg" alt="Poster BTS Proof">
+            <p>Poster BTS Proof</p>
+            <span class="price">200,000 VNĐ</span>
         </div>
     </div>
 </div>

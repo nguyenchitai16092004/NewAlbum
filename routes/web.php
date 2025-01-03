@@ -99,9 +99,6 @@ Route::get('/search', function () {
     return view('frontend.pages.search');
 });
 
-Route::get('/search', function () {
-    return view('frontend.pages.search');
-});
 
 Route::prefix('/admin')->group(function () {
 
