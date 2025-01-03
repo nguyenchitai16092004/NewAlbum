@@ -50,11 +50,21 @@ Route::get('/popup', function () {
 Route::get('/cart', function () {
     return view('frontend.pages.cart');
 });
+<<<<<<< Updated upstream
 
 
 //Back end
+=======
+Route::get('/single-product-details', function () {
+    return view('frontend.pages.single-product-details');
+});
+Route::get('/search', function () {
+    return view('frontend.pages.search');
+});
+>>>>>>> Stashed changes
 
 
+/*Route BE */
 Route::prefix('/admin')->group(function () {
 
     // Route cho trang dashboard

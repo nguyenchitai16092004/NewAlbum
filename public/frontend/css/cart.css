@@ -1,9 +1,37 @@
+<<<<<<< Updated upstream
 .cart-container {
+=======
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #000;
+    line-height: 1.5;
+}
+h1{
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+h4, h5, p {
+    margin: 0;
+}
+
+.container {
+>>>>>>> Stashed changes
     width: 80%;
     margin: 0 auto;
 }
 
+<<<<<<< Updated upstream
 table {
+=======
+/* Table Styling */
+.cart-container table {
+>>>>>>> Stashed changes
     width: 100%;
     border-collapse: collapse;
 }
@@ -34,11 +62,20 @@ tbody td img {
     font-size: 16px;
 }
 
+<<<<<<< Updated upstream
 .quantity-buttons {
     height: 180px;
     display: inline-flex;
     gap: 5px;
     padding-left: 75px;
+=======
+.quantity-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: 127px;
+>>>>>>> Stashed changes
 }
 
 .quantity-buttons button {
@@ -71,6 +108,14 @@ tbody td img {
     text-align: center;
 }
 
+<<<<<<< Updated upstream
+=======
+.delete:hover {
+    color: #f00;
+}
+
+/* Note and Total Section */
+>>>>>>> Stashed changes
 .container-cart {
     max-width: 400px;
     margin: 0;
@@ -148,6 +193,25 @@ tbody td img {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+<<<<<<< Updated upstream
+=======
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.checkout-section button:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+/* Phương thức thanh toán */
+.payment-methods {
+    display: flex;
+    justify-content:left;
+    gap: 10px;
+    margin-top: 10px;
+>>>>>>> Stashed changes
 }
 
 .payment-methods img {
@@ -162,11 +226,33 @@ tbody td img {
     width: 10%;
     margin-top: 8px;
 }
+<<<<<<< Updated upstream
 .terms {
     display: flex;
     align-items: center;
     margin: 0%;
     padding-top: 50px;
+=======
+
+/* Điều khoản */
+.terms {
+    font-size: 14px;
+    color: #666;
+    text-align: left;
+}
+
+.terms input[type="checkbox"] {
+    width: 20px;
+    height: 13px;
+    margin-top: 14px;
+}
+
+.terms label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 10px;
+>>>>>>> Stashed changes
 }
 
 .container-product{

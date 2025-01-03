@@ -1,12 +1,23 @@
 @extends('frontend.layouts.master')
-@section('title', 'Wish List')
+@section('title', 'Search')
 
 @section('main')
+<link rel="stylesheet" href="css/search.css">
 <link rel="stylesheet" href="css/wishlist.css">
 <link rel="stylesheet" href="css/pagination.css">
-<div class="favorites">
-    <h1>WishList</h1>
+<div class="search">
+    <h1 style="text-align: center">Search our site</h1>
 </div>
+
+<div class="search-bar">
+    <input type="text" placeholder="Search...">
+    <select>
+        <option value="product">Product</option>
+        <option value="product">Category Product</option>
+    </select>
+    <button class="btn-search" type="submit">Submit</button>
+</div>
+
 <div class="container" style="margin-top: 50px">
     <div class="product-grid">
         <!-- Example Product -->
@@ -20,7 +31,7 @@
                         <i class="fa fa-shopping-cart"></i> Add to Cart
                     </button>
                     <button class="action-button remove-button">
-                        <i class="fa fa-heart-broken"></i> Remove
+                        <i class="fa fa-heart"></i> Add to WishList
                     </button>
                 </div>
             </div>
@@ -36,7 +47,7 @@
                         <i class="fa fa-shopping-cart"></i> Add to Cart
                     </button>
                     <button class="action-button remove-button">
-                        <i class="fa fa-heart-broken"></i> Remove
+                        <i class="fa fa-heart"></i> Add to WishList
                     </button>
                 </div>
             </div>
@@ -52,7 +63,7 @@
                         <i class="fa fa-shopping-cart"></i> Add to Cart
                     </button>
                     <button class="action-button remove-button">
-                        <i class="fa fa-heart-broken"></i> Remove
+                        <i class="fa fa-heart"></i> Add to WishList
                     </button>
                 </div>
             </div>
@@ -68,7 +79,7 @@
                         <i class="fa fa-shopping-cart"></i> Add to Cart
                     </button>
                     <button class="action-button remove-button">
-                        <i class="fa fa-heart-broken"></i> Remove
+                        <i class="fa fa-heart"></i> Add to WishList
                     </button>
                 </div>
             </div>
@@ -84,7 +95,7 @@
                         <i class="fa fa-shopping-cart"></i> Add to Cart
                     </button>
                     <button class="action-button remove-button">
-                        <i class="fa fa-heart-broken"></i> Remove
+                        <i class="fa fa-heart"></i> Add to WishList
                     </button>
                 </div>
             </div>
@@ -100,7 +111,7 @@
                         <i class="fa fa-shopping-cart"></i> Add to Cart
                     </button>
                     <button class="action-button remove-button">
-                        <i class="fa fa-heart-broken"></i> Remove
+                        <i class="fa fa-heart"></i> Add to WishList
                     </button>
                 </div>
             </div>
@@ -116,7 +127,7 @@
                         <i class="fa fa-shopping-cart"></i> Add to Cart
                     </button>
                     <button class="action-button remove-button">
-                        <i class="fa fa-heart-broken"></i> Remove
+                        <i class="fa fa-heart"></i> Add to WishList
                     </button>
                 </div>
             </div>
@@ -132,13 +143,14 @@
                         <i class="fa fa-shopping-cart"></i> Add to Cart
                     </button>
                     <button class="action-button remove-button">
-                        <i class="fa fa-heart-broken"></i> Remove
+                        <i class="fa fa-heart"></i> Add to WishList
                     </button>
                 </div>
             </div>
         </div>
     </div>
-</div> <!-- Pagination -->
+</div>
+<!-- Pagination -->
 <nav aria-label="navigation">
     <ul class="pagination mt-50 mb-70">
         <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
@@ -150,9 +162,4 @@
         <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
     </ul>
 </nav>
-</div>
-</div>
-</div>
-</section>
-<!-- ##### Shop Grid Area End ##### -->
 @stop
