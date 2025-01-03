@@ -264,9 +264,12 @@ img {
 .logo {
     width: 50%;
 }
+<<<<<<< Updated upstream
 .footer-logo img {
     width: 20% !important;
 }
+=======
+>>>>>>> Stashed changes
 /* ScrollUp */
 #scrollUp {
     background-color: #ff084e;
@@ -312,7 +315,10 @@ img {
 
 /* :: 4.0 Header Area CSS */
 #headerSearch {
-    background-color: #7fa1c3;
+    background-color: black;
+    color: white;
+}
+#headerSearch::placeholder {
     color: white;
 }
 .header_area {
@@ -326,7 +332,7 @@ img {
     transition-duration: 500ms;
 }
 .classy-nav-container {
-    background-color: #7fa1c3;
+    background-color: black;
 }
 @media only screen and (max-width: 767px) {
     .header_area .classy-nav-container {
@@ -412,7 +418,7 @@ img {
     width: 200px;
     height: 85px;
     padding: 0 15px 0 60px;
-    color: #787878;
+    color: white;
     font-size: 14px;
     font-weight: 500;
     -webkit-transition-duration: 500ms;
@@ -458,7 +464,7 @@ img {
     left: 30px;
     background-color: transparent;
     border: none;
-    color: #787878;
+    color: white;
     font-size: 14px;
 }
 @media only screen and (max-width: 767px) {
@@ -503,7 +509,7 @@ img {
 .header_area .cart-area a span {
     font-family: "Ubuntu", sans-serif;
     font-size: 18px;
-    color: #0315ff;
+    color: red;
     font-weight: 700;
     position: absolute;
     top: -10px;
@@ -639,6 +645,10 @@ img {
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .right-side-cart-area
     .cart-content
     .cart-list
@@ -648,6 +658,10 @@ img {
     z-index: 1;
     display: block;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .right-side-cart-area
     .cart-content
     .cart-list
@@ -684,6 +698,10 @@ img {
         padding: 30px 20px;
     }
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .right-side-cart-area
     .cart-content
     .cart-list
@@ -710,6 +728,10 @@ img {
         right: 5px;
     }
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .right-side-cart-area
     .cart-content
     .cart-list
@@ -726,6 +748,10 @@ img {
     text-align: left;
     padding: 0;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .right-side-cart-area
     .cart-content
     .cart-list
@@ -749,6 +775,10 @@ img {
         margin-bottom: 10px;
     }
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .right-side-cart-area
     .cart-content
     .cart-list
@@ -771,6 +801,10 @@ img {
     margin-bottom: 5px;
     line-height: 1;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .right-side-cart-area
     .cart-content
     .cart-list
@@ -797,6 +831,10 @@ img {
         font-size: 12px;
     }
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .right-side-cart-area
     .cart-content
     .cart-list
@@ -874,6 +912,10 @@ img {
         margin-bottom: 15px;
     }
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .right-side-cart-area
     .cart-content
     .cart-amount-summary
@@ -1303,9 +1345,14 @@ hr {
     }
 }
 .pagination {
+<<<<<<< Updated upstream
   position: relative;
   z-index: 1; 
   left: 40%;
+=======
+    position: relative;
+    z-index: 1;
+>>>>>>> Stashed changes
 }
 .pagination .page-item .page-link {
     width: 40px;
@@ -1428,6 +1475,7 @@ hr {
 .single_product_details_area .product_thumbnail_slides .owl-prev:hover,
 .single_product_details_area .product_thumbnail_slides .owl-next:hover {
     opacity: 1;
+    font-size: 20px;
 }
 .single_product_details_area .product_thumbnail_slides .owl-next {
     left: auto;
@@ -1456,6 +1504,10 @@ hr {
     margin-bottom: 10px;
     display: block;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .single_product_details_area .single_product_desc a > h2 {
     font-size: 30px;
     display: block;
@@ -1533,6 +1585,10 @@ hr {
     border: none;
     width: 100%;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .single_product_details_area
     .single_product_desc
     .nice-select
@@ -1562,7 +1618,7 @@ hr {
     margin-right: 180px;
 }
 .footer_area .single_widget_area .footer_menu ul li a {
-    font-size: 18px;
+    font-size: 15px;
     color: white;
     display: block;
     font-family: "Ubuntu", sans-serif;
@@ -1571,16 +1627,27 @@ hr {
 }
 .footer_area .single_widget_area .footer_menu ul li a:hover,
 .footer_area .single_widget_area .footer_menu ul li a:focus {
+<<<<<<< Updated upstream
     color: black;
     font-size: 19px;
 }
+=======
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.footer_area .single_widget_area .footer_widget_menu {
+   float: right;
+}
+
+>>>>>>> Stashed changes
 .footer_area .single_widget_area .footer_widget_menu li {
     text-align: right;
 }
 
 .footer_area .single_widget_area .footer_widget_menu li a:hover,
 .footer_area .single_widget_area .footer_widget_menu li a:focus {
-    color: black;
+    font-size: 14px;
 }
 .footer_area .single_widget_area .footer_heading h6 {
     color: #ffffff;
@@ -1593,6 +1660,12 @@ hr {
     z-index: 1;
     width: 270px;
 }
+<<<<<<< Updated upstream
+=======
+.footer_area .single_widget_area .subscribtion_form {
+    float: left;
+}
+>>>>>>> Stashed changes
 @media only screen and (max-width: 767px) {
     .footer_area .single_widget_area .subscribtion_form form {
         margin-bottom: 50px;
@@ -1606,11 +1679,19 @@ hr {
     font-size: 12px;
     height: 35px;
     background-color: transparent;
+    outline: none; 
 }
 .footer_area .single_widget_area .subscribtion_form form input:focus {
     border-bottom-color: #ffffff;
     color: #ffffff;
 }
+<<<<<<< Updated upstream
+=======
+.footer_area .single_widget_area .subscribtion_form form input:focus {
+    border-bottom-color: #ffffff;
+    color: #ffffff;
+}
+>>>>>>> Stashed changes
 .footer_area .single_widget_area .subscribtion_form form button {
     width: 30px;
     height: 35px;
@@ -1709,6 +1790,10 @@ hr {
     color: #000000;
     font-weight: 600;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .widget .catagories-menu li > a {
     text-transform: uppercase;
     font-size: 12px;
@@ -1719,6 +1804,10 @@ hr {
     margin-left: 15px;
     margin-bottom: 15px;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .widget .catagories-menu .sub-menu li > a {
     text-transform: capitalize;
     font-size: 14px;
@@ -1727,6 +1816,10 @@ hr {
     font-weight: 300;
     color: #787878;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .widget .catagories-menu .sub-menu li > a:hover {
     color: #0315ff;
 }
@@ -1953,22 +2046,22 @@ hr {
     border-bottom: 1px solid #ccc;
     width: 220px;
     margin-left: 100px;
-  }
-  .search-container input[type="text"] {
+}
+.search-container input[type="text"] {
     flex: 1;
     border: none;
     outline: none;
     padding: 9px;
     font-size: 16px;
-  }
-  .search-container button {
+}
+.search-container button {
     background-color: #333;
     color: #fff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     margin-left: 20px;
-  }
+}
 .blog-wrapper {
     position: relative;
     z-index: 1;
@@ -2084,6 +2177,10 @@ hr {
         line-height: 1.7;
     }
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .blog-wrapper .single-blog-area .hover-content > a {
     display: block;
     font-size: 12px;
@@ -2203,12 +2300,20 @@ hr {
         font-size: 14px;
     }
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .single-blog-wrapper
     .single-blog-content-wrapper
     .single-blog--text
     blockquote {
     margin-bottom: 50px;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .single-blog-wrapper
     .single-blog-content-wrapper
     .single-blog--text
@@ -2220,6 +2325,10 @@ hr {
     display: -ms-flexbox;
     display: flex;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .single-blog-wrapper
     .single-blog-content-wrapper
     .single-blog--text
@@ -2230,6 +2339,10 @@ hr {
     font-size: 30px;
     color: #000000;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .single-blog-wrapper
     .single-blog-content-wrapper
     .single-blog--text
@@ -2274,6 +2387,10 @@ hr {
         width: 100%;
     }
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .single-blog-wrapper
     .single-blog-content-wrapper
     .related-blog-post
@@ -2284,6 +2401,10 @@ hr {
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .single-blog-wrapper
     .single-blog-content-wrapper
     .related-blog-post
@@ -2293,6 +2414,10 @@ hr {
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .single-blog-wrapper
     .single-blog-content-wrapper
     .related-blog-post
@@ -2317,6 +2442,10 @@ hr {
     justify-content: space-between;
     padding: 5px 50px;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .single-blog-wrapper
     .single-blog-content-wrapper
     .related-blog-post
@@ -2329,6 +2458,10 @@ hr {
     margin-bottom: 0;
     line-height: 1.5;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .single-blog-wrapper
     .single-blog-content-wrapper
     .related-blog-post
@@ -2473,9 +2606,17 @@ hr {
     display: inline-block;
     text-transform: uppercase;
 }
+<<<<<<< Updated upstream
 .contact-area .contact-info .contact-address p:last-child {
     margin-top: 100px;
 }
+=======
+
+.contact-area .contact-info .contact-address p:last-child {
+    margin-top: 100px;
+}
+
+>>>>>>> Stashed changes
 .contact-area .contact-info .contact-address p:last-child a {
     font-size: 14px;
     font-weight: 300;

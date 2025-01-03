@@ -112,11 +112,11 @@
         <div class="container ctn-top-catagory">
             <div class="prod-1">
                 <div class="img-prod-1">
-                    <img src="img/product-img/prod1.jpg" alt="">
+                   <img src="img/product-img/prod1.jpg" alt="">
                 </div>
                 <div class="name-pro np-1">
                     <div class="product-description">
-                        <a href="single-product-details.html">
+                        <a href="#">
                             <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
                         </a>
                         <div class="pre-oder-new-arrivals">
@@ -225,9 +225,13 @@
                         <div class="single-product-wrapper">
                             <!-- Product Image -->
                             <div class="product-img">
-                                <img src="img/product-img/blackpink-2nd.jpg" alt="">
+                                <a href="{{ asset('/single-product-detail') }}">
+                                    <img src="img/product-img/blackpink-2nd.jpg" alt="">
+                                </a>
                                 <!-- Hover Thumb -->
-                                <img class="hover-img" src="img/product-img/blackpink-2nd.jpg" alt="">
+                                <a href="{{ asset('/single-product-detail') }}">
+                                    <img class="hover-img" src="img/product-img/blackpink-2nd.jpg" alt="">
+                                </a>
                                 <!-- Favourite -->
                                 <div class="product-favourite">
                                     <a href="#" class="favme fa fa-heart"></a>
@@ -238,7 +242,7 @@
                                 <div class="pre-oder-new-arrivals">
                                     <span>Pre&ndash;oder</span>
                                 </div>
-                                <a href="single-product-details.html">
+                                <a href="{{ asset('/single-product-detail') }}">
                                     <h6>[Pre-oder]Born Pink (Gray Ver)</h6>
                                 </a>
                                 <p class="product-price price">650.000 VND</p>
@@ -256,9 +260,13 @@
                         <div class="single-product-wrapper">
                             <!-- Product Image -->
                             <div class="product-img">
-                                <img src="img/product-img/blackpink-2nd.jpg" alt="">
+                                <a href="{{ asset('/single-product-detail') }}">
+                                    <img src="img/product-img/blackpink-2nd.jpg" alt="">
+                                </a>
                                 <!-- Hover Thumb -->
-                                <img class="hover-img" src="img/product-img/blackpink-2nd.jpg" alt="">
+                                <a href="{{ asset('/single-product-detail') }}">
+                                    <img class="hover-img" src="img/product-img/blackpink-2nd.jpg" alt="">
+                                </a>    
                                 <!-- Favourite -->
                                 <div class="product-favourite">
                                     <a href="#" class="favme fa fa-heart"></a>
@@ -269,7 +277,7 @@
                                 <div class="pre-oder-new-arrivals">
                                     <span>Pre&ndash;oder</span>
                                 </div>
-                                <a href="single-product-details.html">
+                                <a href="{{ asset('/single-product-detail') }}">
                                     <h6>[Pre-oder]Born Pink (Gray Ver)</h6>
                                 </a>
                                 <p class="product-price price">650.000 VND</p>
@@ -287,10 +295,13 @@
                         <div class="single-product-wrapper">
                             <!-- Product Image -->
                             <div class="product-img">
-                                <img src="img/product-img/blackpink-2nd.jpg" alt="">
+                                <a href="">
+                                    <img src="img/product-img/blackpink-2nd.jpg" alt="">
+                                </a>
                                 <!-- Hover Thumb -->
-                                <img class="hover-img" src="img/product-img/blackpink-2nd.jpg" alt="">
-
+                                <a href="{{ asset('/single-product-detail') }}">
+                                    <img class="hover-img" src="img/product-img/blackpink-2nd.jpg" alt="">
+                                </a>
                                 <!-- Product Badge -->
                                 <div class="product-badge offer-badge">
                                     <span>-30%</span>
@@ -306,7 +317,7 @@
                                 <div class="pre-oder-new-arrivals">
                                     <span>Pre&ndash;oder</span>
                                 </div>
-                                <a href="single-product-details.html">
+                                <a href="{{ asset('/single-product-detail') }}">
                                     <h6>[Pre-oder]Born Pink (Gray Ver)</h6>
                                 </a>
                                 <p class="product-price price"><span class="old-price">1.000.000 VND</span> 650.000 VND
@@ -326,10 +337,13 @@
                         <div class="single-product-wrapper">
                             <!-- Product Image -->
                             <div class="product-img">
-                                <img src="img/product-img/blackpink-2nd.jpg" alt="">
+                                <a href="{{ asset('/single-product-detail') }}">
+                                    <img src="img/product-img/blackpink-2nd.jpg" alt="">
+                                </a>
                                 <!-- Hover Thumb -->
-                                <img class="hover-img" src="img/product-img/blackpink-2nd.jpg" alt="">
-
+                                <a href="{{ asset('/single-product-detail') }}">
+                                    <img class="hover-img" src="img/product-img/blackpink-2nd.jpg" alt="">
+                                </a>
                                 <!-- Product Badge -->
                                 <div class="product-badge new-badge">
                                     <span>New</span>
@@ -345,7 +359,7 @@
                                 <div class="pre-oder-new-arrivals">
                                     <span>Pre&ndash;oder</span>
                                 </div>
-                                <a href="single-product-details.html">
+                                <a href="{{ asset('/single-product-detail') }}">
                                     <h6>[Pre-oder]Born Pink (Gray Ver)</h6>
                                 </a>
                                 <p class="product-price price">650.000 VND</p>
