@@ -37,7 +37,6 @@ Route::get('/contact', function () {
 });
 Route::get('/about-us', function () {
     return view('frontend.pages.about-us');
-
 });
 Route::get('/wishlist', function () {
     return view('frontend.pages.wishlist');
@@ -50,6 +49,36 @@ Route::get('/cart', function () {
 });
 Route::get('/about-us', function () {
     return view('frontend.pages.aboutus');
+});
+Route::get('/new-arrival', function () {
+    return view('frontend.pages.new-arrival');
+});
+Route::get('/get-up-50', function () {
+    return view('frontend.pages.get-up-50');
+});
+Route::get('/pre-oders', function () {
+    return view('frontend.pages.pre-oders');
+});
+Route::get('/our-blog-post', function () {
+    return view('frontend.pages.our-blog-post');
+});
+Route::get('/oder-history', function () {
+    return view('frontend.pages.oder-history');
+});
+Route::get('/new-arrival', function () {
+    return view('frontend.pages.new-arrival');
+});
+Route::get('/get-up-50', function () {
+    return view('frontend.pages.get-up-50');
+});
+Route::get('/pre-oders', function () {
+    return view('frontend.pages.pre-oders');
+});
+Route::get('/our-blog-post', function () {
+    return view('frontend.pages.our-blog-post');
+});
+Route::get('/oder-history', function () {
+    return view('frontend.pages.oder-history');
 });
 Route::get('/new-arrival', function () {
     return view('frontend.pages.new-arrival');
