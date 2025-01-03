@@ -299,7 +299,7 @@
             </div>
         </div>
         <div class="view-all">
-            <a href="#">View All <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="{{ asset("/new-arrival") }}">View All <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </section>
     <!-- ##### New Arrivals Area End ##### -->
@@ -465,7 +465,7 @@
         </div>
 
         <div class="view-all">
-            <a href="#">View All <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="{{ asset("/get-up-50") }}">View All <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </section>
     <!-- ##### New Arrivals Area End ##### -->
@@ -777,7 +777,7 @@
             </div>
         </div>
         <div class="view-all">
-            <a href="#">View All <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="{{ asset('/pre-oders') }}">View All <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </section>
     <!-- ##### Pre-Oders Area End ##### -->
@@ -1004,7 +1004,7 @@
         </div>
 
         <div class="view-all">
-            <a href="#">View All <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="{{ asset('/our-blog-post') }}">View All <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </section>
     <!-- ##### Our Blog Post End ##### -->

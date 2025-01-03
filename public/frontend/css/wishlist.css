@@ -75,7 +75,10 @@
   gap: 15px;
   margin-top: 20px;
 }
-
+.navigation{
+  display: flex; 
+  justify-content: center;
+}
 .action-button {
   padding: 15px 15px; 
   background-color: #000; 

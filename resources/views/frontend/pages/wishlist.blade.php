@@ -137,7 +137,7 @@
         </div>
     </div>
 </div> <!-- Pagination -->
-<nav aria-label="navigation">
+<nav aria-label="navigation" class="navigation">
     <ul class="pagination mt-50 mb-70">
         <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
         <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -148,9 +148,7 @@
         <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
     </ul>
 </nav>
-</div>
-</div>
-</div>
+
 </section>
 <!-- ##### Shop Grid Area End ##### -->
 @stop
