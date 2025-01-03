@@ -101,4 +101,5 @@ document.addEventListener('DOMContentLoaded', () => {
     closePopup.addEventListener('click', () => {
         changepassPopup.style.display = 'none';
     });
-});
+} );
+
