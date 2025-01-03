@@ -1,9 +1,5 @@
     <!-- ##### Footer Area Start ##### -->
-<<<<<<< HEAD
     <footer class="footer_area clearfix">
-=======
-    <footer style="background-color: black;" class="footer_area clearfix">
->>>>>>> master
         <div class="container">
             <div class="row">
                 <!-- Single Widget Area -->
@@ -56,10 +52,6 @@
                 <div class="col-12 col-md-6">
                     <div class="single_widget_area">
                         <div class="footer_social_area">
-<<<<<<< HEAD
-=======
-
->>>>>>> master
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><img
                                     width="50px" src="img/core-img/instagram.png" alt=""></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><img

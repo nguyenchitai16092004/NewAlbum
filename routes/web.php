@@ -33,13 +33,11 @@ Route::get('/regular-page', function () {
 });
 Route::get('/contact', function () {
     return view('frontend.pages.contact');
+
 });
-<<<<<<< HEAD
 Route::get('/aboutus', function () {
     return view('frontend.pages.aboutus');
 });
-=======
->>>>>>> master
 Route::get('/wishlist', function () {
     return view('frontend.pages.wishlist');
 });
@@ -49,20 +47,11 @@ Route::get('/popup', function () {
 Route::get('/cart', function () {
     return view('frontend.pages.cart');
 });
-<<<<<<< HEAD
 Route::get('/single-product-details', function () {
     return view('frontend.pages.single-product-details');
 });
 
-=======
-Route::get('/about-us', function () {
-    return view('frontend.pages.aboutus');
-});
 
-
->>>>>>> master
-
-/*Route BE */
 Route::prefix('/admin')->group(function () {
 
     // Route cho trang dashboard
