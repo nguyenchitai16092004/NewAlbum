@@ -66,7 +66,7 @@
                             </li>
                             <li><a style="color: white;" href="{{ asset('/blog') }}">Blog</a></li>
                             <li><a style="color: white;" href="{{ asset('/contact') }}">Contact</a></li>
-                            <li><a style="color: white;" href="{{ asset('/aboutus') }}">About Us</a></li>
+                            <li><a style="color: white;" href="{{ asset('/about-us') }}">About Us</a></li>
                         </ul>
                     </div>
                     <!-- Nav End -->
@@ -84,7 +84,7 @@
                 </div>
                 <!-- Favourite Area -->
                 <div class="favourite-area">
-                    <a href="#"><img src="img/core-img/heart.svg" alt=""></a>
+                    <a href="{{ asset('/wishlist') }}"><img src="img/core-img/heart.svg" alt=""></a>
                 </div>
                 <!-- User Login Info -->
                 @include('frontend.partials.popup.popup')
