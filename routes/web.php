@@ -38,7 +38,6 @@ Route::get('/contact', function () {
 Route::get('/aboutus', function () {
     return view('frontend.pages.aboutus');
 });
-//Back end
 Route::get('/wishlist', function () {
     return view('frontend.pages.wishlist');
 });
@@ -48,9 +47,9 @@ Route::get('/popup', function () {
 Route::get('/cart', function () {
     return view('frontend.pages.cart');
 });
-
-
-//Back end
+Route::get('/single-product-details', function () {
+    return view('frontend.pages.single-product-details');
+});
 
 
 Route::prefix('/admin')->group(function () {
