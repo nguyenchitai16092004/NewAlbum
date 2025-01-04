@@ -8,6 +8,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="product-status-wrap drp-lst">
                     <h4>Customers List</h4>
+<<<<<<< Updated upstream
 
                         <div class="product-status-wrap drp-lst">
                             <div class="search-container mb-3">
@@ -27,16 +28,30 @@
                             <table>
                                 <tr>
                                     <th>ID</th>
+=======
+                        <div class="asset-inner">
+                            <table>
+                                <tr>
+                                    <th>ID Customer</th>
+>>>>>>> Stashed changes
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Birthday</th>
                                     <th>Number</th>
+<<<<<<< Updated upstream
                                     <th>Address</th> <!-- Migration không có trường address -->
                                     <th>Account</th>
+=======
+                                    <th>Username</th>
+>>>>>>> Stashed changes
                                     <th>Password</th>
                                     <th>Status</th>
                                     <th>Gender</th>
                                     <th>Image</th>
+<<<<<<< Updated upstream
+=======
+                                    <th>Address</th>
+>>>>>>> Stashed changes
                                 </tr>
                             </table>
                         </div>
