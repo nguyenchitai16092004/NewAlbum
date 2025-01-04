@@ -152,16 +152,11 @@ Route::prefix('/admin')->group(function () {
         Route::delete('/delete/{id}', [CategoryController::class, 'Delete'])->name('Delete_Category');
     });
     // Route cho phiếu nhập
-    Route::prefix('goods-receipt')->group(function () {
-        Route::get('/', [GoodController::class, 'Index'])->name('Index_Goods');
-    });
-    // Route cho thống kê
-    Route::view('/statistic', 'backend.pages.statistic');
-    //Route cho quản lý đội ngũ
-    Route::prefix(prefix: 'staff')->group(callback: function (): void {
-        Route::view('/staff-management', 'backend.pages.staff.staff-management')->name('Index_Staff_Management');
-        //Thêm 
-        Route::view('/add-staff-management', 'backend.pages.staff.add-staff-management')->name('Index_Add_Staff_Management');
+    Route::prefix('goods-receipt')->group(function(){
+        Route::get('/',[GoodController::class,'Index'])->name('Index_Goods');
+        //Thêm sản phẩm
+        Route::view('/add-good','backend.pages.goods-receipt.add-goods-receipt-management')->name('Add_Index');
+        Route::get('/add',[GoodController::class,'Add'])->name('Add_Good');
     });
 
     // Route cho quản lý hóa đơn
