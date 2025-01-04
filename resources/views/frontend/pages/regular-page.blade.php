@@ -1,6 +1,7 @@
 @extends('frontend.layouts.master')
 @section('This page is the Regular.', 'Regular')
 @section('main')
+<link rel="stylesheet" href="css/regular.css">
     <div class="cart-bg-overlay"></div>
 
     <div class="right-side-cart-area">

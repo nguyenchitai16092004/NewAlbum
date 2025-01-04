@@ -1,7 +1,8 @@
 @extends('frontend.layouts.master')
 @section('title', 'Trang chủ - Home')
 @section('main')
-
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/welcomearea.css">
     <!-- ##### Welcome Area Start ##### -->
     <section class="welcome_area bg-img background-overlay">
         <div class="banner">
@@ -45,7 +46,7 @@
                 </div>
             </div>
             <div class="prod-2">
-                <div class="img-prod">
+                <div class="img-prod ">
                     <img src="img/product-img/prod1.jpg" alt="">
                 </div>
                 <div class="name-pro np-1 ctn-desc">

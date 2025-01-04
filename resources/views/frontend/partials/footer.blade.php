@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="css/footer.css">
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer_area clearfix">
         <div class="container">
