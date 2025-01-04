@@ -153,12 +153,12 @@ Route::prefix('/admin')->group(function () {
     });
 
     // Route cho phiếu nhập
-    Route::prefix('goods-receipt')->group(function () {
-        Route::get('/', [GoodController::class, 'Index'])->name('Index_Goods');
+    Route::prefix('goods-receipt')->group(function(){
+        Route::get('/',[GoodController::class,'Index'])->name('Index_Goods');
+        //Thêm sản phẩm
+        Route::view('/add-good','backend.pages.goods-receipt.add-goods-receipt-management')->name('Add_Index');
+        Route::get('/add',[GoodController::class,'Add'])->name('Add_Good');
     });
-
-    // Route cho thống kê
-    Route::view('/statistic', 'backend.pages.statistic');
 
     //Route cho quản lý đội ngũ
     Route::prefix(prefix: 'staff')->group(callback: function (): void {

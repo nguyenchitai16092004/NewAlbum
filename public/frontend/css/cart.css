@@ -236,13 +236,16 @@ h1, h4, h5, p {
 }
 
 /* Phương thức thanh toán */
-.payment-methods-section {
-    text-align: center;
+.payment-methods {
+    display: flex;
+    justify-content: flex-start; /* Căn về bên trái */
+    align-items: center;         /* Căn giữa theo chiều dọc */
+    gap: 15px;                   /* Khoảng cách giữa các biểu tượng */
+    padding: 10px;  
 }
 
 .payment-methods {
     display: flex;
-    justify-content: center;
     gap: 10px;
 }
 

@@ -23,41 +23,41 @@
             <div class="card">
                 <h2>Account Information</h2>
                 <div class="info">
-                    <div class="field field-name">
+                    <div class="field field-name name">
                         <label>Full name</label>
                         <span>Nguyen Mai Xuan Phu</span>
                     </div>
-                    <div class="field">
+                    <div class="field field-name phone">
                         <label>Phone number</label>
                         <span>0387159716</span>
                     </div>
-                    <div class="field">
+                    <div class="field field-name ">
                         <label>Sex</label>
-                        <div>
+                        <div class="field-name sex">
                             <input type="radio" id="male" name="sex" checked>
                             <label class="male" for="male">Male</label>
                             <input type="radio" id="female" name="sex">
                             <label class="female" for="female">Female</label>
                         </div>
                     </div>
-                    <div class="field">
+                    <div class="field field-name">
                         <label>Birthday</label>
                         <span>27/09/2004</span>
                     </div>
-                    <div class="field">
+                    <div class="field field-name">
                         <label>Address</label>
                         <span>860/35 Huynh Tan Phat Quan 7</span>
                     </div>
-                    <button class="update-btn">Update</button>
+                    <button class="update-btn" style="">Update</button>
                 </div>
                 <div class="card-2">
                 <h2>Login Information</h2>
                 <div class="info">
-                    <div class="field">
+                    <div class="field field-name email">
                         <label>Email</label>
                         <span>0306221264@caothang.edu.vn</span>
                     </div>
-                    <div class="field">
+                    <div class="field field-name">
                         <label>Password</label>
                         <span>*************</span>
                     </div>

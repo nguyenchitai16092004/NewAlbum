@@ -4,7 +4,7 @@
 @section('main')
 <link rel="stylesheet" href="css/cart.css">
 <div class="favorites">
-    <h1 style="text-align: center">Your Cart</h1>
+    <h1 style="text-align: center;margin-top:100px">Your Cart</h1>
 </div>
 
 <div class="cart-container">
@@ -63,16 +63,6 @@
             <p>1,827,680 VNĐ</p>
         </div>
         <button class="checkout">CHECK OUT</button>
-        <div class="payment-methods">
-            <img src="img/product-img/cash.jpg" alt="COD">
-            <img src="img/product-img/vnpay.jpg" alt="VNPay">
-        </div>
-        <div class="terms">
-            <label for="terms">
-                <input type="checkbox" id="terms">
-                I agree with the Terms and Conditions.
-            </label>
-        </div>
     </div>
 </div>
 
