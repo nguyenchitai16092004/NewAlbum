@@ -1,0 +1,105 @@
+.container-account{
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+.ctn-account {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    background-color: black;
+    color: white;
+    height: 55px;
+}
+
+.header h1 {
+    color: white;
+}
+.ctn-account p{
+    text-align: center;
+}
+
+.navigation ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.navigation li {
+    margin: 0 15px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.navigation a.active {
+    color: black;
+    border-bottom: 2px solid black;
+}
+.ctn-account-2 {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+}
+.card h2 {
+    text-align: center;
+}
+.field-name{
+    display: flex;
+}
+
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.field {
+    margin-bottom: 10px;
+}
+
+.field label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.field span {
+    display: block;
+    font-size: 16px;
+    color: #555;
+}
+
+button.update-btn {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    margin-top: 10px;
+    align-self: flex-start;
+}
+
+button.update-btn:hover {
+    background-color: rgb(104, 102, 102);
+}

@@ -105,7 +105,9 @@ Route::get('/search', function () {
 Route::get('/rating-product', function () {
     return view('frontend.pages.rating-product');
 });
-
+Route::get('/account', function () {
+    return view('frontend.pages.account');
+});
 
 Route::prefix('/admin')->group(function () {
 
