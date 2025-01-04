@@ -1,0 +1,41 @@
+.regular-page-content-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.regular-page-content-wrapper .regular-page-text h2 {
+    font-size: 30px;
+    line-height: 1.5;
+    margin-bottom: 50px;
+}
+
+.regular-page-content-wrapper .regular-page-text p {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 50px;
+}
+
+.regular-page-content-wrapper .regular-page-text blockquote {
+    margin-bottom: 50px;
+}
+
+.regular-page-content-wrapper .regular-page-text blockquote h6 {
+    font-size: 18px;
+    line-height: 2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.regular-page-content-wrapper .regular-page-text blockquote h6 i {
+    margin-right: 30px;
+    font-size: 30px;
+    color: #0315ff;
+}
+
+.regular-page-content-wrapper .regular-page-text blockquote span {
+    margin-left: 60px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+}

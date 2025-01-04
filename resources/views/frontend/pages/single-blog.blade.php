@@ -1,6 +1,7 @@
 @extends('frontend.layouts.master')
 @section('This page is the Single-Blog.', 'Single-Blog')
 @section('main')
+<link rel="stylesheet" href="css/singleblog.css">
     <!-- ##### Right Side Cart Area ##### -->
     <div class="cart-bg-overlay"></div>
 
