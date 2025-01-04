@@ -1,6 +1,7 @@
 @extends('frontend.layouts.master')
 @section('This page is the Shop.', 'Shop')
 @section('main')
+<link rel="stylesheet" href="css/pagination.css">
     <!-- ##### Right Side Cart Area ##### -->
     <div class="cart-bg-overlay"></div>
 
