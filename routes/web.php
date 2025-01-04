@@ -99,6 +99,13 @@ Route::get('/search', function () {
     return view('frontend.pages.search');
 });
 
+Route::get('/search', function () {
+    return view('frontend.pages.search');
+});
+Route::get('/rating-product', function () {
+    return view('frontend.pages.rating-product');
+});
+
 
 Route::prefix('/admin')->group(function () {
 
