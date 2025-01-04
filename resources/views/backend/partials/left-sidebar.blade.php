@@ -89,7 +89,7 @@
                         </a>
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
                             <li><a href="{{ Route('Index_Goods') }}"><span class="mini-sub-pro">Goods-Receipt</span></a></li>
-                            <li><a href="{{ asset('admin/add-product') }}"><span class="mini-sub-pro">Add Goods-Receipt</span></a></li>
+                            <li><a href="{{ Route('Add_Index') }}"><span class="mini-sub-pro">Add Goods-Receipt</span></a></li>
                         </ul>
                     </li>
                     <li>
