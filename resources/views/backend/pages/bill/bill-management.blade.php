@@ -17,6 +17,7 @@
                                     <th>Total Price</th>
                                     <th>Payment Method</th>
                                     <th>Payment Status</th>
+                                    <th>Detail</th>
                                 </tr>  
                             </table>
                         </div>
