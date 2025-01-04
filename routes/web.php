@@ -157,6 +157,24 @@ Route::prefix('/admin')->group(function () {
     });
     // Route cho thống kê
     Route::view('/statistic', 'backend.pages.statistic');
+    //Route cho quản lý đội ngũ
+    Route::prefix(prefix: 'staff')->group(callback: function (): void {
+        Route::view('/staff-management', 'backend.pages.staff.staff-management')->name('Index_Staff_Management');
+        //Thêm 
+        Route::view('/add-staff-management', 'backend.pages.staff.add-staff-management')->name('Index_Add_Staff_Management');
+    });
+
+    // Route cho quản lý hóa đơn
+    Route::prefix(prefix: 'bill-management')->group(callback: function (): void {
+        Route::view('/bill-management', 'backend.pages.bill.bill-management')->name('Index_Bill_Management');
+        //Chi tiết
+        Route::view('/bill-detail-management', 'backend.pages.bill.bill-detail-management')->name('Index_Bill_Detail_Management');
+    });
+
+    // Route cho quản lý bình luận
+    Route::prefix(prefix: 'comments')->group(callback: function (): void {
+        Route::view('/commments-management', 'backend.pages.comments.comments-management')->name('Index_Comments_Management');
+    });
 
     //Route cho quản lý đội ngũ
     Route::prefix(prefix: 'staff')->group(callback: function (): void {
