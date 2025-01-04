@@ -151,24 +151,13 @@ Route::prefix('/admin')->group(function () {
         // Xóa loại sản phẩm
         Route::delete('/delete/{id}', [CategoryController::class, 'Delete'])->name('Delete_Category');
     });
+
     // Route cho phiếu nhập
     Route::prefix('goods-receipt')->group(function(){
         Route::get('/',[GoodController::class,'Index'])->name('Index_Goods');
         //Thêm sản phẩm
         Route::view('/add-good','backend.pages.goods-receipt.add-goods-receipt-management')->name('Add_Index');
         Route::get('/add',[GoodController::class,'Add'])->name('Add_Good');
-    });
-
-    // Route cho quản lý hóa đơn
-    Route::prefix(prefix: 'bill-management')->group(callback: function (): void {
-        Route::view('/bill-management', 'backend.pages.bill.bill-management')->name('Index_Bill_Management');
-        //Chi tiết
-        Route::view('/bill-detail-management', 'backend.pages.bill.bill-detail-management')->name('Index_Bill_Detail_Management');
-    });
-
-    // Route cho quản lý bình luận
-    Route::prefix(prefix: 'comments')->group(callback: function (): void {
-        Route::view('/commments-management', 'backend.pages.comments.comments-management')->name('Index_Comments_Management');
     });
 
     //Route cho quản lý đội ngũ
@@ -200,5 +189,11 @@ Route::prefix('/admin')->group(function () {
         Route::view('/blog-management', 'backend.pages.blog.blog-management')->name('Index_Blog_Management');
         Route::view('/add-blog-management', 'backend.pages.blog.add-blog-management')->name('Index_Add_Blog_Management');
         Route::view('/edit-blog-management', 'backend.pages.blog.edit-blog-management')->name('Index_Edit_Blog_Management');
+    });
+
+    //Route cho quản lý liên hệ từ khách hàng
+    Route::prefix(prefix: 'contact')->group(callback: function (): void {
+        Route::view('/contact-management', 'backend.pages.contact.contact-management')->name('Index_Contact_Management');
+        Route::view('/response-contact-management', 'backend.pages.contact.response-contact-management')->name('Index_Response_Contact_Management');
     });
 });
