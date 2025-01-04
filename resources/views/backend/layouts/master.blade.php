@@ -74,7 +74,8 @@
   <link rel="stylesheet" href="css/header.css">
   <!-- custom-style
   ============================================ -->
-  <link rel="stylesheet" href="css/custom-style-addstaff.css">
+  <link rel="stylesheet" href="/css/custom-style-addstaff.css">
+
 </head>
 
 <body>
