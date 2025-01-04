@@ -4,7 +4,7 @@
     <a href="#" id="userIcon"><img src="img/core-img/user.svg" alt="User"></a>
     <div id="userOptions" class="dropdown-user">
         <ul>
-            <li><a href="{{ asset('/profile') }}">Profile</a></li>
+            <li><a href="{{ asset('/account') }}">Profile</a></li>
             <li><a href="{{ asset('/') }}" id="loginButton">Login</a>
                 <!-- Popup Đăng nhập-->
                 <div id="loginPopup" class="popup">
