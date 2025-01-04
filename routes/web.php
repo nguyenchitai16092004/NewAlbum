@@ -33,7 +33,6 @@ Route::get('/regular-page', function () {
 });
 Route::get('/contact', function () {
     return view('frontend.pages.contact');
-
 });
 Route::get('/about-us', function () {
     return view('frontend.pages.about-us');
@@ -154,36 +153,41 @@ Route::prefix('/admin')->group(function () {
     });
 
     // Route cho phiếu nhập
-    Route::prefix('goods-receipt')->group(function(){
-        Route::get('/',[GoodController::class,'Index'])->name('Index_Goods');
+    Route::prefix('goods-receipt')->group(function () {
+        Route::get('/', [GoodController::class, 'Index'])->name('Index_Goods');
     });
-
-    // Route cho liên hệ
-    Route::view('/contact', 'backend.pages.contact');
-
-    // Route cho đơn hàng
-    Route::view('/bill', 'backend.pages.bill');
-
-    // Route cho bình luận
-    Route::view('/comments', 'backend.pages.comments');
 
     // Route cho thống kê
     Route::view('/statistic', 'backend.pages.statistic');
 
+    //Route cho quản lý đội ngũ
+    Route::prefix(prefix: 'staff')->group(callback: function (): void {
+        Route::view('/staff-management', 'backend.pages.staff.staff-management')->name('Index_Staff_Management');
+        //Thêm 
+        Route::view('/add-staff-management', 'backend.pages.staff.add-staff-management')->name('Index_Add_Staff_Management');
+    });
+
+    // Route cho quản lý hóa đơn
+    Route::prefix(prefix: 'bill-management')->group(callback: function (): void {
+        Route::view('/bill-management', 'backend.pages.bill.bill-management')->name('Index_Bill_Management');
+        //Chi tiết
+        Route::view('/bill-detail-management', 'backend.pages.bill.bill-detail-management')->name('Index_Bill_Detail_Management');
+    });
+
+    // Route cho quản lý bình luận
+    Route::prefix(prefix: 'comments')->group(callback: function (): void {
+        Route::view('/commments-management', 'backend.pages.comments.comments-management')->name('Index_Comments_Management');
+    });
+
     //Route cho quản lý khách hàng
-    Route::view(uri: '/customer-management', view: 'backend.pages.customer.customer-management');
-    Route::view(uri: '/add-customer-management', view: 'backend.pages.customer.add-customer-management');
-    Route::view(uri: '/edit-customer-management', view: 'backend.pages.customer.edit-customer-management');
+    Route::prefix(prefix: 'customer')->group(callback: function (): void {
+        Route::view('/customer-management', 'backend.pages.customer.customer-management')->name('Index_Customer_Management');
+    });
 
-    //Route cho quản lý nhân viên
-    Route::view(uri: '/staff-management', view: 'backend.pages.staff.staff-management');
-    Route::view(uri: '/add-staff-management', view: 'backend.pages.staff.add-staff-management');
-    Route::view(uri: '/edit-staff-management', view: 'backend.pages.staff.edit-staff-management');
-    // Route cho đơn hàng
-    Route::view('/orders', 'backend.pages.orders');
-
-    // Route cho liên hệ
-    Route::view('/contact', 'backend.pages.contact');
-
-    
+    //Route cho quản lý bài viết
+    Route::prefix(prefix: 'blog')->group(callback: function (): void {
+        Route::view('/blog-management', 'backend.pages.blog.blog-management')->name('Index_Blog_Management');
+        Route::view('/add-blog-management', 'backend.pages.blog.add-blog-management')->name('Index_Add_Blog_Management');
+        Route::view('/edit-blog-management', 'backend.pages.blog.edit-blog-management')->name('Index_Edit_Blog_Management');
+    });
 });

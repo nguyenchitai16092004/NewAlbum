@@ -16,7 +16,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" aria-expanded="false">
+                        <a href="{{ Route('Index_Customer_Management') }}" aria-expanded="false">
                             <span class="fa fa-users icon-wrap"></span>
                             <span class="mini-click-non">Customers</span>
                         </a>
@@ -29,10 +29,35 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ asset('admin/bill') }}" aria-expanded="false">
+                        <a class="has-arrow" href="#" aria-expanded="false">
                             <span class="fa fa-file icon-wrap"></span>
-                            <span class="mini-click-non">Bill Management</span>
+                            <span class="mini-click-non">Bill</span>
                         </a>
+                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
+                            <li>
+                                <a href="{{ Route('Index_Bill_Management') }}"><span class="mini-sub-pro">Bill Management</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ Route('Index_Bill_Detail_Management') }}"><span class="mini-sub-pro">Bill Detail Management</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="#" aria-expanded="false">
+                            <span class="fa fa-newspaper icon-wrap"></span>
+                            <span class="mini-click-non">Blog</span>
+                        </a>
+                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
+                            <li>
+                                <a href="{{ Route('Index_Blog_Management') }}"><span class="mini-sub-pro">Blog Management</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ Route('Index_Add_Blog_Management') }}"><span class="mini-sub-pro">Add Blog</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ Route('Index_Edit_Blog_Management') }}"><span class="mini-sub-pro">Edit Blog</span></a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="{{ asset('admin/statistic') }}" aria-expanded="false">
@@ -41,7 +66,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ asset('admin/comments') }}" aria-expanded="false">
+                        <a href="{{ Route('Index_Comments_Management') }}" aria-expanded="false">
                             <span class="fa fa-comments icon-wrap"></span>
                             <span class="mini-click-non">Comments</span>
                         </a>
@@ -49,13 +74,15 @@
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false">
                             <span class="bi bi-person-gear icon-wrap"></span>
-                            <span class="mini-click-non">Staff</span>
+                            <span class="mini-click-non">Staff </span>
                         </a>
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li><a href="{{ asset('admin/staff-management') }}"><span class="mini-sub-pro">Staff
-                                        Management</span></a></li>
-                            <li><a href="{{ asset('admin/add-staff-management') }}"><span class="mini-sub-pro">Add
-                                        Staff</span></a></li>
+                            <li>
+                                <a href="{{ Route('Index_Staff_Management') }}"><span class="mini-sub-pro">Staff Management</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ Route('Index_Add_Staff_Management') }}"><span class="mini-sub-pro">Add Staff Management</span></a>
+                            </li>
                         </ul>
                     </li>
                     <li>
