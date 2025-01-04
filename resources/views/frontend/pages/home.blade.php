@@ -47,14 +47,14 @@
             <div class="prod-2">
                 <div class="img-prod">
                     <img src="img/product-img/prod1.jpg" alt="">
-                </div>
-                <div class="name-pro np-1 ctn-desc">
-                    <div class="product-description">
-                        <a href="single-product-details.html">
-                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
-                        </a>
-                        <div class="pre-oder-new-arrivals">
-                            <span>Pre&ndash;oder</span>
+                    <div class="name-pro np-1 ctn-desc">
+                        <div class="product-description">
+                            <a href="single-product-details.html">
+                                <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
+                            </a>
+                            <div class="pre-oder-new-arrivals">
+                                <span>Pre&ndash;oder</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -62,14 +62,14 @@
             <div class="prod-3">
                 <div class="img-prod">
                     <img src="img/product-img/prod1.jpg" alt="">
-                </div>
-                <div class="name-pro np-1 ctn-desc">
-                    <div class="product-description">
-                        <a href="single-product-details.html">
-                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
-                        </a>
-                        <div class="pre-oder-new-arrivals">
-                            <span>Pre&ndash;oder</span>
+                    <div class="name-pro np-1 ctn-desc">
+                        <div class="product-description">
+                            <a href="single-product-details.html">
+                                <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
+                            </a>
+                            <div class="pre-oder-new-arrivals">
+                                <span>Pre&ndash;oder</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -94,14 +94,14 @@
             <div class="prod-2">
                 <div class="img-prod">
                     <img src="img/product-img/prod1.jpg" alt="">
-                </div>
-                <div class="name-pro np-1 ctn-desc">
-                    <div class="product-description">
-                        <a href="single-product-details.html">
-                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
-                        </a>
-                        <div class="pre-oder-new-arrivals">
-                            <span>Pre&ndash;oder</span>
+                    <div class="name-pro np-1 ctn-desc">
+                        <div class="product-description">
+                            <a href="single-product-details.html">
+                                <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
+                            </a>
+                            <div class="pre-oder-new-arrivals">
+                                <span>Pre&ndash;oder</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -109,20 +109,19 @@
             <div class="prod-3">
                 <div class="img-prod">
                     <img src="img/product-img/prod1.jpg" alt="">
-                </div>
-                <div class="name-pro np-1 ctn-desc">
-                    <div class="product-description">
-                        <a href="single-product-details.html">
-                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
-                        </a>
-                        <div class="pre-oder-new-arrivals">
-                            <span>Pre&ndash;oder</span>
+                    <div class="name-pro np-1 ctn-desc">
+                        <div class="product-description">
+                            <a href="single-product-details.html">
+                                <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
+                            </a>
+                            <div class="pre-oder-new-arrivals">
+                                <span>Pre&ndash;oder</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </section>
     <!-- ##### New Arrivals Area Start ##### -->
     <section class="new_arrivals_area section-padding-80 clearfix">
