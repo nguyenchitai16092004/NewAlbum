@@ -1,0 +1,25 @@
+h1{
+    position: relative;
+    top: 30px;
+}
+
+/* search */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    gap: 10px
+}
+
+.search-bar input {
+    width: 40%;
+    margin-bottom: 0%;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+}
+
+.search-bar button {
+    width: 100px;
+    flex: none;
+}

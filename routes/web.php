@@ -2,16 +2,11 @@
 
 
 use App\Http\Controllers\BandController;
-
-
 use App\Http\Controllers\ProductController;
-
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\GoodController;
 
 use Illuminate\Support\Facades\Route;
-use PHPUnit\Framework\Attributes\Group;
-
-/*Route FE */
 
 /*Route FE */
 
@@ -38,17 +33,80 @@ Route::get('/regular-page', function () {
 });
 Route::get('/contact', function () {
     return view('frontend.pages.contact');
-
 });
-//Back end
-
+Route::get('/about-us', function () {
+    return view('frontend.pages.about-us');
 });
 Route::get('/wishlist', function () {
     return view('frontend.pages.wishlist');
 });
+Route::get('/popup', function () {
+    return view('frontend.partials.popup.popup');
+});
+Route::get('/cart', function () {
+    return view('frontend.pages.cart');
+});
+Route::get('/single-product-details', function () {
+    return view('frontend.pages.single-product-details');
+});
+Route::get('/new-arrival', function () {
+    return view('frontend.pages.new-arrival');
+});
+Route::get('/get-up-50', function () {
+    return view('frontend.pages.get-up-50');
+});
+Route::get('/pre-oders', function () {
+    return view('frontend.pages.pre-oders');
+});
+Route::get('/our-blog-post', function () {
+    return view('frontend.pages.our-blog-post');
+});
+Route::get('/oder-history', function () {
+    return view('frontend.pages.oder-history');
+});
+Route::get('/new-arrival', function () {
+    return view('frontend.pages.new-arrival');
+});
+Route::get('/get-up-50', function () {
+    return view('frontend.pages.get-up-50');
+});
+Route::get('/pre-oders', function () {
+    return view('frontend.pages.pre-oders');
+});
+Route::get('/our-blog-post', function () {
+    return view('frontend.pages.our-blog-post');
+});
+Route::get('/oder-history', function () {
+    return view('frontend.pages.oder-history');
+});
+Route::get('/new-arrival', function () {
+    return view('frontend.pages.new-arrival');
+});
+Route::get('/get-up-50', function () {
+    return view('frontend.pages.get-up-50');
+});
+Route::get('/pre-oders', function () {
+    return view('frontend.pages.pre-oders');
+});
+Route::get('/our-blog-post', function () {
+    return view('frontend.pages.our-blog-post');
+});
+Route::get('/oder-history', function () {
+    return view('frontend.pages.oder-history');
+});
+Route::get('/search', function () {
+    return view('frontend.pages.search');
+});
 
-//Back end
-
+Route::get('/search', function () {
+    return view('frontend.pages.search');
+});
+Route::get('/rating-product', function () {
+    return view('frontend.pages.rating-product');
+});
+Route::get('/account', function () {
+    return view('frontend.pages.account');
+});
 
 Route::prefix('/admin')->group(function () {
 
@@ -93,24 +151,10 @@ Route::prefix('/admin')->group(function () {
         // Xóa loại sản phẩm
         Route::delete('/delete/{id}', [CategoryController::class, 'Delete'])->name('Delete_Category');
     });
-
-<<<<<<< Updated upstream
-    // Route cho liên hệ
-    Route::view('/contact', 'backend.pages.contact');
-
-    // Route cho đơn hàng
-    Route::view('/bill', 'backend.pages.bill');
-
-    // Route cho bình luận
-    Route::view('/comments', 'backend.pages.comments');
-
-=======
     // Route cho phiếu nhập
-    Route::prefix('goods-receipt')->group(function(){
-        Route::get('/',[GoodController::class,'Index'])->name('Index_Goods');
+    Route::prefix('goods-receipt')->group(function () {
+        Route::get('/', [GoodController::class, 'Index'])->name('Index_Goods');
     });
-        
->>>>>>> Stashed changes
     // Route cho thống kê
     Route::view('/statistic', 'backend.pages.statistic');
 
@@ -121,17 +165,6 @@ Route::prefix('/admin')->group(function () {
         Route::view('/add-staff-management', 'backend.pages.staff.add-staff-management')->name('Index_Add_Staff_Management');
     });
 
-<<<<<<< Updated upstream
-    //Route cho quản lý nhân viên
-    Route::view(uri: '/staff-management', view: 'backend.pages.staff.staff-management');
-    Route::view(uri: '/add-staff-management', view: 'backend.pages.staff.add-staff-management');
-    Route::view(uri: '/edit-staff-management', view: 'backend.pages.staff.edit-staff-management');
-    // Route cho đơn hàng
-    Route::view('/orders', 'backend.pages.orders');
-
-    // Route cho liên hệ
-    Route::view('/contact', 'backend.pages.contact');
-=======
     // Route cho quản lý hóa đơn
     Route::prefix(prefix: 'bill-management')->group(callback: function (): void {
         Route::view('/bill-management', 'backend.pages.bill.bill-management')->name('Index_Bill_Management');
@@ -143,17 +176,16 @@ Route::prefix('/admin')->group(function () {
     Route::prefix(prefix: 'comments')->group(callback: function (): void {
         Route::view('/commments-management', 'backend.pages.comments.comments-management')->name('Index_Comments_Management');
     });
-    
+
     //Route cho quản lý khách hàng
-     Route::prefix(prefix: 'customer')->group(callback: function (): void {
+    Route::prefix(prefix: 'customer')->group(callback: function (): void {
         Route::view('/customer-management', 'backend.pages.customer.customer-management')->name('Index_Customer_Management');
-     });
+    });
 
     //Route cho quản lý bài viết
     Route::prefix(prefix: 'blog')->group(callback: function (): void {
-    Route::view('/blog-management', 'backend.pages.blog.blog-management')->name('Index_Blog_Management');
-    Route::view('/add-blog-management', 'backend.pages.blog.add-blog-management')->name('Index_Add_Blog_Management');
-    Route::view('/edit-blog-management', 'backend.pages.blog.edit-blog-management')->name('Index_Edit_Blog_Management');
+        Route::view('/blog-management', 'backend.pages.blog.blog-management')->name('Index_Blog_Management');
+        Route::view('/add-blog-management', 'backend.pages.blog.add-blog-management')->name('Index_Add_Blog_Management');
+        Route::view('/edit-blog-management', 'backend.pages.blog.edit-blog-management')->name('Index_Edit_Blog_Management');
     });
->>>>>>> Stashed changes
 });

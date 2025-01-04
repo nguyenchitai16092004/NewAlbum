@@ -1,137 +1,140 @@
 @extends('frontend.layouts.master')
 @section('This page is the Detail-Product.', 'Detail-Product')
 @section('main')
-    <!-- ##### Right Side Cart Area ##### -->
-    <div class="cart-bg-overlay"></div>
-
-    <div class="right-side-cart-area">
-
-        <!-- Cart Button -->
-        <div class="cart-button">
-            <a href="#" id="rightSideCart"><img src="img/core-img/bag.svg" alt=""> <span>3</span></a>
-        </div>
-
-        <div class="cart-content d-flex">
-
-            <!-- Cart List Area -->
-            <div class="cart-list">
-                <!-- Single Cart Item -->
-                <div class="single-cart-item">
-                    <a href="#" class="product-image">
-                        <img src="img/product-img/product-1.jpg" class="cart-thumb" alt="">
-                        <!-- Cart Item Desc -->
-                        <div class="cart-item-desc">
-                            <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                            <span class="badge">Mango</span>
-                            <h6>Button Through Strap Mini Dress</h6>
-                            <p class="size">Size: S</p>
-                            <p class="color">Color: Red</p>
-                            <p class="price">$45.00</p>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Cart Item -->
-                <div class="single-cart-item">
-                    <a href="#" class="product-image">
-                        <img src="img/product-img/product-2.jpg" class="cart-thumb" alt="">
-                        <!-- Cart Item Desc -->
-                        <div class="cart-item-desc">
-                            <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                            <span class="badge">Mango</span>
-                            <h6>Button Through Strap Mini Dress</h6>
-                            <p class="size">Size: S</p>
-                            <p class="color">Color: Red</p>
-                            <p class="price">$45.00</p>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Cart Item -->
-                <div class="single-cart-item">
-                    <a href="#" class="product-image">
-                        <img src="img/product-img/product-3.jpg" class="cart-thumb" alt="">
-                        <!-- Cart Item Desc -->
-                        <div class="cart-item-desc">
-                            <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                            <span class="badge">Mango</span>
-                            <h6>Button Through Strap Mini Dress</h6>
-                            <p class="size">Size: S</p>
-                            <p class="color">Color: Red</p>
-                            <p class="price">$45.00</p>
-                        </div>
-                    </a>
+    <link rel="stylesheet" href="css/single-product-details.css">
+    <div class="container-detail-product">
+        <div class="product-detail-container">
+            <h1 class="product-name">Name Product</h1>
+            <div class="product-images">
+                <div class="image-grid">
+                    <img src="img/product-img/prod1.jpg" alt="Version 1">
                 </div>
             </div>
+            <div class="product-info">
+                <p class="short-description">Short description of the product</p>
+                <div class="product-versions">
+                    <span>Ver:</span><br>
+                    <button>Version 1</button>
+                    <button>Version 2</button>
+                    <button>Version 3</button>
+                    <button>Version 4</button>
+                </div>
+                <p class="product-status">Status: <span>2 in stock</span></p>
+                <p class="product-price">Price: <span>487.555 VND</span></p>
+                <div class="quantity-selector">
+                    <label for="quantity">Quantity:</label>
+                    <div class="quantity-container">
+                        <button class="decrease">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button class="increase">+</button>
+                    </div>
+                </div>
+                <button class="add-to-cart">ADD TO CART →</button>
+                <div class="wishlist">
+                    <a href="#" onclick="toggleHeart(event)" style="">
+                        <i class="fa-regular fa-heart" id="heartIcon" style="transition: color 0.3s;"></i>WishList
+                    </a>
+                </div>
+                <hr>
+                <script>
+                    function toggleHeart(event) {
+                        event.preventDefault();
+                        const heart = document.getElementById('heartIcon');
+                        if (heart.classList.contains('fa-regular')) {
+                            heart.classList.remove('fa-regular');
+                            heart.classList.add('fa-solid');
+                            heart.style.color = 'red';
+                        } else {
+                            heart.classList.remove('fa-solid');
+                            heart.classList.add('fa-regular');
+                            heart.style.color = '';
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="container-desc">
+            <div class="product-description">
+                <h2>Description</h2>
+                <hr>
+            </div>
+            <h1 class="title">BLACKPINK THE ALBUM Boxset</h1>
+            <div class="subtitle">The standard Lorem Ipsum passage, used since the 1500s</div>
+            <div class="description">
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                est
+                laborum."
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci sint totam, harum accusantium nesciunt
+                minus,
+                possimus eligendi quasi rem eius a et ratione ipsum pariatur, in quia ullam iure unde.
+            </div>
+            <div class="desc-img">
+                <img src="img/product-img/prod1.jpg" alt="Version 1">
+            </div>
+            <a href="#" class="desc-more">More</a>
+        </div>
+        <div class="review-section">
+            <div style="display: flex;gap: 10px;">
+                <h2>Review</h2>
+                <hr style="flex-grow: 1;">
+            </div>
+            <div class="container-review">
+                <div class="review-header">
+                    <div class="review-score">
+                        <div>4.0</div>
+                        <div class="star-rating">★★★★☆</div>
+                    </div>
+                </div>
 
-            <!-- Cart Summary -->
-            <div class="cart-amount-summary">
+                <div class="write-review">
+                    <div class="star-input">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <textarea placeholder="Write a review"></textarea>
 
-                <h2>Summary</h2>
-                <ul class="summary-table">
-                    <li><span>subtotal:</span> <span>$274.00</span></li>
-                    <li><span>delivery:</span> <span>Free</span></li>
-                    <li><span>discount:</span> <span>-15%</span></li>
-                    <li><span>total:</span> <span>$232.00</span></li>
-                </ul>
-                <div class="checkout-btn mt-100">
-                    <a href="checkout.html" class="btn essence-btn">check out</a>
+                </div>
+            </div>
+            <div class="all-reviews">
+                <h5>All reviews (0)</h5>
+                <div class="review-filters">
+                    <input type="text" class="filter-input" placeholder="Rank">
+                    <input type="text" class="filter-input" placeholder="Arrange">
+                </div>
+                <hr>
+            </div>
+        </div>
+
+        <div class="product-recommendations">
+            <h2 class="recommendations-title">You may also like these products</h2>
+            <hr>
+            <div class="recommendation-items">
+                <div class="recommendation-item">
+                    <div class="img-container">
+                        <img src="https://via.placeholder.com/280" alt="Product Image">
+                    </div>
+                    <a href="#">BLACKPINK - [BORN PINK] 2nd Album DIGIPACK ROSE Version</a>
+                    <p class="price">305.000 VND</p>
+                </div>
+                <div class="recommendation-item">
+                    <div class="img-container">
+                        <img src="https://via.placeholder.com/280" alt="Product Image">
+                    </div>
+                    <a href="#">BLACKPINK - [BORN PINK] 2nd Album DIGIPACK ROSE Version</a>
+                    <p class="price">305.000 VND</p>
+                </div>
+                <div class="recommendation-item">
+                    <div class="img-container">
+                        <img src="https://via.placeholder.com/280" alt="Product Image">
+                    </div>
+                    <a href="#">BLACKPINK - [BORN PINK] 2nd Album DIGIPACK ROSE Version</a>
+                    <p class="price">305.000 VND</p>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ##### Right Side Cart End ##### -->
-
-    <!-- ##### Single Product Details Area Start ##### -->
-    <section class="single_product_details_area d-flex align-items-center">
-
-        <!-- Single Product Thumb -->
-        <div class="single_product_thumb clearfix">
-            <div class="product_thumbnail_slides owl-carousel">
-                <img src="img/product-img/product-big-1.jpg" alt="">
-                <img src="img/product-img/product-big-2.jpg" alt="">
-                <img src="img/product-img/product-big-3.jpg" alt="">
-            </div>
-        </div>
-
-        <!-- Single Product Description -->
-        <div class="single_product_desc clearfix">
-            <span>mango</span>
-            <a href="cart.html">
-                <h2>One Shoulder Glitter Midi Dress</h2>
-            </a>
-            <p class="product-price"><span class="old-price">$65.00</span> $49.00</p>
-            <p class="product-desc">Mauris viverra cursus ante laoreet eleifend. Donec vel fringilla ante. Aenean
-                finibus velit id urna vehicula, nec maximus est sollicitudin.</p>
-
-            <!-- Form -->
-            <form class="cart-form clearfix" method="post">
-                <!-- Select Box -->
-                <div class="select-box d-flex mt-50 mb-30">
-                    <select name="select" id="productSize" class="mr-5">
-                        <option value="value">Size: XL</option>
-                        <option value="value">Size: X</option>
-                        <option value="value">Size: M</option>
-                        <option value="value">Size: S</option>
-                    </select>
-                    <select name="select" id="productColor">
-                        <option value="value">Color: Black</option>
-                        <option value="value">Color: White</option>
-                        <option value="value">Color: Red</option>
-                        <option value="value">Color: Purple</option>
-                    </select>
-                </div>
-                <!-- Cart & Favourite Box -->
-                <div class="cart-fav-box d-flex align-items-center">
-                    <!-- Cart -->
-                    <button type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button>
-                    <!-- Favourite -->
-                    <div class="product-favourite ml-4">
-                        <a href="#" class="favme fa fa-heart"></a>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </section>
-    <!-- ##### Single Product Details Area End ##### -->
 @stop

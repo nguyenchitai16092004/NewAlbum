@@ -1,0 +1,100 @@
+.container-oder-history{
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+.ctn-oder-history {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    background-color: black;
+    color: white;
+    height: 55px;
+}
+
+.header h1 {
+    color: white;
+}
+.ctn-oder-history p{
+    text-align: center;
+}
+
+.navigation ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.navigation li {
+    margin: 0 15px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.navigation a.active {
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+.content {
+    margin-top: 20px;
+}
+.ctn-order{
+    display: flex;
+    column-gap: 4vw;
+}
+
+.order-status ul {
+    list-style: none;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.order-status li {
+    margin-right: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.order-status .active {
+    color: black;
+    font-weight: bold;
+}
+
+.order-table {
+    width: 70vw;
+}
+
+.order-table th,
+.order-table td {
+    padding: 30px;
+    text-align: center;
+}
+.order-table th{
+font-weight: bold;
+font-size: 20px;
+}
+.vertical-line {
+    width: 1px;
+    height: 70vh;
+    background-color: #000;
+    margin-top: 70px;
+}
+.quantity, .price-oh, .total, .name {
+    font-weight: bold;
+}

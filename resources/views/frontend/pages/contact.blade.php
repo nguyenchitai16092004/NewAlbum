@@ -81,10 +81,9 @@
         </div>
     </div>
     <!-- ##### Right Side Cart End ##### -->
-    <h1 class="contact-header">Contact</h1>
-    <div class="contact-area d-flex align-items-center" >
-
-        <div class="form" style="margin-top: 50px">
+    <h1 class="contact-header" style="margin-top: 100px">Contact</h1>
+    <div class="contact-area d-flex align-items-center" style="margin-top: 10px">
+        <div class="form">
             <form>
                 <input type="text" placeholder="Name" required>
                 <input type="email" placeholder="Email" required>
@@ -93,7 +92,6 @@
                 <button type="submit">Send</button>
             </form>
         </div>
-
         <div class="contact-info">
         <h2>How to Find Us</h2>
         <div>
