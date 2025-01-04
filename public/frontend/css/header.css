@@ -253,6 +253,11 @@
 .logo {
     width: 100%;
 }
+@media only screen and (max-width: 767px) {
+    .logo {
+        width: 30%;
+    }
+}
 .cart-bg-overlay.cart-bg-overlay-on {
     -webkit-transition-duration: 1000ms;
     transition-duration: 1000ms;
