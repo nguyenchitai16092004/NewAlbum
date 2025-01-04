@@ -51,6 +51,8 @@
 .ctn-account-2 {
     width: 80%;
     margin: 20px auto;
+    position: relative;
+    bottom: 20px;
 }
 
 .card {
@@ -64,12 +66,31 @@
 }
 .field-name{
     display: flex;
+    column-gap: 20px;
+}
+.field-name span{
+    margin-left: 80px;
+}
+.sex{
+    margin-left: 115px;
+}
+.phone span{
+    position: relative;
+    right: 40px;
+}
+.name span{
+    position: relative;
+    right: 10px;
+}
+.info{
+    margin-top: 30px;
 }
 
 
 .info {
     display: flex;
     flex-direction: column;
+    margin-left: 20vw;
 }
 
 .field {
@@ -96,10 +117,14 @@ button.update-btn {
     border-radius: 5px;
     cursor: pointer;
     width: 100px;
-    margin-top: 10px;
     align-self: flex-start;
+    display: block; 
+    margin: 50px 0 50px 250px;
 }
 
 button.update-btn:hover {
     background-color: rgb(104, 102, 102);
+}
+.email span{
+margin-left: 110px;
 }
