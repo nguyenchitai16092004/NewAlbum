@@ -1,0 +1,130 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Contact Header */
+.contact-header {
+    text-align: center;
+    color: #000;
+    margin-top: 50px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Contact Area */
+.contact-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+.form {
+    flex: 1;
+    margin-right: 40px;
+}
+
+.form input, .form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+.form button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form button:hover {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+/* Contact Info Styles */
+.contact-info {
+    flex: 1;
+    padding-left: 40px;
+    border-left: 3px solid #000;
+}
+
+.contact-info h2 {
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.contact-info div {
+    margin-bottom: 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.contact-info div i {
+    margin-right: 15px;
+    font-size: 1.5rem;
+    color: #000;
+}
+
+.contact-info p {
+    margin: 0;
+    color: #555;
+    font-weight: normal;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .contact-area {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .form {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .contact-info {
+        padding-left: 0;
+        border-left: none;
+    }
+}

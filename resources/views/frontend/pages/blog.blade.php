@@ -1,6 +1,8 @@
 @extends('frontend.layouts.master')
 @section('This page is the Blog.', 'Blog')
 @section('main')
+<link rel="stylesheet" href="css/pagination.css">
+<link rel="stylesheet" href="css/blog.css">
     <div class="cart-bg-overlay"></div>
     <div class="right-side-cart-area">
 
@@ -81,7 +83,7 @@
     <!-- ##### Right Side Cart End ##### -->
 
     <!-- ##### Breadcumb Area Start ##### -->
-    <div class="breadcumb_area breadcumb-style-two bg-img" style="background-image: url(img/bg-img/kpopblog.png);">
+    <div class="breadcumb_area breadcumb-style-two bg-img" style="background-image: url(img/core-img/kpop.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -93,8 +95,8 @@
         </div>
     </div>
     <!-- ##### Breadcumb Area End ##### -->
-    <div class="search-container" style="margin-top: 40px">
-        <input type="text" placeholder="Search...">
+    <div class="search-container" style="margin-top: 40px;display:flex;align-items: center;">
+        <input type="text" placeholder="Search..." style="margin:0;">
         <button type="submit">Submit</button>
     </div>
     <!-- ##### Blog Wrapper Area Start ##### -->
