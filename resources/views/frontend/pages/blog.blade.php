@@ -3,7 +3,6 @@
 @section('main')
 <link rel="stylesheet" href="css/pagination.css">
 <link rel="stylesheet" href="css/blog.css">
-    
     <!-- ##### Breadcumb Area Start ##### -->
     <div class="breadcumb_area breadcumb-style-two bg-img" style="background-image: url(img/core-img/kpop.jpg);">
         <div class="container h-100">

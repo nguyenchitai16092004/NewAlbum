@@ -97,6 +97,9 @@
     justify-content: center;
     margin-left: 25vw;
 }
+.navigation li a {
+    color: black;
+}
 .menu {
     width: 200px;
     padding: 10px;
@@ -128,4 +131,67 @@
 
 .menu.open .submenu {
     display: block;
+}
+@media only screen and (max-width: 767px) {
+    .container-th2-new-arrival {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+    .container-new-arrival {
+        padding: 20px;
+        margin-left: 20px;
+    }
+    .sidebar {
+        max-width: 100%;
+        padding-right: 10px;
+    }
+    .sidebar h1 {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+    .sidebar ul li span {
+        font-size: 16px;
+    }
+    .products {
+        flex-direction: column;
+        margin-left: 0;
+        gap: 5vw;
+    }
+    .product-card {
+        width: 100%;
+        height: auto;
+    }
+    .container-pc h3 {
+        font-size: 16px;
+        margin-left: 10px;
+    }
+    .container-pc p {
+        font-size: 14px;
+        margin-left: 10px;
+    }
+    .pagination {
+        margin-top: 15px;
+    }
+    .pagination a {
+        font-size: 16px;
+    }
+    .vertical-line {
+        height: 50vh;
+        margin: 0 10px;
+    }
+    .navigation {
+        margin-left: 0;
+        flex-wrap: wrap;
+    }
+    .menu {
+        width: 100%;
+        padding: 5px;
+    }
+    .menu-header {
+        font-size: 14px;
+        padding: 5px;
+    }
+    .submenu li {
+        font-size: 12px;
+    }
 }

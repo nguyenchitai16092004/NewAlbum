@@ -962,20 +962,9 @@
                             </div>
                             <!-- Product Description -->
                             <div class="product-description">
-                                <div class="pre-oder-new-arrivals">
-                                    <span>Pre&ndash;oder</span>
-                                </div>
                                 <a href="single-product-details.html">
                                     <h6>[Pre-oder]Born Pink (Gray Ver)</h6>
                                 </a>
-                                <p class="product-price price">650.000 VND</p>
-                                <!-- Hover Content -->
-                                <div class="hover-content">
-                                    <!-- Add to Cart -->
-                                    <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">Add to Cart</a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
@@ -993,21 +982,29 @@
                             </div>
                             <!-- Product Description -->
                             <div class="product-description">
-                                <div class="pre-oder-new-arrivals">
-                                    <span>Pre&ndash;oder</span>
-                                </div>
                                 <a href="single-product-details.html">
                                     <h6>[Pre-oder]Born Pink (Gray Ver)</h6>
                                 </a>
-                                <p class="product-price price">650.000 VND</p>
+                            </div>
+                        </div>
 
-                                <!-- Hover Content -->
-                                <div class="hover-content">
-                                    <!-- Add to Cart -->
-                                    <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">Add to Cart</a>
-                                    </div>
+                        <!-- Single Product -->
+                        <div class="single-product-wrapper">
+                            <!-- Product Image -->
+                            <div class="product-img">
+                                <img src="img/product-img/blackpink-2nd.jpg" alt="">
+                                <!-- Hover Thumb -->
+                                <img class="hover-img" src="img/product-img/blackpink-2nd.jpg" alt="">
+                                <!-- Favourite -->
+                                <div class="product-favourite">
+                                    <a href="#" class="favme fa fa-heart"></a>
                                 </div>
+                            </div>
+                            <!-- Product Description -->
+                            <div class="product-description">
+                                <a href="single-product-details.html">
+                                    <h6>[Pre-oder]Born Pink (Gray Ver)</h6>
+                                </a>
                             </div>
                         </div>
 
@@ -1019,11 +1016,6 @@
                                 <!-- Hover Thumb -->
                                 <img class="hover-img" src="img/product-img/blackpink-2nd.jpg" alt="">
 
-                                <!-- Product Badge -->
-                                <div class="product-badge offer-badge">
-                                    <span>-30%</span>
-                                </div>
-
                                 <!-- Favourite -->
                                 <div class="product-favourite">
                                     <a href="#" class="favme fa fa-heart"></a>
@@ -1031,60 +1023,9 @@
                             </div>
                             <!-- Product Description -->
                             <div class="product-description">
-                                <div class="pre-oder-new-arrivals">
-                                    <span>Pre&ndash;oder</span>
-                                </div>
                                 <a href="single-product-details.html">
                                     <h6>[Pre-oder]Born Pink (Gray Ver)</h6>
                                 </a>
-                                <p class="product-price price"><span class="old-price">1.000.000 VND</span> 650.000 VND
-                                </p>
-
-                                <!-- Hover Content -->
-                                <div class="hover-content">
-                                    <!-- Add to Cart -->
-                                    <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">Add to Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product -->
-                        <div class="single-product-wrapper">
-                            <!-- Product Image -->
-                            <div class="product-img">
-                                <img src="img/product-img/blackpink-2nd.jpg" alt="">
-                                <!-- Hover Thumb -->
-                                <img class="hover-img" src="img/product-img/blackpink-2nd.jpg" alt="">
-
-                                <!-- Product Badge -->
-                                <div class="product-badge new-badge">
-                                    <span>New</span>
-                                </div>
-
-                                <!-- Favourite -->
-                                <div class="product-favourite">
-                                    <a href="#" class="favme fa fa-heart"></a>
-                                </div>
-                            </div>
-                            <!-- Product Description -->
-                            <div class="product-description">
-                                <div class="pre-oder-new-arrivals">
-                                    <span>Pre&ndash;oder</span>
-                                </div>
-                                <a href="single-product-details.html">
-                                    <h6>[Pre-oder]Born Pink (Gray Ver)</h6>
-                                </a>
-                                <p class="product-price price">650.000 VND</p>
-
-                                <!-- Hover Content -->
-                                <div class="hover-content">
-                                    <!-- Add to Cart -->
-                                    <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">Add to Cart</a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
