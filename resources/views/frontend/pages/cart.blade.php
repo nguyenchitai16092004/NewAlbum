@@ -2,6 +2,7 @@
 @section('title', 'Cart')
 @section('main')
 <link rel="stylesheet" href="css/cart.css">
+<link rel="stylesheet" href="css/pagination.css">
 <div class="favorites">
     <h1 style="text-align: center;margin-top:100px">Your Cart</h1>
 </div>
@@ -20,7 +21,7 @@
         </thead>
         <tbody>
             <tr>
-                <td><img src="img/product-img/BTS-Lightstick.jpg" alt="BTS Lightstick"></td>
+                <td><img src="img/product-img/BTS - Lightstick.jpg" alt="BTS Lightstick"></td>
                 <td>BTS Official Light Stick</td>
                 <td>1,827,680 VNĐ</td>
                 <td class="quantity-buttons">

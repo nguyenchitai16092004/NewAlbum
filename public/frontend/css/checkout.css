@@ -1,88 +1,89 @@
-.container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #000;
+.checkout_details_area form label {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
-h2 {
-    border-bottom: 1px solid #000;
-    padding-bottom: 5px;
+.checkout_details_area form label span {
+    color: #0315ff;
 }
 
-.section {
-    margin-bottom: 20px;
+.checkout_details_area form .form-control {
+    height: 42px;
+    border: 1px solid #ebebeb;
+    background-color: transparent;
+    border-radius: 0;
 }
 
-.form-group {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
+.checkout_details_area form .nice-select {
+    border-radius: 0;
+    border: 1px solid #ebebeb;
 }
 
-.form-group label {
-    flex: 1 0 20%;
-    font-weight: bold;
-}
-
-.form-group input {
-    flex: 1 0 75%;
-    padding: 8px;
-    border: 1px solid #000;
-    border-radius: 4px;
-}
-
-.note {
+.checkout_details_area form .nice-select .list {
     width: 100%;
-    margin-top: 10px;
+    border-radius: 0;
 }
 
-.payment-method {
+.order-details-confirmation {
+    width: 100%;
+    border: 2px solid #ebebeb;
+    padding: 40px;
+}
+
+@media only screen and (max-width: 767px) {
+    .order-details-confirmation {
+        margin-top: 100px;
+        padding: 20px;
+    }
+}
+
+.order-details-confirmation .order-details-form li {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
     align-items: center;
-    margin-bottom: 15px;
-}
-
-.payment-method img {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-}
-
-.cart-info {
-    border: 1px solid #000;
-    padding: 10px;
-}
-
-.cart-info table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.cart-info th, .cart-info td {
-    border: 1px solid #000;
-    padding: 8px;
-    text-align: left;
-}
-
-.buttons {
-    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 20px 0;
+    border-bottom: 2px solid #ebebeb;
+    font-weight: 600;
 }
 
-.buttons button {
-    padding: 10px 20px;
-    border: 1px solid #000;
-    background-color: #fff;
-    cursor: pointer;
+.order-details-confirmation .card-header h6 a {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 
-.buttons button:hover {
-    background-color: #000;
-    color: #fff;
+.order-details-confirmation .card-header h6 a i {
+    color: #9f9f9f;
 }
 
-.terms {
-    margin-top: 20px;
+.order-details-confirmation .card {
+    border: none;
+}
+
+.order-details-confirmation .card-header {
+    background-color: transparent;
+    border-bottom: none;
+}
+
+.order-details-confirmation .card-body p {
+    font-size: 12px;
+    line-height: 2;
+    color: #9f9f9f;
+}
+.btn-place-order:hover {
+    background-color: black;
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    transform: translateY(-2px); /* Lift button slightly */
 }
