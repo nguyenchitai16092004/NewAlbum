@@ -111,7 +111,6 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="terms">
                             <label for="terms"style="margin-left:16.5px">
                                 <input type="checkbox" id="terms" style="width: 13px;">
                                 I agree with the Terms and Conditions.
