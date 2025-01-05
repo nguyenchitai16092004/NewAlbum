@@ -4,12 +4,27 @@
     background-color: black;
     padding: 70px 0 60px;
 }
+.logo-footer {
+    width: 100px;
+    float: left;
+    position: relative;
+    right: 10px;
+}
+@media only screen and (max-width: 767px) {
+    .logo-footer {
+        width: 60%;
+        margin-left: 25px;
+    }
+    .footer_area .single_widget_area .footer_menu ul {
+        display: flex;
+        margin-left: 40px;
+    }
+}
 
 .footer_area .single_widget_area .footer_menu ul {
     display: flex;
-    margin-right: 180px;
+    margin-left: 200px;
 }
-
 .footer_area .single_widget_area .footer_menu ul li a {
     font-size: 15px;
     color: white;
@@ -17,6 +32,7 @@
     font-family: "Ubuntu", sans-serif;
     padding: 0 10px;
     text-transform: uppercase;
+    text-decoration: none;
 }
 
 .footer_area .single_widget_area .footer_menu ul li a:hover,
@@ -25,7 +41,7 @@
     font-size: 17px;
     color: #ffffff;
 }
-.footer_area .single_widget_area .footer_widget_menu{
+.footer_area .single_widget_area .footer_widget_menu {
     float: right;
 }
 .footer_area .single_widget_area .footer_widget_menu li {
@@ -52,12 +68,12 @@
     font-size: 14px;
 }
 
-
 .footer_area .single_widget_area .footer_heading h6 {
     color: #ffffff;
     font-size: 12px;
     text-transform: uppercase;
     margin-bottom: 0;
+    margin-left: 10px;
 }
 
 .footer_area .single_widget_area .subscribtion_form form {
@@ -65,12 +81,17 @@
     z-index: 1;
     width: 270px;
 }
-.footer_area .single_widget_area .subscribtion_form{
+.footer_area .single_widget_area .subscribtion_form {
     float: left;
 }
 @media only screen and (max-width: 767px) {
     .footer_area .single_widget_area .subscribtion_form form {
         margin-bottom: 50px;
+        margin-left: 20px;
+    }
+    .footer_area .single_widget_area .footer_heading h6 {
+        position: relative;
+        bottom: 55px;
     }
 }
 
@@ -82,7 +103,7 @@
     font-size: 12px;
     height: 35px;
     background-color: transparent;
-    outline: none; 
+    outline: none;
 }
 .footer_area .single_widget_area .subscribtion_form form input:focus {
     border-bottom-color: #ffffff;
@@ -108,4 +129,14 @@
     padding: 0 10px;
     font-size: 16px;
     float: right;
+}
+@media only screen and (max-width: 767px) {
+    .footer_area .single_widget_area .footer_social_area a img {
+        color: #ffffff;
+        display: inline-block;
+        font-size: 16px;
+        float: right;
+        position: relative;
+        right: 60px;
+    }
 }
