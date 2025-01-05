@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('frontend.pages.home');
 });
-Route::get('/shop', function () {
-    return view('frontend.pages.shop');
-});
 Route::get('/single-product-detail', function () {
     return view('frontend.pages.single-product-details');
 });
@@ -106,6 +103,9 @@ Route::get('/rating-product', function () {
 });
 Route::get('/account', function () {
     return view('frontend.pages.account');
+});
+Route::get('/popup', function () {
+    return view('frontend.partials.popup.popup');
 });
 
 Route::prefix('/admin')->group(function () {

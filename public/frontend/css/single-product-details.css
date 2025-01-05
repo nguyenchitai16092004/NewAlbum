@@ -1,323 +1,361 @@
-
-.container-detail-product{
-    font-family: Arial, sans-serif;
-    padding: 10px;
-}
-
-.product-detail-container {
+.container {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
 }
 
-.image-grid img {
-    width: 500px;
-    height: 500px;
-    border: 1px solid #ccc;
+.product-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px; 
+    align-items: flex-start;
+    margin: 20px;
 }
 
-.product-info {
-    flex: 1;
-    margin-left: 50px;
+.product-image1 {
+    flex: 1; 
+    text-align: center;
+
 }
 
-.product-name {
-    font-size: 50px;
+.product-image1 img {
+    width: 100%;
+    max-width: 300px; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.product-details {
+    flex: 2; 
+    padding-left: 20px;
+}
+
+.product-details h1 {
+    font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-.short-description {
-    font-size: 22px;
-    color: black;
-    margin-bottom: 20px;
-    font-weight: bold;
-    margin-left: 30px;
-}
-
-.product-versions {
-    margin-bottom: 15px;
-    color: black;
-    margin-left: 30px;
-}
-
-.product-versions span {
-    margin-right: 10px;
-    font-size: 18px;
-}
-.product-status span {
-    font-weight: bold;
-    margin-right: 10px;
-    color: black;
-    font-size: 18px;
-}
-.product-status {
-    color: black;
-    margin-left: 30px;
-}
-
-.product-versions button {
-    padding: 5px 10px;
-    margin-right: 5px;
-    margin-top: 15px;
-    background-color: rgb(198, 198, 198);
-    cursor: pointer;
-    color: black;
-    font-weight: bold;
-}
-
-.product-versions button:hover {
-    background-color: #ddd;
-}
-
-.product-status,
-.product-price {
-    font-size: 18px;
+.product-details p {
+    font-size: 14px;
     margin-bottom: 10px;
-    color: black;
-    margin-left: 30px;
 }
 
-.product-price span {
-    font-weight: bold;
-    color: #333;
-}
-
-.quantity-selector {
-    align-items: center;
+.versions {
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
-    margin-left: 30px;
 }
 
-.quantity-selector label {
-    font-size: 18px;
-}
-
-.quantity-selector .quantity-container button {
+.version-button {
     padding: 5px 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
+    border-radius: 3px;
     background-color: #f9f9f9;
     cursor: pointer;
-    color: black;
-    border: none;
-    outline: none;
+    transition: background-color 0.3s ease;
 }
 
-.quantity-selector .quantity-container button:hover {
-    background-color: #ddd;
+.version-button:hover {
+    background-color: #eaeaea;
 }
 
-.quantity-selector .quantity-container input {
-    width: 330px;
-    text-align: center;
-    border: 1px solid #ccc;
-    height: 32px;
-    border: none;
-    outline: none;
+.status-price {
+    margin-bottom: 20px;
 }
-.quantity-container {
-    border: 1px solid black;
-    height: 35px;
-    width: 400px;
+
+.quantity input {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
 }
 
 .add-to-cart {
-    background-color: black;
-    color: white;
+    display: inline-block;
     padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    width: 400px;
-    height: 35px;
-    margin-left: 30px;
+    background-color: #000000;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
 }
 
 .add-to-cart:hover {
-    background-color: #444;
+    background-color: #000000;
 }
 
-.product-description {
-    margin-top: 50px;
-}
-
-.product-description h2 {
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-}
-.product-images,
-.product-info {
-    position: relative;
-    top: 130px;
-    right: 180px;
-    margin-bottom: 200px;
-}
-.product-images {
-    margin-right: 80px;
-}
-.wishlist a {
-    height: 25px;
-    width: 45px;
-    font-size: 19px;
-    color: black;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-weight: normal;
-}
 .wishlist {
-    margin-top: 20px;
-    margin-left: 30px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
 }
-.container-desc h1 {
+
+.wishlist span {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.wishlist span.active {
+    color: red;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.description-section {
     text-align: center;
-}
-.container-desc .subtitle {
-    font-weight: bold;
     margin-bottom: 20px;
 }
-.desc-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.desc-img img {
-    max-width: 500px;
-    height: 500px;
-    margin-top: 20px;
-}
-.desc-more {
-    display: block;
-    padding: 10px 20px;
-    font-size: 14px;
+
+.description-section h1 {
+    font-size: 24px;
     font-weight: bold;
-    color: white;
+    margin-bottom: 10px;
+}
+
+.description-section h2 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: normal;
+    color: #555;
+}
+
+.description-section p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.product-image2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-image2 img {
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.more-button {
+    display: inline-block;
+    padding: 10px 20px;
     background-color: black;
+    color: white;
     text-decoration: none;
-    transition: background-color 0.3s ease;
-    width: 120px;
-    margin: 40px auto;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.more-button:hover {
+    background-color: #333;
+}
+
+/* General Styling for the Review Section */
+.review-section {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Review Section Heading */
+.review-section h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
     text-align: center;
 }
 
-.desc-more:hover {
-    background-color: #444;
+/* Rating Display */
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
+.rating-score {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff9800;
+    margin-right: 10px;
+}
+
+.rating-stars {
+    font-size: 1.5rem;
+    color: #ff9800;
+}
+
+/* Write Review Section */
+.write-review {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.write-review label {
+    font-size: 1rem;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Review Textarea */
+.write-review textarea {
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    min-height: 100px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.write-review textarea:focus {
+    border-color: #ff9800;
+    box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
+}
+
+/* Star Input Section */
+.star-input {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #ccc;
+    cursor: pointer;
+    user-select: none;
+}
+
+.star-input:hover {
+    color: #ff9800;
+}
+
+/* Style for active stars */
+.star-input span.active {
+    color: #ff9800;
+}
+
+/* Add some hover effects */
+textarea:hover, .star-input:hover {
+    background-color: #fefcf6;
+}
+
+/* Review Header Section */
 .review-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid black;
-    width: 200px;
-    height: 200px;
-    margin-left: 200px;
+    margin-bottom: 15px;
+
 }
 
-.review-score {
-    font-size: 2rem;
-    font-weight: bold;
-}
-.review-score div:first-child{
-    margin-left: 70px;
-}
-.container-review{
-    display: flex;
-    column-gap: 10vw;
-}
-.star-rating {
-    color: gold;
-    font-size: 1.5rem;
-    margin-left: 45px;
-}
-
-.write-review {
-    margin-top: 20px;
-}
-
-textarea {
-    width: 50vw;
-    height: 80px;
-    padding: 10px;
+.review-header span {
     font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.star-input {
-    margin: 10px 0;
-    color: #ccc;
-}
-
-.star-input span {
-    cursor: pointer;
-    font-size: 1.5rem;
-}
-
-.star-input span:hover,
-.star-input span.active {
-    color: gold;
-}
-
-.all-reviews {
-    margin-top: 100px;
-}
-
-.review-filters {
-    display: flex;
-    float: right;
-    column-gap: 20px;
-    position: relative;
-    bottom: 50px;
-}
-
-.filter-input {
-    width: 100px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.product-recommendations {
-    margin-top: 20px;
-}
-
-.recommendations-title {
-    font-size: 30px;
-    text-align: center;
-    font-weight: bold;
-    color: black;
-    margin-left: 200px;
-}
-
-.recommendation-items {
-    display: flex;
-    column-gap: 20.5vw;
-    overflow-x: auto;
-    margin-top: 70px;
-    margin-bottom: 50px;
-}
-
-.img-container {
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    width: 300px;
-    height: 300px;
-}
-
-.img-container img {
-    width: 280px;
-    border-radius: 5px;
-}
-
-.recommendation-item .price {
     font-weight: bold;
     color: #333;
 }
-.recommendation-item a{
-color: black;
- }
+
+.filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-controls label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.filter-controls select {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.filter-controls select:focus {
+    border-color: #ff9800;
+    box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
+}
+/* Đảm bảo phần product-recommendation bắt đầu trên dòng mới */
+.product-recommendation {
+    display: block; /* Mặc định là block nhưng cần chắc chắn */
+    clear: both; /* Đảm bảo nó nằm dưới tất cả các phần tử floated trước đó */
+    margin-top: 20px; /* Thêm khoảng cách phía trên nếu cần */
+}
+
+/* Styling cụ thể cho sản phẩm */
+.product-recommendation h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.products {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    max-width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    border-radius: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.product-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+.product-card strong {
+    font-size: 1rem;
+    color: #000;
+}
+/* Đảm bảo review-section nằm trên và product-recommendation nằm dưới */
+.review-section2, .product-recommendation {
+    display: block; 
+    margin: 20px auto; 
+    clear: both; 
+}
+
+/* Sắp xếp riêng phần product-recommendation */
+.product-recommendation {
+    margin-top: 40px; 
+}
+
+/* Styling sản phẩm trong product-recommendation */
+.product-recommendation .products {
+    display: flex;
+    justify-content: space-around; 
+    flex-wrap: wrap; 
+    gap: 20px;
+}

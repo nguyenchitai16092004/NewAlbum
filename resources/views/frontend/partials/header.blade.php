@@ -53,7 +53,6 @@
                             <li><a  style="color: white;" href="#">Pages <i class="fa-solid fa-angle-down" style="color: #ffffff;"></i></a>
                                 <ul  class="dropdown">
                                     <li><a  href="{{ asset('/') }}">Home</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Shop</a></li>
                                     <li><a href="{{ asset('/single-product-detail') }}">Product Details</a></li>
                                     <li><a href="{{ asset('/checkout') }}">Checkout</a></li>
                                     <li><a  href="{{ asset('/blog') }}">Blog</a></li>
@@ -89,7 +88,6 @@
                 <!-- Cart Area -->
                 <div class="cart-area">
                     <a href="{{ asset('/cart') }}" id="essenceCartBtn"><img src="img/core-img/bag.svg" alt="">
-                        <span>3</span></a>
                 </div>
             </div>
 
