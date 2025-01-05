@@ -83,6 +83,7 @@
             <button>Continue Shopping</button>
             <button>Pay Now</button>
         </div>
+
         <div class="terms">
             <input type="checkbox" id="terms">
             <label for="terms">I agree with the terms and conditions.</label>

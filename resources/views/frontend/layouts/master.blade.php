@@ -10,8 +10,6 @@
     <title>@yield('title')</title>
     <link rel="icon" href="img/core-img/logo.ico">
     <link rel="stylesheet" href="css/core-style.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/popup.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">

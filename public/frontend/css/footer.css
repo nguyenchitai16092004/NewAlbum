@@ -122,4 +122,32 @@
     border: none;
     background-color: transparent;
     color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+}
+
+.footer_area .single_widget_area .footer_social_area a {
+    color: #ffffff;
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 16px;
+    float: right;
+}
+@media only screen and (max-width: 767px) {
+    .footer_area .single_widget_area .footer_social_area a img {
+        display: block;
+        margin: 0 auto;
+    }
+    .footer_area .single_widget_area .footer_heading h6 {
+        text-align: center;
+        margin: 0 auto;
+    }
+    .subscribe {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+    }
 }

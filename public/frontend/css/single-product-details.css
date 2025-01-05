@@ -6,11 +6,11 @@
 
 .product-container {
     display: flex;
-    flex-wrap: wrap; 
-    gap: 20px; 
+    flex-wrap: wrap;
+    gap: 20px;
     align-items: flex-start;
     max-width: 1200px;
-    justify-content: center; 
+    justify-content: center;
     margin-left: 220px;
     margin-bottom: 30px;
 }
@@ -25,20 +25,15 @@
     }
 }
 
-.product-image1 {
-    flex: 1; 
-    text-align: center;
-}
-
 .product-image1 img {
     width: 100%;
-    max-width: 500px; 
+    max-width: 500px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
 
 .product-details {
-    flex: 2; 
+    flex: 2;
     padding-left: 50px;
 }
 
@@ -176,14 +171,15 @@
 
 /* General Styling for the Review Section */
 .review-section {
-    font-family: 'Arial', sans-serif;
+    font-family: "Arial", sans-serif;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
-    max-width: 400px;
+    max-width: 800px;
     margin: 20px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 800px;
 }
 
 /* Review Section Heading */
@@ -264,7 +260,8 @@
 }
 
 /* Add some hover effects */
-textarea:hover, .star-input:hover {
+textarea:hover,
+.star-input:hover {
     background-color: #fefcf6;
 }
 
@@ -274,7 +271,6 @@ textarea:hover, .star-input:hover {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 15px;
-
 }
 
 .review-header span {
@@ -307,14 +303,12 @@ textarea:hover, .star-input:hover {
     border-color: #ff9800;
     box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
 }
-/* Đảm bảo phần product-recommendation bắt đầu trên dòng mới */
 .product-recommendation {
-    display: block; /* Mặc định là block nhưng cần chắc chắn */
-    clear: both; /* Đảm bảo nó nằm dưới tất cả các phần tử floated trước đó */
-    margin-top: 20px; /* Thêm khoảng cách phía trên nếu cần */
+    display: block;
+    clear: both;
+    margin-top: 20px;
 }
 
-/* Styling cụ thể cho sản phẩm */
 .product-recommendation h3 {
     font-size: 1.5rem;
     color: #333;
@@ -324,40 +318,12 @@ textarea:hover, .star-input:hover {
 
 .products {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.product-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    max-width: 200px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.product-card img {
-    border-radius: 8px;
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-.product-card p {
-    font-size: 0.9rem;
-    color: #555;
-    margin: 5px 0;
-}
-
-.product-card strong {
-    font-size: 1rem;
-    color: #000;
+    column-gap: 70px;
+    justify-content: center;
 }
 /* General Styling for the Review Section */
 .review-section {
-    font-family: 'Arial', sans-serif;
+    font-family: "Arial", sans-serif;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -445,7 +411,8 @@ textarea:hover, .star-input:hover {
 }
 
 /* Add some hover effects */
-textarea:hover, .star-input:hover {
+textarea:hover,
+.star-input:hover {
     background-color: #fefcf6;
 }
 
@@ -455,7 +422,6 @@ textarea:hover, .star-input:hover {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 15px;
-
 }
 
 .review-header span {
@@ -488,11 +454,10 @@ textarea:hover, .star-input:hover {
     border-color: #ff9800;
     box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
 }
-/* Đảm bảo phần product-recommendation bắt đầu trên dòng mới */
 .product-recommendation {
-    display: block; /* Mặc định là block nhưng cần chắc chắn */
-    clear: both; /* Đảm bảo nó nằm dưới tất cả các phần tử floated trước đó */
-    margin-top: 20px; /* Thêm khoảng cách phía trên nếu cần */
+    display: block;
+    clear: both;
+    margin-top: 20px;
 }
 
 /* Styling cụ thể cho sản phẩm */
@@ -503,27 +468,20 @@ textarea:hover, .star-input:hover {
     text-align: center;
 }
 
-.products {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
 .product-card {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 10px;
     text-align: center;
-    max-width: 200px;
+    max-width: 300px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .product-card img {
     border-radius: 8px;
     margin-bottom: 10px;
-    width: 100%;
+    width: 300px;
 }
 
 .product-card p {
@@ -537,21 +495,14 @@ textarea:hover, .star-input:hover {
     color: #000;
 }
 /* Đảm bảo review-section nằm trên và product-recommendation nằm dưới */
-.review-section2, .product-recommendation {
-    display: block; 
-    margin: 20px auto; 
-    clear: both; 
+.review-section2,
+.product-recommendation {
+    display: block;
+    margin: 20px auto;
+    clear: both;
 }
 
 /* Sắp xếp riêng phần product-recommendation */
 .product-recommendation {
-    margin-top: 40px; 
-}
-
-/* Styling sản phẩm trong product-recommendation */
-.product-recommendation .products {
-    display: flex;
-    justify-content: space-around; 
-    flex-wrap: wrap; 
-    gap: 20px;
+    margin-top: 40px;
 }

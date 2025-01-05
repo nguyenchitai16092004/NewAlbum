@@ -86,11 +86,7 @@
                 <!-- User Login Info -->
                 @include('frontend.partials.popup.popup')
                 <!-- Cart Area -->
-                <div class="cart-area">
-                    <a href="{{ asset('/cart') }}" id="essenceCartBtn"><img src="img/core-img/bag.svg" alt="">
-                </div>
             </div>
-
         </div>
     </header>
     <!-- ##### Header Area End ##### -->
