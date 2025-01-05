@@ -2,6 +2,7 @@
 @section('This page is the Shop.', 'Shop')
 @section('main')
 <link rel="stylesheet" href="css/wishlist.css">
+<link rel="stylesheet" href="css/pagination.css">
 <div class="favorites">
     <h1>WishList</h1>
 </div>
