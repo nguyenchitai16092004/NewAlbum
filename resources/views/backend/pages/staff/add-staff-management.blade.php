@@ -1,6 +1,7 @@
 @extends('backend.layouts.master')
 @section('This page is Add Library', 'Add Library')
 @section('main')
+<link rel="stylesheet" href="/css/custom-style-addstaff.css">
     <div class="single-pro-review-area mt-t-30 mg-b-15">
         <div class="container-fluid">
             <div class="row">
@@ -29,6 +30,11 @@
                                         <input type="text" class="form-control" id="number"
                                             placeholder="Enter Phone Number">
                                     </div>
+                                    <!-- Image Upload -->
+                                    <div class="form-group mb-4">
+                                        <label for="image">Image</label>
+                                        <input type="file" class="form-control-file" id="image" style="display: block; margin: 0 auto;">
+                                    </div>
                                 </div>
 
                                 <!-- Right Column -->
@@ -56,14 +62,20 @@
                                             <option value="other">Other</option>
                                         </select>
                                     </div>
+                                    <div class="form-group mb-4 ">
+                                        <label>Position:</label>
+                                        <div class=" align-items-center" style = "display: flex;">
+                                            <div class="form-check mb-3" style="padding: 10px;">
+                                                <input class="form-check-input" type="radio" name="position" id="admin" value="Active" checked>
+                                                <label class="form-check-label" for="active">Admin</label>
+                                            </div>
+                                            <div class="form-check" style="padding: 10px;">
+                                                <input class="form-check-input" type="radio" name="position" id="employee" value="Inactive">
+                                                <label class="form-check-label" for="inactive">Employee</label>
+                                            </div>
+                                        </div>
+                                    </div>          
                                 </div>
-                            </div>
-
-                            <!-- Image Upload -->
-                            <div class="form-group mb-4">
-                                <label for="image">Image</label>
-                                <input type="file" class="form-control-file" id="image"
-                                    style="display: block; margin: 0 auto;">
                             </div>
 
                             <!-- Submit Button -->
