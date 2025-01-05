@@ -1,6 +1,7 @@
 @extends('backend.layouts.master')
 @section('This page is Home Admin', 'Home Admin')
 @section('main')
+
 <link rel="stylesheet" href="/css/custom-style-dashboard.css">
 <div class="analytics-sparkle-area">
     <h1>Statistics</h1>
@@ -70,6 +71,8 @@
         </div>
     </div>
 </div>
+
+
 <div class="product-sales-area mg-tb-30">
     <div class="container-fluid">
         <div class="row">
@@ -79,25 +82,22 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="caption pro-sl-hd">
-                                    <span class="caption-subject"><b>Categories Selling</b></span>
+                                    <span class="caption-subject"><b>Chart Selling</b></span>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="actions graph-rp graph-rp-dl">
-                                    <p>All Category are in Items</p>
+                                    <p>in 2024</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <ul class="list-inline cus-product-sl-rp">
                         <li>
-                            <h5><i class="fa fa-circle" style="color: #006DF0;"></i>POSTER</h5>
+                            <h5><i class="fa fa-circle" style="color: #006DF0;"></i>REVENUE (VND)</h5>
                         </li>
                         <li>
-                            <h5><i class="fa fa-circle" style="color: #933EC5;"></i>K-GOODS</h5>
-                        </li>
-                        <li>
-                            <h5><i class="fa fa-circle" style="color: #65b12d;"></i>K-POP</h5>
+                            <h5><i class="fa fa-circle" style="color: #65b12d;"></i>PURCHASES (ITEMS)</h5>
                         </li>
                     </ul>
                     <div id="morris-bar-chart" style="height: 356px;"></div>
@@ -154,6 +154,43 @@
     </div>
 </div>
 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+<script>
+    // Data for the chart
+    var data = [
+        { month: 'Jan', revenue: 5000, purchases: 1200 },
+        { month: 'Feb', revenue: 4200, purchases: 1100 },
+        { month: 'Mar', revenue: 4800, purchases: 1150 },
+        { month: 'Apr', revenue: 4600, purchases: 1050 },
+        { month: 'May', revenue: 5200, purchases: 1300 },
+        { month: 'Jun', revenue: 5500, purchases: 1400 },
+        { month: 'Jul', revenue: 6000, purchases: 1600 },
+        { month: 'Aug', revenue: 5800, purchases: 1500 },
+        { month: 'Sep', revenue: 5600, purchases: 1400 },
+        { month: 'Oct', revenue: 5900, purchases: 1450 },
+        { month: 'Nov', revenue: 6100, purchases: 1550 },
+        { month: 'Dec', revenue: 6500, purchases: 1700 }
+    ];
+
+    // Initialize Morris.js Bar Chart
+    Morris.Bar({
+        element: 'morris-bar-chart',
+        data: data,
+        xkey: 'month',
+        ykeys: ['revenue', 'purchases'],
+        labels: ['Revenue (VND)', 'Purchases (Items)'],
+        barColors: ['#006DF0', '#65b12d'],
+        hideHover: 'auto',
+        resize: true
+    });
+</script>
+
+
 <div class="container-fluid mt-5">
     <h1>Edit Website Infomation</h1>
     <form action="/save-website-info" method="POST" enctype="multipart/form-data">
@@ -200,36 +237,6 @@
         </div>
     </form>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     {{-- <div class="analytics-sparkle-area">
         <div class="container-fluid">
