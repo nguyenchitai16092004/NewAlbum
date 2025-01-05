@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('frontend.pages.home');
 });
-Route::get('/shop', function () {
-    return view('frontend.pages.shop');
-});
 Route::get('/single-product-detail', function () {
     return view('frontend.pages.single-product-details');
 });

@@ -216,69 +216,61 @@ h1, h4, h5, p {
 }
 
 /* Nút Checkout */
-.checkout-section button {
-    background-color: #000000;
-    color: #ffffff;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 100%;
-}
-
-.checkout-section button:hover {
-    background-color: #ffffff;
-    color: #000000;
-    border: 2px solid #000000;
-}
-
-/* Phương thức thanh toán */
-.payment-methods {
+/* General container styling */
+.summary {
     display: flex;
-    justify-content: flex-start; /* Căn về bên trái */
-    align-items: center;         /* Căn giữa theo chiều dọc */
-    gap: 15px;                   /* Khoảng cách giữa các biểu tượng */
-    padding: 10px;  
-}
-
-.payment-methods {
-    display: flex;
-    gap: 10px;
-}
-
-.payment-methods img {
-    width: 50px;
-    height: 50px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    padding: 5px;
-    background-color: #f9f9f9;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.payment-methods img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Điều khoản */
-.terms-section {
-    font-size: 14px;
-    color: #666;
-    text-align: left;
-}
-
-.terms-section input[type="checkbox"] {
-    margin-right: 10px;
-}
-
-.terms-section label {
-    display: flex;
+    flex-direction: column;
     align-items: center;
-    cursor: pointer;
+    background-color: #f9f9f9; /* Light background for contrast */
+    border: 1px solid #e0e0e0; /* Subtle border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Space inside the container */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%;
+    max-width: 300px; /* Limit maximum width */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Styling for text container */
+.container-text {
+    display: flex;
+    justify-content: space-between; /* Align text to both ends */
+    width: 100%; /* Full width of the container */
+    font-size: 18px; /* Larger, more readable text */
+    margin-bottom: 20px; /* Space between text and button */
+}
+
+/* Styling for the button */
+.checkout {
+    background-color: #000000; /* Modern blue button */
+    color: #ffffff; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 12px 20px; /* Space inside the button */
+    font-size: 16px; /* Larger text */
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text for emphasis */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth transitions */
+    width: 100%; /* Full width button */
+}
+
+/* Button hover effect */
+.checkout:hover {
+    background-color: #000000; /* Darker blue on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    transform: translateY(-2px); /* Lift button slightly */
+}
+
+/* Optional: Adjust text color and weight for emphasis */
+.container-text p:first-child {
+    color: #6c757d; /* Subtle gray for label */
+    font-weight: normal;
+}
+
+.container-text p:last-child {
+    color: #212529; /* Darker color for price */
+    font-weight: bold;
 }
 /* Product Section */
 .container-product {
