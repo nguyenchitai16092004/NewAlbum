@@ -30,12 +30,13 @@
                                             <div class="button-container">
                                                 <button type="submit" class="btn-register">Register</button>
                                             </div>
+                                            <div class="parent"><a href="{{ asset('/') }}" class ="parent-link" id="loginButton">Back to Login</a></div>
                                         </form>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn-right">Login</button>
                             </div>
-                            <a href="{{ asset('/') }}" id="forgotpassButton">Forgot Password</a>
+                            <div class="parent"><a href="{{ asset('/') }}" class ="parent-link" id="forgotpassButton">Forgot Password</a></div>
                             <!-- Popup Quên mật khẩu-->
                             <div id="forgotpassPopup" class="popup">
                                 <div class="popup-content">
