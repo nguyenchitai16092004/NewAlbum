@@ -3,6 +3,7 @@
 
 @section('main')
 <link rel="stylesheet" href="css/cart.css">
+<link rel="stylesheet" href="css/pagination.css">
 <div class="favorites">
     <h1 style="text-align: center;margin-top:100px">Your Cart</h1>
 </div>

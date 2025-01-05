@@ -1,72 +1,68 @@
 @extends('frontend.layouts.master')
-@section('title', 'Oder History')
+@section('title', 'Order History')
 @section('main')
     <link rel="stylesheet" href="css/account.css">
-    <div class="container-account">
-        <div class="ctn-account">
-            <div class="header">
-                <div>
-                    <h1>Welcome back!</h1>
-                </div>
+    <div class="account-container">
+        <div class="account-header">
+            <div class="account-header-content">
+                <h1>Welcome back!</h1>
             </div>
-            <p>You can review and edit your personal information here.</p>
-            <nav class="navigation">
-                <ul>
-                    <li><a href="#" class="active">Account Information</a></li>
-                    <li><a href="#">Order History</a></li>
-                    <li><a href="#">Wish List</a></li>
-                    <li><a href="#">Rating Product</a></li>
-                </ul>
-            </nav>
+            <p class="account-description">You can review and edit your personal information here.</p>
         </div>
-        <div class="ctn-account-2">
-            <div class="card">
+        <nav class="account-navigation">
+            <ul>
+                <li><a href="#" class="active">Account Information</a></li>
+                <li><a href="#">Order History</a></li>
+                <li><a href="#">Wish List</a></li>
+                <li><a href="#">Rating Product</a></li>
+            </ul>
+        </nav>
+        <div class="account-content">
+            <div class="account-card">
                 <h2>Account Information</h2>
-                <div class="info">
-                    <div class="field field-name name">
+                <div class="account-info">
+                    <div class="account-field name-field">
                         <label>Full name</label>
                         <span>Nguyen Mai Xuan Phu</span>
                     </div>
-                    <div class="field field-name phone">
+                    <div class="account-field phone-field">
                         <label>Phone number</label>
                         <span>0387159716</span>
                     </div>
-                    <div class="field field-name ">
+                    <div class="account-field sex-field">
                         <label>Sex</label>
-                        <div class="field-name sex">
+                        <div class="sex-options">
                             <input type="radio" id="male" name="sex" checked>
-                            <label class="male" for="male">Male</label>
+                            <label for="male">Male</label>
                             <input type="radio" id="female" name="sex">
-                            <label class="female" for="female">Female</label>
+                            <label for="female">Female</label>
                         </div>
                     </div>
-                    <div class="field field-name">
+                    <div class="account-field birthday-field">
                         <label>Birthday</label>
                         <span>27/09/2004</span>
                     </div>
-                    <div class="field field-name">
+                    <div class="account-field address-field">
                         <label>Address</label>
                         <span>860/35 Huynh Tan Phat Quan 7</span>
                     </div>
-                    <button class="update-btn" style="">Update</button>
+                    <button class="account-update-btn">Update</button>
                 </div>
-                <div class="card-2">
+            </div>
+            <div class="account-card">
                 <h2>Login Information</h2>
-                <div class="info">
-                    <div class="field field-name email">
+                <div class="account-info">
+                    <div class="account-field email-field">
                         <label>Email</label>
                         <span>0306221264@caothang.edu.vn</span>
                     </div>
-                    <div class="field field-name">
+                    <div class="account-field password-field">
                         <label>Password</label>
                         <span>*************</span>
                     </div>
-                    <button class="update-btn">Update</button>
+                    <button class="account-update-btn">Update</button>
                 </div>
             </div>
-            </div>
-
-            
         </div>
     </div>
 @stop
