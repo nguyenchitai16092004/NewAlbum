@@ -13,11 +13,26 @@
 @media only screen and (max-width: 767px) {
     .logo-footer {
         width: 60%;
-        margin-left: 25px;
+        margin-top: 155px;
+        display: block;
     }
     .footer_area .single_widget_area .footer_menu ul {
         display: flex;
-        margin-left: 40px;
+        justify-content: center;
+        margin: 300px auto 0;
+        transform: none;
+    }
+
+    .footer_area .single_widget_area {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer_area .single_widget_area .subscribtion_form,
+    .footer_area .single_widget_area .footer_widget_menu,
+    .footer_area .single_widget_area .footer_social_area {
+        float: none;
+        margin: 10px auto;
     }
 }
 
@@ -58,6 +73,7 @@
     display: block;
     font-weight: 400;
     margin-bottom: 10px;
+    text-decoration: none;
 }
 #input-mail::placeholder {
     color: white;
@@ -83,16 +99,6 @@
 }
 .footer_area .single_widget_area .subscribtion_form {
     float: left;
-}
-@media only screen and (max-width: 767px) {
-    .footer_area .single_widget_area .subscribtion_form form {
-        margin-bottom: 50px;
-        margin-left: 20px;
-    }
-    .footer_area .single_widget_area .footer_heading h6 {
-        position: relative;
-        bottom: 55px;
-    }
 }
 
 .footer_area .single_widget_area .subscribtion_form form input {
@@ -132,11 +138,16 @@
 }
 @media only screen and (max-width: 767px) {
     .footer_area .single_widget_area .footer_social_area a img {
-        color: #ffffff;
-        display: inline-block;
-        font-size: 16px;
-        float: right;
-        position: relative;
-        right: 60px;
+        display: block;
+        margin: 0 auto;
+    }
+    .footer_area .single_widget_area .footer_heading h6 {
+        text-align: center;
+        margin: 0 auto;
+    }
+    .subscribe {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
     }
 }
