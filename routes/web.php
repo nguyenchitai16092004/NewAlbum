@@ -104,6 +104,9 @@ Route::get('/rating-product', function () {
 Route::get('/account', function () {
     return view('frontend.pages.account');
 });
+Route::get('/popup', function () {
+    return view('frontend.partials.popup.popup');
+});
 
 Route::prefix('/admin')->group(function () {
 

@@ -1,130 +1,128 @@
-.container-account{
+.account-container {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #f9f9f9;
     color: #333;
-}
-.ctn-account {
-    max-width: 1600px;
-    margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.header {
+.account-header {
     text-align: center;
     background-color: black;
     color: white;
-    height: 55px;
+    padding: 15px 0;
 }
 
-.header h1 {
+.account-header-content h1 {
     color: white;
-}
-.ctn-account p{
-    text-align: center;
+    margin: 0;
 }
 
-.navigation ul {
+.account-description {
+    text-align: center;
+    margin: 10px 0 20px;
+}
+
+.account-navigation ul {
     display: flex;
     justify-content: center;
     list-style: none;
-    margin: 20px 0;
     padding: 0;
+    margin: 20px 0;
 }
 
-.navigation li {
+.account-navigation li {
     margin: 0 15px;
 }
 
-.navigation a {
+.account-navigation a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
 }
 
-.navigation a.active {
+.account-navigation a.active {
     color: black;
     border-bottom: 2px solid black;
 }
-.ctn-account-2 {
-    width: 80%;
-    margin: 20px auto;
-    position: relative;
-    bottom: 20px;
-}
 
-.card {
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid black;
-}
-.card h2 {
-    text-align: center;
-}
-.field-name{
-    display: flex;
-    column-gap: 20px;
-}
-.field-name span{
-    margin-left: 80px;
-}
-.sex{
-    margin-left: 115px;
-}
-.phone span{
-    position: relative;
-    right: 40px;
-}
-.name span{
-    position: relative;
-    right: 10px;
-}
-.info{
-    margin-top: 30px;
-}
-
-
-.info {
+.account-content {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    margin-left: 20vw;
+    gap: 20px;
 }
 
-.field {
-    margin-bottom: 10px;
+.account-card {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.field label {
+.account-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.account-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 280px;
+}
+
+.account-field label {
     font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
 }
 
-.field span {
-    display: block;
+.account-field span {
     font-size: 16px;
     color: #555;
+    margin-left: 70px;
 }
 
-button.update-btn {
+@media only screen and (max-width: 767px) {
+    .account-info {
+        margin-left: 20px;
+    }
+
+    .account-field span {
+        margin-left: 20px;
+    }
+
+    .account-field label {
+        font-weight: bold;
+    }
+
+    .account-field {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.account-update-btn {
     background-color: black;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100px;
     align-self: flex-start;
-    display: block; 
-    margin: 50px 0 50px 250px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
 }
 
-button.update-btn:hover {
+.account-update-btn:hover {
     background-color: rgb(104, 102, 102);
 }
-.email span{
-margin-left: 110px;
+.sex-field,
+.sex-options {
+    display: flex;
+    column-gap: 30px;
+}
+.sex-options {
+    margin-left: 75px;
 }
