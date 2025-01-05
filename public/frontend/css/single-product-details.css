@@ -28,7 +28,6 @@
 .product-image1 {
     flex: 1; 
     text-align: center;
-
 }
 
 .product-image1 img {
@@ -75,6 +74,7 @@
     background-color: #000000; /* Màu nền khi hover */
     color: #fff; /* Màu chữ khi hover */
     transform: scale(1.05); /* Tăng nhẹ kích thước nút */
+    background-color: black;
 }
 .status-price {
     margin-bottom: 20px;

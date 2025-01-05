@@ -1,7 +1,237 @@
 @extends('backend.layouts.master')
 @section('This page is Home Admin', 'Home Admin')
 @section('main')
-    <div class="analytics-sparkle-area">
+<link rel="stylesheet" href="/css/custom-style-dashboard.css">
+<div class="analytics-sparkle-area">
+    <h1>Statistics</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="analytics-sparkle-line reso-mg-b-30">
+                    <div class="analytics-content">
+                        <h5>Customer</h5>
+                        {{-- <span class="counter"></span>  --}}
+                        <h2>xx/xx<span class="tuition-fees">in this month</span>
+                        </h2>
+                        <span class="text-success">xx</span>
+                        <div class="progress m-b-0">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50"
+                                aria-valuemin="0" aria-valuemax="100" style="width:50%;"> <span class="sr-only">50%
+                                    Complete</span> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="analytics-sparkle-line reso-mg-b-30">
+                    <div class="analytics-content">
+                        <h5>Bill</h5>
+                        <h2>xx/xx</span> <span class="tuition-fees">in this month</span>
+                        </h2>
+                        <span class="text-danger">xx</span>
+                        <div class="progress m-b-0">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50"
+                                aria-valuemin="0" aria-valuemax="100" style="width:50%;"> <span class="sr-only">50%
+                                    Complete</span> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="analytics-sparkle-line reso-mg-b-30 table-mg-t-pro dk-res-t-pro-30">
+                    <div class="analytics-content">
+                        <h5>Website Traffic</h5>
+                        <h2>xx/xx</span> <span class="tuition-fees">in this month</span>
+                        </h2>
+                        <span class="text-info">xx</span>
+                        <div class="progress m-b-0">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
+                                aria-valuemin="0" aria-valuemax="100" style="width:50%;"> <span class="sr-only">50%
+                                    Complete</span> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="analytics-sparkle-line reso-mg-b-30 table-mg-t-pro dk-res-t-pro-30">
+                    <div class="analytics-content">
+                        <h5>XX</h5>
+                        <h2>xx/xx</span> <span class="tuition-fees">in this month</span>
+                        </h2>
+                        <span class="text-warning">xx</span>
+                        <div class="progress m-b-0">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50"
+                                aria-valuemin="0" aria-valuemax="100" style="width:50%;"> <span class="sr-only">50%
+                                    Complete</span> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-sales-area mg-tb-30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                <div class="product-sales-chart">
+                    <div class="portlet-title">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="caption pro-sl-hd">
+                                    <span class="caption-subject"><b>Categories Selling</b></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="actions graph-rp graph-rp-dl">
+                                    <p>All Category are in Items</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="list-inline cus-product-sl-rp">
+                        <li>
+                            <h5><i class="fa fa-circle" style="color: #006DF0;"></i>POSTER</h5>
+                        </li>
+                        <li>
+                            <h5><i class="fa fa-circle" style="color: #933EC5;"></i>K-GOODS</h5>
+                        </li>
+                        <li>
+                            <h5><i class="fa fa-circle" style="color: #65b12d;"></i>K-POP</h5>
+                        </li>
+                    </ul>
+                    <div id="morris-bar-chart" style="height: 356px;"></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div
+                    class="white-box analytics-info-cs mg-b-10 res-mg-t-30 table-mg-t-pro-n res-mg-b-30 tb-sm-res-d-n dk-res-t-d-n">
+                    <h3 class="box-title">Total Visit</h3>
+                    <ul class="list-inline two-part-sp">
+                        <li>
+                            <div id="sparklinedash"></div>
+                        </li>
+                        <li class="text-right sp-cn-r"><i class="fa fa-level-up" aria-hidden="true"></i>
+                            <span class="counter text-success"><span class="counter">xx</span></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="white-box analytics-info-cs mg-b-10 res-mg-b-30 tb-sm-res-d-n dk-res-t-d-n">
+                    <h3 class="box-title">Website Views</h3>
+                    <ul class="list-inline two-part-sp">
+                        <li>
+                            <div id="sparklinedash2"></div>
+                        </li>
+                        <li class="text-right graph-two-ctn"><i class="fa fa-level-up" aria-hidden="true"></i> <span
+                                class="counter text-purple"><span class="counter">xx</span></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="white-box analytics-info-cs mg-b-10 res-mg-b-30 tb-sm-res-d-n dk-res-t-d-n">
+                    <h3 class="box-title">Unique Visitor</h3>
+                    <ul class="list-inline two-part-sp">
+                        <li>
+                            <div id="sparklinedash3"></div>
+                        </li>
+                        <li class="text-right graph-three-ctn"><i class="fa fa-level-up" aria-hidden="true"></i>
+                            <span class="counter text-info"><span class="counter">xx</span></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="white-box analytics-info-cs tb-sm-res-d-n dk-res-t-d-n">
+                    <h3 class="box-title">Website Rate</h3>
+                    <ul class="list-inline two-part-sp">
+                        <li>
+                            <div id="sparklinedash4"></div>
+                        </li>
+                        <li class="text-right graph-four-ctn"><i class="fa fa-level-up" aria-hidden="true"></i>
+                            <span class="text-danger"><span class="counter">xx</span></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-5">
+    <h1>Edit Website Infomation</h1>
+    <form action="/save-website-info" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6"> 
+                <!-- Facebook Link -->
+                <div class="form-group">
+                    <label for="facebookLink">Facebook:</label>
+                    <input type="url" id="facebookLink" name="facebookLink" class="form-control" style="border-radius: 8px;">
+                </div>
+    
+                <!-- Instagram Link -->
+                <div class="form-group">
+                    <label for="instagramLink">Instagram:</label>
+                    <input type="url" id="instagramLink" name="instagramLink" class="form-control" style="border-radius: 8px;">
+                </div>
+    
+                <!-- Twitter Link -->
+                <div class="form-group">
+                    <label for="twitterLink">Twitter:</label>
+                    <input type="url" id="twitterLink" name="twitterLink" class="form-control" style="border-radius: 8px;">
+                </div>
+            </div>
+    
+            <div class="col-md-6">
+                <!-- Hotline -->
+                <div class="form-group">
+                    <label for="hotline">Hotline:</label>
+                    <input type="tel" id="hotline" name="hotline" class="form-control" style="border-radius: 8px;" required>
+                </div>
+    
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" style="border-radius: 8px;" required>
+                </div>
+    
+            </div>
+        </div>
+    
+        <!-- Submit button -->
+        <div class="form-group text-center">
+            <button type="submit" style="border-radius: 8px;">Save Changes</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {{-- <div class="analytics-sparkle-area">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
@@ -554,5 +784,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @stop

@@ -5,7 +5,7 @@
     <div class="container-detail">
         <div class="product-container" >
             <div class="product-image1"style="margin-top:40px">
-                <img src="https://via.placeholder.com/200x200" alt="Version 1">
+                <img src="https://via.placeholder.com/400x400" alt="Version 1">
             </div>
             <div class="product-details"style="margin-top:40px">
                 <h1>Name Product</h1>
