@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('This page is the Detail-Product.', 'Detail-Product')
+@section('Title', 'Trang chi tiet - Detail-Product')
 @section('main')
 <link rel="stylesheet" href="css/single-product-details.css">
     <div class="container-detail">
@@ -10,14 +10,6 @@
             <div class="product-details"style="margin-top:40px">
                 <h1>Name Product</h1>
                 <p>Short description of the product</p>
-        
-                <div class="versions">
-                    <div class="version-button">Version 1</div>
-                    <div class="version-button">Version 2</div>
-                    <div class="version-button">Version 3</div>
-                    <div class="version-button">Version 4</div>
-                </div>
-        
                 <div class="status-price">
                     <p>Status: <strong>2 in stock</strong></p>
                     <p>Price: <strong>487,555 VND</strong></p>
@@ -35,7 +27,7 @@
             </div>
         </div>        
     </div>
-    <div class="container">
+    <div class="container-product">
         <!-- Description Section -->
         <div class="description-section">
             <h1>BLACKPINK THE ALBUM Boxset</h1>

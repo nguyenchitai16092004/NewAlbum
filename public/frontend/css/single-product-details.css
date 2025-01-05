@@ -1,4 +1,4 @@
-.container {
+.container-product {
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
@@ -9,7 +9,20 @@
     flex-wrap: wrap; 
     gap: 20px; 
     align-items: flex-start;
-    margin: 20px;
+    max-width: 1200px;
+    justify-content: center; 
+    margin-left: 220px;
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 767px) {
+    .product-container {
+        margin-left: 0;
+        padding: 10px;
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .product-image1 {
@@ -20,14 +33,14 @@
 
 .product-image1 img {
     width: 100%;
-    max-width: 300px; 
+    max-width: 500px; 
     border: 1px solid #ddd;
     border-radius: 5px;
 }
 
 .product-details {
     flex: 2; 
-    padding-left: 20px;
+    padding-left: 50px;
 }
 
 .product-details h1 {
@@ -52,15 +65,17 @@
     padding: 5px 10px;
     border: 1px solid #ddd;
     border-radius: 3px;
-    background-color: #f9f9f9;
+    background-color: black;
+    color: white; /* Để đảm bảo nội dung nút dễ đọc */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .version-button:hover {
-    background-color: #eaeaea;
+    background-color: #000000; /* Màu nền khi hover */
+    color: #fff; /* Màu chữ khi hover */
+    transform: scale(1.05); /* Tăng nhẹ kích thước nút */
 }
-
 .status-price {
     margin-bottom: 20px;
 }
@@ -103,7 +118,7 @@
 .wishlist span.active {
     color: red;
 }
-.container {
+.container-detail {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -159,6 +174,187 @@
     background-color: #333;
 }
 
+/* General Styling for the Review Section */
+.review-section {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Review Section Heading */
+.review-section h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Rating Display */
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.rating-score {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff9800;
+    margin-right: 10px;
+}
+
+.rating-stars {
+    font-size: 1.5rem;
+    color: #ff9800;
+}
+
+/* Write Review Section */
+.write-review {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.write-review label {
+    font-size: 1rem;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Review Textarea */
+.write-review textarea {
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    min-height: 100px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.write-review textarea:focus {
+    border-color: #ff9800;
+    box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
+}
+
+/* Star Input Section */
+.star-input {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #ccc;
+    cursor: pointer;
+    user-select: none;
+}
+
+.star-input:hover {
+    color: #ff9800;
+}
+
+/* Style for active stars */
+.star-input span.active {
+    color: #ff9800;
+}
+
+/* Add some hover effects */
+textarea:hover, .star-input:hover {
+    background-color: #fefcf6;
+}
+
+/* Review Header Section */
+.review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+}
+
+.review-header span {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-controls label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.filter-controls select {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.filter-controls select:focus {
+    border-color: #ff9800;
+    box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
+}
+/* Đảm bảo phần product-recommendation bắt đầu trên dòng mới */
+.product-recommendation {
+    display: block; /* Mặc định là block nhưng cần chắc chắn */
+    clear: both; /* Đảm bảo nó nằm dưới tất cả các phần tử floated trước đó */
+    margin-top: 20px; /* Thêm khoảng cách phía trên nếu cần */
+}
+
+/* Styling cụ thể cho sản phẩm */
+.product-recommendation h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.products {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    max-width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    border-radius: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.product-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+.product-card strong {
+    font-size: 1rem;
+    color: #000;
+}
 /* General Styling for the Review Section */
 .review-section {
     font-family: 'Arial', sans-serif;

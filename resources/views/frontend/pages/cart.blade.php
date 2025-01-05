@@ -1,6 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Shop')
-
+@section('title', 'Cart')
 @section('main')
 <link rel="stylesheet" href="css/cart.css">
 <div class="favorites">
@@ -26,7 +25,7 @@
                 <td>1,827,680 VNĐ</td>
                 <td class="quantity-buttons">
                     <button class="btn-minus">-</button>
-                    <span class="quantity">1</span>
+                    <span class="quantity"style="color:black">1</span>
                     <button class="btn-plus">+</button>
                 </td>
                 <td>1,827,680 VNĐ</td>
