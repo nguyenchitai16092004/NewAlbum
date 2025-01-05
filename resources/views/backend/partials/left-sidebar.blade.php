@@ -118,6 +118,16 @@
                     </li>
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false">
+                            <span class="fa fa-tags icon-wrap"></span>
+                            <span class="mini-click-non">Discount Products </span>
+                        </a>
+                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
+                            <li><a href="{{ Route('Index_Discount') }}"><span class="mini-sub-pro">Discount List</span></a></li>
+                            <li><a href="{{ Route('Index_Add_Discount') }}"><span class="mini-sub-pro">Add Discount Product</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="#" aria-expanded="false">
                             <span class="fa fa-list icon-wrap"></span>
                             <span class="mini-click-non">Goods-Receipt</span>
                         </a>
