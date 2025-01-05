@@ -196,4 +196,12 @@ Route::prefix('/admin')->group(function () {
         Route::view('/contact-management', 'backend.pages.contact.contact-management')->name('Index_Contact_Management');
         Route::view('/response-contact-management', 'backend.pages.contact.response-contact-management')->name('Index_Response_Contact_Management');
     });
+
+    //Route cho giao diện admin
+    Route::prefix(prefix: 'admin-profile')->group(callback: function (): void {
+        Route::view('/admin-profile', 'backend.pages.admin-profile.admin-profile')->name('Index_Admin_Profile');
+        Route::view('/edit-admin-profile', 'backend.pages.admin-profile.edit-admin-profile')->name('Index_Edit_Admin_Profile');
+    });
+
+    
 });
