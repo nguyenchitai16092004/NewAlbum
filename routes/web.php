@@ -5,6 +5,7 @@ use App\Http\Controllers\BandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GoodController;
+use App\Http\Controllers\DiscountedProductController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -203,5 +204,16 @@ Route::prefix('/admin')->group(function () {
         Route::view('/edit-admin-profile', 'backend.pages.admin-profile.edit-admin-profile')->name('Index_Edit_Admin_Profile');
     });
 
-    
+      //Route quản lý sản phẩm giảm giá
+      Route::prefix('discounted')->group(function(){
+        Route::get('/discounted-product',[DiscountedProductController::class,'Index'])->name('Index_Discount'); 
+        // Thêm sản phẩm giảm giá
+        Route::view('/add-Discount', 'backend.pages.discounted.add-discounted-management')->name('Index_Add_Discount');
+        Route::post('/add', [DiscountedProductController::class, 'Add'])->name('Add_Discount');
+        // Sửa sản phẩm giảm giá
+        Route::get('/edit-Discount/{id}', [DiscountedProductController::class, 'Show'])->name('Index_Edit_Discount');
+        Route::get('/edit/{id}', [DiscountedProductController::class, 'Edit'])->name('Edit_Discount');
+        // Xóa sản phẩm giảm giá
+        Route::delete('/delete/{id}', [DiscountedProductController::class, 'Delete'])->name('Delete_Discount');
+    });
 });
