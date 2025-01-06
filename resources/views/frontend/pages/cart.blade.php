@@ -22,7 +22,7 @@
         </thead>
         <tbody>
             <tr>
-                <td><img src="img/product-img/BTS-Lightstick.jpg" alt="BTS Lightstick"></td>
+                <td><img src="img/product-img/BTS - Lightstick.jpg" alt="BTS Lightstick"></td>
                 <td>BTS Official Light Stick</td>
                 <td>1,827,680 VNĐ</td>
                 <td class="quantity-buttons">

@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 @section('This page is the Checkout.', 'Checkout')
 @section('main')
-<link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/checkout.css">
     <!-- ##### Breadcumb Area Start ##### -->
     <div class="breadcumb_area bg-img">
         <div class="container-checkout h-100">
