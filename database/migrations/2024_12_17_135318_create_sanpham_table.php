@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('TenSP', 255);
             $table->decimal('GiaNhap', 10, 2)->nullable();
             $table->decimal('GiaBan', 10, 2)->nullable();
-            $table->string('TieuDe',255);
             $table->text('MoTa')->nullable();
             $table->integer('SoLuong')->nullable();
             $table->boolean('LoaiHang')->nullable();

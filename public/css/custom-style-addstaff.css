@@ -39,13 +39,3 @@
     background-color: #071b31;
     border-color: #313840;
 }
-.btn-bottom-right {
-    background-color: black;
-    color: white;
-    position: static;
-    bottom: 10px;
-    right: 10px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-left: 10px;
-}

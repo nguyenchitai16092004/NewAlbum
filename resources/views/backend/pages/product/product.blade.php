@@ -9,7 +9,7 @@
                         <h4>Departments List</h4>
                         <div class="add-product">
 
-                            <a href="{{ Route('Add_Product') }}">Add Category</a>
+                            <a href="{{ Route('Index_Add_Category') }}">Add Category</a>
 
                         </div>
                         <div class="asset-inner">

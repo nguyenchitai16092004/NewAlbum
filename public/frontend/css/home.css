@@ -714,6 +714,7 @@ hr {
     justify-content: center;
     align-items: center;
     margin-top: 12vh;
+    margin-bottom: 12vh;
     font-size: calc(0.8rem + 0.5vw);
     font-weight: bold;
     color: #000;
