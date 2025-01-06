@@ -112,7 +112,7 @@
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
                             <li><a href="{{ asset('admin/product') }}"><span class="mini-sub-pro">Product
                                         List</span></a></li>
-                            <li><a href="{{ asset('admin/add-product') }}"><span class="mini-sub-pro">Add
+                            <li><a href="{{ Route('Add_Product') }}"><span class="mini-sub-pro">Add
                                         Product</span></a></li>
                         </ul>
                     </li>

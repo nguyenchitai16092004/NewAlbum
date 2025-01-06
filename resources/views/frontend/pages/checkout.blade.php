@@ -1,93 +1,125 @@
 @extends('frontend.layouts.master')
-@section('title', 'Checkout')
+@section('This page is the Checkout.', 'Checkout')
 @section('main')
 <link rel="stylesheet" href="css/checkout.css">
     <!-- ##### Breadcumb Area Start ##### -->
-    <div class="container">
-        <div class="section">
-            <h2>Delivery</h2>
-            <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" placeholder="Enter your name">
+    <div class="breadcumb_area bg-img">
+        <div class="container-checkout h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="page-title text-center">
+                        <h2>Checkout</h2>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Enter your email">
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" placeholder="Enter your phone number">
-            </div>
-            <div class="form-group">
-                <label for="address">Address</label>
-                <input type="text" id="address" placeholder="Enter your address">
-            </div>
-            <div class="form-group">
-                <label for="city">City</label>
-                <input type="text" id="city" placeholder="Enter your city">
-            </div>
-            <div class="form-group">
-                <label for="district">District</label>
-                <input type="text" id="district" placeholder="Enter your district">
-            </div>
-            <div class="form-group">
-                <label for="commune">Commune</label>
-                <input type="text" id="commune" placeholder="Enter your commune">
-            </div>
-            <div class="form-group">
-                <label for="note">Note</label>
-                <textarea id="note" class="note" placeholder="Enter additional notes"></textarea>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Payment Method</h2>
-            <div class="payment-method">
-                <input type="radio" id="cod" name="payment">
-                <label for="cod">Payment upon receipt</label>
-            </div>
-            <div class="payment-method">
-                <input type="radio" id="momo" name="payment">
-                <label for="momo">Pay with Momo</label>
-            </div>
-            <div class="payment-method">
-                <input type="radio" id="zalopay" name="payment">
-                <label for="zalopay">Pay with Zalopay</label>
-            </div>
-        </div>
-
-        <div class="section cart-info">
-            <h2>Cart Information</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name Product</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Example Product</td>
-                        <td>1</td>
-                        <td>$100</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>Temporality: <span>Standard</span></p>
-            <p>Shipping Method: <span>Express</span></p>
-            <p>Total: <strong>$100</strong></p>
-        </div>
-
-        <div class="buttons">
-            <button>Continue Shopping</button>
-            <button>Pay Now</button>
-        </div>
-
-        <div class="terms">
-            <input type="checkbox" id="terms">
-            <label for="terms">I agree with the terms and conditions.</label>
         </div>
     </div>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <!-- ##### Checkout Area Start ##### -->
+    <div class="container-checkout">
+            <div class="row">
+
+                <div class="col-12 col-md-6">
+                    <div class="checkout_details_area mt-50 clearfix">
+
+                        <div class="cart-page-heading mb-30" style="text-align:center">
+                            <h5>Billing Address</h5>
+                        </div>
+
+                        <form action="#" method="post"style="margin-bottom:30px">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="first_name">First Name <span>*</span></label>
+                                    <input type="text" class="form-control" id="first_name" value="" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="last_name">Last Name <span>*</span></label>
+                                    <input type="text" class="form-control" id="last_name" value="" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="company">Email</label>
+                                    <input type="text" class="form-control" id="email" value="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="street_address">Phone Number <span>*</span></label>
+                                    <input type="text" class="form-control mb-3" id="phone-number" value="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="country">City <span>*</span></label>
+                                    <select class="w-100" id="city">
+                                        <option value="usa">United States</option>
+                                        <option value="uk">United Kingdom</option>
+                                        <option value="ger">Germany</option>
+                                        <option value="fra">France</option>
+                                        <option value="ind">India</option>
+                                        <option value="aus">Australia</option>
+                                        <option value="bra">Brazil</option>
+                                        <option value="cana">Canada</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="postcode">Adress <span>*</span></label>
+                                    <input type="text" class="form-control" id="postcode" value="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="city">District <span>*</span></label>
+                                    <input type="text" class="form-control" id="District" value="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="state">Commune <span>*</span></label>
+                                    <input type="text" class="form-control" id="commune" value="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="phone_number">Note <span>*</span></label>
+                                    <input type="text" class="form-control" id="note"
+                                        value="">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-5 ml-lg-auto">
+                    <div class="order-details-confirmation">
+
+                        <div class="cart-page-heading">
+                            <h5>Your Order</h5>
+                            <p>The Details</p>
+                        </div>
+
+                        <ul class="order-details-form mb-4">
+                            <li><span>Product</span> <span>Quantity</span> <span>Total</span></li>
+                            <li><span>Cocktail Yellow dress</span> <span>1</span> <span>$59.90</span></li>
+                            <li><span>Subtotal</span> <span>1</span> <span>$59.90</span></li>
+                            <li><span>Shipping</span> <span>1</span> <span>Free</span></li>
+                            <li><span>Total</span> <span>1</span> <span>$59.90</span></li>
+                        </ul>
+                        <div class="col-12">
+                                    <div class="custom-control custom-radio d-block mb-2">
+                                        <input type="radio" class="custom-control-input" id="customRadio1" name="paymentOption">
+                                        <label class="custom-control-label" for="customRadio1">
+                                            Payment upon receipt
+                                            <img src="img/product-img/cash.jpg" alt="Cash Icon" style="width: 20px; height: 20px; margin-left: 10px;">
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio d-block mb-2">
+                                        <input type="radio" class="custom-control-input" id="customRadio2" name="paymentOption">
+                                        <label class="custom-control-label" for="customRadio2">
+                                            VNPay
+                                            <img src="img/product-img/vnpay.jpg" alt="VNPay Icon" style="width: 20px; height: 20px; margin-left: 10px;">
+                                        </label>
+                                    </div>
+                                </div>
+                            <label for="terms"style="margin-left:16.5px">
+                                <input type="checkbox" id="terms" style="width: 13px;">
+                                I agree with the Terms and Conditions.
+                            </label>
+                        <div id="accordion" role="tablist" class="mb-4">
+                        <a href="#" class="btn essence-btn">Place Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     <!-- ##### Checkout Area End ##### -->
 @stop

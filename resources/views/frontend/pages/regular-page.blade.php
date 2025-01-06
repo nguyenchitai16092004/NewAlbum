@@ -2,6 +2,9 @@
 @section('This page is the Regular.', 'Regular')
 @section('main')
 <link rel="stylesheet" href="css/regular.css">
+
+
+    <!-- ##### Blog Wrapper Area Start ##### -->
     <div class="single-blog-wrapper">
 
         <!-- Single Blog Post Thumb -->

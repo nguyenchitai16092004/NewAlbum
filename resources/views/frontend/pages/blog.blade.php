@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Blog')
+@section('This page is the Blog.', 'Blog')
 @section('main')
 <link rel="stylesheet" href="css/pagination.css">
 <link rel="stylesheet" href="css/blog.css">
