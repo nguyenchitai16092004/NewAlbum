@@ -406,7 +406,7 @@
                                 <a href="single-product-details.html">
                                     <h6>[Pre-oder]Born Pink (Gray Ver)</h6>
                                 </a>
-                                <p class="product-price price"><span class="old-price">1.000.000 VND</span> 650.000 VND
+                                <p class="product-price price">650.000 VND<span class="old-price">1.000.000 VND</span> 
                                 </p>
 
                                 <!-- Hover Content -->
