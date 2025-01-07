@@ -4,7 +4,53 @@
   margin: 0 auto;
   padding: 20px;
 }
+.account-container {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+}
 
+.account-header {
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 15px 0;
+}
+
+.account-header-content h1 {
+    color: white;
+    margin: 0;
+}
+
+.account-description {
+    text-align: center;
+    margin: 10px 0 20px;
+}
+
+.account-navigation ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.account-navigation li {
+    margin: 0 15px;
+}
+
+.account-navigation a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.account-navigation a.active {
+    color: black;
+    border-bottom: 2px solid black;
+}
 /* Header styles */
 .favorites-header {
   font-size: 28px; 
