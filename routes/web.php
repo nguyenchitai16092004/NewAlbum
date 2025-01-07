@@ -24,9 +24,6 @@ Route::get('/single-product-detail', function () {
 Route::get('/checkout', function () {
     return view('frontend.pages.checkout');
 });
-Route::get('/blog', function () {
-    return view('frontend.pages.blog');
-});
 
 Route::get('/blog',[BlogController::class,'Index'])->name('Index_Blog');
 Route::get('/single-blog', function () {
@@ -114,7 +111,6 @@ Route::get('/account', function () {
 Route::get('/popup', function () {
     return view('frontend.partials.popup.popup');
 });
-Route::get('/blog', [SearchController::class, 'index'])->name('blog');
 
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
 Route::post('/contact', [ContactController::class, 'add'])->name('contact.add');
