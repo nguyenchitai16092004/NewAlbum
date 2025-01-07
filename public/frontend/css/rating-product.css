@@ -8,6 +8,7 @@
     max-width: 1600px;
     padding: 20px;
     margin: 0 auto;
+    text-align: center;
 }
 
 .header {
@@ -19,9 +20,6 @@
 
 .header h1 {
     color: white;
-}
-.ctn-rating-product p {
-    text-align: center;
 }
 
 .navigation ul {
