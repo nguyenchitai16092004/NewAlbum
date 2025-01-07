@@ -1,26 +1,22 @@
 /* General container styles */
+
 .ctn-rating-product {
     max-width: 1600px;
-    padding: 20px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .header {
-  text-align: center;
-  background-color: black;
-  color: white;
-  height: 55px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  width: 100%;
+    text-align: center;
+    background-color: black;
+    color: white;
+    height: 55px;
 }
 
 .header h1 {
     color: white;
 }
-.ctn-rating-product p{
+.ctn-rating-product p {
     text-align: center;
 }
 
@@ -46,6 +42,7 @@
     color: black;
     border-bottom: 2px solid black;
 }
+
 .account-container {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -95,120 +92,110 @@
 }
 /* Header styles */
 .favorites-header {
-  font-size: 28px; 
-  font-weight: 600; 
-  color: #fff;
-  background-color: #000;
-  padding: 20px 30px;
-  text-align: center;
-  border-radius: 8px; 
-  margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #000;
+    padding: 20px 30px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 30px;
 }
 
 /* Product grid layout */
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-  gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
 /* Product card styles */
 .product-card {
-  background: #fff;
-  border: 1px solid #000;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
 }
 
 .product-card:hover {
-  transform: translateY(-8px); 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Image styles */
 .product-image {
-  width: 100%;
-  height: 250px; 
-  object-fit: cover;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 }
 
 /* Product details */
 .product-details {
-  padding: 20px;
+    padding: 20px;
 }
 
-.product-title, .product-price {
-  font-family: 'Inter', sans-serif; 
+.product-title,
+.product-price {
+    font-family: "Inter", sans-serif;
 }
 
 .product-title {
-  font-size: 20px; 
-  font-weight: 500; 
-  color: #000; 
-  margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 8px;
 }
 
 .product-price {
-  font-size: 18px; 
-  font-weight: 600; 
-  color: #000; 
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
 }
 
 /* Action buttons */
 .action-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
 }
-.navigation{
-  display: flex; 
-  justify-content: center;
+.navigation {
+    display: flex;
+    justify-content: center;
 }
 .action-button {
-  padding: 15px 15px; 
-  background-color: #000; 
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-family: inherit; 
+    padding: 15px 15px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: inherit;
 }
 
 .action-button:hover {
-  background-color: #fff; 
-  color: #000;
-  border: 2px solid #000;
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
 }
 
 .action-button i {
-  font-size: 10px;
+    font-size: 10px;
 }
 
 /* Page background color */
 body {
-  background-color: #fff; 
-  color: #000;
+    background-color: #fff;
+    color: #000;
 }
 
 /* Center alignment for favorites */
 .favorites {
-  text-align: center; 
-}
-.account-header {
     text-align: center;
-    background-color: black;
-    color: white;
-    padding: 15px 0;
-}
-
-.account-header-content h1 {
-    color: white;
-    margin: 0;
 }

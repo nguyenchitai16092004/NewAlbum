@@ -25,18 +25,8 @@ Route::get('/checkout', function () {
 Route::get('/blog', function () {
     return view('frontend.pages.blog');
 });
-Route::get('/blog',[BlogController::class,'Index'])->name('Index_Blog');
 Route::get('/single-blog', function () {
-    return view('frontend.pages.Blog.single-blog');
-});
-Route::get('/single-blog2', function () {
-    return view('frontend.pages.Blog.single-blog2');
-});
-Route::get('/single-blog3', function () {
-    return view('frontend.pages.Blog.single-blog3');
-});
-Route::get('/single-blog4', function () {
-    return view('frontend.pages.Blog.single-blog4');
+    return view('frontend.pages.single-blog');
 });
 Route::get('/regular-page', function () {
     return view('frontend.pages.regular-page');
@@ -120,7 +110,6 @@ Route::get('/account', function () {
 Route::get('/popup', function () {
     return view('frontend.partials.popup.popup');
 });
-Route::get('/blog', [SearchController::class, 'index'])->name('blog');
 
 Route::prefix('/admin')->group(function () {
 
