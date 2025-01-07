@@ -39,7 +39,8 @@
                            required>
                 </div>
                 <div class="form-group">
-                    <textarea name="TinNhan" placeholder="Your message"></textarea>
+                    <!-- Tin nhắn -->
+                    <textarea name="TinNhan" placeholder="Your message" required></textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit">Send</button>

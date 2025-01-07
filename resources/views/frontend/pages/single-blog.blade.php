@@ -1,10 +1,7 @@
 @extends('frontend.layouts.master')
 @section('title', 'Chi tiet blog - Single-Blog')
-@extends('frontend.layouts.master')
-@section('title', 'Chi tiết bài viết')
 @section('main')
 <link rel="stylesheet" href="css/singleblog.css">
-
 <div class="single-blog-wrapper" style="margin-top:100px">
     <!-- Single Blog Post Thumb -->
     <div class="single-blog-post-thumb">
