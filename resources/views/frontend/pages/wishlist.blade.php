@@ -3,9 +3,22 @@
 @section('main')
 <link rel="stylesheet" href="css/wishlist.css">
 <link rel="stylesheet" href="css/pagination.css">
-<div class="favorites">
-    <h1>WishList</h1>
-</div>
+      <div>
+            <div class="account-header">
+                <div class="account-header-content">
+                    <h1>Welcome back!</h1>
+                </div>
+                <p class="account-description">You can review and edit your personal information here.</p>
+            </div>
+            <nav class="account-navigation">
+                <ul>
+                    <li><a href="{{ asset('/account') }}" >Account Information</a></li>
+                    <li><a href="#">Order History</a></li>
+                    <li><a href="{{ asset('/wishlist') }}" class="active">Wish List</a></li>
+                    <li><a href="#">Rating Product</a></li>
+                </ul>
+            </nav>
+        </div>
 <div class="container" style="margin-top: 50px">
     <div class="product-grid">
         <!-- Example Product -->
