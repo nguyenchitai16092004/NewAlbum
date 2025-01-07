@@ -1,9 +1,49 @@
 /* General container styles */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+
+.ctn-rating-product {
+    max-width: 1600px;
+    padding: 20px;
+    margin-left: 10px ;
 }
+
+.header {
+    text-align: center;
+    background-color: black;
+    color: white;
+    height: 55px;
+}
+
+.header h1 {
+    color: white;
+}
+.ctn-rating-product p{
+    text-align: center;
+}
+
+.navigation ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.navigation li {
+    margin: 0 15px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.navigation a.active {
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+
 .account-container {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -158,15 +198,4 @@ body {
 /* Center alignment for favorites */
 .favorites {
   text-align: center; 
-}
-.account-header {
-    text-align: center;
-    background-color: black;
-    color: white;
-    padding: 15px 0;
-}
-
-.account-header-content h1 {
-    color: white;
-    margin: 0;
 }
