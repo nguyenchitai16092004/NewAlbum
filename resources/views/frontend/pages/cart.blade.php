@@ -40,9 +40,50 @@
     </div>
 
     <!-- Pagination -->
-    <nav aria-label="navigation" class="pagination-container mt-50 mb-70">
-        {{ $cart->links('pagination::bootstrap-4') }}
+    <nav aria-label="navigation">
+        <ul class="pagination">
+
+            <!-- Previous Page Link -->
+            <!-- Kiểm tra nếu hiện tại là trang đầu tiên -->
+            @if ($cartPaginated->onFirstPage())
+                <!-- Nếu là trang đầu tiên, disable nút Previous (trái) -->
+                <li class="page-item disabled">
+                    <a class="page-link" href="#"><i class="fa fa-angle-left"></i></a>
+                </li>
+            @else
+                <!-- Nếu không phải trang đầu tiên, hiển thị nút Previous (trái) và liên kết tới trang trước -->
+                <li class="page-item">
+                    <a class="page-link" href="{{ $cartPaginated->previousPageUrl() }}"><i class="fa fa-angle-left"></i></a>
+                </li>
+            @endif
+
+            <!-- Page Numbers -->
+            <!-- Duyệt qua tất cả các trang có sẵn và tạo liên kết cho từng trang -->
+            @foreach ($cartPaginated->getUrlRange(1, $cartPaginated->lastPage()) as $page => $url)
+                <!-- Kiểm tra nếu trang hiện tại có bằng với trang đang duyệt -->
+                <li class="page-item {{ $cartPaginated->currentPage() == $page ? 'active' : '' }}">
+                    <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                </li>
+            @endforeach
+
+            <!-- Next Page Link -->
+            <!-- Kiểm tra nếu có trang tiếp theo -->
+            @if ($cartPaginated->hasMorePages())
+                <!-- Nếu có trang tiếp theo, hiển thị nút Next (phải) và liên kết tới trang tiếp theo -->
+                <li class="page-item">
+                    <a class="page-link" href="{{ $cartPaginated->nextPageUrl() }}"><i class="fa fa-angle-right"></i></a>
+                </li>
+            @else
+                <!-- Nếu không có trang tiếp theo, disable nút Next (phải) -->
+                <li class="page-item disabled">
+                    <a class="page-link" href="#"><i class="fa fa-angle-right"></i></a>
+                </li>
+            @endif
+
+        </ul>
     </nav>
+
+
     <div class="container-cart">
         <!-- Ghi chú -->
         <div class="note">

@@ -53,8 +53,7 @@ Route::get('/wishlist', function () {
 Route::get('/popup', function () {
     return view('frontend.partials.popup.popup');
 });
-
-Route::get('/cart', [CartController::class, 'index']);
+Route::get('/cart', [CartController::class, 'Index']);
 
 Route::get('/single-product-details', function () {
     return view('frontend.pages.single-product-details');
@@ -107,7 +106,6 @@ Route::get('/oder-history', function () {
 Route::get('/search', function () {
     return view('frontend.pages.search');
 });
-
 Route::get('/search', function () {
     return view('frontend.pages.search');
 });
