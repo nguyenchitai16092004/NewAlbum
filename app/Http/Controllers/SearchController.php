@@ -11,7 +11,7 @@ class SearchController extends Controller
     {
         $query = $request->input('query');
         if ($query) {
-            $blog = Blog::where('TenTG', 'LIKE', "%{$query}%")
+            $blog = Blog::where('TieuDeBlog', 'LIKE', "%{$query}%")
                 ->orWhere('NoiDung', 'LIKE', "%{$query}%")
                 ->paginate(10);
         } else {

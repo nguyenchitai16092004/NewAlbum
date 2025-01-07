@@ -10,7 +10,6 @@ use App\Models\SANPHAM;
 
 class ProductController extends Controller
 {
-    //
 
 
     public function Index()

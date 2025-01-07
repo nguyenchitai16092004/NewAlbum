@@ -8,6 +8,8 @@ use App\Http\Controllers\GoodController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\DiscountedProductController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SingleBlogController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -25,18 +27,10 @@ Route::get('/checkout', function () {
 Route::get('/blog', function () {
     return view('frontend.pages.blog');
 });
+
 Route::get('/blog',[BlogController::class,'Index'])->name('Index_Blog');
 Route::get('/single-blog', function () {
-    return view('frontend.pages.Blog.single-blog');
-});
-Route::get('/single-blog2', function () {
-    return view('frontend.pages.Blog.single-blog2');
-});
-Route::get('/single-blog3', function () {
-    return view('frontend.pages.Blog.single-blog3');
-});
-Route::get('/single-blog4', function () {
-    return view('frontend.pages.Blog.single-blog4');
+    return view('frontend.pages.single-blog');
 });
 Route::get('/regular-page', function () {
     return view('frontend.pages.regular-page');
@@ -121,6 +115,11 @@ Route::get('/popup', function () {
     return view('frontend.partials.popup.popup');
 });
 Route::get('/blog', [SearchController::class, 'index'])->name('blog');
+
+Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
+Route::post('/contact', [ContactController::class, 'add'])->name('contact.add');
+
+Route::get('/single-blog/{MaBL}', [BlogController::class, 'show'])->name('single-blog');
 
 Route::prefix('/admin')->group(function () {
 
