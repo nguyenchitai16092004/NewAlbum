@@ -1,14 +1,15 @@
 @extends('frontend.layouts.master')
-@section('title', 'Product Detail')
+@section('Title', 'Trang chi tiet - Detail-Product')
 @section('main')
     <link rel="stylesheet" href="css/single-product-details.css">
     <div class="container-detail">
         <div class="product-container">
             <div class="product-image1"style="margin-top:40px">
-                <img src="img/product-img/prod1.jpg" alt="Version 1">
+                <img src="https://via.placeholder.com/400x400" alt="Version 1">
             </div>
             <div class="product-details"style="margin-top:40px">
-                <h1>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h1>
+                <h1>Name Product</h1>
+                <p>Short description of the product</p>
                 <div class="status-price">
                     <p>Status: <strong>2 in stock</strong></p>
                     <p>Price: <strong>487,555 VND</strong></p>
@@ -29,7 +30,7 @@
     <div class="container-product">
         <!-- Description Section -->
         <div class="description-section">
-            <h1>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h1>
+            <h1>BLACKPINK THE ALBUM Boxset</h1>
             <h2>The standard Lorem Ipsum passage, used since the 1500s</h2>
             <p>
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -39,7 +40,7 @@
                 anim id est laborum."
             </p>
             <div class="product-image2">
-                <img src="img/product-img/prod1.jpg" alt="Version 1">
+                <img src="https://via.placeholder.com/400x400" alt="Version 1">
             </div>
             <a href="#" class="more-button">More</a>
         </div>

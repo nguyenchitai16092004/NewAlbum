@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Contact')
+@section('Title', 'Contact')
 @section('main')
 <link rel="stylesheet" href="css/contact.css">
     <!-- ##### Right Side Cart Area ##### -->
