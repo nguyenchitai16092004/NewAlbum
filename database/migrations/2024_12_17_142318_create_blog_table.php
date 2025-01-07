@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('MaQL');
             $table->string('TieuDeBlog', 255);
             $table->longText('NoiDung');
-            $table->binary('HinhAnh', 255);
+            $table->binary('HinhAnh');
             $table->timestamps(); 
 
             // Định nghĩa khóa ngoại

@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GoodController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\DiscountedProductController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SingleBlogController;
@@ -47,9 +48,8 @@ Route::get('/wishlist', function () {
 Route::get('/popup', function () {
     return view('frontend.partials.popup.popup');
 });
-Route::get('/cart', function () {
-    return view('frontend.pages.cart');
-});
+Route::get('/cart', [CartController::class, 'Index']);
+
 Route::get('/single-product-details', function () {
     return view('frontend.pages.single-product-details');
 });
@@ -101,7 +101,6 @@ Route::get('/oder-history', function () {
 Route::get('/search', function () {
     return view('frontend.pages.search');
 });
-
 Route::get('/search', function () {
     return view('frontend.pages.search');
 });
@@ -131,8 +130,8 @@ Route::prefix('/admin')->group(function () {
     Route::prefix('product')->group(function () {
         Route::get('/', [ProductController::class, 'Index'])->name('Index_Product');
         // Thêm sản phẩm
-        Route::view('/add-product', 'backend.pages.product.add-product')->name('Add_Product');
-        Route::get('/add', [ProductController::class, 'Add']);
+        Route::get('/add-product',[ProductController::class,'show'])->name('Add_Index_Product');
+        Route::post('/add', [ProductController::class, 'Add'])->name('Add_Product');
         // Sửa sản phẩm
         Route::get('/edit', [ProductController::class, 'Edit'])->name('Edit_Product');
         // Xóa sản phẩm
