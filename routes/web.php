@@ -5,6 +5,8 @@ use App\Http\Controllers\BandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GoodController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\SearchController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -22,8 +24,18 @@ Route::get('/checkout', function () {
 Route::get('/blog', function () {
     return view('frontend.pages.blog');
 });
+Route::get('/blog',[BlogController::class,'Index'])->name('Index_Blog');
 Route::get('/single-blog', function () {
-    return view('frontend.pages.single-blog');
+    return view('frontend.pages.Blog.single-blog');
+});
+Route::get('/single-blog2', function () {
+    return view('frontend.pages.Blog.single-blog2');
+});
+Route::get('/single-blog3', function () {
+    return view('frontend.pages.Blog.single-blog3');
+});
+Route::get('/single-blog4', function () {
+    return view('frontend.pages.Blog.single-blog4');
 });
 Route::get('/regular-page', function () {
     return view('frontend.pages.regular-page');
@@ -107,6 +119,7 @@ Route::get('/account', function () {
 Route::get('/popup', function () {
     return view('frontend.partials.popup.popup');
 });
+Route::get('/blog', [SearchController::class, 'index'])->name('blog');
 
 Route::prefix('/admin')->group(function () {
 
