@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('Email', 255); 
             $table->text('TinNhan'); 
             $table->timestamps();
- 
-            $table->foreign('MaKH')->references('MaKH')->on('KHACHHANG');
         });
     }
 
