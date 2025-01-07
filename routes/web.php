@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
@@ -16,9 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 /*Route FE */
 
-Route::get('/', function () {
-    return view('frontend.pages.home');
-});
+Route::get('/',[HomeController::class,'Index'])->name('Index_Home');
+
 Route::get('/single-product-detail', function () {
     return view('frontend.pages.single-product-details');
 });

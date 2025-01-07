@@ -28,7 +28,7 @@
                                 </tr>
                                 @foreach ($products as $item)
                                     <tr>
-                                        <td><img src="data:image/png;base64,{{ $item->HinhAnh }}">                                        </td>
+                                        <td><img src="data:image/jpg;base64,{{ $item->HinhAnh }}">                                        </td>
                                         <td>{{ $item->MaSP }}</td>
                                         <td>{{ $item->TenSP }}</td>
                                         <td>{{ $item->TenLoaiSP }}</td>
