@@ -1,9 +1,9 @@
 @extends('frontend.layouts.master')
-@section('This page is the AboutUs.', 'AboutUs')
+@section('title', 'AboutUs')
 @section('main')
 <link rel="stylesheet" href="css/about-us.css">
 <div class="about-us">
-  <h2>About Us</h2>
+  <h1>About Us</h1>
   <div class="about-us">
   <div>
     <div class="image-container" style="">
