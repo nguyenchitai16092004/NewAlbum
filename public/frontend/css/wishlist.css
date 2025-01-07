@@ -3,14 +3,19 @@
 .ctn-rating-product {
     max-width: 1600px;
     padding: 20px;
-    margin-left: 10px ;
+    margin: 0 auto;
 }
 
 .header {
-    text-align: center;
-    background-color: black;
-    color: white;
-    height: 55px;
+  text-align: center;
+  background-color: black;
+  color: white;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .header h1 {
