@@ -19,14 +19,14 @@ return new class extends Migration
             $table->string('TenSP', 255);
             $table->decimal('GiaNhap', 10, 2)->nullable();
             $table->decimal('GiaBan', 10, 2)->nullable();
+            $table->string('TieuDe',255);
             $table->text('MoTa')->nullable();
             $table->integer('SoLuong')->nullable();
             $table->boolean('LoaiHang')->nullable();
             $table->boolean('TrangThai')->default(1);
             $table->integer('LuotXem')->default(0);
             $table->string('Slug', 255)->nullable();
-
-            $table->string('HinhAnh', 255);
+            $table->binary('HinhAnh', 255);
 
             // Định nghĩa khóa ngoại
             $table->foreign('MaLoaiSP')->references('MaLoaiSP')->on('LOAISP')->onDelete('cascade');

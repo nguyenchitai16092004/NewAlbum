@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('This page is Home Admin', 'Home Admin')
+@section('title', 'Statistics Page')
 @section('main')
     <div class="charts-area mg-b-15">
         <div class="container-fluid">
