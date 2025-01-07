@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Chi tiet blog - Single-Blog')
+@section('title', 'Single Blog')
 @section('main')
 <link rel="stylesheet" href="css/singleblog.css">
     <!-- ##### Blog Wrapper Area Start ##### -->

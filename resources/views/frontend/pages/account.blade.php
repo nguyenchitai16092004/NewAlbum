@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Order History')
+@section('title', 'Account')
 @section('main')
     <link rel="stylesheet" href="css/account.css">
     <div class="ctn-rating-product">
@@ -14,7 +14,7 @@
                 <li><a href="{{ asset('/account') }}" class="active">Account Information</a></li>
                 <li><a href="{{ asset('/oder-history') }}">Order History</a></li>
                 <li><a href="{{ asset('/wishlist') }}">Wish List</a></li>
-                <li><a href="#" >Rating Product</a></li>
+                <li><a href="{{ asset('/rating-product') }}" >Rating Product</a></li>
             </ul>
         </nav>
     </div>

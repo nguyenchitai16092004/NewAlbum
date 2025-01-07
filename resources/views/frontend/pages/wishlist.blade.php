@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Trang yeu thich - Wishlist')
+@section('title', 'Wishlist')
 @section('main')
     <link rel="stylesheet" href="css/wishlist.css">
     <link rel="stylesheet" href="css/pagination.css">
