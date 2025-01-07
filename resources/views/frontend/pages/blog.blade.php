@@ -23,7 +23,7 @@
 <!-- ##### Search Container ##### -->
 <div class="search-container">
     <form action="{{ route('blog') }}" method="GET">
-        <input type="text" name="query" placeholder="Search by TenTG..." value="{{ request('query') }}">
+        <input type="text" name="query" placeholder="Search..." value="{{ request('query') }}">
         <button type="submit">Search</button>
     </form>
 </div>
@@ -56,15 +56,14 @@
                         <div class="single-blog-area mb-50">
                             <img src="img/bg-img/blog1.jpg" alt="">
                             <div class="post-title">
-                                <a href="#">{{ $item->TenTG }}</a>
+                                <a href="#">{{ $item->TieuDeBlog}}</a>
                             </div>
                             <div class="hover-content">
                                 <div class="hover-post-title">
-                                    <a href="#">{{ $item->TenTG }}</a>
+                                    <a href="#">{{ $item->TieuDeBlog }}</a>
                                 </div>
                                 <p>{{ $item->NoiDung }}</p>
-                                <a href="{{ asset('/single-blog') }}">Continue reading <i class="fa fa-angle-right"></i></a>
-                            </div>
+                                <a href="{{ route('single-blog', ['MaBL' => $item->MaBL]) }}">Continue reading <i class="fa fa-angle-right"></i></a>                            </div>
                         </div>
                     </div>
                 @endforeach
@@ -72,7 +71,6 @@
         </div>
     </div>
 </div>
-
 <!-- ##### Pagination ##### -->
 <nav aria-label="navigation" class="pagination-container mt-50 mb-70">
     {{ $blog->links('pagination::bootstrap-4') }}

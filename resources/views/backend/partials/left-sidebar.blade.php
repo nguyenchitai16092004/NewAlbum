@@ -28,10 +28,12 @@
                         </a>
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
                             <li>
-                                <a href="{{ Route('Index_Contact_Management') }}"><span class="mini-sub-pro">Contact Management</span></a>
+                                <a href="{{ Route('Index_Contact_Management') }}"><span class="mini-sub-pro">Contact
+                                        Management</span></a>
                             </li>
                             <li>
-                                <a href="{{ Route('Index_Response_Contact_Management') }}"><span class="mini-sub-pro">Respone Contact Management</span></a>
+                                <a href="{{ Route('Index_Response_Contact_Management') }}"><span
+                                        class="mini-sub-pro">Respone Contact Management</span></a>
                             </li>
                         </ul>
                     </li>
@@ -42,10 +44,12 @@
                         </a>
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
                             <li>
-                                <a href="{{ Route('Index_Bill_Management') }}"><span class="mini-sub-pro">Bill Management</span></a>
+                                <a href="{{ Route('Index_Bill_Management') }}"><span class="mini-sub-pro">Bill
+                                        Management</span></a>
                             </li>
                             <li>
-                                <a href="{{ Route('Index_Bill_Detail_Management') }}"><span class="mini-sub-pro">Bill Detail Management</span></a>
+                                <a href="{{ Route('Index_Bill_Detail_Management') }}"><span class="mini-sub-pro">Bill
+                                        Detail Management</span></a>
                             </li>
                         </ul>
                     </li>
@@ -56,13 +60,16 @@
                         </a>
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
                             <li>
-                                <a href="{{ Route('Index_Blog_Management') }}"><span class="mini-sub-pro">Blog Management</span></a>
+                                <a href="{{ Route('Index_Blog_Management') }}"><span class="mini-sub-pro">Blog
+                                        Management</span></a>
                             </li>
                             <li>
-                                <a href="{{ Route('Index_Add_Blog_Management') }}"><span class="mini-sub-pro">Add Blog</span></a>
+                                <a href="{{ Route('Index_Add_Blog_Management') }}"><span class="mini-sub-pro">Add
+                                        Blog</span></a>
                             </li>
                             <li>
-                                <a href="{{ Route('Index_Edit_Blog_Management') }}"><span class="mini-sub-pro">Edit Blog</span></a>
+                                <a href="{{ Route('Index_Edit_Blog_Management') }}"><span class="mini-sub-pro">Edit
+                                        Blog</span></a>
                             </li>
                         </ul>
                     </li>
@@ -85,10 +92,12 @@
                         </a>
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
                             <li>
-                                <a href="{{ Route('Index_Staff_Management') }}"><span class="mini-sub-pro">Staff Management</span></a>
+                                <a href="{{ Route('Index_Staff_Management') }}"><span class="mini-sub-pro">Staff
+                                        Management</span></a>
                             </li>
                             <li>
-                                <a href="{{ Route('Index_Add_Staff_Management') }}"><span class="mini-sub-pro">Add Staff Management</span></a>
+                                <a href="{{ Route('Index_Add_Staff_Management') }}"><span class="mini-sub-pro">Add
+                                        Staff Management</span></a>
                             </li>
                         </ul>
                     </li>
@@ -110,9 +119,21 @@
                             <span class="mini-click-non">Product List</span>
                         </a>
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li><a href="{{ asset('admin/product') }}"><span class="mini-sub-pro">Product
+                            <li><a href="{{ Route('Index_Product') }}"><span class="mini-sub-pro">Product
                                         List</span></a></li>
-                            <li><a href="{{ asset('admin/add-product') }}"><span class="mini-sub-pro">Add
+                            <li><a href="{{ Route('Add_Product') }}"><span class="mini-sub-pro">Add
+                                        Product</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="#" aria-expanded="false">
+                            <span class="fa fa-tags icon-wrap"></span>
+                            <span class="mini-click-non">Discount Products </span>
+                        </a>
+                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
+                            <li><a href="{{ Route('Index_Discount') }}"><span class="mini-sub-pro">Discount
+                                        List</span></a></li>
+                            <li><a href="{{ Route('Index_Add_Discount') }}"><span class="mini-sub-pro">Add Discount
                                         Product</span></a></li>
                         </ul>
                     </li>
@@ -122,10 +143,13 @@
                             <span class="mini-click-non">Goods-Receipt</span>
                         </a>
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li><a href="{{ Route('Index_Goods') }}"><span class="mini-sub-pro">Goods-Receipt</span></a></li>
-                            <li><a href="{{ Route('Add_Index') }}"><span class="mini-sub-pro">Add Goods-Receipt</span></a></li>
+                            <li><a href="{{ Route('Index_Goods') }}"><span
+                                        class="mini-sub-pro">Goods-Receipt</span></a></li>
+                            <li><a href="{{ Route('Add_Index') }}"><span class="mini-sub-pro">Add
+                                        Goods-Receipt</span></a></li>
                         </ul>
                     </li>
+
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false">
                             <span class="fa fa-microphone icon-wrap"></span>
