@@ -3,20 +3,22 @@
 @section('main')
     <link rel="stylesheet" href="css/account.css">
     <div class="account-container">
-        <div class="account-header">
-            <div class="account-header-content">
-                <h1>Welcome back!</h1>
+        <div>
+            <div class="account-header">
+                <div class="account-header-content">
+                    <h1>Welcome back!</h1>
+                </div>
+                <p class="account-description">You can review and edit your personal information here.</p>
             </div>
-            <p class="account-description">You can review and edit your personal information here.</p>
+            <nav class="account-navigation">
+                <ul>
+                    <li><a href="#" class="active">Account Information</a></li>
+                    <li><a href="#">Order History</a></li>
+                    <li><a href="{{ asset('/wishlist') }}">Wish List</a></li>
+                    <li><a href="#">Rating Product</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav class="account-navigation">
-            <ul>
-                <li><a href="#" class="active">Account Information</a></li>
-                <li><a href="#">Order History</a></li>
-                <li><a href="#">Wish List</a></li>
-                <li><a href="#">Rating Product</a></li>
-            </ul>
-        </nav>
         <div class="account-content">
             <div class="account-card">
                 <h2>Account Information</h2>
