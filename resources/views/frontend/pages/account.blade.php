@@ -12,9 +12,9 @@
         <nav class="account-navigation">
             <ul>
                 <li><a href="#" class="active">Account Information</a></li>
-                <li><a href="#">Order History</a></li>
-                <li><a href="#">Wish List</a></li>
-                <li><a href="#">Rating Product</a></li>
+                <li><a href={{ asset('/oder-history')}}>Order History</a></li>
+                <li><a href={{ asset('/wishlist')}}>Wish List</a></li>
+                <li><a href={{ asset('/rating-product')}}>Rating Product</a></li>
             </ul>
         </nav>
         <div class="account-content">

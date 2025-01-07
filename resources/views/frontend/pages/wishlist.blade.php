@@ -3,6 +3,24 @@
 @section('main')
 <link rel="stylesheet" href="css/wishlist.css">
 <link rel="stylesheet" href="css/pagination.css">
+<link rel="stylesheet" href="css/rating-product.css">
+    <div class="container-rating-product">
+        <div class="ctn-rating-product">
+            <div class="header">
+                <div>
+                    <h1>Welcome back!</h1>
+                </div>
+            </div>
+            <p>You can review and edit your personal information here.</p>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#">Account Information</a></li>
+                    <li><a href="#">Order History</a></li>
+                    <li><a href="#">Wish List</a></li>
+                    <li><a href="#" class="active">Rating Product</a></li>
+                </ul>
+            </nav>
+        </div>
 <div class="favorites">
     <h1>WishList</h1>
 </div>
