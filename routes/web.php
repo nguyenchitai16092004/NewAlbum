@@ -153,11 +153,11 @@ Route::prefix('/admin')->group(function () {
     });
 
     // Route cho phiếu nhập
-    Route::prefix('goods-receipt')->group(function(){
-        Route::get('/',[GoodController::class,'Index'])->name('Index_Goods');
+    Route::prefix('goods-receipt')->group(function () {
+        Route::get('/', [GoodController::class, 'Index'])->name('Index_Goods');
         //Thêm sản phẩm
-        Route::view('/add-good','backend.pages.goods-receipt.add-goods-receipt-management')->name('Add_Index');
-        Route::get('/add',[GoodController::class,'Add'])->name('Add_Good');
+        Route::view('/add-good', 'backend.pages.goods-receipt.add-goods-receipt-management')->name('Add_Index');
+        Route::get('/add', [GoodController::class, 'Add'])->name('Add_Good');
     });
 
     //Route cho quản lý đội ngũ
@@ -202,6 +202,4 @@ Route::prefix('/admin')->group(function () {
         Route::view('/admin-profile', 'backend.pages.admin-profile.admin-profile')->name('Index_Admin_Profile');
         Route::view('/edit-admin-profile', 'backend.pages.admin-profile.edit-admin-profile')->name('Index_Edit_Admin_Profile');
     });
-
-    
 });
