@@ -1,5 +1,4 @@
 /* General container styles */
-
 .ctn-rating-product {
     max-width: 1600px;
     padding: 20px;
@@ -47,8 +46,6 @@
     color: black;
     border-bottom: 2px solid black;
 }
-
-
 .account-container {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -203,4 +200,15 @@ body {
 /* Center alignment for favorites */
 .favorites {
   text-align: center; 
+}
+.account-header {
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 15px 0;
+}
+
+.account-header-content h1 {
+    color: white;
+    margin: 0;
 }
