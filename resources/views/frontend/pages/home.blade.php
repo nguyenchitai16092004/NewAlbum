@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Home')
+@section('title', 'Trang chủ - Home')
 @section('main')
     <link rel="stylesheet" href="css/home.css">
     <!-- ##### Welcome Area Start ##### -->

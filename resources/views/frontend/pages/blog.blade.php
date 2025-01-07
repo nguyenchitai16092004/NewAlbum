@@ -1,181 +1,79 @@
 @extends('frontend.layouts.master')
 @section('title', 'Blog')
 @section('main')
+
+<!-- Styles -->
 <link rel="stylesheet" href="css/pagination.css">
 <link rel="stylesheet" href="css/blog.css">
-    <!-- ##### Breadcumb Area Start ##### -->
-    <div class="breadcumb_area breadcumb-style-two bg-img" style="background-image: url(img/core-img/kpop.jpg);">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
+
+<!-- ##### Breadcumb Area Start ##### -->
+<div class="breadcumb_area breadcumb-style-two bg-img" style="background-image: url(img/core-img/kpop.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="page-title text-center">
+                    <h2 style="color:black">K-Pop Blog</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Breadcumb Area End ##### -->
+
+<!-- ##### Search Container ##### -->
+<div class="search-container">
+    <form action="{{ route('blog') }}" method="GET">
+        <input type="text" name="query" placeholder="Search..." value="{{ request('query') }}">
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<!-- ##### Result Container ##### -->
+<div class="result-container text-center" style="margin-top: 40px;">
+    @if(isset($query))
+        @if($blog->isEmpty())
+            <p>No results found for "{{ $query }}"</p>
+        @endif
+
+        <!-- Back to Blog Button -->
+        <a href="{{ route('blog') }}" style="text-decoration: none;">
+            <button class="btn btn-black">Back to Blog</button>
+        </a>
+    @endif
+</div>
+
+<!-- ##### Blog Wrapper Area Start ##### -->
+<div class="blog-wrapper section-padding-80">
+    <div class="container">
+        <div class="row">
+            @if(isset($query) && $blog->isEmpty())
                 <div class="col-12">
-                    <div class="page-title text-center">
-                        <h2 style="color:black">K-Pop Blog</h2>
-                    </div>
+                    <p class="text-center">No results found for "{{ $query }}"</p>
                 </div>
-            </div>
+            @else
+                @foreach ($blog as $item)
+                    <div class="col-12 col-lg-6">
+                        <div class="single-blog-area mb-50">
+                            <img src="img/bg-img/blog1.jpg" alt="">
+                            <div class="post-title">
+                                <a href="#">{{ $item->TieuDeBlog}}</a>
+                            </div>
+                            <div class="hover-content">
+                                <div class="hover-post-title">
+                                    <a href="#">{{ $item->TieuDeBlog }}</a>
+                                </div>
+                                <p>{{ $item->NoiDung }}</p>
+                                <a href="{{ route('single-blog', ['MaBL' => $item->MaBL]) }}">Continue reading <i class="fa fa-angle-right"></i></a>                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
         </div>
     </div>
-    <!-- ##### Breadcumb Area End ##### -->
-    <div class="search-container" style="margin-top: 40px;display:flex;align-items: center;">
-        <input type="text" placeholder="Search..." style="margin:0;">
-        <button type="submit">Submit</button>
-    </div>
-    <!-- ##### Blog Wrapper Area Start ##### -->
-    <div class="blog-wrapper section-padding-80">
-        <div class="container">
-            <div class="row">
-
-                <!-- Single Blog Area -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-blog-area mb-50">
-                        <img src="img/bg-img/blog1.jpg" alt="">
-                        <!-- Post Title -->
-                        <div class="post-title">
-                            <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et malesuada</a>
-                        </div>
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <!-- Post Title -->
-                            <div class="hover-post-title">
-                                <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et
-                                    malesuada</a>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus
-                                in, sagittis fringilla tortor. Phasellus purus dignissim convallis.</p>
-                            <a href="#">Continue reading <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Area -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-blog-area mb-50">
-                        <img src="img/bg-img/blog2.jpg" alt="">
-                        <!-- Post Title -->
-                        <div class="post-title">
-                            <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et malesuada</a>
-                        </div>
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <!-- Post Title -->
-                            <div class="hover-post-title">
-                                <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et
-                                    malesuada</a>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus
-                                in, sagittis fringilla tortor. Phasellus purus dignissim convallis.</p>
-                            <a href="#">Continue reading <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Area -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-blog-area mb-50">
-                        <img src="img/bg-img/blog3.jpg" alt="">
-                        <!-- Post Title -->
-                        <div class="post-title">
-                            <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et malesuada</a>
-                        </div>
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <!-- Post Title -->
-                            <div class="hover-post-title">
-                                <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et
-                                    malesuada</a>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus
-                                in, sagittis fringilla tortor. Phasellus purus dignissim convallis.</p>
-                            <a href="#">Continue reading <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Area -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-blog-area mb-50">
-                        <img src="img/bg-img/blog4.jpg" alt="">
-                        <!-- Post Title -->
-                        <div class="post-title">
-                            <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et
-                                malesuada</a>
-                        </div>
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <!-- Post Title -->
-                            <div class="hover-post-title">
-                                <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et
-                                    malesuada</a>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus
-                                in, sagittis fringilla tortor. Phasellus purus dignissim convallis.</p>
-                            <a href="#">Continue reading <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Area -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-blog-area mb-50">
-                        <img src="img/bg-img/blog5.jpg" alt="">
-                        <!-- Post Title -->
-                        <div class="post-title">
-                            <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et
-                                malesuada</a>
-                        </div>
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <!-- Post Title -->
-                            <div class="hover-post-title">
-                                <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et
-                                    malesuada</a>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus
-                                in, sagittis fringilla tortor. Phasellus purus dignissim convallis.</p>
-                            <a href="#">Continue reading <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Area -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-blog-area mb-50">
-                        <img src="img/bg-img/blog6.jpg" alt="">
-                        <!-- Post Title -->
-                        <div class="post-title">
-                            <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et
-                                malesuada</a>
-                        </div>
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <!-- Post Title -->
-                            <div class="hover-post-title">
-                                <a href="#">Vivamus sed nunc in arcu cursus mollis quis et orci. Interdum et
-                                    malesuada</a>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus
-                                in, sagittis fringilla tortor. Phasellus purus dignissim convallis.</p>
-                            <a href="#">Continue reading <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Pagination -->
-    <nav aria-label="navigation" >
-                        <ul class="pagination mt-50 mb-70">
-                            <li class="page-item"><a class="page-link" href="#"><i
-                                        class="fa fa-angle-left"></i></a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#">21</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><i
-                                        class="fa fa-angle-right"></i></a></li>
-                        </ul>
-                    </nav>
-    <!-- ##### Blog Wrapper Area End ##### -->
+</div>
+<!-- ##### Pagination ##### -->
+<nav aria-label="navigation" class="pagination-container mt-50 mb-70">
+    {{ $blog->links('pagination::bootstrap-4') }}
+</nav>
 
 @stop
