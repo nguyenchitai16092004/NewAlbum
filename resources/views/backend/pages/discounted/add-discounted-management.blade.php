@@ -6,10 +6,11 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="product-status-wrap drp-lst">
-                        <h4>Edit Discounted List</h4>
+                        <h4>Discount List</h4>
                         <div class="product-status-wrap drp-lst">
                             <div class="search-container mb-3">
-                                <div class="input-group" style="width: 250px; display: flex; align-items: center;padding-bottom:10px ">
+                                <div class="input-group"
+                                    style="width: 250px; display: flex; align-items: center;padding-bottom:10px ">
                                     <input type="text" class="form-control" placeholder="Search Product"
                                         style="border-radius: 10px 0 0 10px;">
 
@@ -54,16 +55,22 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="{{ Route('Index_Discount') }}" style=" display: flex ; justify-content: flex-end; align-items: flex-end;">
+                        <form action="{{ Route('Index_Discount') }}"
+                            style=" display: flex ; justify-content: flex-end; align-items: flex-end;">
                             <div class="mb-3">
                                 <label for="discount" class="form-label">Percentage Discount</label>
-                                <input type="number" id="discount" name="discount" class="form-control" placeholder="Enter discount percentage" pattern="" required>
+                                <input type="number" id="discount" name="discount" class="form-control"
+                                    placeholder="Enter discount percentage" pattern="" required>
                             </div>
                             <div class="text-end">
-                                <button type="submit" class="btn-bottom-right">Apply Discount</button>
+                                <button type="submit" class="btn-bottom-right"
+                                    style="background-color: black; color: white; position: static; bottom: 10px; right: 10px; padding: 10px 20px; border-radius: 5px; margin-left: 10px;">
+                                    Apply Discount
+                                </button>
+
                             </div>
                         </form>
-                        
+
                     </div>
                 </div>
             </div>

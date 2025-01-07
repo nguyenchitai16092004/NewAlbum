@@ -1,6 +1,5 @@
 @extends('backend.layouts.master')
-
-@section('This page is Add Library', 'Add Library')
+@section('title', 'Add Category)
 @section('main')
     <link rel="stylesheet" href="css/dropzone/dropzone.css">
     <div class="all-content-wrapper">
