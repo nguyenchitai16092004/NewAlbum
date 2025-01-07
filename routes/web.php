@@ -132,8 +132,8 @@ Route::prefix('/admin')->group(function () {
     Route::prefix('product')->group(function () {
         Route::get('/', [ProductController::class, 'Index'])->name('Index_Product');
         // Thêm sản phẩm
-        Route::view('/add-product', 'backend.pages.product.add-product')->name('Add_Product');
-        Route::get('/add', [ProductController::class, 'Add']);
+        Route::get('/add-product',[ProductController::class,'show'])->name('Add_Index_Product');
+        Route::post('/add', [ProductController::class, 'Add'])->name('Add_Product');
         // Sửa sản phẩm
         Route::get('/edit', [ProductController::class, 'Edit'])->name('Edit_Product');
         // Xóa sản phẩm
