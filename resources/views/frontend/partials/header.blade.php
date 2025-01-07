@@ -20,40 +20,32 @@
                 <!-- Nav Start -->
                 <div class="classynav">
                     <ul>
-                        <li><a style="color: white;" href="#">Shop<i class="fa-solid fa-angle-down"
-                                    style="color: #ffffff;"></i></a>
+                        <li><a style="color: rgb(255, 255, 255);" href="#">Shop</a>
                             <div class="megamenu">
                                 <ul class="single-mega cn-col-4">
-                                    <li class="title">Women's Collection</li>
-                                    <li><a href="{{ asset('/shop') }}">Dresses</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Blouses &amp; Shirts</a></li>
-                                    <li><a href="{{ asset('/shop') }}">T-shirts</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Rompers</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Bras &amp; Panties</a></li>
+                                    <li class="title">K-POP</li>
+                                    <li><a href="{{ asset('/shop') }}">Male-Group</a></li>
+                                    <li><a href="{{ asset('/shop') }}">Female</a></li>
+                                    <li><a href="{{ asset('/shop') }}">Solo</a></li>
                                 </ul>
                                 <ul class="single-mega cn-col-4">
-                                    <li class="title">Men's Collection</li>
-                                    <li><a href="{{ asset('/shop') }}">T-Shirts</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Polo</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Shirts</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Jackets</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Trench</a></li>
+                                    <li class="title">K-GOODS</li>
+                                    <li><a href="{{ asset('/shop') }}">Male-Group</a></li>
+                                    <li><a href="{{ asset('/shop') }}">Female</a></li>
+                                    <li><a href="{{ asset('/shop') }}">Solo</a></li>
                                 </ul>
                                 <ul class="single-mega cn-col-4">
-                                    <li class="title">Kid's Collection</li>
-                                    <li><a href="{{ asset('/shop') }}">Dresses</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Shirts</a></li>
-                                    <li><a href="{{ asset('/shop') }}">T-shirts</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Jackets</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Trench</a></li>
+                                    <li class="title">Poster</li>
+                                    <li><a href="{{ asset('/shop') }}">Male-Group</a></li>
+                                    <li><a href="{{ asset('/shop') }}">Female</a></li>
+                                    <li><a href="{{ asset('/shop') }}">Solo</a></li>
                                 </ul>
                                 <div class="single-mega cn-col-4">
-                                    <img src="img/bg-img/bg-6.jpg" alt="">
+                                    <img src="img/core-img/kpop.jpg" alt="">
                                 </div>
                             </div>
                         </li>
-                        <li><a style="color: white;" href="#">Pages <i class="fa-solid fa-angle-down"
-                                    style="color: #ffffff;"></i></a>
+                        <li><a style="color: rgb(255, 255, 255);" href="#">Pages</a>
                             <ul class="dropdown">
                                 <li><a href="{{ asset('/') }}">Home</a></li>
                                 <li><a href="{{ asset('/single-product-detail') }}">Product Details</a></li>
@@ -65,9 +57,9 @@
                                 <li><a href="{{ asset('/wishlist') }}">Wishlist</a></li>
                             </ul>
                         </li>
-                        <li><a style="color: white;" href="{{ asset('/blog') }}">Blog</a></li>
-                        <li><a style="color: white;" href="{{ asset('/contact') }}">Contact</a></li>
-                        <li><a style="color: white;" href="{{ asset('/about-us') }}">About Us</a></li>
+                        <li><a style="color: rgb(255, 255, 255);" href="{{ asset('/blog') }}">Blog</a></li>
+                        <li><a style="color: rgb(255, 255, 255);" href="{{ asset('/contact') }}">Contact</a></li>
+                        <li><a style="color: rgb(255, 255, 255);" href="{{ asset('/about-us') }}">About Us</a></li>
                     </ul>
                 </div>
                 <!-- Nav End -->

@@ -159,3 +159,14 @@ body {
 .favorites {
   text-align: center; 
 }
+.account-header {
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 15px 0;
+}
+
+.account-header-content h1 {
+    color: white;
+    margin: 0;
+}

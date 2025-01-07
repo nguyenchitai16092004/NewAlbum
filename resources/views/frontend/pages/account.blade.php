@@ -11,13 +11,13 @@
                 <p class="account-description">You can review and edit your personal information here.</p>
             </div>
             <nav class="account-navigation">
-                <ul>
-                    <li><a href="#" class="active">Account Information</a></li>
-                    <li><a href="#">Order History</a></li>
-                    <li><a href="{{ asset('/wishlist') }}">Wish List</a></li>
-                    <li><a href="#">Rating Product</a></li>
-                </ul>
-            </nav>
+            <ul>
+                <li><a href="#" class="active">Account Information</a></li>
+                <li><a href={{ asset('/oder-history')}}>Order History</a></li>
+                <li><a href={{ asset('/wishlist')}}>Wish List</a></li>
+                <li><a href={{ asset('/rating-product')}}>Rating Product</a></li>
+            </ul>
+        </nav>
         </div>
         <div class="account-content">
             <div class="account-card">
