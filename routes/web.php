@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GoodController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\CartController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -52,9 +53,9 @@ Route::get('/wishlist', function () {
 Route::get('/popup', function () {
     return view('frontend.partials.popup.popup');
 });
-Route::get('/cart', function () {
-    return view('frontend.pages.cart');
-});
+
+Route::get('/cart', [CartController::class, 'index']);
+
 Route::get('/single-product-details', function () {
     return view('frontend.pages.single-product-details');
 });
