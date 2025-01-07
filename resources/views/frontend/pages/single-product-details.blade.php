@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Product Detail')
+@section('Title', 'Trang chi tiet - Detail-Product')
 @section('main')
     <link rel="stylesheet" href="css/single-product-details.css">
     <div class="container-detail">

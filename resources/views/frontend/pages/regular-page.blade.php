@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Regular')
+@section('This page is the Regular.', 'Regular')
 @section('main')
 <link rel="stylesheet" href="css/regular.css">
     <div class="single-blog-wrapper">

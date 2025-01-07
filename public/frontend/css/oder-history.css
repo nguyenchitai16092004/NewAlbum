@@ -1,11 +1,14 @@
-.container-oder-history{
-    font-family: Arial, sans-serif;
+.container-oder-history {
     line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
 }
 .ctn-oder-history {
     max-width: 1600px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .header {
@@ -18,7 +21,7 @@
 .header h1 {
     color: white;
 }
-.ctn-oder-history p{
+.ctn-oder-history p {
     text-align: center;
 }
 
@@ -48,7 +51,7 @@
 .content {
     margin-top: 20px;
 }
-.ctn-order{
+.ctn-order {
     display: flex;
     column-gap: 4vw;
 }
@@ -81,9 +84,9 @@
     padding: 30px;
     text-align: center;
 }
-.order-table th{
-font-weight: bold;
-font-size: 20px;
+.order-table th {
+    font-weight: bold;
+    font-size: 20px;
 }
 .vertical-line {
     width: 1px;
@@ -91,6 +94,9 @@ font-size: 20px;
     background-color: #000;
     margin-top: 70px;
 }
-.quantity, .price-oh, .total, .name {
+.quantity,
+.price-oh,
+.total,
+.name {
     font-weight: bold;
 }

@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Checkout')
+@section('This page is the Checkout.', 'Checkout')
 @section('main')
     <link rel="stylesheet" href="css/checkout.css">
     <!-- ##### Breadcumb Area Start ##### -->
@@ -8,7 +8,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="page-title text-center">
-                        <h1>Checkout</h1>
+                        <h2>Checkout</h2>
                     </div>
                 </div>
             </div>
