@@ -5,6 +5,8 @@ use App\Http\Controllers\BandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GoodController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\SearchController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -22,8 +24,18 @@ Route::get('/checkout', function () {
 Route::get('/blog', function () {
     return view('frontend.pages.blog');
 });
+Route::get('/blog',[BlogController::class,'Index'])->name('Index_Blog');
 Route::get('/single-blog', function () {
-    return view('frontend.pages.single-blog');
+    return view('frontend.pages.Blog.single-blog');
+});
+Route::get('/single-blog2', function () {
+    return view('frontend.pages.Blog.single-blog2');
+});
+Route::get('/single-blog3', function () {
+    return view('frontend.pages.Blog.single-blog3');
+});
+Route::get('/single-blog4', function () {
+    return view('frontend.pages.Blog.single-blog4');
 });
 Route::get('/regular-page', function () {
     return view('frontend.pages.regular-page');
@@ -107,6 +119,7 @@ Route::get('/account', function () {
 Route::get('/popup', function () {
     return view('frontend.partials.popup.popup');
 });
+Route::get('/blog', [SearchController::class, 'index'])->name('blog');
 
 Route::prefix('/admin')->group(function () {
 
@@ -153,11 +166,11 @@ Route::prefix('/admin')->group(function () {
     });
 
     // Route cho phiếu nhập
-    Route::prefix('goods-receipt')->group(function () {
-        Route::get('/', [GoodController::class, 'Index'])->name('Index_Goods');
+    Route::prefix('goods-receipt')->group(function(){
+        Route::get('/',[GoodController::class,'Index'])->name('Index_Goods');
         //Thêm sản phẩm
-        Route::view('/add-good', 'backend.pages.goods-receipt.add-goods-receipt-management')->name('Add_Index');
-        Route::get('/add', [GoodController::class, 'Add'])->name('Add_Good');
+        Route::view('/add-good','backend.pages.goods-receipt.add-goods-receipt-management')->name('Add_Index');
+        Route::get('/add',[GoodController::class,'Add'])->name('Add_Good');
     });
 
     //Route cho quản lý đội ngũ
@@ -202,4 +215,6 @@ Route::prefix('/admin')->group(function () {
         Route::view('/admin-profile', 'backend.pages.admin-profile.admin-profile')->name('Index_Admin_Profile');
         Route::view('/edit-admin-profile', 'backend.pages.admin-profile.edit-admin-profile')->name('Index_Edit_Admin_Profile');
     });
+
+    
 });
