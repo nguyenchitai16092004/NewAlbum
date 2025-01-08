@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('MatKhau', 255)->nullable();
             $table->boolean('TrangThai')->default(1);
             $table->boolean('GioiTinh')->nullable();
-            $table->binary('HinhAnh', 255);
+            $table->binary('HinhAnh')->nullable();
             $table->string('DiaChiKH',255);
             $table->timestamps();
         });
