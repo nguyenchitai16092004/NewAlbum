@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
@@ -16,9 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 /*Route FE */
 
-Route::get('/', function () {
-    return view('frontend.pages.home');
-});
+Route::get('/',[HomeController::class,'Index'])->name('Index_Home');
+
 Route::get('/single-product-detail', function () {
     return view('frontend.pages.single-product-details');
 });
@@ -135,7 +134,7 @@ Route::prefix('/admin')->group(function () {
         // Sửa sản phẩm
         Route::get('/edit', [ProductController::class, 'Edit'])->name('Edit_Product');
         // Xóa sản phẩm
-        Route::get('/delete', [ProductController::class, 'Delete'])->name('Delete_Product');
+        Route::delete('/delete/{id}', [ProductController::class, 'Delete'])->name('Delete_Product');
     });
 
     // Route cho nhóm nhạc ca sĩ
