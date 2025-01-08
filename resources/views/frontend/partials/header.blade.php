@@ -51,7 +51,6 @@
                                 <li><a href="{{ asset('/single-product-detail') }}">Product Details</a></li>
                                 <li><a href="{{ asset('/checkout') }}">Checkout</a></li>
                                 <li><a href="{{ asset('/blog') }}">Blog</a></li>
-                                <li><a href="{{ asset('/single-blog') }}">Single Blog</a></li>
                                 <li><a href="{{ asset('/regular-page') }}">Regular Page</a></li>
                                 <li><a href="{{ asset('/contact') }}">Contact</a></li>
                                 <li><a href="{{ asset('/wishlist') }}">Wishlist</a></li>

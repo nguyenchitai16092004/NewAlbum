@@ -1,6 +1,18 @@
 @extends('backend.layouts.master')
 @section('title', 'Product Management')
 @section('main')
+
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('success_delete'))
+    <div class="alert alert-danger">
+        {{ session('success_delete') }}
+    </div>
+@endif
     <div class="product-status mg-b-15">
         <div class="container-fluid">
             <div class="row">
@@ -22,13 +34,13 @@
                                     <th>Import Price</th>
                                     <th>Selling Price</th>
                                     <th>Product Type</th>
-                                    <th>Status</th>
                                     <th>Description</th>
                                     <th>Action</th>
                                 </tr>
                                 @foreach ($products as $item)
+                                    @if ( $item->TrangThai == 1)
                                     <tr>
-                                        <td><img src="data:image/jpg;base64,{{ $item->HinhAnh }}">                                        </td>
+                                        <td><img src="{{ asset(Storage::url($item->HinhAnh)) }}" alt="{{ $item->TenSP }}" style="width: 100px; height:100px"></td>
                                         <td>{{ $item->MaSP }}</td>
                                         <td>{{ $item->TenSP }}</td>
                                         <td>{{ $item->TenLoaiSP }}</td>
@@ -36,8 +48,7 @@
                                         <td>{{ $item->SoLuong }}</td>
                                         <td>{{ number_format($item->GiaNhap, 0) }}$</td>
                                         <td>{{ number_format($item->GiaBan, 0) }}$</td>
-                                        <td>{{ $item->LoaiHang ? 'Available' : 'Pre-Order'}}</td>
-                                        <td>{{ $item->TrangThai ? 'In Stock' : 'Out of Stock' }}</td>
+                                        <td>{{ $item->LoaiHang ? 'Available' : 'Pre-Order' }}</td>
                                         <td>{{ $item->MoTa }}</td>
                                         <td>
                                             <form action="{{ route('Index_Edit_Category', ['id' => $item->MaSP]) }}" method="GET" style="display:inline-block;">
@@ -45,22 +56,23 @@
                                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                 </button>
                                             </form>
-                                            <form action="{{ route('Delete_Category', ['id' => $item->MaSP]) }}" method="POST" style="display:inline-block;">
+                                            <form action="{{ route('Delete_Product', ['id' => $item->MaSP]) }}" method="POST" style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button data-toggle="tooltip" title="Delete" class="pd-setting-ed">
+                                                <button data-toggle="tooltip" title="Delete" class="pd-setting-ed" onclick="return confirm('Are you sure you want to delete this product?');">
                                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                 </button>
                                             </form>
                                         </td>
                                     </tr>
+                                    @endif
                                 @endforeach
                             </table>
                         </div>
                         
                         <!-- Pagination -->
                         <div class="custom-pagination">
-                            {{ $products->links() }}
+                            {!! $products->links('pagination::bootstrap-4') !!}
                         </div>
 
                     </div>
