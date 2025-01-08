@@ -11,8 +11,6 @@ use App\Models\LOAISP;
 
 class ProductController extends Controller
 {
-
-
     public function Index()
     {
         $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
@@ -20,11 +18,6 @@ class ProductController extends Controller
             ->select('SANPHAM.*', 'LOAISP.TenLoaiSP', 'NHOMNHACCASI.TenNhomNhacCaSi')
             ->paginate(10);
 
-        foreach ($products as $product) {
-            if ($product->HinhAnh) {
-                $product->HinhAnh = base64_encode($product->HinhAnh);
-            }
-        }
         return view('backend.pages.product.product', compact('products'));
     }
 
@@ -45,7 +38,7 @@ class ProductController extends Controller
     public function Add(Request $request)
     {
         $slug = Str::slug($request->TenSP, '-');
-    
+
         $validated = $request->validate([
             'MaNhomNhacCaSi' => 'nullable|numeric',
             'MaLoaiSP' => 'nullable|numeric',
@@ -58,19 +51,32 @@ class ProductController extends Controller
             'SoLuong' => 'nullable|integer',
             'LoaiHang' => 'nullable|boolean',
             'TrangThai' => 'nullable|boolean',
-            'HinhAnh' => 'nullable|image|max:2048', // Đảm bảo ảnh được kiểm tra đúng
+            'HinhAnh' => 'nullable|image|max:2048',
         ]);
-    
+
         $validated['Slug'] = $slug;
-    
+
         if ($request->hasFile('HinhAnh')) {
-            $file = $request->file('HinhAnh');
-            $imageData = file_get_contents($file->getRealPath());
-            $validated['HinhAnh'] = $imageData;
+            $HinhAnh = $request->file('HinhAnh');
+            $path = $HinhAnh->store('SanPham', 'public');
+            $validated['HinhAnh'] = $path;
         }
-        SANPHAM::create($validated);
-    
+        $sanpham = SANPHAM::create($validated);
+        if ($sanpham) {
+            session()->flash('success', 'Thêm sản phẩm thành công!');
+        } else {
+            session()->flash('error', 'Đã có lỗi xảy ra!');
+        }
+
+        return redirect()->route('Index_Product');
+    }
+    public function Delete($id) 
+    {
+        $products = SANPHAM::findOrFail($id);
+        $products->TrangThai = 0;
+        $products->save();
+        
+        session()->flash('success_delete', 'Xóa sản phẩm thành công!');
         return redirect()->route('Index_Product')->with('success', 'Thêm sản phẩm thành công!');
     }
-    
 }
