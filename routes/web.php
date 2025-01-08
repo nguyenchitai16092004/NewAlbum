@@ -135,7 +135,7 @@ Route::prefix('/admin')->group(function () {
         // Sửa sản phẩm
         Route::get('/edit', [ProductController::class, 'Edit'])->name('Edit_Product');
         // Xóa sản phẩm
-        Route::get('/delete', [ProductController::class, 'Delete'])->name('Delete_Product');
+        Route::delete('/delete/{id}', [ProductController::class, 'Delete'])->name('Delete_Product');
     });
 
     // Route cho nhóm nhạc ca sĩ

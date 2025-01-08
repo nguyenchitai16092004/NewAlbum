@@ -26,7 +26,7 @@ return new class extends Migration
             $table->boolean('TrangThai')->default(1);
             $table->integer('LuotXem')->default(0);
             $table->string('Slug', 255);
-            $table->binary('HinhAnh');
+            $table->string('HinhAnh',255);
 
             // Định nghĩa khóa ngoại
             $table->foreign('MaLoaiSP')->references('MaLoaiSP')->on('LOAISP')->onDelete('cascade');

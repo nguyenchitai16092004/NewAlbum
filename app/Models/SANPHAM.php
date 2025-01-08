@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class SANPHAM extends Model
 {
     protected $table = 'SANPHAM';
-    protected $primarykey = 'MaSP';
+    protected $primaryKey  = 'MaSP';
 
     protected $fillable = [
         'MaNhomNhacCaSi',
