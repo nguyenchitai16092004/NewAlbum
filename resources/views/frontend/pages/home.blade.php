@@ -46,7 +46,7 @@
             @foreach ($products as $item)
                 <div class="prod-2">
                     <div class="img-prod-1">
-                        <img src="data:image/png;base64,{{ $item->HinhAnh }}">
+                        <img src="{{ asset(Storage::url($item->HinhAnh)) }}">
                     </div>
                     <div class="name-pro np-1">
                         <div class="product-description">
