@@ -2,17 +2,17 @@
 @section('title', 'Product Management')
 @section('main')
 
-@if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
-@if (session('success_delete'))
-    <div class="alert alert-danger">
-        {{ session('success_delete') }}
-    </div>
-@endif
+    @if (session('success_delete'))
+        <div class="alert alert-danger">
+            {{ session('success_delete') }}
+        </div>
+    @endif
     <div class="product-status mg-b-15">
         <div class="container-fluid">
             <div class="row">
@@ -20,7 +20,7 @@
                     <div class="product-status-wrap drp-lst">
                         <h4>Product List</h4>
                         <div class="add-product">
-                            <a href="{{ route('Add_Index_Product') }}">Add Product</a>
+                            <a href="{{ route('Add_Index_Product') }}" style="background-color: black">Add Product</a>
                         </div>
                         <div class="asset-inner">
                             <table>
@@ -38,38 +38,43 @@
                                     <th>Action</th>
                                 </tr>
                                 @foreach ($products as $item)
-                                    @if ( $item->TrangThai == 1)
-                                    <tr>
-                                        <td><img src="{{ asset(Storage::url($item->HinhAnh)) }}" alt="{{ $item->TenSP }}" style="width: 100px; height:100px"></td>
-                                        <td>{{ $item->MaSP }}</td>
-                                        <td>{{ $item->TenSP }}</td>
-                                        <td>{{ $item->TenLoaiSP }}</td>
-                                        <td>{{ $item->TenNhomNhacCaSi }}</td>
-                                        <td>{{ $item->SoLuong }}</td>
-                                        <td>{{ number_format($item->GiaNhap, 0) }}$</td>
-                                        <td>{{ number_format($item->GiaBan, 0) }}$</td>
-                                        <td>{{ $item->LoaiHang ? 'Available' : 'Pre-Order' }}</td>
-                                        <td>{{ $item->MoTa }}</td>
-                                        <td>
-                                            <form action="{{ route('Index_Edit_Category', ['id' => $item->MaSP]) }}" method="GET" style="display:inline-block;">
-                                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed">
-                                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                                </button>
-                                            </form>
-                                            <form action="{{ route('Delete_Product', ['id' => $item->MaSP]) }}" method="POST" style="display:inline-block;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button data-toggle="tooltip" title="Delete" class="pd-setting-ed" onclick="return confirm('Are you sure you want to delete this product?');">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                                    @if ($item->TrangThai == 1)
+                                        <tr>
+                                            <td>
+                                                <img src="{{ asset('Storage/SanPham/' . $item->HinhAnh) }}"alt="{{ $item->TenSP }}" style="width: 100px; height:100px">
+                                            </td>
+                                            <td>{{ $item->MaSP }}</td>
+                                            <td>{{ $item->TenSP }}</td>
+                                            <td>{{ $item->TenLoaiSP }}</td>
+                                            <td>{{ $item->TenNhomNhacCaSi }}</td>
+                                            <td>{{ $item->SoLuong }}</td>
+                                            <td>{{ number_format($item->GiaNhap, 0) }}$</td>
+                                            <td>{{ number_format($item->GiaBan, 0) }}$</td>
+                                            <td>{{ $item->LoaiHang ? 'Available' : 'Pre-Order' }}</td>
+                                            <td>{{ $item->MoTa }}</td>
+                                            <td>
+                                                <form action="{{ route('Edit_Index_Product', ['id' => $item->MaSP]) }}"
+                                                    method="GET" style="display:inline-block;">
+                                                    <button data-toggle="tooltip" title="Edit" class="pd-setting-ed">
+                                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                    </button>
+                                                </form>
+                                                <form action="{{ route('Delete_Product', ['id' => $item->MaSP]) }}"
+                                                    method="POST" style="display:inline-block;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button data-toggle="tooltip" title="Delete" class="pd-setting-ed"
+                                                        onclick="return confirm('Are you sure you want to delete this product?');">
+                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
                                     @endif
                                 @endforeach
                             </table>
                         </div>
-                        
+
                         <!-- Pagination -->
                         <div class="custom-pagination">
                             {!! $products->links('pagination::bootstrap-4') !!}

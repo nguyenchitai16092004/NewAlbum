@@ -1,20 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Models\SANPHAM;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
     public function Index(){
         $products = SANPHAM::all();
 
-        foreach ($products as $product) {
-            if ($product->HinhAnh) {
-                $product->HinhAnh = base64_encode($product->HinhAnh);
-            }
-        }
         return view('frontend.pages.home',compact('products'));
     }
 }
