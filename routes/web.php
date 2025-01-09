@@ -11,6 +11,7 @@ use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\Admin\DiscountedProductController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\SingleBlogController;
+use App\Http\Controllers\Admin\LoginController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +28,6 @@ Route::get('/checkout', function () {
 Route::get('/blog', function () {
     return view('frontend.pages.blog');
 });
-
 Route::get('/blog',[BlogController::class,'Index'])->name('Index_Blog');
 Route::get('/single-blog', function () {
     return view('frontend.pages.single-blog');
@@ -48,7 +48,6 @@ Route::get('/popup', function () {
     return view('frontend.partials.popup.popup');
 });
 Route::get('/cart', [CartController::class, 'Index']);
-
 Route::get('/single-product-details', function () {
     return view('frontend.pages.single-product-details');
 });
@@ -113,16 +112,14 @@ Route::get('/popup', function () {
     return view('frontend.partials.popup.popup');
 });
 Route::get('/blog', [SearchController::class, 'index'])->name('blog');
-
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
 Route::post('/contact', [ContactController::class, 'add'])->name('contact.add');
-
 Route::get('/single-blog/{MaBL}', [BlogController::class, 'show'])->name('single-blog');
-
 Route::prefix('/admin')->group(function () {
 
     // Route cho trang dashboard
-    Route::view('/', 'backend.pages.dashboard');
+    Route::view('/', 'backend.pages.sign-in');
+    Route::post('/login',[LoginController::class,'Login'])->name('Login_Admin');
     Route::view('/dashboard', 'backend.pages.dashboard');
 
     // Route cho sản phẩm

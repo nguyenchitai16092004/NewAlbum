@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Adim;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\PHIEUNHAP;
 use Illuminate\Http\Request;
