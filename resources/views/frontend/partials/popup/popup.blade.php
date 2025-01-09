@@ -8,38 +8,32 @@
                 <!-- Popup Đăng nhập-->
                 <div id="loginPopup" class="popup">
                     <div class="popup-content">
-                        <span id="closePopup" class="close">&times;</span>
+                        <span class="close">&times;</span>
                         <h2 style="text-align: center">Login</h2>
                         <form id="loginForm" class="loginForm">
                             @csrf
-                            <input type="email" id="email" name="email" placeholder="Email">
-                            <span id="emailError" style="color: red; display: none;">Email is not valid!</span>
-                            <input type="password" id="password" name="password" placeholder="Password">
-                            <span id="passwordError" style="color: red; display: none;">Password is not valid!</span>
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                            <span id="emailError" style="color: red; display: none;">Email không hợp lệ!</span>
+                            <input type="password" id="password" name="password" placeholder="Password" required>
+                            <span id="passwordError" style="color: red; display: none;">Password không hợp lệ!</span>
                             <div class="button-container">
                                 <button id="openPopupBtn" class="btn-left">Register</button>
                                 <button type="submit" class="btn-right">Login</button>
                             </div>
                         </form>
-                        <div class="parent"><button type="button" class="parent-link" id="forgotpassButton">Forgot
-                                Password</button></div>
+                        <div class="parent"><button type="button" class="parent-link" id="forgotpassButton">Forgot Password</button></div>
                     </div>
                 </div>
                 <!-- Popup Đăng ký-->
                 <div id="registerPopup" class="popup hidden">
                     <div class="popup-content register">
-                        <span id="closePopup" class="close">&times;</span>
+                        <span class="close">&times;</span>
                         <h2 style="text-align: center">Register</h2>
-                        <form id="registerForm" class="registerForm">
+                        <form id="registerForm">
                             @csrf
-                            <input type="text" id="username" name="username" placeholder="Full Name">
-                            <span id="nameError" style="color: red; display: none;">Fullname is not valid!</span>
-                            <input type="email" id="regis-email" name="email" placeholder="Email">
-                            <span id="regis-emailError" style="color: red; display: none;">Email is not valid!</span>
-                            <input type="password" id="regis-password" name="password" placeholder="Password">
-                            <span id="regis-passwordError" style="color: red; display: none;">Password is not valid!</span>
-                            <input type="password" id="re-password" name="re-password" placeholder="Re-password">
-                            <span id="repasswordError" style="color: red; display: none;">Password is not correct!</span>
+                            <input type="text" id="username" name="username" placeholder="Full Name" required>
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                            <input type="password" id="password" name="password" placeholder="Password" required>
                             <div class="button-container">
                                 <button type="submit" class="btn-register">Register</button>
                             </div>
@@ -50,27 +44,24 @@
                 <!-- Quay lại Popup Đăng nhập-->
                 <div id="loginPopup" class="popup">
                     <div class="popup-content">
-                        <span id="closePopup" class="close">&times;</span>
+                        <span class="close">&times;</span>
                         <h2 style="text-align: center">Login</h2>
                         <form id="loginForm" class="loginForm">
                             @csrf
                             <input type="email" id="email" name="email" placeholder="Email" required>
-                            <span id="emailError" style="color: red; display: none;">Email is not valid!</span>
                             <input type="password" id="password" name="password" placeholder="Password" required>
-                            <span id="passwordError" style="color: red; display: none;">Password is not valid!</span>
                             <div class="button-container">
                                 <button id="openPopupBtn" class="btn-left">Register</button>
                                 <button type="submit" class="btn-right">Login</button>
                             </div>
                         </form>
-                        <div class="parent"><button type="button" class="parent-link" id="forgotpassButton">Forgot
-                                Password</button></div>
+                        <div class="parent"><button type="button" class="parent-link" id="forgotpassButton">Forgot Password</button></div>
                     </div>
                 </div>
                 <!-- Popup Quên mật khẩu-->
                 <div id="forgotpassPopup" class="popup hidden">
                     <div class="popup-content">
-                        <span id="closePopup" class="close">&times;</span>
+                        <span class="close">&times;</span>
                         <h2 style="text-align: center">Forgot Password</h2>
                         <form id="forgotpassForm">
                             @csrf
@@ -84,7 +75,7 @@
                 <!-- Popup OTP Code-->
                 <div id="otpcodePopup" class="popup">
                     <div class="popup-content">
-                        <span id="closePopup" class="close">&times;</span>
+                        <span class="close">&times;</span>
                         <h2 style="text-align: center">Enter OTP Code</h2>
                         <form id="otpcodeForm">
                             @csrf
@@ -98,12 +89,12 @@
                 <!-- Popup thay đổi password -->
                 <div id="changepassPopup" class="popup">
                     <div class="popup-content">
-                        <span id="closePopup" class="close">&times;</span>
+                        <span class="close">&times;</span>
                         <h2 style="text-align: center">Enter OTP Code</h2>
                         <form id="changepassForm">
                             @csrf
                             <input type="text" id="password" name="password" placeholder="Password" required>
-                            <input type="password" id="re-password" name="re-password" placeholder="Re-password"
+                            <input type="re-password" id="re-password" name="re-password" placeholder="Re-password"
                                 required>
                             <div class="button-container">
                                 <button type="submit" class="btn-submit">Submit</button>

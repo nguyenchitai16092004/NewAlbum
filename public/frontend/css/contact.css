@@ -1,4 +1,14 @@
 /* General Styling */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
   /* Contact Header */
   .contact-header {
     text-align: center;
@@ -123,5 +133,4 @@
       padding: 15px;
     }
   }
-  
   
