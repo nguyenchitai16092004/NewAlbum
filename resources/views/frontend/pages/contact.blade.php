@@ -2,8 +2,6 @@
 @section('Title', 'Contact')
 @section('main')
 <link rel="stylesheet" href="css/contact.css">
-    <!-- ##### Right Side Cart Area ##### -->
-    <!-- ##### Right Side Cart End ##### -->
     <h1 class="contact-header" style="margin-top: 100px">Contact</h1>
     <div class="contact-area d-flex align-items-center" style="margin-top: 10px">
         <div class="form">
@@ -14,14 +12,12 @@
                 </div>
             @endif
         
-            <!-- Form bắt đầu -->
             <form action="{{ route('contact.add') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <input type="text" name="Ten" placeholder="Name" required>
                 </div>
                 <div class="form-group">
-                    <!-- Số điện thoại Việt Nam (10 số, bắt đầu với 03, 05, 07, 08, 09) -->
                     <input type="tel" 
                            name="SDT" 
                            placeholder="Phone Number (10 digits, Vietnam)" 
@@ -30,7 +26,6 @@
                            required>
                 </div>
                 <div class="form-group">
-                    <!-- Email phải kết thúc bằng @gmail.com -->
                     <input type="email" 
                            name="Email" 
                            placeholder="Email (example@gmail.com)" 
@@ -39,7 +34,6 @@
                            required>
                 </div>
                 <div class="form-group">
-                    <!-- Tin nhắn -->
                     <textarea name="TinNhan" placeholder="Your message" required></textarea>
                 </div>
                 <div class="form-group">
@@ -70,4 +64,4 @@
         </div>
 
     </div>
-    @stop
+ @stop

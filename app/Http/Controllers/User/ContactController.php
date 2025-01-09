@@ -7,13 +7,11 @@ use App\Http\Controllers\Controller;
 
 class ContactController extends Controller
 {
-    // Hiển thị trang liên hệ
     public function showForm()
     {
         return view('frontend.pages.contact'); 
     }
 
-    // Lưu thông tin liên hệ
     public function add(Request $request)
     {
         $validated = $request->validate([

@@ -6,7 +6,7 @@
     <!-- Single Blog Post Thumb -->
     <div class="single-blog-post-thumb">
         {{-- <img src="{{ asset('img/bg-img/blog1.jpg') }}" alt="Blog Image"> --}}
-        <img src="img/bg-img/blog1.jpg" alt="">
+        <img src="{{ asset('Storage/Blog/' . $blogItem->HinhAnh) }}"alt="{{ $blogItem->TieuDeBlog }}">
     </div>
 
     <!-- Single Blog Content Wrap -->
