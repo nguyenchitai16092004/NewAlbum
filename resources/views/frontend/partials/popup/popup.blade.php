@@ -13,15 +13,16 @@
                         <form id="loginForm" class="loginForm">
                             @csrf
                             <input type="email" id="email" name="email" placeholder="Email" required>
-                            <span id="emailError" style="color: red; display: none;">Email không hợp lệ!</span>
+                            <span id="emailError" style="color: red; display: none;">Email is not valid!</span>
                             <input type="password" id="password" name="password" placeholder="Password" required>
-                            <span id="passwordError" style="color: red; display: none;">Password không hợp lệ!</span>
+                            <span id="passwordError" style="color: red; display: none;">Password is not valid!</span>
                             <div class="button-container">
                                 <button id="openPopupBtn" class="btn-left">Register</button>
                                 <button type="submit" class="btn-right">Login</button>
                             </div>
                         </form>
-                        <div class="parent"><button type="button" class="parent-link" id="forgotpassButton">Forgot Password</button></div>
+                        <div class="parent"><button type="button" class="parent-link" id="forgotpassButton">Forgot
+                                Password</button></div>
                     </div>
                 </div>
                 <!-- Popup Đăng ký-->
@@ -31,13 +32,19 @@
                         <h2 style="text-align: center">Register</h2>
                         <form id="registerForm">
                             @csrf
-                            <input type="text" id="username" name="username" placeholder="Full Name" required>
-                            <input type="email" id="email" name="email" placeholder="Email" required>
-                            <input type="password" id="password" name="password" placeholder="Password" required>
+                            <input type="text" id="username" name="username" placeholder="Full Name">
+                            <span id="nameError" style="color: red; display: none;">Fullname is not valid!</span>
+                            <input type="email" id="email" name="email" placeholder="Email">
+                            <span id="emailError" style="color: red; display: none;">Email is not valid!</span>
+                            <input type="password" id="password" name="password" placeholder="Password">
+                            <span id="passwordError" style="color: red; display: none;">Password is not valid!</span>
+                            <input type="password" id="re-password" name="re-password" placeholder="Re-password">
+                            <span id="repasswordError" style="color: red; display: none;">Password is not correct!</span>
                             <div class="button-container">
                                 <button type="submit" class="btn-register">Register</button>
                             </div>
-                            <div class="parent"><button class="parent-link" id="backtologinButton">Back to Login</button></div>
+                            <div class="parent"><button class="parent-link" id="backtologinButton">Back to
+                                    Login</button></div>
                         </form>
                     </div>
                 </div>
@@ -49,13 +56,16 @@
                         <form id="loginForm" class="loginForm">
                             @csrf
                             <input type="email" id="email" name="email" placeholder="Email" required>
+                            <span id="emailError" style="color: red; display: none;">Email is not valid!</span>
                             <input type="password" id="password" name="password" placeholder="Password" required>
+                            <span id="passwordError" style="color: red; display: none;">Password is not valid!</span>
                             <div class="button-container">
                                 <button id="openPopupBtn" class="btn-left">Register</button>
                                 <button type="submit" class="btn-right">Login</button>
                             </div>
                         </form>
-                        <div class="parent"><button type="button" class="parent-link" id="forgotpassButton">Forgot Password</button></div>
+                        <div class="parent"><button type="button" class="parent-link" id="forgotpassButton">Forgot
+                                Password</button></div>
                     </div>
                 </div>
                 <!-- Popup Quên mật khẩu-->
@@ -94,7 +104,7 @@
                         <form id="changepassForm">
                             @csrf
                             <input type="text" id="password" name="password" placeholder="Password" required>
-                            <input type="re-password" id="re-password" name="re-password" placeholder="Re-password"
+                            <input type="password" id="re-password" name="re-password" placeholder="Re-password"
                                 required>
                             <div class="button-container">
                                 <button type="submit" class="btn-submit">Submit</button>

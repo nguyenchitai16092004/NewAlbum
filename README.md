@@ -71,8 +71,8 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ** cp .env.example .env
 ** npm install //nếu chạy dòng này có lỗi có thể bỏ qua
 ** php artisan key:generate
+- Trong file .env hãy sửa dòng  SESSION_DRIVER=database --> SESSION_DRIVER=file //không chạy dòng này nếu đã có dữ liệu
 ** php artisan migrate //chạy dòng này nếu đã có dữ liệu
-** php artisan storage:link
 
 
 
