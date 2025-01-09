@@ -4,83 +4,134 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use App\Models\SANPHAM;
 use App\Http\Controllers\Controller;
+
 
 class CartController extends Controller
 {
+
     public function index(Request $request)
     {
-        // Dữ liệu ảo cho giỏ hàng
-        $cart = [
-            [
-                'image' => 'frontend/img/product-img/BTS-Lightstick.jpg',
-                'product' => 'BTS Official Light Stick',
-                'price' => 1827680,
-                'quantity' => 1,
-                'total' => 1827680,
-            ],
-            [
-                'image' => 'frontend/img/product-img/BTS-Lightstick.jpg',
-                'product' => 'BTS Official Light Stick',
-                'price' => 1827680,
-                'quantity' => 2,
-                'total' => 1827680,
-            ],
-            [
-                'image' => 'frontend/img/product-img/BTS-Lightstick.jpg',
-                'product' => 'BTS Official Light Stick',
-                'price' => 1827680,
-                'quantity' => 3,
-                'total' => 1827680,
-            ],
-            [
-                'image' => 'frontend/img/product-img/BTS-Lightstick.jpg',
-                'product' => 'BTS Official Light Stick',
-                'price' => 1827680,
-                'quantity' => 4,
-                'total' => 1827680,
-            ],
-            [
-                'image' => 'frontend/img/product-img/BTS-Lightstick.jpg',
-                'product' => 'BTS Official Light Stick',
-                'price' => 1827680,
-                'quantity' => 5,
-                'total' => 1827680,
-            ],
-            [
-                'image' => 'frontend/img/product-img/BTS-Lightstick.jpg',
-                'product' => 'BTS Official Light Stick',
-                'price' => 1827680,
-                'quantity' => 5,
-                'total' => 1827680,
-            ],
-            [
-                'image' => 'frontend/img/product-img/BTS-Lightstick.jpg',
-                'product' => 'BTS Official Light Stick',
-                'price' => 1827680,
-                'quantity' => 5,
-                'total' => 1827680,
-            ],
-            [
-                'image' => 'frontend/img/product-img/BTS-Lightstick.jpg',
-                'product' => 'BTS Official Light Stick',
-                'price' => 1827680,
-                'quantity' => 5,
-                'total' => 1827680,
-            ],
-        ];
-        // Phân trang dữ liệu giả lập
-        $perPage = 6; // Số mục trên mỗi trang (mỗi trang sẽ hiển thị 3 sản phẩm)
-        $currentPage = $request->get('page', 1); // Lấy trang hiện tại từ tham số 'page' trong URL, mặc định là trang 1 nếu không có tham số 'page'
-        $currentItems = array_slice($cart, ($currentPage - 1) * $perPage, $perPage); // Cắt mảng $cart để lấy các sản phẩm cho trang hiện tại. ($currentPage - 1) * $perPage tính toán vị trí bắt đầu của các mục cần hiển thị trên trang hiện tại
+        // Lấy giỏ hàng từ session, nếu chưa có thì trả về mảng rỗng
+        $cart = session()->get('cart', []);
 
-        $cartPaginated = new LengthAwarePaginator(
-            $currentItems, // Dữ liệu hiện tại, đây là các sản phẩm cho trang hiện tại
-            count($cart), // Tổng số sản phẩm trong giỏ hàng (để tính tổng số trang)
-            $perPage, // Số mục trên mỗi trang (3 sản phẩm mỗi trang)
-            $currentPage, // Trang hiện tại mà người dùng đang xem
-            ['path' => $request->url(), 'query' => $request->query()] // Đường dẫn và các tham số truy vấn hiện tại, giúp tạo các liên kết phân trang chính xác
+        // Xác định trang hiện tại trong phân trang
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+
+        // Chuyển giỏ hàng thành một Collection để xử lý dễ dàng hơn
+        $cartCollection = collect($cart);
+
+        // Số lượng sản phẩm hiển thị mỗi trang
+        $perPage = 4;
+
+        // Lấy các sản phẩm thuộc trang hiện tại
+        $currentPageItems = $cartCollection->slice(($currentPage - 1) * $perPage, $perPage)->all();
+
+        // Tạo đối tượng phân trang LengthAwarePaginator
+        $paginatedCart = new LengthAwarePaginator(
+            $currentPageItems, // Dữ liệu sản phẩm của trang hiện tại
+            max($cartCollection->count(), 1), // Tổng số sản phẩm (ít nhất 1 trang)
+            $perPage, // Số sản phẩm mỗi trang
+            $currentPage, // Trang hiện tại
+            ['path' => $request->url(), 'query' => $request->query()] // Đường dẫn và query string
         );
-        return view('frontend.pages.cart', compact('cartPaginated'));
+
+        // Lấy 4 sản phẩm gợi ý từ bảng SANPHAM
+        $recommendedProducts = SANPHAM::inRandomOrder()->take(4)->get();
+
+        // Trả về view cùng dữ liệu giỏ hàng và sản phẩm gợi ý
+        return view('frontend.pages.cart', [
+            'cart' => $paginatedCart,
+            'recommendedProducts' => $recommendedProducts
+        ]);
+    }
+
+
+    // Thêm sản phẩm vào giỏ hàng
+    public function addToCart(Request $request)
+    {
+        // Lấy toàn bộ dữ liệu sản phẩm từ request
+        $product = $request->all();
+
+        // Lấy giỏ hàng từ session, nếu chưa có thì trả về mảng rỗng
+        $cart = session()->get('cart', []);
+
+        // Kiểm tra nếu sản phẩm đã tồn tại trong giỏ hàng
+        if (isset($cart[$product['id']])) {
+            // Nếu có, tăng số lượng lên 1
+            $cart[$product['id']]['quantity']++;
+        } else {
+            // Nếu chưa có, thêm sản phẩm mới vào giỏ hàng
+            $cart[$product['id']] = [
+                "name" => $product['name'], // Tên sản phẩm
+                "quantity" => 1,            // Số lượng mặc định là 1
+                "price" => $product['price'], // Giá sản phẩm
+                "image" => $product['image']  // Hình ảnh sản phẩm
+            ];
+        }
+
+        // Cập nhật lại giỏ hàng trong session
+        session()->put('cart', $cart);
+
+        // Trả về phản hồi JSON với thông tin giỏ hàng
+        return response()->json(['success' => true, 'cart' => $cart]);
+    }
+
+    // Xóa sản phẩm khỏi giỏ hàng
+    public function removeFromCart(Request $request)
+    {
+        // Lấy giỏ hàng từ session
+        $cart = session()->get('cart', []);
+
+        // Xóa sản phẩm có ID được cung cấp từ request
+        unset($cart[$request->id]);
+
+        // Cập nhật lại giỏ hàng trong session
+        session()->put('cart', $cart);
+
+        // Trả về phản hồi JSON với thông tin giỏ hàng
+        return response()->json(['success' => true, 'cart' => $cart]);
+    }
+
+    // Cập nhật số lượng sản phẩm trong giỏ hàng
+    public function updateCart(Request $request)
+    {
+        // Lấy giỏ hàng từ session
+        $cart = session()->get('cart', []);
+
+        // Kiểm tra nếu sản phẩm tồn tại trong giỏ hàng
+        if (isset($cart[$request->id])) {
+            // Cập nhật số lượng sản phẩm
+            $cart[$request->id]['quantity'] = $request->quantity;
+
+            // Cập nhật lại giỏ hàng trong session
+            session()->put('cart', $cart);
+        }
+
+        // Tính tổng giá trị của sản phẩm vừa cập nhật
+        $itemTotal = $cart[$request->id]['price'] * $cart[$request->id]['quantity'];
+
+        // Tính tổng giá trị toàn bộ giỏ hàng
+        $cartTotal = array_sum(array_map(function ($item) {
+            return $item['price'] * $item['quantity'];
+        }, $cart));
+
+        // Trả về phản hồi JSON với thông tin tổng giá trị sản phẩm và giỏ hàng
+        return response()->json([
+            'success' => true,
+            'itemTotal' => $itemTotal,
+            'cartTotal' => $cartTotal,
+        ]);
+    }
+
+    // Xóa toàn bộ giỏ hàng
+    public function clearCart()
+    {
+        // Xóa toàn bộ dữ liệu giỏ hàng khỏi session
+        session()->forget('cart');
+
+        // Trả về phản hồi JSON xác nhận thành công
+        return response()->json(['success' => true]);
     }
 }

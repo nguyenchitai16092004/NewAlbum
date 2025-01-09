@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\Admin\BandController;
 use App\Http\Controllers\Admin\BlogAdminController;
 use App\Http\Controllers\Admin\ProductController;
@@ -13,7 +12,7 @@ use App\Http\Controllers\Admin\DiscountedProductController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\SingleBlogController;
 use App\Http\Controllers\Admin\LoginController;
-
+use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*Route FE */
@@ -48,7 +47,14 @@ Route::get('/wishlist', function () {
 Route::get('/popup', function () {
     return view('frontend.partials.popup.popup');
 });
-Route::get('/cart', [CartController::class, 'Index']);
+
+Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('add.to.cart');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/remove-from-cart', [CartController::class, 'removeFromCart'])->name('remove.from.cart');
+Route::post('/update-cart', [CartController::class, 'updateCart'])->name('update.cart');
+Route::post('/clear-cart', [CartController::class, 'clearCart'])->name('clear.cart');
+
+
 Route::get('/single-product-details', function () {
     return view('frontend.pages.single-product-details');
 });
