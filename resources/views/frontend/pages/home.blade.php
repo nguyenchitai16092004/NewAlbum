@@ -144,7 +144,7 @@
                                 <!-- Product Image -->
                                 <div class="product-img">
                                     <a href="{{ asset('/single-product-details') }}">
-                                        <img src="{{ asset(Storage::url($item->HinhAnh)) }}" alt="{{ $item->TenSP }}">
+                                        <img src="{{ asset('Storage/SanPham/' . $item->HinhAnh) }}" alt="{{ $item->TenSP }}">
                                     </a>
                                     <!-- Hover Thumb -->
                                     {{-- <a href="{{ asset('/single-product-details') }}">
@@ -174,7 +174,7 @@
                                                 <button class="btn essence-btn add-to-cart-btn"
                                                     data-id="{{ $item->MaSP }}" data-name="{{ $item->TenSP }}"
                                                     data-price="{{ $item->GiaBan }}"
-                                                    data-image="{{ asset(Storage::url($item->HinhAnh)) }}">
+                                                    data-image="{{ asset('Storage/SanPham/' . $item->HinhAnh) }}">
                                                     Add to Cart
                                                 </button>
                                             </div>
