@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Session;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        View::composer('*', function ($view) {
+            $cart = Session::get('cart', []); // nhận tt gh từ session
+            $totalQuantity = array_sum(array_column($cart, 'quantity'));
+            $view->with('totalQuantity', $totalQuantity);
+        });
     }
 }

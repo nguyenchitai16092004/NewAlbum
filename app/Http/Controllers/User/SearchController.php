@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
-use App\Models\Blog;
+use App\Models\BlOG;
 use App\Http\Controllers\Controller;
 
 class SearchController extends Controller
@@ -21,4 +21,3 @@ class SearchController extends Controller
         return view('frontend.pages.blog', compact('blog', 'query'));
     }
 }
-
