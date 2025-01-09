@@ -130,6 +130,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Xử lý khi đóng popup
+document.getElementById('closePopup').addEventListener('click', function () {
+    // Lấy form 
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+
+    // Đặt lại giá trị của tất cả các trường trong form
+    registerForm.reset();
+    document.getElementById('nameError').style.display = 'none';
+    document.getElementById('regis-emailError').style.display = 'none';
+    document.getElementById('regis-passwordError').style.display = 'none';
+    document.getElementById('repasswordError').style.display = 'none';
+    
+    loginForm.reset();
+    document.getElementById('emailError').style.display = 'none';
+    document.getElementById('passwordError').style.display = 'none';
+
+    console.log('Form và thông báo lỗi đã được đặt lại.');
+});
+
 //Kiểm tra Form Login
 document.getElementById('loginForm').addEventListener('submit', function (event) {
     const emailPattern = /^[a-zA-Z0-9]+@gmail\.com$/;
@@ -143,7 +163,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     let hasError = false; // Biến cờ theo dõi lỗi
 
     // Kiểm tra email
-    if (!emailPattern.test(emailInput.value)) {
+    if (!emailInput.value || !emailPattern.test(emailInput.value)) {
         emailError.style.display = 'block';
         hasError = true;
     } else {
@@ -151,7 +171,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     }
 
     // Kiểm tra password
-    if (passInput.value.length < 4 || passInput.value.length > 8) {
+    if (!passInput.value || passInput.value.length < 4 || passInput.value.length > 8) {
         passError.style.display = 'block';
         hasError = true;
     } else {
@@ -194,10 +214,10 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
     // Lấy các trường và thông báo lỗi
     const nameInput = document.getElementById('username');
     const nameError = document.getElementById('nameError');
-    const emailInput = document.getElementById('email');
-    const emailError = document.getElementById('emailError');
-    const passInput = document.getElementById('password');
-    const passError = document.getElementById('passwordError');
+    const emailInput = document.getElementById('regis-email');
+    const emailError = document.getElementById('regis-emailError');
+    const passInput = document.getElementById('regis-password');
+    const passError = document.getElementById('regis-passwordError');
     const confirmPassword = document.getElementById('re-password');
     const errorMessage = document.getElementById('repasswordError');
 
@@ -208,7 +228,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
     let hasError = false; // Biến cờ theo dõi lỗi
 
     // Kiểm tra username
-    if (!namePattern.test(nameInput.value)) {
+    if (!nameInput.value || !namePattern.test(nameInput.value)) {
         nameError.style.display = 'block';
         hasError = true; // Đánh dấu lỗi
     } else {
@@ -216,7 +236,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
     }
 
     // Kiểm tra email
-    if (!emailPattern.test(emailInput.value)) {
+    if (!emailInput.value || !emailPattern.test(emailInput.value)) {
         emailError.style.display = 'block';
         hasError = true;
     } else {
@@ -224,7 +244,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
     }
 
     // Kiểm tra password
-    if (passInput.value.length < 4 || passInput.value.length > 8) {
+    if (!passInput.value || passInput.value.length < 4 || passInput.value.length > 8) {
         passError.style.display = 'block';
         hasError = true;
     } else {
