@@ -64,11 +64,7 @@
                                         Management</span></a>
                             </li>
                             <li>
-                                <a href="{{ Route('Index_Add_Blog_Management') }}"><span class="mini-sub-pro">Add
-                                        Blog</span></a>
-                            </li>
-                            <li>
-                                <a href="{{ Route('Index_Edit_Blog_Management') }}"><span class="mini-sub-pro">Edit
+                                <a href="{{ Route('Index_Add_Blog') }}"><span class="mini-sub-pro">Add
                                         Blog</span></a>
                             </li>
                         </ul>

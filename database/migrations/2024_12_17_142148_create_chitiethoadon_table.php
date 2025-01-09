@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('DonGia', 10, 2);
             $table->decimal('TongTien', 10, 2);
             $table->string('HinhAnh',255);
+            $table->boolean('TrangThaiBL')->default(0);
             $table->timestamps(); 
             
             // Định nghĩa khóa ngoại

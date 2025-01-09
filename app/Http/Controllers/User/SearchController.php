@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {

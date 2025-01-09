@@ -43,36 +43,23 @@
                     </div>
                 </div>
             </div>
-            <div class="prod-2">
-                <div class="img-prod-1">
-                    <img src="img/product-img/prod1.jpg" alt="">
-                </div>
-                <div class="name-pro np-1">
-                    <div class="product-description">
-                        <a href="#">
-                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
-                        </a>
-                        <div class="pre-oder-new-arrivals">
-                            <span>Pre&ndash;oder</span>
+            @foreach ($products as $item)
+                <div class="prod-2">
+                    <div class="img-prod-1">
+                        <img src="data:image/png;base64,{{ $item->HinhAnh }}">
+                    </div>
+                    <div class="name-pro np-1">
+                        <div class="product-description">
+                            <a href="#">
+                                <h6>[PRE-ORDER] {{$item->TenSP}}</h6>
+                            </a>
+                            <div class="pre-oder-new-arrivals">
+                                <span>Pre&ndash;oder</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="prod-3">
-                <div class="img-prod-1">
-                    <img src="img/product-img/prod1.jpg" alt="">
-                </div>
-                <div class="name-pro np-1">
-                    <div class="product-description">
-                        <a href="#">
-                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
-                        </a>
-                        <div class="pre-oder-new-arrivals">
-                            <span>Pre&ndash;oder</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div style="margin-top: 90px;" class="container ctn-top-catagory pre-col2">
             <div class="prod-1 prod-col-2">

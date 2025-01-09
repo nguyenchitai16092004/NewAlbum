@@ -130,7 +130,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-//Kiểm tra nhập đúng định dạng email và password hay không
+// Xử lý khi đóng popup
+document.getElementById('closePopup').addEventListener('click', function () {
+    // Lấy form 
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+
+    // Đặt lại giá trị của tất cả các trường trong form
+    registerForm.reset();
+    document.getElementById('nameError').style.display = 'none';
+    document.getElementById('regis-emailError').style.display = 'none';
+    document.getElementById('regis-passwordError').style.display = 'none';
+    document.getElementById('repasswordError').style.display = 'none';
+    
+    loginForm.reset();
+    document.getElementById('emailError').style.display = 'none';
+    document.getElementById('passwordError').style.display = 'none';
+
+    console.log('Form và thông báo lỗi đã được đặt lại.');
+});
+
+//Kiểm tra Form Login
 document.getElementById('loginForm').addEventListener('submit', function (event) {
     const emailPattern = /^[a-zA-Z0-9]+@gmail\.com$/;
     const emailInput = document.getElementById('email');
@@ -140,21 +160,26 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
 
     event.preventDefault(); // Ngăn submit form mặc định
 
-    // Lấy giá trị email và password
-    const password = passInput.value;
-    const email = emailInput.value;
+    let hasError = false; // Biến cờ theo dõi lỗi
 
-    // Kiểm tra định dạng email
-    if (!emailPattern.test(email)) {
-        emailError.style.display = 'inline'; // Hiển thị thông báo lỗi
-        return;
+    // Kiểm tra email
+    if (!emailInput.value || !emailPattern.test(emailInput.value)) {
+        emailError.style.display = 'block';
+        hasError = true;
     } else {
-        emailError.style.display = 'none'; // Ẩn thông báo lỗi nếu email hợp lệ
+        emailError.style.display = 'none';
     }
 
-    // Kiểm tra trường password có độ dài từ 4 đến 8 ký tự
-    if (password.length < 3 || password.length >= 8) {
-        passError.style.display = 'inline'; // Hiển thị thông báo lỗi
+    // Kiểm tra password
+    if (!passInput.value || passInput.value.length < 4 || passInput.value.length > 8) {
+        passError.style.display = 'block';
+        hasError = true;
+    } else {
+        passError.style.display = 'none';
+    }
+
+    // Nếu có lỗi, dừng xử lý form
+    if (hasError) {
         return;
     }
 
@@ -181,3 +206,90 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
             alert('Có lỗi xảy ra. Vui lòng thử lại!');
         });
 });
+
+//Kiểm tra Form Register
+document.getElementById('registerForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Ngăn submit mặc định
+
+    // Lấy các trường và thông báo lỗi
+    const nameInput = document.getElementById('username');
+    const nameError = document.getElementById('nameError');
+    const emailInput = document.getElementById('regis-email');
+    const emailError = document.getElementById('regis-emailError');
+    const passInput = document.getElementById('regis-password');
+    const passError = document.getElementById('regis-passwordError');
+    const confirmPassword = document.getElementById('re-password');
+    const errorMessage = document.getElementById('repasswordError');
+
+    // Định dạng kiểm tra
+    const namePattern = /^[a-zA-Z]/; 
+    const emailPattern = /^[a-zA-Z0-9]+@gmail\.com$/; 
+
+    let hasError = false; // Biến cờ theo dõi lỗi
+
+    // Kiểm tra username
+    if (!nameInput.value || !namePattern.test(nameInput.value)) {
+        nameError.style.display = 'block';
+        hasError = true; // Đánh dấu lỗi
+    } else {
+        nameError.style.display = 'none';
+    }
+
+    // Kiểm tra email
+    if (!emailInput.value || !emailPattern.test(emailInput.value)) {
+        emailError.style.display = 'block';
+        hasError = true;
+    } else {
+        emailError.style.display = 'none';
+    }
+
+    // Kiểm tra password
+    if (!passInput.value || passInput.value.length < 4 || passInput.value.length > 8) {
+        passError.style.display = 'block';
+        hasError = true;
+    } else {
+        passError.style.display = 'none';
+    }
+
+    // Kiểm tra mật khẩu trùng khớp
+    if (passInput.value !== confirmPassword) {
+        errorMessage.style.display = 'block';
+        hasError = true;
+    } else {
+        errorMessage.style.display = 'none';
+    }
+
+    // Nếu có lỗi, dừng xử lý form
+    if (hasError) {
+        return;
+    }
+
+    // Nếu không có lỗi, gửi dữ liệu đến server
+    fetch('https://example.com/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: nameInput.value,
+            email: emailInput.value,
+            password: passInput.value,
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Đăng ký thành công!');
+            } else {
+                alert('Đăng ký thất bại!');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Có lỗi xảy ra. Vui lòng thử lại!');
+        });
+});
+
+
+
+

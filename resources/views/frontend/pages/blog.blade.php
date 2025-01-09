@@ -5,7 +5,13 @@
 <!-- Styles -->
 <link rel="stylesheet" href="css/pagination.css">
 <link rel="stylesheet" href="css/blog.css">
-
+<style>
+    .post-date {
+        color: black;
+        font-size: 14px;
+        font-weight: normal;
+    }
+</style>
 <!-- ##### Breadcumb Area Start ##### -->
 <div class="breadcumb_area breadcumb-style-two bg-img" style="background-image: url(img/core-img/kpop.jpg);">
     <div class="container h-100">
@@ -54,10 +60,11 @@
                 @foreach ($blog as $item)
                     <div class="col-12 col-lg-6">
                         <div class="single-blog-area mb-50">
-                            <img src="img/bg-img/blog1.jpg" alt="">
+                            <img src="{{ asset('Storage/Blog/' . $item->HinhAnh) }}"alt="{{ $item->TieuDeBlog }}">
                             <div class="post-title">
                                 <a href="#">{{ $item->TieuDeBlog}}</a>
                             </div>
+                            <p class="post-date">{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</p>
                             <div class="hover-content">
                                 <div class="hover-post-title">
                                     <a href="#">{{ $item->TieuDeBlog }}</a>
