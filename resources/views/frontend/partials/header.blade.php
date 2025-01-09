@@ -81,7 +81,10 @@
             @include('frontend.partials.popup.popup')
             <!-- Cart Area -->
             <div class="favourite-area">
-                <a href="{{ asset('/cart') }}"><img src="img/core-img/bag.svg" alt=""><span>3</span></a>
+                <a href="{{ asset('/cart') }}">
+                    <img src="img/core-img/bag.svg" alt="">
+                    <span>{{ $totalQuantity ?? 0 }}</span>
+                </a>
             </div>
         </div>
     </div>
