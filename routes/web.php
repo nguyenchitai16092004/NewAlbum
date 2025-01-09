@@ -1,16 +1,16 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\BandController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\GoodController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\SearchController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\DiscountedProductController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\SingleBlogController;
+use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\Admin\BandController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\GoodController;
+use App\Http\Controllers\User\BlogController;
+use App\Http\Controllers\User\SearchController;
+use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\Admin\DiscountedProductController;
+use App\Http\Controllers\User\ContactController;
+use App\Http\Controllers\User\SingleBlogController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -129,10 +129,11 @@ Route::prefix('/admin')->group(function () {
     Route::prefix('product')->group(function () {
         Route::get('/', [ProductController::class, 'Index'])->name('Index_Product');
         // Thêm sản phẩm
-        Route::get('/add-product',[ProductController::class,'show'])->name('Add_Index_Product');
+        Route::get('/add-product',[ProductController::class,'Show'])->name('Add_Index_Product');
         Route::post('/add', [ProductController::class, 'Add'])->name('Add_Product');
         // Sửa sản phẩm
-        Route::get('/edit', [ProductController::class, 'Edit'])->name('Edit_Product');
+        Route::get('/edit-product/{id}',[ProductController::class,'Show_Edit'])->name('Edit_Index_Product');
+        Route::post('/edit/{id}', [ProductController::class, 'Edit'])->name('Edit_Product');
         // Xóa sản phẩm
         Route::delete('/delete/{id}', [ProductController::class, 'Delete'])->name('Delete_Product');
     });
