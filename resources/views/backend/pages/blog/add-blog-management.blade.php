@@ -17,7 +17,6 @@
                                         <label for="admin_id">ID Admin</label>
                                         <select class="form-control" id="admin_id">
                                             <option selected>Choose Admin ID</option>
-                                            <!-- Add options for Admin IDs here -->
                                             <option value="1">Admin 1</option>
                                             <option value="2">Admin 2</option>
                                             <option value="3">Admin 3</option>

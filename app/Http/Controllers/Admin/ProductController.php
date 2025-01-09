@@ -16,7 +16,7 @@ class ProductController extends Controller
         $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
             ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi')
             ->select('SANPHAM.*', 'LOAISP.TenLoaiSP', 'NHOMNHACCASI.TenNhomNhacCaSi')
-            ->paginate(10);
+            ->paginate(3);
 
         return view('backend.pages.product.product', compact('products'));
     }
