@@ -14,16 +14,16 @@ return new class extends Migration
         // Tạo bảng KHACHHANG
         Schema::create('KHACHHANG', function (Blueprint $table) {
             $table->id('MaKH');
-            $table->string('TenKH', 255);
-            $table->string('Email', 255)->nullable();
+            $table->string('TenKH', 255)->nullable();
+            $table->string('Email', 255);
             $table->date('NgaySinh')->nullable();
             $table->string('SDT', 15)->nullable();
-            $table->string('TenDN', 50)->nullable(); 
-            $table->string('MatKhau', 255)->nullable();
+            $table->string('TenDN', 50); 
+            $table->string('MatKhau', 255);
             $table->boolean('TrangThai')->default(1);
             $table->boolean('GioiTinh')->nullable();
-            $table->binary('HinhAnh')->nullable();
-            $table->string('DiaChiKH',255);
+            $table->string('HinhAnh',255)->nullable();
+            $table->string('DiaChiKH',255)->nullable();
             $table->timestamps();
         });
     }

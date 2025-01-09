@@ -21,18 +21,15 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="GiaNhap">Import Price</label>
-                                            <input name="GiaNhap" type="number" class="form-control"
-                                                placeholder="Import Price">
+                                            <input name="GiaNhap" type="number" class="form-control" min="0" placeholder="Import Price">
                                         </div>
                                         <div class="form-group">
                                             <label for="GiaBan">Selling Price</label>
-                                            <input name="GiaBan" type="number" class="form-control"
-                                                placeholder="Selling Price">
+                                            <input name="GiaBan" type="number" class="form-control" min="0" placeholder="Selling Price">
                                         </div>
                                         <div class="form-group">
                                             <label for="TieuDe">Title</label>
-                                            <input name="TieuDe" type="text" class="form-control"
-                                                placeholder="Title Description">
+                                            <input name="TieuDe" type="text" class="form-control" placeholder="Title Description">
                                         </div>
                                         <div class="form-group">
                                             <label for="MoTa">Description</label>
@@ -43,8 +40,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="SoLuong">Quantity</label>
-                                            <input name="SoLuong" type="number" class="form-control"
-                                                placeholder="Quantity">
+                                            <input name="SoLuong" type="number" class="form-control" min="0" placeholder="Quantity">
                                         </div>
                                         <div class="form-group">
                                             <label for="LoaiHang">Product Type</label>

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('TenSP', 255);
             $table->decimal('DonGia', 10, 2);
             $table->decimal('TongTien', 10, 2);
-            $table->binary('HinhAnh');
+            $table->string('HinhAnh',255);
             $table->timestamps(); 
             
             // Định nghĩa khóa ngoại

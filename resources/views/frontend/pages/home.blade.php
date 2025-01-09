@@ -29,6 +29,7 @@
     <!-- ##### Top Catagory Area Start ##### -->
     <section class="top-catagory">
         <div class="container ctn-top-catagory">
+
             <div class="prod-1">
                 <div class="img-prod-1">
                     <img src="img/product-img/prod1.jpg" alt="">
@@ -42,36 +43,23 @@
                     </div>
                 </div>
             </div>
-            <div class="prod-2">
-                <div class="img-prod-1">
-                    <img src="img/product-img/prod1.jpg" alt="">
-                </div>
-                <div class="name-pro np-1">
-                    <div class="product-description">
-                        <a href="#">
-                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
-                        </a>
-                        <div class="pre-oder-new-arrivals">
-                            <span>Pre&ndash;oder</span>
+            @foreach ($products as $item)
+                <div class="prod-2">
+                    <div class="img-prod-1">
+                        <img src="{{ asset(Storage::url($item->HinhAnh)) }}">
+                    </div>
+                    <div class="name-pro np-1">
+                        <div class="product-description">
+                            <a href="#">
+                                <h6>[PRE-ORDER] {{$item->TenSP}}</h6>
+                            </a>
+                            <div class="pre-oder-new-arrivals">
+                                <span>Pre&ndash;oder</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="prod-3">
-                <div class="img-prod-1">
-                    <img src="img/product-img/prod1.jpg" alt="">
-                </div>
-                <div class="name-pro np-1">
-                    <div class="product-description">
-                        <a href="#">
-                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
-                        </a>
-                        <div class="pre-oder-new-arrivals">
-                            <span>Pre&ndash;oder</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div style="margin-top: 90px;" class="container ctn-top-catagory pre-col2">
             <div class="prod-1 prod-col-2">
@@ -406,7 +394,7 @@
                                 <a href="single-product-details.html">
                                     <h6>[Pre-oder]Born Pink (Gray Ver)</h6>
                                 </a>
-                                <p class="product-price price"><span class="old-price">1.000.000 VND</span> 650.000 VND
+                                <p class="product-price price">650.000 VND<span class="old-price">1.000.000 VND</span> 
                                 </p>
 
                                 <!-- Hover Content -->
