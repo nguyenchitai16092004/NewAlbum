@@ -115,7 +115,7 @@
         <div class="row">
             @foreach ($recommendedProducts as $product)
                 <div class="product">
-                    <img src="{{ asset(Storage::url($product->HinhAnh)) }}" alt="{{ $product->TenSP }}">
+                    <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}" alt="{{ $product->TenSP }}">
                     <p>{{ $product->TenSP }}</p>
                     <span class="price">{{ number_format($product->GiaBan) }} VND</span>
                 </div>

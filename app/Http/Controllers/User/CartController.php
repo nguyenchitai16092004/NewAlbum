@@ -67,10 +67,9 @@ class CartController extends Controller
                 "name" => $product['name'], // Tên sản phẩm
                 "quantity" => 1,            // Số lượng mặc định là 1
                 "price" => $product['price'], // Giá sản phẩm
-                "image" => $product['image']  // Hình ảnh sản phẩm
+                "image" =>  $product['image']  // Hình ảnh sản phẩm
             ];
         }
-
         // Cập nhật lại giỏ hàng trong session
         session()->put('cart', $cart);
 
