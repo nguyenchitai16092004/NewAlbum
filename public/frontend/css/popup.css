@@ -52,7 +52,12 @@
 }
 
 .popup .register {
-    height: 400px;
+    overflow: hidden; /* Đảm bảo không tràn nội dung */
+    transition: all 0.3s ease; 
+    position: relative;
+    min-height: 200px; 
+    max-height: 90vh;
+    overflow-y: auto; /* Thêm cuộn dọc nếu vượt chiều cao */
 }
 
 .popup-content {
