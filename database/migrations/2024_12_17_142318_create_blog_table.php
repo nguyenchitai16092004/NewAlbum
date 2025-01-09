@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('TieuDeBlog', 255);
             $table->longText('NoiDung');
             $table->string('HinhAnh',255);
+            $table->boolean('TrangThai')->default(1);
             $table->timestamps(); 
 
             // Định nghĩa khóa ngoại

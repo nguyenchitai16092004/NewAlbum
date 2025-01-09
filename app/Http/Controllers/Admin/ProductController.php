@@ -81,7 +81,7 @@ class ProductController extends Controller
 
             $validated['HinhAnh'] = $TenHinhAnh;
         }
-        $sanpham = SANPHAM::create($validated);
+        SANPHAM::create($validated);
 
         return redirect()->route('Index_Product');
     }
