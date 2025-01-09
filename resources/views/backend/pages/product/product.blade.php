@@ -40,9 +40,7 @@
                                 @foreach ($products as $item)
                                     @if ($item->TrangThai == 1)
                                         <tr>
-                                            <td>
-                                                <img src="{{ asset('Storage/SanPham/' . $item->HinhAnh) }}"alt="{{ $item->TenSP }}" style="width: 100px; height:100px">
-                                            </td>
+                                            <td><img src="{{ asset('Storage/SanPham/' . $item->HinhAnh) }}"alt="{{ $item->TenSP }}" style="width: 100px; height:100px"></td>
                                             <td>{{ $item->MaSP }}</td>
                                             <td>{{ $item->TenSP }}</td>
                                             <td>{{ $item->TenLoaiSP }}</td>
