@@ -58,6 +58,7 @@
                 </div>
             @else
                 @foreach ($blog as $item)
+
                 @if ($item->TrangThai == 1)
                 <div class="col-12 col-lg-6">
                     <div class="single-blog-area mb-50">
