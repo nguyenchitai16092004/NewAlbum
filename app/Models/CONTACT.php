@@ -11,5 +11,6 @@ class CONTACT extends Model
 
     protected $table = 'lienhe';
 
+    protected $primaryKey = 'MaLH';
     protected $fillable = ['Ten', 'SDT', 'Email', 'TinNhan'];
 }

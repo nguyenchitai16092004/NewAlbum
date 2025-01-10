@@ -5,23 +5,23 @@ use App\Http\Controllers\Admin\BlogAdminController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\GoodController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\CommentController;
+use App\Http\Controllers\Admin\ContactAdminController;
+use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\DiscountedProductController;
+
+use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\AboutUsController;
 use App\Http\Controllers\User\BlogController;
 use App\Http\Controllers\User\SearchController;
 use App\Http\Controllers\User\SearchPaginationController;
 use App\Http\Controllers\User\CartController;
-use App\Http\Controllers\Admin\DiscountedProductController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\SingleBlogController;
-use App\Http\Controllers\Admin\LoginController;
-use App\Http\Controllers\User\HomeController;
-use App\Http\Controllers\User\AboutUsController;
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\CustomerController;
-use App\Http\Controllers\Admin\CommentController;
-
-
-
 
 /*Route FE */
 
@@ -145,7 +145,7 @@ Route::prefix('/admin')->group(function () {
         // Xóa nhóm nhạc ca sĩ
         Route::delete('/delete/{id}', [BandController::class, 'Delete'])->name('Delete_Band');
         // Tìm kiếm nhóm nhạc ca sĩ
-        Route::get('/search',[BandController::class, 'Search'])->name('Search_Band');
+        Route::get('/search', [BandController::class, 'Search'])->name('Search_Band');
     });
 
     // Route cho loại sản phẩm
@@ -160,7 +160,7 @@ Route::prefix('/admin')->group(function () {
         // Xóa loại sản phẩm
         Route::delete('/delete/{id}', [CategoryController::class, 'Delete'])->name('Delete_Category');
         // Tìm kiếm loại sản phẩm
-        Route::get('/search',[CategoryController::class, 'Search'])->name('Search_Category');
+        Route::get('/search', [CategoryController::class, 'Search'])->name('Search_Category');
     });
 
     // Route cho phiếu nhập
@@ -172,14 +172,14 @@ Route::prefix('/admin')->group(function () {
     });
 
     //Route cho quản lý đội ngũ
-    Route::prefix(prefix: 'staff')->group(callback: function () {
+    Route::prefix(prefix: 'staff')->group(function () {
         Route::view('/staff-management', 'backend.pages.staff.staff-management')->name('Index_Staff_Management');
         //Thêm 
         Route::view('/add-staff-management', 'backend.pages.staff.add-staff-management')->name('Index_Add_Staff_Management');
     });
 
     // Route cho quản lý hóa đơn
-    Route::prefix(prefix: 'bill-management')->group(callback: function () {
+    Route::prefix(prefix: 'bill-management')->group(function () {
         Route::view('/bill-management', 'backend.pages.bill.bill-management')->name('Index_Bill_Management');
         //Chi tiết
         Route::view('/bill-detail-management', 'backend.pages.bill.bill-detail-management')->name('Index_Bill_Detail_Management');
@@ -192,7 +192,7 @@ Route::prefix('/admin')->group(function () {
     });
 
     //Route cho quản lý khách hàng
-    Route::prefix(prefix: 'customer')->group(callback: function (): void {
+    Route::prefix(prefix: 'customer')->group(function (): void {
         Route::get('/customer', [CustomerController::class, 'index'])->name('customer.index');
         Route::delete('/customer/{id}', [CustomerController::class, 'destroy'])->name('customer.destroy');
         Route::patch('/customer/{id}/status', [CustomerController::class, 'updateStatus'])->name('customer.updateStatus');
@@ -204,24 +204,25 @@ Route::prefix('/admin')->group(function () {
         // Thêm bài viết mới
         Route::view('/add-blog', 'backend.pages.blog.add-blog')->name('Index_Add_Blog');
         Route::post('/add', [BlogAdminController::class, 'Add'])->name('Add_Blog');
-        
+
         // Sửa bài viết
-        Route::get  ('/edit-blog/{id}',[BlogAdminController::class,'Show'])->name('Index_Edit_Blog');
+        Route::get('/edit-blog/{id}', [BlogAdminController::class, 'Show'])->name('Index_Edit_Blog');
         Route::post('/edit/{id}', [BlogAdminController::class, 'Edit'])->name('Edit_Blog');
-        
+
         // Xóa bài viết
         Route::delete('/delete/{id}', [BlogAdminController::class, 'Delete'])->name('Delete_Blog');
     });
-    
+
 
     //Route cho quản lý liên hệ từ khách hàng
-    Route::prefix(prefix: 'contact')->group(callback: function () {
-        Route::view('/contact-management', 'backend.pages.contact.contact-management')->name('Index_Contact_Management');
-        Route::view('/response-contact-management', 'backend.pages.contact.response-contact-management')->name('Index_Response_Contact_Management');
+    Route::prefix('contact')->group(function () {
+        Route::get('/contact-management', [ContactAdminController::class, 'Index'])->name('Index_Contact_Management');
+        Route::get('/accept-contact-management/{id}', [ContactAdminController::class, 'Accept'])->name('Accept_Contact');
+        Route::delete('/contacts/{id}', [ContactAdminController::class, 'Delete'])->name('Delete_Contact');
     });
 
     //Route cho giao diện admin
-    Route::prefix(prefix: 'admin-profile')->group(callback: function () {
+    Route::prefix(prefix: 'admin-profile')->group(function () {
         Route::view('/admin-profile', 'backend.pages.admin-profile.admin-profile')->name('Index_Admin_Profile');
         Route::view('/edit-admin-profile', 'backend.pages.admin-profile.edit-admin-profile')->name('Index_Edit_Admin_Profile');
     });

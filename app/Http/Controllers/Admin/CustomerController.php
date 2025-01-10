@@ -13,7 +13,7 @@ class CustomerController extends Controller
     public function index(Request $request)
     {
         // Lấy tất cả khách hàng với phân trang, mỗi trang hiển thị 2 khách hàng
-        $customer = KhachHang::paginate(10); 
+        $customer = KhachHang::paginate(5); 
 
         //truyền dữ liệu vào view
         return view( 'backend.pages.customer.customer-management', compact(var_name: 'customer'));  
