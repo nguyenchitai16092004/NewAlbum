@@ -118,7 +118,6 @@ Route::prefix('/admin')->group(function () {
     Route::post('/login', [LoginController::class, 'Login'])->name('Login_Admin');
     Route::get('/dashboard', [DashboardController::class, 'editDashboard'])->name('dashboard.edit');
     Route::post('/dashboard/update', [DashboardController::class, 'updateDashboard'])->name('dashboard.update');
-
     // Route cho sản phẩm
     Route::prefix('product')->group(function () {
         Route::get('/', [ProductController::class, 'Index'])->name('Index_Product');
