@@ -9,145 +9,45 @@
     <h1 style="text-align: center">Search our site</h1>
 </div>
 
-<div class="search-bar">
-    <input type="text" placeholder="Search...">
-    <select>
-        <option value="product">Product</option>
-        <option value="product">Category Product</option>
+
+<form action="{{ route('search') }}" method="get" class="search-bar">
+    <input type="text" name="query" placeholder="Search..." value="{{ request('query') }}">
+    <select name="filter">
+        <option value="">Filter</option>
+        <option value="kpop">K-POP</option>
+        <option value="kgoods">K-GOODS</option>
+        <option value="poster">POSTER</option>
     </select>
-    <button class="btn-search" type="submit">Submit</button>
-</div>
+    <button class="btn-search" type="submit">Search</button>
+</form>
 
 <div class="container" style="margin-top: 50px">
     <div class="product-grid">
-        <!-- Example Product -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/250" alt="Product Image" class="product-image">
-            <div class="product-details">
-                <h2 class="product-title">Product Name</h2>
-                <p class="product-price">$49.99</p>
-                <div class="action-buttons">
-                    <button class="action-button add-to-cart">
-                        <i class="fa fa-shopping-cart"></i> Add to Cart
-                    </button>
-                    <button class="action-button remove-button">
-                        <i class="fa fa-heart"></i> Add to WishList
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Example Product -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/250" alt="Product Image" class="product-image">
-            <div class="product-details">
-                <h2 class="product-title">Product Name</h2>
-                <p class="product-price">$49.99</p>
-                <div class="action-buttons">
-                    <button class="action-button add-to-cart">
-                        <i class="fa fa-shopping-cart"></i> Add to Cart
-                    </button>
-                    <button class="action-button remove-button">
-                        <i class="fa fa-heart"></i> Add to WishList
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Example Product -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/250" alt="Product Image" class="product-image">
-            <div class="product-details">
-                <h2 class="product-title">Product Name</h2>
-                <p class="product-price">$49.99</p>
-                <div class="action-buttons">
-                    <button class="action-button add-to-cart">
-                        <i class="fa fa-shopping-cart"></i> Add to Cart
-                    </button>
-                    <button class="action-button remove-button">
-                        <i class="fa fa-heart"></i> Add to WishList
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Example Product -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/250" alt="Product Image" class="product-image">
-            <div class="product-details">
-                <h2 class="product-title">Product Name</h2>
-                <p class="product-price">$49.99</p>
-                <div class="action-buttons">
-                    <button class="action-button add-to-cart">
-                        <i class="fa fa-shopping-cart"></i> Add to Cart
-                    </button>
-                    <button class="action-button remove-button">
-                        <i class="fa fa-heart"></i> Add to WishList
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Example Product -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/250" alt="Product Image" class="product-image">
-            <div class="product-details">
-                <h2 class="product-title">Product Name</h2>
-                <p class="product-price">$49.99</p>
-                <div class="action-buttons">
-                    <button class="action-button add-to-cart">
-                        <i class="fa fa-shopping-cart"></i> Add to Cart
-                    </button>
-                    <button class="action-button remove-button">
-                        <i class="fa fa-heart"></i> Add to WishList
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Example Product -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/250" alt="Product Image" class="product-image">
-            <div class="product-details">
-                <h2 class="product-title">Product Name</h2>
-                <p class="product-price">$49.99</p>
-                <div class="action-buttons">
-                    <button class="action-button add-to-cart">
-                        <i class="fa fa-shopping-cart"></i> Add to Cart
-                    </button>
-                    <button class="action-button remove-button">
-                        <i class="fa fa-heart"></i> Add to WishList
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Example Product -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/250" alt="Product Image" class="product-image">
-            <div class="product-details">
-                <h2 class="product-title">Product Name</h2>
-                <p class="product-price">$49.99</p>
-                <div class="action-buttons">
-                    <button class="action-button add-to-cart">
-                        <i class="fa fa-shopping-cart"></i> Add to Cart
-                    </button>
-                    <button class="action-button remove-button">
-                        <i class="fa fa-heart"></i> Add to WishList
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Example Product -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/250" alt="Product Image" class="product-image">
-            <div class="product-details">
-                <h2 class="product-title">Product Name</h2>
-                <p class="product-price">$49.99</p>
-                <div class="action-buttons">
-                    <button class="action-button add-to-cart">
-                        <i class="fa fa-shopping-cart"></i> Add to Cart
-                    </button>
-                    <button class="action-button remove-button">
-                        <i class="fa fa-heart"></i> Add to WishList
-                    </button>
-                </div>
-            </div>
-        </div>
+        @if(isset($products) && $products->isEmpty())
+            <p style="text-align: center; font-size: 25px">No results found for "{{ $query  }}"</p>
+        @elseif(isset($products))
+            @foreach ($products as $product)
+
+                @if ($product->TrangThai == 1)
+                    <div class="product-card">
+                        <img src="{{ $product->image_url ? asset($product->image_url) : 'https://via.placeholder.com/250' }}"
+                            alt="{{ $product->TenSP }}" class="product-image">
+                        <div class="product-details">
+                            <h2 class="product-title">{{ $product->TenSP }}</h2>
+                            <p class="product-price">{{ $product->GiaBan }}</p>
+                            <div class="action-buttons">
+                                <button class="action-button add-to-cart">
+                                    <i class="fa fa-shopping-cart"></i> Add to Cart
+                                </button>
+                                <button class="action-button remove-button">
+                                    <i class="fa fa-heart"></i> Add to WishList
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            @endforeach
+        @endif
     </div>
 </div>
 <!-- Pagination -->
