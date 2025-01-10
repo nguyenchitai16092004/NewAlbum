@@ -933,37 +933,41 @@
     <!-- ##### Our Blog Post End ##### -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+
             document.querySelectorAll('.add-to-cart-btn').forEach(button => {
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
-
                     const productId = this.dataset.id;
                     const productName = this.dataset.name;
                     const productPrice = this.dataset.price;
                     const productImage = this.dataset.image;
 
                     fetch("{{ route('add.to.cart') }}", {
+                            // gửi yc đến cart
                             method: "POST",
                             headers: {
                                 "X-CSRF-TOKEN": "{{ csrf_token() }}",
-                                "Content-Type": "application/json"
+                                "Content-Type": "application/json" // khai báo dl là json
                             },
                             body: JSON.stringify({
-                                id: productId,
-                                name: productName,
-                                price: productPrice,
+                                // chuyển dl sang json
+                                id: productId, 
+                                name: productName, 
+                                price: productPrice, 
                                 image: productImage
                             })
                         })
                         .then(response => response.json())
+                        // trả phản hồi json-> js
+
                         .then(data => {
                             if (data.success) {
-                                // Cập nhật số lượng sản phẩm trong giỏ hàng ở header
                                 const cartQuantity = document.querySelector(
                                     '.header-meta .favourite-area span');
                                 if (cartQuantity) {
                                     cartQuantity.textContent = Object.values(data.cart).reduce((
                                         total, item) => total + item.quantity, 0);
+                                    // cập nhật slsp trong gh lên header.
                                 }
                             }
                         })

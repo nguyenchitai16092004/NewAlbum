@@ -13,17 +13,11 @@ class HomeController extends Controller
     public function Index()
     {
         $products = SANPHAM::all();
-
-        // Lấy giỏ hàng từ session
         $cart = session()->get('cart', []);
-
-        // Tính tổng số lượng sản phẩm
+        // tổng slsp trong gh
         $totalQuantity = array_sum(array_column($cart, 'quantity'));
-
-        // Lấy thông tin liên lạc từ database
+        // thông tin trang web
         $thongtinlienlac = thongtinlienlac::first();
-
-        // Trả về view kèm dữ liệu giỏ hàng
         return view('frontend.pages.home', compact('products', 'totalQuantity', 'thongtinlienlac'));
     }
 }
