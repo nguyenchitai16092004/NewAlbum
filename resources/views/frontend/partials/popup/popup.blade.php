@@ -1,19 +1,49 @@
 <!-- User Login Info -->
+@if(session('success'))
+    <div id="success-message" class="alert alert-success" style="margin-top:10px">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div id="error-message" class="alert alert-danger" style="margin-top:10px">
+        {{ session('error') }}
+    </div>
+@endif
+
+@if(session('Signoutsuccess'))
+    <div id="success-signout-message" class="alert alert-success" style="margin-top:10px">
+        {{ session('Signoutsuccess') }}
+    </div>
+@endif
+
 <div class="user-login-info">
     <a href="#" id="userIcon"><img src="img/core-img/user.svg" alt="User"></a>
     <div id="userOptions" class="dropdown-user">
         <ul>
-            <li><a href="{{ asset('/account') }}">Profile</a></li>
-            <li><a href="{{ asset('/') }}" id="loginButton">Login</a>
+            @if(session('User'))
+                <li><a href="{{ asset('/account') }}">Profile</a></li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                <li>
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                </li>
+            @else
+                <li><a href="{{ asset('/') }}" id="loginButton">Login</a>
+            @endif
                 <!-- Popup Đăng nhập-->
                 <div id="loginPopup" class="popup">
                     <div class="popup-content">
+
                         <span class="close">&times;</span>
                         <h2 style="text-align: center">Login</h2>
-                        <form id="loginForm" class="loginForm">
+                        <form action="{{ route('Login_User') }}" method="POST" id="loginForm" class="loginForm">
                             @csrf
-                            <input type="email" id="email" name="email" placeholder="Email" required>
-                            <span id="emailError" style="color: red; display: none;">Email is not valid!</span>
+                            <input type="text" id="loginname" name="loginname" placeholder="Login name" required>
+                            <span id="loginnameError" style="color: red; display: none;">Login name is not valid!</span>
                             <input type="password" id="password" name="password" placeholder="Password" required>
                             <span id="passwordError" style="color: red; display: none;">Password is not valid!</span>
                             <div class="button-container">
@@ -39,7 +69,8 @@
                             <input type="password" id="password" name="password" placeholder="Password">
                             <span id="passwordError" style="color: red; display: none;">Password is not valid!</span>
                             <input type="password" id="re-password" name="re-password" placeholder="Re-password">
-                            <span id="repasswordError" style="color: red; display: none;">Password is not correct!</span>
+                            <span id="repasswordError" style="color: red; display: none;">Password is not
+                                correct!</span>
                             <div class="button-container">
                                 <button type="submit" class="btn-register">Register</button>
                             </div>
