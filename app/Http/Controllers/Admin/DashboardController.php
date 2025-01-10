@@ -20,11 +20,20 @@ class DashboardController extends Controller
     {
         // Xác thực dữ liệu đầu vào
         $validated = $request->validate([
-            'Email' => 'required|email',
-            'Facebook' => 'nullable|url',
-            'Instagram' => 'nullable|url',
-            'Twitter' => 'nullable|url',
-            'SDT' => 'required',
+            'Facebook' => 'nullable|url', // Định dạng URL hợp lệ
+            'Instagram' => 'nullable|url', // Định dạng URL hợp lệ
+            'Twitter' => 'nullable|url', // Định dạng URL hợp lệ
+            'SDT' => 'required|numeric', // Chỉ được nhập số
+            'Email' => 'required|email|regex:/^[\w.%+-]+@gmail\.com$/', // Định dạng email và phải thuộc miền @gmail.com
+        ], [
+            'Facebook.url' => 'Liên kết Facebook phải đúng định dạng URL.',
+            'Instagram.url' => 'Liên kết Instagram phải đúng định dạng URL.',
+            'Twitter.url' => 'Liên kết Twitter phải đúng định dạng URL.',
+            'SDT.required' => 'Vui lòng nhập số điện thoại.',
+            'SDT.numeric' => 'Số điện thoại chỉ được chứa số.',
+            'Email.required' => 'Vui lòng nhập email.',
+            'Email.email' => 'Email phải là định dạng hợp lệ.',
+            'Email.regex' => 'Email phải thuộc miền @gmail.com.',
         ]);
 
         // Xóa các bản ghi thừa nếu tồn tại
