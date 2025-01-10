@@ -43,7 +43,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light" style="background-color: black">Submit</button>
 
                                                     </form>
                                                 </div>

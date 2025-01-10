@@ -9,7 +9,7 @@
                     <div class="product-payment-inner-st">
                         <!-- Add Product Form -->
                         <form action="{{ Route('Add_Product') }}" method="POST" enctype="multipart/form-data"
-                            class="dropzone dropzone-custom">
+                            class="dropzone dropzone-custom" id="addProductForm">
                             @csrf
                             <div class="row">
                                 <!-- Left Column -->
@@ -21,13 +21,13 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="GiaNhap">Import Price</label>
-                                        <input name="GiaNhap" type="number" class="form-control" min="0"
-                                            placeholder="Import Price">
+                                        <input name="GiaNhap" id="GiaNhap" type="number" class="form-control"
+                                            min="0" placeholder="Import Price">
                                     </div>
                                     <div class="form-group">
                                         <label for="GiaBan">Selling Price</label>
-                                        <input name="GiaBan" type="number" class="form-control" min="0"
-                                            placeholder="Selling Price">
+                                        <input name="GiaBan" id="GiaBan" type="number" class="form-control"
+                                            min="0" placeholder="Selling Price">
                                     </div>
                                     <div class="form-group">
                                         <label for="TieuDe">Title</label>
@@ -79,7 +79,8 @@
                                 </div>
                             </div>
                             <div class="payment-adress">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light " style="background-color: black">Submit</button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light "
+                                    style="background-color: black">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -87,4 +88,42 @@
             </div>
         </div>
     </div>
+    <!-- JavaScript Validation -->
+    <script>
+        document.getElementById('addProductForm').addEventListener('submit', function(e) {
+            const giaNhap = parseFloat(document.getElementById('GiaNhap').value);
+            const giaBan = parseFloat(document.getElementById('GiaBan').value);
+
+            if (giaNhap >= giaBan) {
+                e.preventDefault(); // Ngăn chặn gửi form
+                alert('Import Price must be less than Selling Price!');
+            }
+        });
+
+        // Xử lý khi đổi Product Type
+        const productTypeSelect = document.querySelector('select[name="LoaiHang"]');
+        const quantityInput = document.querySelector('input[name="SoLuong"]');
+
+        productTypeSelect.addEventListener('change', function() {
+            if (productTypeSelect.value === "1") {
+                quantityInput.value = 0;
+                quantityInput.setAttribute('readonly', true);
+            } else if (productTypeSelect.value === "0") {
+                quantityInput.removeAttribute('readonly');
+                if (parseInt(quantityInput.value) < 1) {
+                    quantityInput.value = 1;
+                }
+            }
+        });
+
+        // Đảm bảo logic áp dụng ngay từ khi trang được tải
+        document.addEventListener('DOMContentLoaded', function() {
+            if (productTypeSelect.value === "1") {
+                quantityInput.value = 0;
+                quantityInput.setAttribute('readonly', true);
+            } else if (productTypeSelect.value === "0" && parseInt(quantityInput.value) < 1) {
+                quantityInput.value = 1;
+            }
+        });
+    </script>
 @stop

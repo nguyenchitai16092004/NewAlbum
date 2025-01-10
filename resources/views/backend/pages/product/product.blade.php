@@ -46,8 +46,8 @@
                                             <td>{{ $item->TenLoaiSP }}</td>
                                             <td>{{ $item->TenNhomNhacCaSi }}</td>
                                             <td>{{ $item->SoLuong }}</td>
-                                            <td>{{ number_format($item->GiaNhap, 0) }}$</td>
-                                            <td>{{ number_format($item->GiaBan, 0) }}$</td>
+                                            <td>{{ number_format($item->GiaNhap, 0) }}VND</td>
+                                            <td>{{ number_format($item->GiaBan, 0) }}VND</td>
                                             <td>{{ $item->LoaiHang ? 'Available' : 'Pre-Order' }}</td>
                                             <td>{{ $item->MoTa }}</td>
                                             <td>
@@ -74,7 +74,7 @@
                         </div>
 
                         <!-- Pagination -->
-                        <div class="custom-pagination">
+                        <div class="custom-pagination text-center mt-4">
                             {!! $products->links('pagination::bootstrap-4') !!}
                         </div>
 

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('LOAISP', function (Blueprint $table) {
             $table->id('MaLoaiSP');
             $table->string('TenLoaiSP', 255);
+            $table->boolean('TrangThai')->default(1);
             $table->timestamps();
         });
     }

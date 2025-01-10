@@ -10,7 +10,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="product-payment-inner-st">
                             <ul id="myTabedu1" class="tab-review-design">
-                                <li class="active"><a href="#description">Add Category</a></li>
+                                <li class="active"><a href="#description" style="color: black" >Add Category</a></li>
                             </ul>
                             <div id="myTabContent" class="tab-content custom-product-edit">
                                 <div class="product-tab-list tab-pane fade active in" id="description">
@@ -31,8 +31,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <button type="submit"
-                                                            class="btn btn-primary waves-effect waves-light">Submit</button>
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light" style="background-color: black" >Submit</button>
                                                     </form>
                                                 </div>
                                             </div>
