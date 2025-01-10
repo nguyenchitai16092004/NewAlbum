@@ -19,12 +19,20 @@ body {
     border-radius: 8px;
   }
   
-  .single-blog-post-thumb img {
+  .single-blog-post-thumb {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin: 0 auto; 
+    max-width: 500px; 
+    text-align: center;
+}
+.single-blog-post-thumb img {
     width: 100%;
     height: auto;
     border-radius: 8px 8px 0 0;
-  }
-  
+}
+
   /* Blog Content */
   .single-blog--text {
     padding: 40px;
