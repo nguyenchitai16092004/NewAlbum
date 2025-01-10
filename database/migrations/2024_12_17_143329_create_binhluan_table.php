@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('SoSao');
             $table->text('NoiDung'); 
             $table->primary(['MaSP', 'MaKH']); 
+            $table->boolean('TrangThai')->default(1);
             $table->timestamps();
             
             // Định nghĩa khóa ngoại

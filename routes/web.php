@@ -118,7 +118,6 @@ Route::prefix('/admin')->group(function () {
     Route::post('/login', [LoginController::class, 'Login'])->name('Login_Admin');
     Route::get('/dashboard', [DashboardController::class, 'editDashboard'])->name('dashboard.edit');
     Route::post('/dashboard/update', [DashboardController::class, 'updateDashboard'])->name('dashboard.update');
-
     // Route cho sản phẩm
     Route::prefix('product')->group(function () {
         Route::get('/', [ProductController::class, 'Index'])->name('Index_Product');
@@ -143,6 +142,8 @@ Route::prefix('/admin')->group(function () {
         Route::get('/edit/{id}', [BandController::class, 'Edit'])->name('Edit_Band');
         // Xóa nhóm nhạc ca sĩ
         Route::delete('/delete/{id}', [BandController::class, 'Delete'])->name('Delete_Band');
+        // Tìm kiếm nhóm nhạc ca sĩ
+        Route::get('/search',[BandController::class, 'Search'])->name('Search_Band');
     });
 
     // Route cho loại sản phẩm
@@ -156,6 +157,8 @@ Route::prefix('/admin')->group(function () {
         Route::get('/edit/{id}', [CategoryController::class, 'Edit'])->name('Edit_Category');
         // Xóa loại sản phẩm
         Route::delete('/delete/{id}', [CategoryController::class, 'Delete'])->name('Delete_Category');
+        // Tìm kiếm loại sản phẩm
+        Route::get('/search',[CategoryController::class, 'Search'])->name('Search_Category');
     });
 
     // Route cho phiếu nhập

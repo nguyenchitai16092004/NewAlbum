@@ -70,7 +70,7 @@
                         </div>
 
                         <!-- Pagination -->
-                        <div class="custom-pagination">
+                        <div class="custom-pagination text-center mt-4">
                             {{ $blogs->links() }}
                         </div>
                     </div>

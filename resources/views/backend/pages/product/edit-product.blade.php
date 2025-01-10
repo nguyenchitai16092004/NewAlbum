@@ -1,7 +1,6 @@
 @extends('backend.layouts.master')
 @section('title', 'Edit Product')
 @section('main')
-
     <div class="single-pro-review-area mt-t-30 mg-b-15">
         <div class="container-fluid">
             <div class="row">
@@ -9,7 +8,7 @@
                     <div class="product-payment-inner-st">
                         <!-- Edit Product Form -->
                         <form action="{{ route('Edit_Product', ['id' => $products->MaSP]) }}" method="POST"
-                            enctype="multipart/form-data" class="dropzone dropzone-custom">
+                            enctype="multipart/form-data" class="dropzone dropzone-custom" id="editProductForm">
                             @csrf
                             <div class="row">
                                 <!-- Left Column -->
@@ -48,11 +47,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="LoaiHang">Product Type</label>
-                                        <select name="LoaiHang" class="form-control">
-                                            <option value="0" {{ $products->LoaiHang == 0 ? 'selected' : '' }}>
-                                                Available</option>
-                                            <option value="1" {{ $products->LoaiHang == 1 ? 'selected' : '' }}>
-                                                Pre-Order</option>
+                                        <select name="LoaiHang" class="form-control" id="LoaiHang">
+                                            <option value="0" {{ $products->LoaiHang == 0 ? 'selected' : '' }}>Available</option>
+                                            <option value="1" {{ $products->LoaiHang == 1 ? 'selected' : '' }}>Pre-Order</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -96,4 +93,37 @@
             </div>
         </div>
     </div>
+
+    <!-- JavaScript Validation -->
+    <script>
+        const productTypeSelect = document.querySelector('#LoaiHang');
+        const quantityInput = document.querySelector('input[name="SoLuong"]');
+
+        // Lưu lại giá trị ban đầu của số lượng
+        let originalQuantity = quantityInput.value;
+
+        // Xử lý thay đổi Product Type
+        productTypeSelect.addEventListener('change', function () {
+            if (productTypeSelect.value === "1") { // Pre-Order
+                quantityInput.value = 0;
+                quantityInput.setAttribute('readonly', true); // Khóa số lượng
+            } else { // Available
+                quantityInput.removeAttribute('readonly'); // Mở khóa số lượng
+                quantityInput.value = originalQuantity; // Giữ lại giá trị ban đầu
+            }
+        });
+
+        // Đảm bảo trạng thái đúng khi tải trang
+        document.addEventListener('DOMContentLoaded', function () {
+            if (productTypeSelect.value === "1") {
+                quantityInput.value = 0;
+                quantityInput.setAttribute('readonly', true);
+            } else {
+                quantityInput.removeAttribute('readonly');
+                quantityInput.value = originalQuantity;
+            }
+        });
+    </script>
 @stop
+
+

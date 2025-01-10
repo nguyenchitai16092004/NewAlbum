@@ -8,12 +8,21 @@ use App\Http\Controllers\Controller;
 
 class BandController extends Controller
 {
+    //Hiện danh sách nhóm nhạc ca sĩ
     public function Index()
     {
-        $bands = NHOMNHACCASI::all();
+        $bands = NHOMNHACCASI::where('TrangThai','=',1)->paginate(3);
         return view('backend.pages.band_singer.band-singer', compact('bands'));
     }
     
+    //Hiển thị chi tiết nhóm nhạc ca sĩ
+    public function Show($id)
+    {
+        $band = NHOMNHACCASI::findOrFail($id);
+        return view('backend.pages.band_singer.edit-band-singer', compact('band'));
+    }
+
+    //Thêm nhóm nhạc ca sĩ
     public function Add(Request $request)
     {
         $request->validate([
@@ -31,18 +40,7 @@ class BandController extends Controller
         return redirect()->route('Index_Band')->with('success', 'Thêm nhóm nhạc/ca sĩ thành công!');
     }
 
-    public function Delete($id){
-        $nhomNhacCaSi = NHOMNHACCASI::findOrFail($id);
-        $nhomNhacCaSi->delete();
-        return redirect()->route('Index_Band')->with('success', 'Thêm nhóm nhạc/ca sĩ thành công!');
-    }
-
-    public function Show($id)
-    {
-        $band = NHOMNHACCASI::findOrFail($id);
-        return view('backend.pages.band_singer.edit-band-singer', compact('band'));
-    }
-
+    //Sửa thông tin nhóm nhạc ca sĩ
     public function Edit(Request $request , $id)
     {
         $nhomNhacCaSi = NHOMNHACCASI::findOrFail($id);
@@ -51,5 +49,34 @@ class BandController extends Controller
         $nhomNhacCaSi->Loai = $request->input('Loai');
         $nhomNhacCaSi->save();
         return redirect()->route('Index_Band');
+    }
+
+    //Xóa nhóm nhạc ca sĩ (xóa mềm) 
+    public function Delete($id){
+        $nhomNhacCaSi = NHOMNHACCASI::findOrFail($id);
+        $nhomNhacCaSi->TrangThai = 0;
+        $nhomNhacCaSi->save();
+        return redirect()->route('Index_Band')->with('success', 'Thêm nhóm nhạc/ca sĩ thành công!');
+    }
+
+    //Tìm kiếm sản phẩm
+    public function Search(Request $request)
+    {
+        $search = $request->input('search');
+    
+        if (empty($search)) {
+            $bands = NHOMNHACCASI::where('TrangThai','=',1)->paginate(3);
+            return view('backend.pages.band_singer.band-singer',['bands' => $bands]);
+        } else {
+            $TimKiem = NHOMNHACCASI::where('TenNhomNhacCaSi', 'LIKE', '%' . $search . '%')->where('TrangThai','=',1)->get();
+    
+            $bands = NHOMNHACCASI::where('TrangThai','=',1)->paginate(3);
+    
+            return view('backend.pages.band_singer.band-singer', 
+            [
+                'TimKiem' => $TimKiem,
+                'bands' => $bands,
+            ]);
+        }
     }
 }

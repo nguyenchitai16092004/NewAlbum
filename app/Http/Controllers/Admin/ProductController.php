@@ -11,21 +11,28 @@ use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
+    // Hiện danh sách sản phẩm
     public function Index()
     {
         $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
             ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi')
-            ->select('SANPHAM.*', 'LOAISP.TenLoaiSP', 'NHOMNHACCASI.TenNhomNhacCaSi')
+            ->where('SANPHAM.TrangThai', '=', 1)
+            ->select(
+                'SANPHAM.*',
+                'LOAISP.TenLoaiSP',
+                'NHOMNHACCASI.TenNhomNhacCaSi'
+            )
             ->paginate(3);
+
 
         return view('backend.pages.product.product', compact('products'));
     }
 
+    //Hiện chi tiết sản phẩm
     public function Show()
     {
-        $NhomNhacCaSi = NHOMNHACCASI::all();
-        $LoaiSP = LOAISP::all();
-
+        $NhomNhacCaSi = NHOMNHACCASI::where('TrangThai', '=', '1')->get();
+        $LoaiSP = LOAISP::where('TrangThai', '=', '1')->get();
         return view('backend.pages.product.add-product', [
             'Band' => $NhomNhacCaSi,
             'Category' => $LoaiSP,
@@ -99,7 +106,7 @@ class ProductController extends Controller
     public function Edit(Request $request, $id)
     {
         $products = SANPHAM::findOrFail($id);
-    
+
         // Gán giá trị từ request vào sản phẩm
         $products->MaNhomNhacCaSi = $request->input('MaNhomNhacCaSi');
         $products->MaLoaiSP = $request->input('MaLoaiSP');
@@ -110,18 +117,17 @@ class ProductController extends Controller
         $products->TieuDe = $request->input('TieuDe');
         $products->MoTa = $request->input('MoTa');
         $products->SoLuong = $request->input('SoLuong');
-    
+
         if ($request->hasFile('HinhAnh')) {
             $HinhAnh = $request->file('HinhAnh');
             $TenHinhAnh = $HinhAnh->getClientOriginalName();
             $HinhAnh->move(public_path('storage/SanPham'), $TenHinhAnh);
-    
+
             $products->HinhAnh = $TenHinhAnh;
         }
-    
+
         $products->save();
-    
+
         return redirect()->route('Index_Product');
     }
-    
 }
