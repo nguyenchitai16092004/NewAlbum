@@ -16,7 +16,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ Route('Index_Customer_Management') }}" aria-expanded="false">
+                        <a href="{{ Route('customer.index') }}" aria-expanded="false">
                             <span class="fa fa-users icon-wrap"></span>
                             <span class="mini-click-non">Customers</span>
                         </a>
@@ -76,7 +76,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ Route('Index_Comments_Management') }}" aria-expanded="false">
+                        <a href="{{ Route('comments.index') }}" aria-expanded="false">
                             <span class="fa fa-comments icon-wrap"></span>
                             <span class="mini-click-non">Comments</span>
                         </a>

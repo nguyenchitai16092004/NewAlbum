@@ -27,8 +27,8 @@
             <div class="col-12 col-md-6">
                 <div class="single_widget_area mb-30">
                     <ul class="footer_widget_menu">
-                        <li><a href="#">SUPPORT@NEWALBUM.COM</a></li>
-                        <li><a href="#">0123456789</a></li>
+                        <li><a href="#">{{ $thongtinlienlac->Email }}</a></li>
+                        <li><a href="#">{{ $thongtinlienlac->SDT }}</a></li>
                     </ul>
                 </div>
             </div>
@@ -55,12 +55,15 @@
             <div class="col-12 col-md-6">
                 <div class="single_widget_area">
                     <div class="footer_social_area">
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><img
-                                width="50px" src="img/core-img/instagram.png" alt=""></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><img width="50px"
-                                src="img/core-img/twitter.png" alt=""></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><img
-                                width="50px" src="img/core-img/facebook.png" alt=""></a>
+                        <a href="{{ $thongtinlienlac->Instagram }}" data-toggle="tooltip" data-placement="top"
+                            title="Instagram" target="blank"><img width="50px" src="img/core-img/instagram.png"
+                                alt=""></a>
+                        <a href="{{ $thongtinlienlac->Twitter }}" data-toggle="tooltip" data-placement="top"
+                            title="Twitter" target="blank"><img width="50px" src="img/core-img/twitter.png"
+                                alt=""></a>
+                        <a href="{{ $thongtinlienlac->Facebook }}" data-toggle="tooltip" data-placement="top"
+                            title="Facebook" target="blank"><img width="50px" src="img/core-img/facebook.png"
+                                alt=""></a>
                     </div>
                 </div>
             </div>

@@ -24,8 +24,9 @@
                 @if ($cart->count())
                     @foreach ($cart as $id => $item)
                         <tr>
-                            <td><a href="#"><img src="{{ $item['image'] }}" alt="{{ $item['name'] }}"></a></td>
-                            <td> <a href="#">
+                            <td><a href="{{ asset('/single-product-detail') }}"><img src="{{ $item['image'] }}"
+                                        alt="{{ $item['name'] }}"></a></td>
+                            <td> <a href="{{ asset('/single-product-detail') }}">
                                     <h6>{{ $item['name'] }}</h6>
                                 </a></td>
                             <td class="price">{{ number_format($item['price']) }} VND</td>
@@ -91,20 +92,14 @@
         </div>
 
         <!-- Tổng cộng và thanh toán -->
-        <div class="summary">
+        <div class="summary" style="{{ $cartTotal > 0 ? '' : 'display: none;' }}">
             <div class="container-text">
                 <p>Subtotal:</p>
-                <p>
-                    {{ number_format(
-                        collect($cart->items())->sum(function ($item) {
-                            return $item['price'] * $item['quantity'];
-                        }),
-                    ) }}
-                    VND
-                </p>
+                <p>{{ number_format($cartTotal) }} VND</p>
             </div>
             <button class="checkout">CHECK OUT</button>
         </div>
+
 
 
     </div>
@@ -115,8 +110,11 @@
         <div class="row">
             @foreach ($recommendedProducts as $product)
                 <div class="product">
-                    <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}" alt="{{ $product->TenSP }}">
-                    <p>{{ $product->TenSP }}</p>
+                    <a href="{{ asset('/single-product-detail') }}"><img
+                            src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}" alt="{{ $product->TenSP }}"></a>
+                    <a href="{{ asset('/single-product-detail') }}">
+                        <p>{{ $product->TenSP }}</p>
+                    </a>
                     <span class="price">{{ number_format($product->GiaBan) }} VND</span>
                 </div>
             @endforeach
@@ -128,6 +126,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             const deleteAllBtn = document.querySelector('.delete-all-product');
 
+            // Xử lý nút "Delete All"
             if (deleteAllBtn) {
                 deleteAllBtn.addEventListener('click', function() {
                     Swal.fire({
@@ -151,13 +150,16 @@
                                 .then(response => response.json())
                                 .then(data => {
                                     if (data.success) {
+                                        document.querySelector('.cart-container tbody')
+                                            .innerHTML =
+                                            `<tr><td colspan="6" style="text-align: center;">Your cart is empty</td></tr>`;
+                                        document.querySelector('.summary').style.display =
+                                            'none'; // Ẩn phần summary
                                         Swal.fire(
                                             'Deleted!',
                                             'All products have been removed from your cart.',
                                             'success'
-                                        ).then(() => {
-                                            location.reload();
-                                        });
+                                        );
                                     }
                                 })
                                 .catch(error => console.error('Error:', error));
@@ -165,87 +167,124 @@
                     });
                 });
             }
-        });
 
+            // Xử lý nút tăng/giảm số lượng
+            document.querySelectorAll('.btn-plus, .btn-minus').forEach(button => {
+                button.addEventListener('click', function() {
+                    const row = this.closest('tr'); // Lấy hàng chứa nút được nhấn
+                    const productId = row.querySelector('.remove-from-cart').dataset
+                        .id; // Lấy ID sản phẩm
+                    const quantityEl = row.querySelector(
+                        '.quantity'); // Lấy phần tử hiển thị số lượng
+                    const totalEl = row.querySelector('.total'); // Lấy phần tử hiển thị tổng tiền
+                    const isIncrease = this.classList.contains(
+                        'btn-plus'); // Kiểm tra nút tăng/giảm
+                    let quantity = parseInt(quantityEl.innerText); // Lấy số lượng hiện tại
 
-        document.addEventListener("DOMContentLoaded", function() {
-            // Xử lý nút tăng/giảm số lượng sản phẩm
-            document.querySelectorAll('.btn-plus, .btn-minus').forEach(
-                button => { // Lấy tất cả nút tăng/giảm số lượng
-                    button.addEventListener('click', function() { // Thêm sự kiện click cho mỗi nút
-                        const row = this.closest('tr'); // Lấy hàng (row) chứa nút được nhấn
-                        const productId = row.querySelector('.remove-from-cart').dataset
-                            .id; // Lấy ID sản phẩm từ nút xóa
-                        const quantityEl = row.querySelector(
-                            '.quantity'); // Lấy phần tử hiển thị số lượng
-                        const priceEl = row.querySelector('.price'); // Lấy phần tử hiển thị giá
-                        const totalEl = row.querySelector('.total'); // Lấy phần tử hiển thị tổng tiền
-                        const isIncrease = this.classList.contains(
-                            'btn-plus'); // Kiểm tra nếu nút là tăng số lượng
-                        let quantity = parseInt(quantityEl
-                            .innerText); // Lấy số lượng hiện tại và chuyển thành số nguyên
+                    // Tăng hoặc giảm số lượng
+                    quantity = isIncrease ? quantity + 1 : quantity - 1;
 
-                        // Tăng hoặc giảm số lượng
-                        quantity = isIncrease ? quantity + 1 : Math.max(quantity - 1,
-                            1); // Đảm bảo số lượng không nhỏ hơn 1
-
-                        // Cập nhật số lượng trên giao diện
-                        quantityEl.innerText = quantity;
-
-                        // Gửi yêu cầu cập nhật số lượng lên server
-                        fetch("{{ route('update.cart') }}", {
-                                method: "POST", // Sử dụng phương thức POST
+                    if (quantity === 0) {
+                        // Nếu số lượng về 0, xóa sản phẩm
+                        fetch("{{ route('remove.from.cart') }}", {
+                                method: "POST",
                                 headers: {
-                                    "X-CSRF-TOKEN": "{{ csrf_token() }}", // Token CSRF để bảo mật
-                                    "Content-Type": "application/json" // Định dạng nội dung là JSON
+                                    "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                                    "Content-Type": "application/json"
                                 },
-                                body: JSON.stringify({ // Dữ liệu được gửi lên server
-                                    id: productId, // ID sản phẩm
-                                    quantity: quantity // Số lượng mới
+                                body: JSON.stringify({
+                                    id: productId
                                 })
                             })
-                            .then(response => response.json()) // Chuyển đổi phản hồi thành JSON
+                            .then(response => response.json())
                             .then(data => {
-                                if (data.success) { // Kiểm tra phản hồi từ server
-                                    // Cập nhật tổng tiền cho sản phẩm
+                                if (data.success) {
+                                    row.remove(); // Xóa sản phẩm khỏi giao diện
+
+                                    // Cập nhật tổng cộng
+                                    document.querySelector(
+                                            '.summary .container-text p:last-child').innerText =
+                                        `${new Intl.NumberFormat().format(data.cartTotal)} VNĐ`;
+
+                                    // Kiểm tra nếu giỏ hàng trống
+                                    if (Object.keys(data.cart).length === 0) {
+                                        document.querySelector('.cart-container tbody')
+                                            .innerHTML =
+                                            `<tr><td colspan="6" style="text-align: center;">Your cart is empty</td></tr>`;
+                                        document.querySelector('.summary').style.display =
+                                            'none'; // Ẩn phần tổng cộng
+                                    }
+                                }
+                            })
+                            .catch(error => console.error('Error:', error));
+                    } else {
+                        // Nếu số lượng > 0, cập nhật số lượng
+                        quantityEl.innerText = quantity;
+
+                        // Gửi yêu cầu cập nhật số lượng
+                        fetch("{{ route('update.cart') }}", {
+                                method: "POST",
+                                headers: {
+                                    "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify({
+                                    id: productId,
+                                    quantity: quantity
+                                })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
                                     totalEl.innerText =
                                         `${new Intl.NumberFormat().format(data.itemTotal)} VNĐ`;
-
-                                    // Cập nhật tổng cộng cho giỏ hàng
-                                    document.querySelector('.summary .container-text p:last-child')
-                                        .innerText =
+                                    document.querySelector(
+                                            '.summary .container-text p:last-child').innerText =
                                         `${new Intl.NumberFormat().format(data.cartTotal)} VNĐ`;
                                 }
                             })
-                            .catch(error => console.error('Error:', error)); // Hiển thị lỗi nếu có
-                    });
+                            .catch(error => console.error('Error:', error));
+                    }
                 });
+            });
 
             // Xử lý nút xóa sản phẩm
-            document.querySelectorAll('.remove-from-cart').forEach(button => { // Lấy tất cả nút xóa sản phẩm
-                button.addEventListener('click', function(e) { // Thêm sự kiện click cho mỗi nút
-                    e.preventDefault(); // Ngăn hành động mặc định (ví dụ chuyển trang)
+            document.querySelectorAll('.remove-from-cart').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault(); // Ngăn hành động mặc định
+                    const productId = this.dataset.id; // Lấy ID sản phẩm
 
-                    const productId = this.dataset.id; // Lấy ID sản phẩm từ thuộc tính data-id
-
-                    // Gửi yêu cầu xóa sản phẩm lên server
+                    // Gửi yêu cầu xóa sản phẩm
                     fetch("{{ route('remove.from.cart') }}", {
-                            method: "POST", // Sử dụng phương thức POST
+                            method: "POST",
                             headers: {
-                                "X-CSRF-TOKEN": "{{ csrf_token() }}", // Token CSRF để bảo mật
-                                "Content-Type": "application/json" // Định dạng nội dung là JSON
+                                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                                "Content-Type": "application/json"
                             },
-                            body: JSON.stringify({ // Dữ liệu được gửi lên server
-                                id: productId // ID sản phẩm cần xóa
+                            body: JSON.stringify({
+                                id: productId
                             })
                         })
-                        .then(response => response.json()) // Chuyển đổi phản hồi thành JSON
+                        .then(response => response.json())
                         .then(data => {
-                            if (data.success) { // Kiểm tra phản hồi từ server
-                                location.reload(); // Tải lại trang để cập nhật giao diện
+                            if (data.success) {
+                                this.closest('tr').remove(); // Xóa hàng khỏi giao diện
+
+                                // Cập nhật tổng cộng
+                                document.querySelector('.summary .container-text p:last-child')
+                                    .innerText =
+                                    `${new Intl.NumberFormat().format(data.cartTotal)} VNĐ`;
+
+                                // Kiểm tra nếu giỏ hàng trống
+                                if (Object.keys(data.cart).length === 0) {
+                                    document.querySelector('.cart-container tbody').innerHTML =
+                                        `<tr><td colspan="6" style="text-align: center;">Your cart is empty</td></tr>`;
+                                    document.querySelector('.summary').style.display =
+                                        'none'; // Ẩn phần summary
+                                }
                             }
                         })
-                        .catch(error => console.error('Error:', error)); // Hiển thị lỗi nếu có
+                        .catch(error => console.error('Error:', error));
                 });
             });
         });
