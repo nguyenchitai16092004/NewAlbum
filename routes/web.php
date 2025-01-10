@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\GoodController;
 use App\Http\Controllers\User\BlogController;
 use App\Http\Controllers\User\SearchController;
+use App\Http\Controllers\User\SearchPaginationController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\Admin\DiscountedProductController;
 use App\Http\Controllers\User\ContactController;
@@ -95,7 +96,8 @@ Route::get('/oder-history', function () {
 Route::get('/search', function () {
     return view('frontend.pages.search');
 });
-Route::get('/frontend.pages.search', [SearchController::class, 'search'])->name('search');
+Route::get('/search', [SearchPaginationController::class, 'Index'])->name('Index_search');
+Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::get('/rating-product', function () {
     return view('frontend.pages.rating-product');

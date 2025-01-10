@@ -6,6 +6,7 @@ use App\Models\SANPHAM;
 use Illuminate\Http\Request;
 use App\Models\BlOG;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 
 class SearchController extends Controller
@@ -25,21 +26,24 @@ class SearchController extends Controller
 
     public function search(Request $request)
     {
-        // Lấy từ khóa tìm kiếm từ query string
         $query = $request->input('query');
+        $filter = $request->input('filter');
 
-        // Kiểm tra nếu người dùng không nhập gì trong ô tìm kiếm
-        if (!$query) {
-            // Nếu không có từ khóa, trả về thông báo "Not Found"
-            return view('search', ['products' => [], 'query' => '', 'message' => 'Please enter search keywords.']);
+        $products = SANPHAM::query();
+
+        if (!empty($query)) {
+            $slug = Str::slug($query, '-');
+            $products->where('slug', 'LIKE', '%' . $slug . '%');
+        }
+        if (!empty($filter)) {
+            $products->where('MaLoaiSP', '=', $filter);
         }
 
-        // Tìm các sản phẩm có slug chứa từ khóa tìm kiếm
-        $products = SANPHAM::whereRaw('LOWER(slug) LIKE ?', ['%' . strtolower($query) . '%'])->get();
+        // Nếu không có tìm kiếm và filter, trả về danh sách rỗng nhưng vẫn phân trang
+        $products = $products->exists() ? $products->paginate(10) : SANPHAM::whereRaw('0 = 1')->paginate(10);
 
+        return view('frontend.pages.search', compact('products', 'query', 'filter'));
 
-        // Trả về view và truyền kết quả tìm kiếm
-        return view('frontend.pages.search', compact('products', 'query'));
     }
 
     /*public function show($slug)

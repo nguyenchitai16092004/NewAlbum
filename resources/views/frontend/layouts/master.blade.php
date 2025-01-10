@@ -27,7 +27,6 @@
     <script src="js/classy-nav.min.js"></script>
     <script src="js/active.js"></script>
     <script src="js/popup.js"></script>
-
 </body>
 
 </html>
