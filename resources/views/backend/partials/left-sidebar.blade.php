@@ -26,16 +26,7 @@
                             <span class="fa fa-envelope icon-wrap"></span>
                             <span class="mini-click-non">Contact</span>
                         </a>
-                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li>
-                                <a href="{{ Route('Index_Contact_Management') }}"><span class="mini-sub-pro">Contact
-                                        Management</span></a>
-                            </li>
-                            <li>
-                                <a href="{{ Route('Index_Response_Contact_Management') }}"><span
-                                        class="mini-sub-pro">Respone Contact Management</span></a>
-                            </li>
-                        </ul>
+                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false"><a href="{{ Route('Index_Contact_Management') }}"><span class="mini-sub-pro">Contact Management</span></a></ul>
                     </li>
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false">
