@@ -17,6 +17,7 @@
                                         <th>Email</th>
                                         <th>Message</th>
                                         <th>Date</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -28,7 +29,7 @@
                                             <td>{{ $item->SDT }}</td>
                                             <td>{{ $item->Email }}</td>
                                             <td>{{ Str::limit($item->TinNhan, 50, '...') }}</td>
-                                            <td>{{ $item->created_at }}</td>
+                                            <td>{{ $item->created_at->format('d/m/Y') }}</td>
                                             <td>{{ $item->TrangThai ? 'Đã xác nhận' : 'Chưa xác nhận' }}</td>
                                             <td>
                                                 <form action="{{ route('Accept_Contact', ['id' => $item->MaLH]) }}"
