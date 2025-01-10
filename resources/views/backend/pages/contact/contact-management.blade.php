@@ -11,7 +11,6 @@
                         <table>
                             <tr>
                                 <th>ID Contact</th>
-                                <th>ID Customer</th>
                                 <th>Name</th>
                                 <th>Phone Number</th>
                                 <th>Email</th>
