@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('THONGTINLIENLAC', function (Blueprint $table) {
-            $table->id();
             $table->string('Email', 255); 
             $table->string('Facebook', 255);
             $table->string('Twitter', 255); 

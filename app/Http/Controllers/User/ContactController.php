@@ -4,12 +4,14 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\thongtinlienlac;
 
 class ContactController extends Controller
 {
     public function showForm()
     {
-        return view('frontend.pages.contact'); 
+        $contactInfo = thongtinlienlac::first();
+        return view('frontend.pages.contact', compact('contactInfo'));
     }
 
     public function add(Request $request)

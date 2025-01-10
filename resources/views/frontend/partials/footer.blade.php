@@ -54,13 +54,16 @@
             <!-- Single Widget Area -->
             <div class="col-12 col-md-6">
                 <div class="single_widget_area">
-                    <div class="footer_social_area">                      
-                        <a href="{{ $thongtinlienlac->Instagram }}" data-toggle="tooltip" data-placement="top" title="Instagram" target="blank"><img
-                                width="50px" src="img/core-img/instagram.png" alt=""></a>
-                        <a href="{{ $thongtinlienlac->Twitter }}" data-toggle="tooltip" data-placement="top" title="Twitter" target="blank"><img width="50px"
-                                src="img/core-img/twitter.png" alt=""></a>
-                        <a href="{{ $thongtinlienlac->Facebook }}" data-toggle="tooltip" data-placement="top" title="Facebook" target="blank"><img
-                                width="50px" src="img/core-img/facebook.png" alt=""></a>
+                    <div class="footer_social_area">
+                        <a href="{{ $thongtinlienlac->Instagram }}" data-toggle="tooltip" data-placement="top"
+                            title="Instagram" target="blank"><img width="50px" src="img/core-img/instagram.png"
+                                alt=""></a>
+                        <a href="{{ $thongtinlienlac->Twitter }}" data-toggle="tooltip" data-placement="top"
+                            title="Twitter" target="blank"><img width="50px" src="img/core-img/twitter.png"
+                                alt=""></a>
+                        <a href="{{ $thongtinlienlac->Facebook }}" data-toggle="tooltip" data-placement="top"
+                            title="Facebook" target="blank"><img width="50px" src="img/core-img/facebook.png"
+                                alt=""></a>
                     </div>
                 </div>
             </div>

@@ -13,25 +13,20 @@ return new class extends Migration
     {
         Schema::table('thongtinlienlac', function (Blueprint $table) {
             if (!Schema::hasColumn('thongtinlienlac', 'Email')) {
-                $table->string('Email')->notNull();
+                $table->string('Email')->nullable();
             }
             if (!Schema::hasColumn('thongtinlienlac', 'Facebook')) {
-                $table->string('Facebook')->notNull();
+                $table->string('Facebook')->nullable();
             }
             if (!Schema::hasColumn('thongtinlienlac', 'Instagram')) {
-                $table->string('Instagram')->notNull();
+                $table->string('Instagram')->nullable();
             }
             if (!Schema::hasColumn('thongtinlienlac', 'Twitter')) {
-                $table->string('Twitter')->notNull();
+                $table->string('Twitter')->nullable();
             }
             if (!Schema::hasColumn('thongtinlienlac', 'SDT')) {
-                $table->string('SDT')->notNull();
+                $table->string('SDT')->nullable();
             }
-            // $table->string('Email');
-            // $table->string('Facebook')->nullable();
-            // $table->string('Instagram')->nullable();
-            // $table->string('Twitter')->nullable();
-            // $table->string('SDT');          
         });
     }
 

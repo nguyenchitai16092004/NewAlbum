@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\KhachHang; //import models KhachHang
+use App\Models\KhachHang; 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 
 class CustomerController extends Controller
 {

@@ -2,8 +2,8 @@
 @section('title', 'Comments Management')
 @section('main')
 
-<link rel="stylesheet" href="/css/custom-style-pagination.css">
-<script src="/js/onclick.js"></script>
+    <link rel="stylesheet" href="/css/custom-style-pagination.css">
+    <script src="/js/onclick.js"></script>
 
     <div class="product-status mg-b-15">
         <div class="container-fluid">
@@ -15,7 +15,8 @@
                         <div class="d-flex justify-content-start align-items-center mb-3">
                             <!-- Filter by Stars -->
                             <form action="{{ route('comments.index') }}" method="GET" class="d-flex align-items-center">
-                                <select name="stars" class="form-select me-4" style="width: 150px; height: 38px; font-size: 16px; border-radius: 8px; margin: 8px;">
+                                <select name="stars" class="form-select me-4"
+                                    style="width: 150px; height: 38px; font-size: 16px; border-radius: 8px; margin: 8px;">
                                     <option selected disabled>Filter by Stars</option>
                                     <option value="5">5 Stars</option>
                                     <option value="4">4 Stars</option>
@@ -25,14 +26,16 @@
                                 </select>
 
                                 <!-- Sort by Date -->
-                                <select name="date_sort" class="form-select me-4" style="width: 150px; height: 38px; font-size: 16px; border-radius: 8px; margin: 8px;">
+                                <select name="date_sort" class="form-select me-4"
+                                    style="width: 150px; height: 38px; font-size: 16px; border-radius: 8px; margin: 8px;">
                                     <option selected disabled>Sort by</option>
                                     <option class = "op" value="date_asc">Date (Oldest)</option>
                                     <option class = "op" value="date_desc">Date (Newest)</option>
                                 </select>
 
                                 <!-- Apply Filter Button -->
-                                <button type="submit" class="btn" style="width: 100px; height: 42px; font-size: 16px; border-radius: 8px; margin: 8px; background-color: black; color: white;">Sort</button>
+                                <button type="submit" class="btn"
+                                    style="width: 100px; height: 42px; font-size: 16px; border-radius: 8px; margin: 8px; background-color: black; color: white;">Sort</button>
                             </form>
                         </div>
 
@@ -52,16 +55,18 @@
                                 <tbody>
                                     @foreach ($comments as $comment)
                                         <tr>
-                                            <td >{{ $comment->id }}</td>
+                                            <td>{{ $comment->id }}</td>
                                             <td>{{ $comment->MaSP }}</td>
                                             <td>{{ $comment->MaKH }}</td>
                                             <td>{{ $comment->SoSao }}</td>
                                             <td>{{ $comment->NoiDung }}</td>
                                             <td>
-                                                <form action="{{ route('comments.destroy', $comment->id) }}" method="POST" onsubmit="return confirmDelete()">
+                                                <form action="{{ route('comments.destroy', $comment->id) }}" method="POST"
+                                                    onsubmit="return confirmDelete()">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger"  style=" padding: 8px 17px;">Delete</button>
+                                                    <button type="submit" class="btn btn-danger"
+                                                        style=" padding: 8px 17px;">Delete</button>
                                                 </form>
                                             </td>
                                         </tr>

@@ -1,18 +1,5 @@
 <?php
 
-
-use App\Http\Controllers\AboutUsController;
-use App\Http\Controllers\BandController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\GoodController;
-
-
-use App\Http\Controllers\WebsiteInfoController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\CustomerController;
-
 use App\Http\Controllers\Admin\BandController;
 use App\Http\Controllers\Admin\BlogAdminController;
 use App\Http\Controllers\Admin\ProductController;
@@ -26,11 +13,19 @@ use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\SingleBlogController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\AboutUsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\CommentController;
+
+
+
 
 /*Route FE */
 
 Route::get('/', [HomeController::class, 'Index'])->name('Index_Home');
+
 Route::get('/single-product-detail', function () {
     return view('frontend.pages.single-product-details');
 });
@@ -47,9 +42,6 @@ Route::get('/single-blog', function () {
 Route::get('/regular-page', function () {
     return view('frontend.pages.regular-page');
 });
-
-Route::get('/contact', [ContactController::class, 'index'])->name('contact.form');
-
 Route::get('/about-us', [AboutUsController::class, 'aboutUs'])->name('about-us');
 
 Route::get('/wishlist', function () {
@@ -116,18 +108,17 @@ Route::get('/popup', function () {
 });
 Route::get('/blog', [SearchController::class, 'index'])->name('blog');
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
-Route::post('/contact', [ContactController::class, 'add'])->name('contact.add');
+Route::post('/contact-add', [ContactController::class, 'add'])->name('contact.add');
 Route::get('/single-blog/{MaBL}', [BlogController::class, 'show'])->name('single-blog');
 
-/*Route BE*/
 Route::prefix('/admin')->group(function () {
 
     // Route cho trang dashboard
     Route::view('/', 'backend.pages.sign-in');
     Route::post('/login', [LoginController::class, 'Login'])->name('Login_Admin');
-    Route::view('/dashboard', 'backend.pages.dashboard');
     Route::get('/dashboard', [DashboardController::class, 'editDashboard'])->name('dashboard.edit');
     Route::post('/dashboard/update', [DashboardController::class, 'updateDashboard'])->name('dashboard.update');
+
     // Route cho sản phẩm
     Route::prefix('product')->group(function () {
         Route::get('/', [ProductController::class, 'Index'])->name('Index_Product');
@@ -194,7 +185,6 @@ Route::prefix('/admin')->group(function () {
         Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
         Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->name('comments.destroy');
     });
-     
 
     //Route cho quản lý khách hàng
     Route::prefix(prefix: 'customer')->group(callback: function (): void {
@@ -202,7 +192,6 @@ Route::prefix('/admin')->group(function () {
         Route::delete('/customer/{id}', [CustomerController::class, 'destroy'])->name('customer.destroy');
         Route::patch('/customer/{id}/status', [CustomerController::class, 'updateStatus'])->name('customer.updateStatus');
     });
-    
 
     Route::prefix('/blog')->group(function () {
         // Trang quản lý bài viết

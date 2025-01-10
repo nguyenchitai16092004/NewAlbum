@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\BinhLuan; // Import model BinhLuan
+use App\Models\BinhLuan; 
 use App\Models\KhachHang;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 
 class CommentController extends Controller
 {
