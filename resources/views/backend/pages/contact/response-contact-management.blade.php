@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('This page is Home Admin', 'Home Admin')
+@section('title', 'Response Contact Management')
 @section('main')
 <link rel="stylesheet" href="/css/custom-style-addstaff.css">
 <div class="single-pro-review-area mt-t-30 mg-b-15">

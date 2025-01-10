@@ -5,7 +5,7 @@
     <base href="{{ asset('backend/') }}/">
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard V.3 | Kiaalap - Kiaalap Admin Template</title>
+    <title>@yield('title')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -13,7 +13,7 @@
 
     <!-- favicon
   ============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo/logo.ico">
     <!-- Google Fonts
   ============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
@@ -53,10 +53,6 @@
   ============================================ -->
     <link rel="stylesheet" href="css/metisMenu/metisMenu.min.css">
     <link rel="stylesheet" href="css/metisMenu/metisMenu-vertical.css">
-    <!-- calendar CSS
-  ============================================ -->
-    <link rel="stylesheet" href="css/calendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="css/calendar/fullcalendar.print.min.css">
     <!-- style CSS
   ============================================ -->
     <link rel="stylesheet" href="style.css">
@@ -76,10 +72,6 @@
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
- <![endif]-->
-    <!-- Start Left menu area -->
     @include('backend.partials.left-sidebar')
     <!-- End Left menu area -->
     <!-- Start Welcome area -->
@@ -113,11 +105,6 @@
     <!-- scrollUp JS
   ============================================ -->
     <script src="js/jquery.scrollUp.min.js"></script>
-    <!-- counterup JS
-  ============================================ -->
-    <script src="js/counterup/jquery.counterup.min.js"></script>
-    <script src="js/counterup/waypoints.min.js"></script>
-    <script src="js/counterup/counterup-active.js"></script>
     <!-- mCustomScrollbar JS
   ============================================ -->
     <script src="js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -126,24 +113,6 @@
   ============================================ -->
     <script src="js/metisMenu/metisMenu.min.js"></script>
     <script src="js/metisMenu/metisMenu-active.js"></script>
-    <!-- morrisjs JS
-  ============================================ -->
-    <script src="js/morrisjs/raphael-min.js"></script>
-    <script src="js/morrisjs/morris.js"></script>
-    <script src="js/morrisjs/home3-active.js"></script>
-    <!-- morrisjs JS
-  ============================================ -->
-    <script src="js/sparkline/jquery.sparkline.min.js"></script>
-    <script src="js/sparkline/jquery.charts-sparkline.js"></script>
-    <script src="js/sparkline/sparkline-active.js"></script>
-    <!-- calendar JS
-  ============================================ -->
-    <script src="js/calendar/moment.min.js"></script>
-    <script src="js/calendar/fullcalendar.min.js"></script>
-    <script src="js/calendar/fullcalendar-active.js"></script>
-    <!-- plugins JS
-  ============================================ -->
-    <script src="js/plugins.js"></script>
     <!-- main JS
   ============================================ -->
     <script src="js/main.js"></script>

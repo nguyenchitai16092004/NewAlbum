@@ -56,53 +56,34 @@
     border-bottom: 2px solid #ebebeb;
     font-weight: 600;
 }
+
+.order-details-confirmation .card-header h6 a {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.order-details-confirmation .card-header h6 a i {
+    color: #9f9f9f;
+}
+
+.order-details-confirmation .card {
+    border: none;
+}
+
+.order-details-confirmation .card-header {
+    background-color: transparent;
+    border-bottom: none;
+}
+
 .order-details-confirmation .card-body p {
     font-size: 12px;
     line-height: 2;
     color: #9f9f9f;
 }
-.order-details-form {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.5rem 0; /* Adds space below the list */
-    font-family: Arial, sans-serif; /* Ensures consistent font */
-    font-size: 14px;
-    color: #333333; /* Sets a readable text color */
-}
-
-.order-details-form li {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0; /* Adds spacing between items */
-    border-bottom: 1px solid #ddd; /* Adds subtle dividers */
-}
-
-.order-details-form li:last-child {
-    border-bottom: none; /* Removes border for the last item */
-}
-
-.order-details-form li span {
-    flex: 1; /* Ensures even spacing */
-    text-align: left; /* Aligns text to the left */
-}
-
-.order-details-form li span:nth-child(2) {
-    text-align: center; /* Centers quantity */
-}
-
-.order-details-form li span:nth-child(3) {
-    text-align: right; /* Aligns total to the right */
-    font-weight: bold; /* Highlights totals */
-}
-
-.order-details-form li:first-child {
-    font-weight: bold;
-    border-bottom: 2px solid #333; /* Emphasizes header */
-    text-transform: uppercase; /* Styles header text */
-    padding-bottom: 15px; /* Adds more space below the header */
-}
-
-.order-details-form li:last-child span:nth-child(3) {
-    color: #d9534f; /* Highlights the final total */
-    font-size: 16px; /* Slightly increases font size */
+.btn-place-order:hover {
+    background-color: black;
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    transform: translateY(-2px); /* Lift button slightly */
 }

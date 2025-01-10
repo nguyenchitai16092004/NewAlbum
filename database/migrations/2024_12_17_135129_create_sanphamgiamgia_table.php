@@ -13,10 +13,8 @@ return new class extends Migration
     {
         Schema::create('SANPHAMGIAMGIA', function (Blueprint $table) {
             $table->id('MaSPGG');
-            $table->decimal('PhanTramGG', 2,0)->nullable();
-
+            $table->decimal('PhanTramGG', 2,0);
             $table->timestamps();
-
         });
     }
 

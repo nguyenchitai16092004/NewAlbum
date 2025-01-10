@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('TenDN', 255);
             $table->string('SDT', 15);
             $table->boolean('GioiTinh'); 
-            $table->string('HinhAnh', 255)->nullable(); 
+            $table->string('HinhAnh',255)->nullable();
             $table->boolean('TrangThai');
 
             $table->timestamps();

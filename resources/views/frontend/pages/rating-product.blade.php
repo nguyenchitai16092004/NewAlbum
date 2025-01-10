@@ -12,9 +12,9 @@
             <p>You can review and edit your personal information here.</p>
             <nav class="navigation">
                 <ul>
-                    <li><a href="#">Account Information</a></li>
-                    <li><a href="#">Order History</a></li>
-                    <li><a href="#">Wish List</a></li>
+                    <li><a href="{{ asset("/account") }}">Account Information</a></li>
+                    <li><a href="{{ asset("/oder-history") }}">Order History</a></li>
+                    <li><a href="{{ asset('/wishlist') }}">Wish List</a></li>
                     <li><a href="#" class="active">Rating Product</a></li>
                 </ul>
             </nav>

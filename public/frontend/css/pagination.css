@@ -19,8 +19,7 @@
 }
 
 .pagination .page-link:hover {
-    background-color: #000;
-    color: #fff;
+    color: white;
 }
 
 .pagination {
@@ -44,11 +43,7 @@
     align-items: center;
 }
 
-.pagination .page-item .page-link:hover,
-.pagination .page-item .page-link:focus {
-    color: #000000;
-    box-shadow: none;
-}
+
 
 .pagination .page-item:first-child {
     margin-right: 15px;
@@ -69,3 +64,21 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
+.pagination .page-link {
+        color: white; 
+        background-color: black; 
+        border: 1px solid black; 
+}
+
+.pagination .page-link:hover {
+        color: black;
+        background-color: white; 
+        border-color: #ffffff;
+}
+
+.pagination .active .page-link {
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        border-color: #ffffff; 
+}
+

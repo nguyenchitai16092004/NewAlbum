@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('This page is Home Admin', 'Home Admin')
+@section('title', 'Home Admin')
 @section('main')
 
 <link rel="stylesheet" href="/css/custom-style-dashboard.css">

@@ -14,12 +14,10 @@ return new class extends Migration
         Schema::create('BLOG', function (Blueprint $table) {
             $table->id('MaBL'); 
             $table->unsignedBigInteger('MaQL');
-            $table->string('TenTG', 255);
+            $table->string('TieuDeBlog', 255);
             $table->longText('NoiDung');
-
-
-            $table->date('NgayTao'); 
-
+            $table->string('HinhAnh',255);
+            $table->boolean('TrangThai')->default(1);
             $table->timestamps(); 
 
             // Định nghĩa khóa ngoại
