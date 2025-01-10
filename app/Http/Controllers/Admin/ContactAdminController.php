@@ -16,9 +16,18 @@ class ContactAdminController extends Controller
         return view('backend.pages.contact.contact-management', compact('LienHe'));
     }
 
-    public function Edit($id) {
+    public function Accept($id) {
         $LienHe = CONTACT::findOrFail($id);
+        $LienHe->TrangThai = 1;
+        $LienHe->save();
 
-        return redirect()->Route('');
+        return redirect()->Route('Index_Contact_Management');
+    }
+
+    public function Delete($id){
+        $LienHe = CONTACT::findOrFail($id);
+        $LienHe->delete();
+
+        return redirect()->route('Index_Contact_Management');
     }
 }
