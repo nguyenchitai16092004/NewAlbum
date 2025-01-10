@@ -25,7 +25,7 @@ class BlogAdminController extends Controller
         $validated = $request->validate([
             'MaQL' => 'nullable|numeric',
             'TieuDeBlog' => 'required|max:255',
-            'NoiDung' => 'required|max:255',
+            'NoiDung' => 'required|max:10000',
             'HinhAnh' => 'nullable|image|max:2048',
         ]);
 
