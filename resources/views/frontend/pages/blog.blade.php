@@ -62,7 +62,11 @@
                 @if ($item->TrangThai == 1)
                 <div class="col-12 col-lg-6">
                     <div class="single-blog-area mb-50">
-                        <img src="{{ asset('Storage/Blog/' . $item->HinhAnh) }}"alt="{{ $item->TieuDeBlog }}">
+                        <img 
+                        src="{{ asset('Storage/Blog/' . $item->HinhAnh) }}" 
+                        alt="{{ $item->TieuDeBlog }}" 
+                        width="300" 
+                        height="200">
                         <div class="post-title">
                             <a href="#">{{ $item->TieuDeBlog}}</a>
                             <p class="post-date" style="color:black;z-index:1000">{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</p>
@@ -71,7 +75,7 @@
                             <div class="hover-post-title">
                                 <a href="#">{{ $item->TieuDeBlog }}</a>
                             </div>
-                            <p>{{ $item->NoiDung }}</p>
+                            <p>{{ $item->TieuDeBlog }}</p>
                             <a href="{{ route('single-blog', ['MaBL' => $item->MaBL]) }}">Continue reading <i class="fa fa-angle-right"></i></a>                            </div>
                     </div>
                 </div>
