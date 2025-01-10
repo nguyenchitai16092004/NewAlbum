@@ -144,7 +144,8 @@
                                 <!-- Product Image -->
                                 <div class="product-img">
                                     <a href="{{ asset('/single-product-details') }}">
-                                        <img src="{{ asset('Storage/SanPham/' . $item->HinhAnh) }}" alt="{{ $item->TenSP }}">
+                                        <img src="{{ asset('Storage/SanPham/' . $item->HinhAnh) }}"
+                                            alt="{{ $item->TenSP }}">
                                     </a>
                                     <!-- Hover Thumb -->
                                     {{-- <a href="{{ asset('/single-product-details') }}">

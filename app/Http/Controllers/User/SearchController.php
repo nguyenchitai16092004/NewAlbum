@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Models\SANPHAM;
 use Illuminate\Http\Request;
-use App\Models\Blog;
+use App\Models\BlOG;
 use App\Http\Controllers\Controller;
 
 
