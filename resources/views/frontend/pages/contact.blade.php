@@ -14,7 +14,8 @@
                 <textarea placeholder="Your message"></textarea>
                 <button type="submit">Send</button>
             </form>
-        </div>
+        </div>         
+
         <div class="contact-info">
         <h2>How to Find Us</h2>
         <div>
@@ -27,10 +28,10 @@
             <i class="fas fa-globe"></i>  <p><strong>Website:</strong> www.soulsync.com.vn</a></p>
             </div>
             <div>
-            <i class="fas fa-phone"></i>  <p><strong>Hotline:</strong> 0123456789</p>
+            <i class="fas fa-phone"></i>  <p><strong>Hotline:</strong> {{ $contactInfo->SDT ?? 'Not available' }}</p>
             </div>
             <div>
-            <i class="fas fa-envelope"></i> <p><strong>Email:</strong> support@soulsync.com</a></p>
+            <i class="fas fa-envelope"></i> <p><strong>Email:</strong> {{ $contactInfo->Email ?? 'Not available' }}</p>
             </div>
             <div>
             <i class="fas fa-map-marker-alt"></i> <p><strong>Address:</strong> 234 DCE Street, District 1, Ho Chi Minh city, Vietnam</p>
@@ -38,4 +39,4 @@
         </div>
 
     </div>
-    @stop
+@stop

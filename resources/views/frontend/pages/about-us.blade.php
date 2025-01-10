@@ -20,8 +20,8 @@
       <li><strong>Company name:</strong> NewAlbum Co., Ltd</li>
       <li><strong>Slogan:</strong> Credibility builds the brand.</li>
       <li><strong>Website:</strong> www.newalbum.com.vn</li>
-      <li><strong>Hotline:</strong> 0123456789</li>
-      <li><strong>Email:</strong> support@newalbum.com</li>
+      <li><strong>Hotline:</strong> {{ $contactInfo->SDT }}</li>
+      <li><strong>Email:</strong> {{ $contactInfo->Email }}</li>
       <li><strong>Address:</strong> 234 DCE Street, District 1, Ho Chi Minh city, Vietnam</li>
     </ul>
   </div>

@@ -1,18 +1,22 @@
 <?php
 
-
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\BandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GoodController;
 
+
+use App\Http\Controllers\WebsiteInfoController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CustomerController;
+
 use Illuminate\Support\Facades\Route;
 
 /*Route FE */
+Route::get('/', [WebsiteInfoController::class, 'home']);
 
-Route::get('/', function () {
-    return view('frontend.pages.home');
-});
 Route::get('/single-product-detail', function () {
     return view('frontend.pages.single-product-details');
 });
@@ -28,12 +32,11 @@ Route::get('/single-blog', function () {
 Route::get('/regular-page', function () {
     return view('frontend.pages.regular-page');
 });
-Route::get('/contact', function () {
-    return view('frontend.pages.contact');
-});
-Route::get('/about-us', function () {
-    return view('frontend.pages.about-us');
-});
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.form');
+
+Route::get('/about-us', [AboutUsController::class, 'aboutUs'])->name('about-us');
+
 Route::get('/wishlist', function () {
     return view('frontend.pages.wishlist');
 });
@@ -108,11 +111,15 @@ Route::get('/popup', function () {
     return view('frontend.partials.popup.popup');
 });
 
+
+/*Route BE*/
 Route::prefix('/admin')->group(function () {
 
     // Route cho trang dashboard
     Route::view('/', 'backend.pages.dashboard');
-    Route::view('/dashboard', 'backend.pages.dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'editDashboard'])->name('dashboard.edit');
+    Route::post('/dashboard/update', [DashboardController::class, 'updateDashboard'])->name('dashboard.update');
+
 
     // Route cho sản phẩm
     Route::prefix('product')->group(function () {
@@ -175,14 +182,19 @@ Route::prefix('/admin')->group(function () {
     });
 
     // Route cho quản lý bình luận
-    Route::prefix(prefix: 'comments')->group(callback: function (): void {
-        Route::view('/commments-management', 'backend.pages.comments.comments-management')->name('Index_Comments_Management');
+    Route::prefix('comments')->group(function () {
+        Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
+        Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->name('comments.destroy');
     });
+     
 
     //Route cho quản lý khách hàng
     Route::prefix(prefix: 'customer')->group(callback: function (): void {
-        Route::view('/customer-management', 'backend.pages.customer.customer-management')->name('Index_Customer_Management');
+        Route::get('/customer', [CustomerController::class, 'index'])->name('customer.index');
+        Route::delete('/customer/{id}', [CustomerController::class, 'destroy'])->name('customer.destroy');
+        Route::patch('/customer/{id}/status', [CustomerController::class, 'updateStatus'])->name('customer.updateStatus');
     });
+    
 
     //Route cho quản lý bài viết
     Route::prefix(prefix: 'blog')->group(callback: function (): void {

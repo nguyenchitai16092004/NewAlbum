@@ -1,0 +1,16 @@
+/* Thay đổi màu nền của nút phân trang khi nhấn vào */
+.pagination .page-item.active .page-link {
+    background-color: black;
+    border-color: black;
+    color: white; /* Đổi màu chữ sang trắng */
+}
+
+.pagination .page-item .page-link {
+    color: black; /* Đặt màu chữ mặc định là đen */
+    border-color: black; /* Đặt đường viền nút phân trang */
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: #ddd; /* Màu nền khi hover */
+    border-color: #ddd;
+}
