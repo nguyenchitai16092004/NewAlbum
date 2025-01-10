@@ -38,7 +38,6 @@
                                     <th>Action</th>
                                 </tr>
                                 @foreach ($products as $item)
-                                    @if ($item->TrangThai == 1)
                                         <tr>
                                             <td><img src="{{ asset('Storage/SanPham/' . $item->HinhAnh) }}"alt="{{ $item->TenSP }}" style="width: 100px; height:100px"></td>
                                             <td>{{ $item->MaSP }}</td>
@@ -68,7 +67,6 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                    @endif
                                 @endforeach
                             </table>
                         </div>
