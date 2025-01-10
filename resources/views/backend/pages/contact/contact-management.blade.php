@@ -30,7 +30,11 @@
                                             <td>{{ $item->Email }}</td>
                                             <td>{{ Str::limit($item->TinNhan, 50, '...') }}</td>
                                             <td>{{ $item->created_at->format('d/m/Y') }}</td>
-                                            <td>{{ $item->TrangThai ? 'Đã xác nhận' : 'Chưa xác nhận' }}</td>
+                                            @if ($item->TrangThai)
+                                                <td style="background-color: lightgreen">Confirm</td>
+                                            @else
+                                                <td style="background-color: red">Not confirmed</td>
+                                            @endif
                                             <td>
                                                 <form action="{{ route('Accept_Contact', ['id' => $item->MaLH]) }}"
                                                     method="GET" class="d-inline">
@@ -43,7 +47,7 @@
                                                     @method('DELETE')
                                                     <button class="btn btn-danger btn-sm" data-toggle="tooltip"
                                                         title="Xóa liên hệ">Xóa</button>
-                                                </form> 
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
