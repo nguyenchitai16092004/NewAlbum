@@ -13,7 +13,14 @@ use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\SingleBlogController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\AboutUsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\CommentController;
+
+
+
 
 /*Route FE */
 
@@ -35,12 +42,8 @@ Route::get('/single-blog', function () {
 Route::get('/regular-page', function () {
     return view('frontend.pages.regular-page');
 });
-Route::get('/contact', function () {
-    return view('frontend.pages.contact');
-});
-Route::get('/about-us', function () {
-    return view('frontend.pages.about-us');
-});
+Route::get('/about-us', [AboutUsController::class, 'aboutUs'])->name('about-us');
+
 Route::get('/wishlist', function () {
     return view('frontend.pages.wishlist');
 });
@@ -105,14 +108,16 @@ Route::get('/popup', function () {
 });
 Route::get('/blog', [SearchController::class, 'index'])->name('blog');
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
-Route::post('/contact', [ContactController::class, 'add'])->name('contact.add');
+Route::post('/contact-add', [ContactController::class, 'add'])->name('contact.add');
 Route::get('/single-blog/{MaBL}', [BlogController::class, 'show'])->name('single-blog');
+
 Route::prefix('/admin')->group(function () {
 
     // Route cho trang dashboard
     Route::view('/', 'backend.pages.sign-in');
     Route::post('/login', [LoginController::class, 'Login'])->name('Login_Admin');
-    Route::view('/dashboard', 'backend.pages.dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'editDashboard'])->name('dashboard.edit');
+    Route::post('/dashboard/update', [DashboardController::class, 'updateDashboard'])->name('dashboard.update');
 
     // Route cho sản phẩm
     Route::prefix('product')->group(function () {
@@ -176,13 +181,16 @@ Route::prefix('/admin')->group(function () {
     });
 
     // Route cho quản lý bình luận
-    Route::prefix(prefix: 'comments')->group(callback: function () {
-        Route::view('/commments-management', 'backend.pages.comments.comments-management')->name('Index_Comments_Management');
+    Route::prefix('comments')->group(function () {
+        Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
+        Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->name('comments.destroy');
     });
 
     //Route cho quản lý khách hàng
-    Route::prefix(prefix: 'customer')->group(callback: function () {
-        Route::view('/customer-management', 'backend.pages.customer.customer-management')->name('Index_Customer_Management');
+    Route::prefix(prefix: 'customer')->group(callback: function (): void {
+        Route::get('/customer', [CustomerController::class, 'index'])->name('customer.index');
+        Route::delete('/customer/{id}', [CustomerController::class, 'destroy'])->name('customer.destroy');
+        Route::patch('/customer/{id}/status', [CustomerController::class, 'updateStatus'])->name('customer.updateStatus');
     });
 
     Route::prefix('/blog')->group(function () {
