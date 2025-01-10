@@ -1,0 +1,23 @@
+/* Làm dày viền và màu viền đen */
+.product-status-wrap select.form-control {
+    border: 3px solid black; /* Viền dày và màu đen */
+    padding: 5px; /* Khoảng cách giữa nội dung và viền */
+    border-radius: 10px ;
+}
+
+/* Tăng kích thước icon xổ xuống */
+.product-status-wrap select.form-control option {
+    font-size: 16px; /* Tăng kích thước chữ trong các option */
+}
+
+/* Khi dropdown xổ xuống, thay đổi màu nền và chữ */
+.product-status-wrap select.form-control:focus {
+    background-color: white; /* Màu nền trắng */
+    color: black; /* Chữ màu đen */
+}
+
+/* Tùy chỉnh background của mỗi option khi hover */
+.product-status-wrap select.form-control option:hover {
+    background-color: #333; /* Màu nền tối khi hover */
+    color: white; /* Chữ màu trắng khi hover */
+}

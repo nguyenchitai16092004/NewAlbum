@@ -13,39 +13,30 @@ class CartController extends Controller
 
     public function index(Request $request)
     {
-        // Lấy giỏ hàng từ session, nếu chưa có thì trả về mảng rỗng
         $cart = session()->get('cart', []);
-
-        // Xác định trang hiện tại trong phân trang
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
-
-        // Chuyển giỏ hàng thành một Collection để xử lý dễ dàng hơn
         $cartCollection = collect($cart);
-
-        // Số lượng sản phẩm hiển thị mỗi trang
         $perPage = 4;
-
-        // Lấy các sản phẩm thuộc trang hiện tại
         $currentPageItems = $cartCollection->slice(($currentPage - 1) * $perPage, $perPage)->all();
-
-        // Tạo đối tượng phân trang LengthAwarePaginator
         $paginatedCart = new LengthAwarePaginator(
-            $currentPageItems, // Dữ liệu sản phẩm của trang hiện tại
-            max($cartCollection->count(), 1), // Tổng số sản phẩm (ít nhất 1 trang)
-            $perPage, // Số sản phẩm mỗi trang
-            $currentPage, // Trang hiện tại
-            ['path' => $request->url(), 'query' => $request->query()] // Đường dẫn và query string
+            $currentPageItems,
+            max($cartCollection->count(), 1),
+            $perPage,
+            $currentPage,
+            ['path' => $request->url(), 'query' => $request->query()]
         );
 
-        // Lấy 4 sản phẩm gợi ý từ bảng SANPHAM
         $recommendedProducts = SANPHAM::inRandomOrder()->take(4)->get();
 
-        // Trả về view cùng dữ liệu giỏ hàng và sản phẩm gợi ý
         return view('frontend.pages.cart', [
             'cart' => $paginatedCart,
-            'recommendedProducts' => $recommendedProducts
+            'recommendedProducts' => $recommendedProducts,
+            'cartTotal' => $cartCollection->isEmpty() ? 0 : $cartCollection->sum(function ($item) {
+                return $item['price'] * $item['quantity'];
+            }),
         ]);
     }
+
 
 
     // Thêm sản phẩm vào giỏ hàng
@@ -96,33 +87,33 @@ class CartController extends Controller
     // Cập nhật số lượng sản phẩm trong giỏ hàng
     public function updateCart(Request $request)
     {
-        // Lấy giỏ hàng từ session
         $cart = session()->get('cart', []);
 
-        // Kiểm tra nếu sản phẩm tồn tại trong giỏ hàng
         if (isset($cart[$request->id])) {
-            // Cập nhật số lượng sản phẩm
-            $cart[$request->id]['quantity'] = $request->quantity;
-
-            // Cập nhật lại giỏ hàng trong session
-            session()->put('cart', $cart);
+            if ($request->quantity > 0) {
+                // Cập nhật số lượng nếu lớn hơn 0
+                $cart[$request->id]['quantity'] = $request->quantity;
+                session()->put('cart', $cart);
+            } else {
+                // Xóa sản phẩm nếu số lượng bằng 0
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
         }
 
-        // Tính tổng giá trị của sản phẩm vừa cập nhật
-        $itemTotal = $cart[$request->id]['price'] * $cart[$request->id]['quantity'];
+        $itemTotal = isset($cart[$request->id]) ? $cart[$request->id]['price'] * $cart[$request->id]['quantity'] : 0;
 
-        // Tính tổng giá trị toàn bộ giỏ hàng
         $cartTotal = array_sum(array_map(function ($item) {
             return $item['price'] * $item['quantity'];
         }, $cart));
 
-        // Trả về phản hồi JSON với thông tin tổng giá trị sản phẩm và giỏ hàng
         return response()->json([
             'success' => true,
             'itemTotal' => $itemTotal,
             'cartTotal' => $cartTotal,
         ]);
     }
+
 
     // Xóa toàn bộ giỏ hàng
     public function clearCart()
