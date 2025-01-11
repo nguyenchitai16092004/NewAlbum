@@ -6,7 +6,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
+                    
                     <div class="product-payment-inner-st">
+                        <ul id="myTabedu1" class="tab-review-design">
+                            <li class="active; text-align: center; "><a href="#description" style="color: black;" >Add Product</a></li>
+                        </ul>
                         <!-- Add Product Form -->
                         <form action="{{ Route('Add_Product') }}" method="POST" enctype="multipart/form-data"
                             class="dropzone dropzone-custom" id="addProductForm">

@@ -39,7 +39,7 @@
             <h2>How to Find Us</h2>
             <div>
                 <i class="fas fa-building"></i>
-                <p><strong>Company name:</strong> SoulSync Co., Ltd</p>
+                <p><strong>Company name:</strong> NewAlbums Co., Ltd</p>
             </div>
             <div>
                 <i class="fas fa-volume-up"></i>
@@ -47,7 +47,7 @@
             </div>
             <div>
                 <i class="fas fa-globe"></i>
-                <p><strong>Website:</strong> www.soulsync.com.vn</a></p>
+                <p><strong>Website:</strong> www.newalbum.com.vn</a></p>
             </div>
             <div>
                 <i class="fas fa-phone"></i>

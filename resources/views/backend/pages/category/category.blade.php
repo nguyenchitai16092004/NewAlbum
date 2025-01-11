@@ -7,7 +7,7 @@
             <div class="row mb-5">
                 <form action="{{ Route('Search_Category') }}" method="GET" class="mb-3">
                     <div class="input-group" style="width: 250px; display: flex; align-items: center;">
-                        <input type="text" name="search" class="form-control" placeholder="Search Blogs"
+                        <input type="text" name="search" class="form-control" placeholder="Search Categories"
                             value="{{ request('search') }}" style="border-radius: 10px 0 0 10px;">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" style="height: 40px;" type="submit">

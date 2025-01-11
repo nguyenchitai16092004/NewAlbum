@@ -173,7 +173,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         loginnameError.style.display = 'none';
     }
 
-    if (passInput.value.length < 4 || passInput.value.length > 8) {
+    if (passInput.value.length < 4 || passInput.value.length > 15) {
         passError.style.display = 'block';
         hasError = true;
     } else {

@@ -23,11 +23,11 @@
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                                 <div class="form-group">
                                                                     <label for="">Group/Artist Name</label>
-                                                                    <input name="TenNhomNhacCaSi" type="text" class="form-control" placeholder="Group/Artist Name">
+                                                                    <input name="TenNhomNhacCaSi" type="text" class="form-control" placeholder="Group/Artist Name" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="">Gender</label>
-                                                                    <select name="GioiTinh" class="form-control">
+                                                                    <select name="GioiTinh" class="form-control" required>
                                                                         <option value="">Select Gender</option>
                                                                         <option value="1">Male</option>
                                                                         <option value="0">Female</option>
@@ -35,7 +35,7 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="">Type</label>
-                                                                    <select name="Loai" class="form-control">
+                                                                    <select name="Loai" class="form-control" required>
                                                                         <option value="">Select Type</option>
                                                                         <option value="1">Singer</option>
                                                                         <option value="0">Band</option>
