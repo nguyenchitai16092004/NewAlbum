@@ -2,17 +2,6 @@
 @section('title', 'Product Management')
 @section('main')
 
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    @if (session('success_delete'))
-        <div class="alert alert-danger">
-            {{ session('success_delete') }}
-        </div>
-    @endif
     <div class="product-status mg-b-15">
         <div class="container-fluid">
             <div class="row">
@@ -48,7 +37,7 @@
                                             <td>{{ number_format($item->GiaNhap, 0) }}VND</td>
                                             <td>{{ number_format($item->GiaBan, 0) }}VND</td>
                                             <td>{{ $item->LoaiHang ? 'Available' : 'Pre-Order' }}</td>
-                                            <td>{{ $item->MoTa }}</td>
+                                            <td>{{ Str::limit($item->MoTa, 20, '...') }}</td>
                                             <td>
                                                 <form action="{{ route('Edit_Index_Product', ['id' => $item->MaSP]) }}"
                                                     method="GET" style="display:inline-block;">

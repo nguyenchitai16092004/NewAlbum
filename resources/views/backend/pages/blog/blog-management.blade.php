@@ -44,7 +44,7 @@
                                     <td>{{ $item->MaBL }}</td>
                                     <td>{{ $item->TenQL }}</td>
                                     <td>{{ $item->TieuDeBlog     }}</td>
-                                    <td>{{ Str::limit($item->NoiDung, 50, '...') }}</td>
+                                    <td>{{ Str::limit($item->NoiDung, 20, '...') }}</td>
                                     <td>{{ $item->created_at->format('d/m/Y') }}</td>
                                     <td>
                                         <form action="{{ route('Index_Edit_Blog', ['id' => $item->MaBL]) }}"method="GET" style="display:inline-block;">
