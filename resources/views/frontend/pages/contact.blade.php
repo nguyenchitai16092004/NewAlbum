@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('Title', 'Contact')
+@section('title', 'Contact')
 @section('main')
     <link rel="stylesheet" href="css/contact.css">
     <h1 class="contact-header" style="margin-top: 100px">Contact</h1>
