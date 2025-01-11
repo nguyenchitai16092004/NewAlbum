@@ -17,26 +17,26 @@
                                     <div class="form-group">
                                         <label for="TenSP">Product Name</label>
                                         <input name="TenSP" type="text" class="form-control"
-                                            placeholder="Product Name">
+                                            placeholder="Product Name" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="GiaNhap">Import Price</label>
                                         <input name="GiaNhap" id="GiaNhap" type="number" class="form-control"
-                                            min="0" placeholder="Import Price">
+                                            min="0" placeholder="Import Price" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="GiaBan">Selling Price</label>
                                         <input name="GiaBan" id="GiaBan" type="number" class="form-control"
-                                            min="0" placeholder="Selling Price">
+                                            min="0" placeholder="Selling Price" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="TieuDe">Title</label>
                                         <input name="TieuDe" type="text" class="form-control"
-                                            placeholder="Title Description">
+                                            placeholder="Title Description" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="MoTa">Description</label>
-                                        <textarea name="MoTa" class="form-control" placeholder="Description"></textarea>
+                                        <textarea name="MoTa" class="form-control" placeholder="Description" required></textarea>
                                     </div>
                                 </div>
                                 <!-- Right Column -->
@@ -44,7 +44,7 @@
                                     <div class="form-group">
                                         <label for="SoLuong">Quantity</label>
                                         <input name="SoLuong" type="number" class="form-control" min="0"
-                                            placeholder="Quantity">
+                                            placeholder="Quantity" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="LoaiHang">Product Type</label>
@@ -65,7 +65,7 @@
 
                                     <div class="form-group">
                                         <label for="MaLoaiSP">Category</label>
-                                        <select name="MaLoaiSP" id="MaLoaiSP" class="form-control">
+                                        <select name="MaLoaiSP" id="MaLoaiSP" class="form-control" >
                                             @foreach ($Category as $item)
                                                 <option value="{{ $item->MaLoaiSP }}">{{ $item->TenLoaiSP }}</option>
                                             @endforeach
@@ -74,7 +74,7 @@
 
                                     <div class="form-group">
                                         <label for="HinhAnh">Image</label>
-                                        <input name="HinhAnh" type="file" class="form-control-file">
+                                        <input name="HinhAnh" type="file" class="form-control-file" required>
                                     </div>
                                 </div>
                             </div>
