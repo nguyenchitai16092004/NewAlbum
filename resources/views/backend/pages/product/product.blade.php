@@ -24,9 +24,9 @@
                         </div>
                         <div class="asset-inner">
                             <table>
-                                <tr>
+                                <tr><th>ID</th>
                                     <th>Image</th>
-                                    <th>ID</th>
+                                    
                                     <th>Product Name</th>
                                     <th>Category</th>
                                     <th>Band/Singer</th>
@@ -38,9 +38,9 @@
                                     <th>Action</th>
                                 </tr>
                                 @foreach ($products as $item)
-                                        <tr>
+                                        <tr><td>{{ $item->MaSP }}</td>
                                             <td><img src="{{ asset('Storage/SanPham/' . $item->HinhAnh) }}"alt="{{ $item->TenSP }}" style="width: 100px; height:100px"></td>
-                                            <td>{{ $item->MaSP }}</td>
+                                            
                                             <td>{{ $item->TenSP }}</td>
                                             <td>{{ $item->TenLoaiSP }}</td>
                                             <td>{{ $item->TenNhomNhacCaSi }}</td>
@@ -48,7 +48,7 @@
                                             <td>{{ number_format($item->GiaNhap, 0) }}VND</td>
                                             <td>{{ number_format($item->GiaBan, 0) }}VND</td>
                                             <td>{{ $item->LoaiHang ? 'Available' : 'Pre-Order' }}</td>
-                                            <td>{{ $item->MoTa }}</td>
+                                            <td>{{ Str::limit($item->MoTa, 20, '...') }}</td>
                                             <td>
                                                 <form action="{{ route('Edit_Index_Product', ['id' => $item->MaSP]) }}"
                                                     method="GET" style="display:inline-block;">

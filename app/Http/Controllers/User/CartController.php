@@ -59,10 +59,21 @@ class CartController extends Controller
     public function removeFromCart(Request $request)
     {
         $cart = session()->get('cart', []);
-        unset($cart[$request->id]); // xóa sp theo id
+        unset($cart[$request->id]);
         session()->put('cart', $cart);
-        return response()->json(['success' => true, 'cart' => $cart]);
+
+        // tinh tổng tiền gh
+        $cartTotal = array_sum(array_map(function ($item) {
+            return $item['price'] * $item['quantity'];
+        }, $cart));
+
+        return response()->json([
+            'success' => true,
+            'cart' => $cart,
+            'cartTotal' => $cartTotal,
+        ]);
     }
+
 
     public function updateCart(Request $request)
     {

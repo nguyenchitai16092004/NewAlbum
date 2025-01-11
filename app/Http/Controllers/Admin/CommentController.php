@@ -30,7 +30,7 @@ class CommentController extends Controller
         }
 
         // Lấy kết quả với phân trang
-        $comments = $query->paginate(10);
+        $comments = $query->paginate(4);
 
         // Truyền dữ liệu vào view
         return view('backend.pages.comments.comments-management', compact('comments'));
