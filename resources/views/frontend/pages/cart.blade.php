@@ -84,14 +84,12 @@
 
 
     <div class="container-cart">
-        <!-- Ghi chú -->
         <div class="note">
             <h5>Add a note to your order</h5>
             <textarea placeholder="Your note"></textarea>
             <button class="update">Update</button>
         </div>
 
-        <!-- Tổng cộng và thanh toán -->
         <div class="summary" style="{{ $cartTotal > 0 ? '' : 'display: none;' }}">
             <div class="container-text">
                 <p>Subtotal:</p>
@@ -121,12 +119,10 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script>
+        //sk xóa toàn bộ gh
         document.addEventListener("DOMContentLoaded", function() {
             const deleteAllBtn = document.querySelector('.delete-all-product');
-
-            // Xử lý nút "Delete All"
             if (deleteAllBtn) {
                 deleteAllBtn.addEventListener('click', function() {
                     Swal.fire({
@@ -154,7 +150,7 @@
                                             .innerHTML =
                                             `<tr><td colspan="6" style="text-align: center;">Your cart is empty</td></tr>`;
                                         document.querySelector('.summary').style.display =
-                                            'none'; // Ẩn phần summary
+                                            'none';
                                         Swal.fire(
                                             'Deleted!',
                                             'All products have been removed from your cart.',
@@ -168,24 +164,21 @@
                 });
             }
 
-            // Xử lý nút tăng/giảm số lượng
+            // sk thay đổi slsp
             document.querySelectorAll('.btn-plus, .btn-minus').forEach(button => {
                 button.addEventListener('click', function() {
-                    const row = this.closest('tr'); // Lấy hàng chứa nút được nhấn
+                    const row = this.closest('tr'); //hàng chứa btn
                     const productId = row.querySelector('.remove-from-cart').dataset
-                        .id; // Lấy ID sản phẩm
-                    const quantityEl = row.querySelector(
-                        '.quantity'); // Lấy phần tử hiển thị số lượng
-                    const totalEl = row.querySelector('.total'); // Lấy phần tử hiển thị tổng tiền
+                        .id; // lấy id sp
+                    const quantityEl = row.querySelector('.quantity'); // sl
+                    const totalEl = row.querySelector('.total'); // tổng tiền của sp
                     const isIncrease = this.classList.contains(
-                        'btn-plus'); // Kiểm tra nút tăng/giảm
-                    let quantity = parseInt(quantityEl.innerText); // Lấy số lượng hiện tại
+                        'btn-plus'); // Kiểm tra nếu là nút tăng số lượng.
+                    let quantity = parseInt(quantityEl.innerText); // Lấy số lượng hiện tại.
 
-                    // Tăng hoặc giảm số lượng
                     quantity = isIncrease ? quantity + 1 : quantity - 1;
 
                     if (quantity === 0) {
-                        // Nếu số lượng về 0, xóa sản phẩm
                         fetch("{{ route('remove.from.cart') }}", {
                                 method: "POST",
                                 headers: {
@@ -199,29 +192,25 @@
                             .then(response => response.json())
                             .then(data => {
                                 if (data.success) {
-                                    row.remove(); // Xóa sản phẩm khỏi giao diện
-
-                                    // Cập nhật tổng cộng
+                                    row.remove(); // Xóa hàng khỏi gd
                                     document.querySelector(
                                             '.summary .container-text p:last-child').innerText =
-                                        `${new Intl.NumberFormat().format(data.cartTotal)} VNĐ`;
-
-                                    // Kiểm tra nếu giỏ hàng trống
+                                        `${new Intl.NumberFormat().format(data.cartTotal)} VND`; // cập nhật tổng tiền.
                                     if (Object.keys(data.cart).length === 0) {
+                                        // ktra nếu gh trống hiển thị tb
                                         document.querySelector('.cart-container tbody')
                                             .innerHTML =
                                             `<tr><td colspan="6" style="text-align: center;">Your cart is empty</td></tr>`;
                                         document.querySelector('.summary').style.display =
-                                            'none'; // Ẩn phần tổng cộng
+                                            'none';
                                     }
                                 }
                             })
                             .catch(error => console.error('Error:', error));
                     } else {
-                        // Nếu số lượng > 0, cập nhật số lượng
+                        // Nếu dl > 0, update slsp.
                         quantityEl.innerText = quantity;
 
-                        // Gửi yêu cầu cập nhật số lượng
                         fetch("{{ route('update.cart') }}", {
                                 method: "POST",
                                 headers: {
@@ -229,18 +218,18 @@
                                     "Content-Type": "application/json"
                                 },
                                 body: JSON.stringify({
-                                    id: productId,
-                                    quantity: quantity
+                                    id: productId, // id sp mới.
+                                    quantity: quantity //sl mới.
                                 })
                             })
                             .then(response => response.json())
                             .then(data => {
                                 if (data.success) {
                                     totalEl.innerText =
-                                        `${new Intl.NumberFormat().format(data.itemTotal)} VNĐ`;
+                                        `${new Intl.NumberFormat().format(data.itemTotal)} VND`; // update tổng tiền của sp
                                     document.querySelector(
                                             '.summary .container-text p:last-child').innerText =
-                                        `${new Intl.NumberFormat().format(data.cartTotal)} VNĐ`;
+                                        `${new Intl.NumberFormat().format(data.cartTotal)} VND`; // update tổng tiền của gh.
                                 }
                             })
                             .catch(error => console.error('Error:', error));
@@ -248,13 +237,12 @@
                 });
             });
 
-            // Xử lý nút xóa sản phẩm
+            // sk xóa sản phẩm
             document.querySelectorAll('.remove-from-cart').forEach(button => {
                 button.addEventListener('click', function(e) {
-                    e.preventDefault(); // Ngăn hành động mặc định
-                    const productId = this.dataset.id; // Lấy ID sản phẩm
+                    e.preventDefault();
+                    const productId = this.dataset.id; // lấy id sp
 
-                    // Gửi yêu cầu xóa sản phẩm
                     fetch("{{ route('remove.from.cart') }}", {
                             method: "POST",
                             headers: {
@@ -262,25 +250,23 @@
                                 "Content-Type": "application/json"
                             },
                             body: JSON.stringify({
-                                id: productId
+                                id: productId // id sp cần xóa
                             })
                         })
                         .then(response => response.json())
                         .then(data => {
                             if (data.success) {
-                                this.closest('tr').remove(); // Xóa hàng khỏi giao diện
-
-                                // Cập nhật tổng cộng
+                                this.closest('tr')
+                                    .remove(); //xóa hàng khỏi gd
                                 document.querySelector('.summary .container-text p:last-child')
                                     .innerText =
-                                    `${new Intl.NumberFormat().format(data.cartTotal)} VNĐ`;
-
-                                // Kiểm tra nếu giỏ hàng trống
+                                    `${new Intl.NumberFormat().format(data.cartTotal)} VND`; // update tổng tiền của gh.
                                 if (Object.keys(data.cart).length === 0) {
+                                    // nếu gh trống hiển thị tb
                                     document.querySelector('.cart-container tbody').innerHTML =
                                         `<tr><td colspan="6" style="text-align: center;">Your cart is empty</td></tr>`;
                                     document.querySelector('.summary').style.display =
-                                        'none'; // Ẩn phần summary
+                                        'none';
                                 }
                             }
                         })
@@ -289,6 +275,4 @@
             });
         });
     </script>
-
-
 @stop
