@@ -40,7 +40,7 @@ class SearchController extends Controller
         }
 
         // Nếu không có tìm kiếm và filter, trả về danh sách rỗng nhưng vẫn phân trang
-        $products = $products->exists() ? $products->paginate(10) : SANPHAM::whereRaw('0 = 1')->paginate(10);
+        $products = $products->exists() ? $products->paginate(4) : SANPHAM::whereRaw('0 = 1')->paginate(4);
 
         return view('frontend.pages.search', compact('products', 'query', 'filter'));
 
@@ -60,4 +60,3 @@ class SearchController extends Controller
     }*/
 
 }
-
