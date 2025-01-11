@@ -5,17 +5,7 @@
         <div class="container-fluid">
             {{-- Tìm kiếm --}}
             <div class="row mb-5">
-                <form action="{{ Route('Search_Band') }}" method="GET" class="mb-3">
-                    <div class="input-group" style="width: 250px; display: flex; align-items: center;">
-                        <input type="text" name="search" class="form-control" placeholder="Search Blogs"
-                            value="{{ request('search') }}" style="border-radius: 10px 0 0 10px;">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" style="height: 40px;" type="submit">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
+                
                 {{-- Hiển thị kết quả tìm kiếm nếu có --}}
                 @if (isset($TimKiem) && $TimKiem->isNotEmpty())
                     <div class="col-12">
@@ -67,7 +57,18 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="product-status-wrap drp-lst">
-                        <h4>Departments List</h4>
+                        <h4>Band/Singer List</h4>
+                        <form action="{{ Route('Search_Band') }}" method="GET" class="mb-3">
+                            <div class="input-group" style="width: 250px; display: flex; align-items: center;">
+                                <input type="text" name="search" class="form-control" placeholder="Search"
+                                    value="{{ request('search') }}" style="border-radius: 10px 0 0 10px;">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" style="height: 40px;" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                         <div class="add-product">
                             <a href="{{ Route('Index_Add_Band') }}" style="background-color: black">Add Band/Singer</a>
                         </div>

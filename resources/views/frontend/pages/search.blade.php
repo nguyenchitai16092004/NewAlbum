@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Trang tim kiem - Search')
+@section('title', 'Search')
 
 @section('main')
 <link rel="stylesheet" href="css/search.css">

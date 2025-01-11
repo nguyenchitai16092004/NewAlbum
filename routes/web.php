@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ContactAdminController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DiscountedProductController;
 
+use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\AboutUsController;
 use App\Http\Controllers\User\BlogController;
@@ -51,6 +52,10 @@ Route::get('/wishlist', function () {
 Route::get('/popup', function () {
     return view('frontend.partials.popup.popup');
 });
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::post('/popup', [AuthController::class, 'Login'])->name('Login_User');
 
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('add.to.cart');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');

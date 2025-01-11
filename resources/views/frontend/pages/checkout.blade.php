@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('This page is the Checkout.', 'Checkout')
+@section('title', 'Checkout')
 @section('main')
     <link rel="stylesheet" href="css/checkout.css">
     <!-- ##### Breadcumb Area Start ##### -->

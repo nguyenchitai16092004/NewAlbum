@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Chi tiet blog - Single-Blog')
+@section('title', 'Single Blog')
 @section('main')
 <link rel="stylesheet" href="css/singleblog.css">
 <div class="single-blog-wrapper" style="margin-top:100px">

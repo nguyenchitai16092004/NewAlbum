@@ -94,9 +94,9 @@
                             <span class="mini-click-non">Category</span>
                         </a>
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li><a href="{{ asset('admin/category') }}"><span class="mini-sub-pro">Category
+                            <li><a href="{{ Route('Index_Category') }}"><span class="mini-sub-pro">Category
                                         List</span></a></li>
-                            <li><a href="{{ asset('admin/add-category') }}"><span class="mini-sub-pro">Add
+                            <li><a href="{{ Route('Index_Add_Category') }}"><span class="mini-sub-pro">Add
                                         Category</span></a></li>
                         </ul>
                     </li>
@@ -108,7 +108,7 @@
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
                             <li><a href="{{ Route('Index_Product') }}"><span class="mini-sub-pro">Product
                                         List</span></a></li>
-                            <li><a href="{{ Route('Add_Product') }}"><span class="mini-sub-pro">Add
+                            <li><a href="{{ Route('Add_Index_Product') }}"><span class="mini-sub-pro">Add
                                         Product</span></a></li>
                         </ul>
                     </li>

@@ -130,27 +130,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+document.getElementById('loginPopup').addEventListener('show', function () {
+    sessionStorage.removeItem('error');
+});
+
+// Kiểm tra xem có thông báo lỗi từ session hay không
+document.addEventListener("DOMContentLoaded", function () {
+    const errorMessage = document.getElementById('error-message');
+    const successMessage = document.getElementById('success-message');
+    const successSignoutMessage = document.getElementById('success-signout-message');
+    
+    if (successMessage) {
+        setTimeout(function() {
+            successMessage.style.display = 'none';
+        }, 3000);
+    }
+    if (errorMessage) {
+        setTimeout(function() {
+            errorMessage.style.display = 'none';
+        }, 3000);
+    }
+    if (successSignoutMessage) {
+        setTimeout(function() {
+            successSignoutMessage.style.display = 'none';
+        }, 3000);
+    }
+});
 //Kiểm tra Form Login
 document.getElementById('loginForm').addEventListener('submit', function (event) {
-    const emailPattern = /^[a-zA-Z0-9]+@gmail\.com$/;
-    const emailInput = document.getElementById('email');
-    const emailError = document.getElementById('emailError');
+    const loginnamePattern = /^[a-zA-Z0-9]/;
+    const loginnameInput = document.getElementById('loginname');
+    const loginnameError = document.getElementById('loginnameError');
     const passInput = document.getElementById('password');
     const passError = document.getElementById('passwordError');
 
-    event.preventDefault(); // Ngăn submit form mặc định
-
     let hasError = false; // Biến cờ theo dõi lỗi
 
-    // Kiểm tra email
-    if (!emailPattern.test(emailInput.value)) {
-        emailError.style.display = 'block';
+    if (!loginnamePattern.test(loginnameInput.value)) {
+        loginnameError.style.display = 'block';
         hasError = true;
     } else {
-        emailError.style.display = 'none';
+        loginnameError.style.display = 'none';
     }
 
-    // Kiểm tra password
     if (passInput.value.length < 4 || passInput.value.length > 8) {
         passError.style.display = 'block';
         hasError = true;
@@ -158,38 +180,15 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         passError.style.display = 'none';
     }
 
-    // Nếu có lỗi, dừng xử lý form
     if (hasError) {
+        event.preventDefault();
         return;
     }
-
-    // Nếu không có lỗi, gửi dữ liệu đến server để kiểm tra trong database
-    fetch('your-backend-url', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            email: email,
-            password: password,
-        })
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Đăng nhập thành công!'); // Chuyển hướng hoặc thực hiện hành động sau khi đăng nhập thành công
-            } else {
-                alert('Sai email hoặc mật khẩu!');
-            }
-        })
-        .catch(error => {
-            alert('Có lỗi xảy ra. Vui lòng thử lại!');
-        });
 });
 
 //Kiểm tra Form Register
 document.getElementById('registerForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Ngăn submit mặc định
+    //event.preventDefault(); // Ngăn submit mặc định
 
     // Lấy các trường và thông báo lỗi
     const nameInput = document.getElementById('username');
@@ -202,8 +201,8 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
     const errorMessage = document.getElementById('repasswordError');
 
     // Định dạng kiểm tra
-    const namePattern = /^[a-zA-Z]/; 
-    const emailPattern = /^[a-zA-Z0-9]+@gmail\.com$/; 
+    const namePattern = /^[a-zA-Z]/;
+    const emailPattern = /^[a-zA-Z0-9]+@gmail\.com$/;
 
     let hasError = false; // Biến cờ theo dõi lỗi
 
@@ -244,30 +243,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
         return;
     }
 
-    // Nếu không có lỗi, gửi dữ liệu đến server
-    fetch('https://example.com/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            username: nameInput.value,
-            email: emailInput.value,
-            password: passInput.value,
-        })
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Đăng ký thành công!');
-            } else {
-                alert('Đăng ký thất bại!');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Có lỗi xảy ra. Vui lòng thử lại!');
-        });
+
 });
 
 
