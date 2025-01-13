@@ -87,3 +87,15 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
     transform: translateY(-2px); /* Lift button slightly */
 }
+
+.order-details-confirmation .order-details-form li span {
+    flex: 1; 
+    text-align: center; 
+}
+.order-details-confirmation .order-details-form li span:first-child {
+    text-align: left;
+}
+
+.order-details-confirmation .order-details-form li span:last-child {
+    text-align: right;
+}

@@ -84,24 +84,31 @@
 
 
     <div class="container-cart">
+        <!-- Note Section -->
         <div class="note">
             <h5>Add a note to your order</h5>
-            <textarea placeholder="Your note"></textarea>
-            <button class="update">Update</button>
+            <form action="{{ route('cart.updateNote') }}" method="POST">
+                @csrf
+                <textarea name="order_note" placeholder="Your note">{{ session('order_note') }}</textarea>
+                <button type="submit" class="update">Update</button>
+            </form>
         </div>
-
-        <div class="summary" style="{{ $cartTotal > 0 ? '' : 'display: none;' }}">
+    
+        <!-- Summary Section -->
+        @if ($cartTotal > 0)
+        <div class="summary">
             <div class="container-text">
                 <p>Subtotal:</p>
                 <p>{{ number_format($cartTotal) }} VND</p>
             </div>
-            <button class="checkout">CHECK OUT</button>
+            <form action="{{ route('checkout') }}" method="GET">
+                <button type="submit" class="checkout">CHECK OUT</button>
+            </form>
         </div>
-
-
-
+        @else
+        <p>Your cart is empty.</p>
+        @endif
     </div>
-
     <div class="container-product">
         <h4>Before your checkout, have you considered:</h4>
         <div class="line"></div>
