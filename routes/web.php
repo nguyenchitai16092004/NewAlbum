@@ -21,7 +21,6 @@ use App\Http\Controllers\User\SearchPaginationController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\SingleBlogController;
-use App\Http\Controllers\User\CheckoutController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -118,12 +117,6 @@ Route::get('/blog', [SearchController::class, 'index'])->name('blog');
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
 Route::post('/contact-add', [ContactController::class, 'add'])->name('contact.add');
 Route::get('/single-blog/{MaBL}', [BlogController::class, 'show'])->name('single-blog');
-Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
-Route::post('/cart/update-note', [CartController::class, 'updateNote'])->name('cart.updateNote');
-
-Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
-Route::get('/order-history', [OrderController::class, 'orderHistory'])->name('order.history');
-
 
 Route::prefix('/admin')->group(function () {
 

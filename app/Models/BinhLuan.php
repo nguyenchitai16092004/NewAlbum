@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BinhLuan extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes; // Thêm SoftDeletes
+
     protected $table = 'binhluan';
 
-    protected $primaryKey = 'MaBL';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'MaSP',
@@ -19,5 +20,5 @@ class BinhLuan extends Model
         'NoiDung',
     ];
 
-    protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at']; // Định nghĩa cột deleted_at
 }

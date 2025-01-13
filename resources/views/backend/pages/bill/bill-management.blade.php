@@ -11,25 +11,26 @@
                             <table>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Customer</th>
+                                    <th>ID Admin</th>
+                                    <th>ID Customer</th>
                                     <th>Date</th>
-                                    <th>Total Price</th>    
-                                    <th>Action</th>
-                                    
-                                </tr> 
-                                @foreach ($HoaDon as $item)
-                                <tr>
-                                    <td>{{$item->MaHD}}</td>
-                                    <td>{{$item->TenKH}}</td>
-                                    <td>{{$item->created_at}}</td>
-                                    <td>{{$item->TongTien}}VND</td>
-                                    <td><a href="{{Route('Index_Detail_Bill',$item->MaHD)}}">Detail</a></td>
-                                </tr>
-                                @endforeach 
+                                    <th>Total Price</th>
+                                    <th>Payment Method</th>
+                                    <th>Payment Status</th>
+                                    <th>Detail</th>
+                                </tr>  
                             </table>
                         </div>
-                        <div class="custom-pagination text-center mt-4">
-                            {!! $HoaDon->links('pagination::bootstrap-4') !!}
+                        <div class="custom-pagination">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
