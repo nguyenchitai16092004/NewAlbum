@@ -11,13 +11,14 @@
                         <table>
                             <tr>
                                 <th>ID Bill</th>
-                                <th>ID Product</th>
+                                <th>Product Name</th>
                                 <th>Quantity</th>
                                 <th>Name Product</th>
                                 <th>Price</th>
                                 <th>Total Price</th>
                                 <th>Image</th>
                             </tr>  
+                            
                         </table>
                     </div>
                     <div class="custom-pagination">
