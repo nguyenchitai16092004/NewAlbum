@@ -111,24 +111,4 @@ class CartController extends Controller
         session()->forget('cart');
         return response()->json(['success' => true]);
     }
-
-    public function checkout()
-    {
-    $cart = session()->get('cart', []);
-    $cartTotal = array_sum(array_map(function ($item) {
-        return $item['price'] * $item['quantity'];
-    }, $cart));
-
-    return view('frontend.pages.checkout', [
-        'cart' => $cart,
-        'cartTotal' => $cartTotal,
-    ]);
-    }
-    public function updateNote(Request $request)
-    {
-        $note = $request->input('order_note');
-        session()->put('order_note', $note);
-
-        return redirect()->back()->with('success', 'Note updated successfully!');
-    }
 }

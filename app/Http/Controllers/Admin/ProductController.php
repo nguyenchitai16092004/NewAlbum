@@ -62,24 +62,24 @@ class ProductController extends Controller
         $slug = Str::slug($request->TenSP, '-');
 
         $validated = $request->validate([
-            'MaNhomNhacCaSi' => 'required|exists:NHOMNHACCASI,MaNhomNhacCaSi|numeric',
-            'MaLoaiSP' => 'required|exists:LOAISP,MaLoaiSP|numeric',
-            'MaSPGG' => 'nullable|exists:SANPHAMGIAMGIA,MaSPGG|numeric',
-            'TenSP' => 'required|string|max:255',
-            'GiaNhap' => 'required|numeric|min:0',
-            'GiaBan' => 'required|numeric|min:0',
-            'TieuDe' => 'required|string|max:255',
-            'MoTa' => 'required|string',
-            'SoLuong' => 'required|integer|min:0',
-            'LoaiHang' => 'required|boolean',
+            'MaNhomNhacCaSi' => 'nullable|numeric',
+            'MaLoaiSP' => 'nullable|numeric',
+            'MaSPGG' => 'nullable|numeric',
+            'TenSP' => 'required|max:255',
+            'GiaNhap' => 'nullable|numeric',
+            'GiaBan' => 'nullable|numeric',
+            'TieuDe' => 'required|max:255',
+            'MoTa' => 'nullable|string',
+            'SoLuong' => 'nullable|integer',
+            'LoaiHang' => 'nullable|boolean',
             'TrangThai' => 'nullable|boolean',
-            'Slug' => 'required|string|max:255|unique:SANPHAM,Slug',
             'HinhAnh' => 'nullable|image|max:2048',
         ]);
 
         $validated['Slug'] = $slug;
 
         if ($request->hasFile('HinhAnh')) {
+
             $HinhAnh = $request->file('HinhAnh');
 
             $TenHinhAnh = $HinhAnh->getClientOriginalName();

@@ -73,16 +73,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ** php artisan key:generate
 - Trong file .env hãy sửa dòng  SESSION_DRIVER=database --> SESSION_DRIVER=file //không chạy dòng này nếu đã có dữ liệu
 ** php artisan migrate //chạy dòng này nếu đã có dữ liệu
-- Chạy các dòng này trong mysql nếu lỗi bảng comment:
-** ALTER TABLE binhluan DROP FOREIGN KEY binhluan_makh_foreign;
-** ALTER TABLE binhluan DROP FOREIGN KEY binhluan_masp_foreign;
 
-** ALTER TABLE binhluan
-   ADD COLUMN id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST;
-
-** ALTER TABLE binhluan DROP PRIMARY KEY;
-
-** ALTER TABLE binhluan ADD CONSTRAINT binhluan_masp_foreign FOREIGN KEY (masp) REFERENCES sanpham(masp);
-** ALTER TABLE binhluan ADD CONSTRAINT binhluan_makh_foreign FOREIGN KEY (makh) REFERENCES khachhang(makh);
 
 
