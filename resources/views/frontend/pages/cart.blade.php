@@ -153,17 +153,39 @@
                                 .then(response => response.json())
                                 .then(data => {
                                     if (data.success) {
-                                        location.reload();
-                                        document.querySelector('.cart-container tbody')
-                                            .innerHTML =
-                                            `<tr><td colspan="6" style="text-align: center;">Your cart is empty</td></tr>`;
-                                        document.querySelector('.summary').style.display =
-                                            'none';
+                                        // Xóa toàn bộ sản phẩm trong bảng
+                                        const cartContainer = document.querySelector(
+                                            '.cart-container tbody');
+                                        if (cartContainer) {
+                                            cartContainer.innerHTML = `
+                                <tr>
+                                    <td colspan="6" style="text-align: center;">Your cart is empty</td>
+                                </tr>`;
+                                        }
+
+                                        // Ẩn phần tổng kết
+                                        const summaryEl = document.querySelector('.summary');
+                                        if (summaryEl) {
+                                            summaryEl.style.display = 'none';
+                                        }
+
+                                        // Cập nhật số lượng sản phẩm trong giỏ hàng
+                                        const cartCountEl = document.querySelector(
+                                            '.cart-count'); // Lớp hiển thị số lượng giỏ hàng
+                                        if (cartCountEl) {
+                                            cartCountEl.innerText =
+                                            '0'; // Cập nhật số lượng sản phẩm về 0
+                                        }
+
+                                        // Hiển thị thông báo thành công
                                         Swal.fire(
                                             'Deleted!',
                                             'All products have been removed from your cart.',
                                             'success'
-                                        );
+                                        ).then(() => {
+                                            // Tải lại trang sau khi người dùng nhấn "OK"
+                                            location.reload();
+                                        });
                                     }
                                 })
                                 .catch(error => console.error('Error:', error));
@@ -172,16 +194,17 @@
                 });
             }
 
+
             // sk thay đổi slsp
             document.querySelectorAll('.btn-plus, .btn-minus').forEach(button => {
                 button.addEventListener('click', function() {
                     const row = this.closest('tr'); // hàng chứa btn
                     const productId = row.querySelector('.remove-from-cart').dataset
-                    .id; // lấy id sản phẩm
+                        .id; // lấy id sản phẩm
                     const isIncrease = this.classList.contains(
-                    'btn-plus'); //ktra nút tăng sl
+                        'btn-plus'); //ktra nút tăng sl
                     const quantityEl = row.querySelector('.quantity'); // slsp hiện tại
-                    let quantity = parseInt(quantityEl.innerText); 
+                    let quantity = parseInt(quantityEl.innerText);
                     quantity = isIncrease ? quantity + 1 : quantity - 1;
 
                     if (quantity === 0) {
@@ -198,7 +221,7 @@
                             .then(response => response.json())
                             .then(data => {
                                 if (data.success) {
-                                    
+
                                     location.reload();
                                 }
                             })
@@ -218,7 +241,7 @@
                             .then(response => response.json())
                             .then(data => {
                                 if (data.success) {
-                                    
+
                                     location.reload();
                                 }
                             })
@@ -231,7 +254,7 @@
             document.querySelectorAll('.remove-from-cart').forEach(button => {
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const productId = this.dataset.id; 
+                    const productId = this.dataset.id;
 
                     fetch("{{ route('remove.from.cart') }}", {
                             method: "POST",
@@ -258,12 +281,12 @@
                                         `${new Intl.NumberFormat().format(data.cartTotal)} VND`;
                                 }
 
-                                
+
                                 if (Object.keys(data.cart).length === 0) {
                                     document.querySelector('.cart-container tbody').innerHTML =
                                         `<tr><td colspan="6" style="text-align: center;">Your cart is empty</td></tr>`;
                                     summaryEl.style.display =
-                                        'none'; 
+                                        'none';
                                 }
                             } else {
                                 console.error('Failed to remove item from cart:', data.message);
