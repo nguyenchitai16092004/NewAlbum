@@ -3,101 +3,129 @@
 @section('main')
     <link rel="stylesheet" href="css/home.css">
     <!-- ##### Welcome Area Start ##### -->
-    @include("frontend.partials.slideshow")
+    @include('frontend.partials.slideshow')
     <!-- ##### Top Catagory Area Start ##### -->
     <section class="top-catagory">
         <div class="container ctn-top-catagory">
+            @if ($preOder3ProductsCol1->count() >= 3)
+                <div class="prod-1">
+                    <div class="img-prod-1">
+                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[0]->MaSP) }}">
+                            <img src="{{ asset('Storage/SanPham/' . $preOder3ProductsCol1[0]->HinhAnh) }}"
+                                alt="{{ $preOder3ProductsCol1[0]->TenSP }}">
+                        </a>
+                    </div>
+                    <div class="product-description">
+                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[0]->MaSP) }}">
+                            <h6>{{ $preOder3ProductsCol1[0]->TenSP }}</h6>
+                        </a>
+                        <div class="pre-oder-new-arrivals">
+                            <span>Pre&ndash;order</span>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="prod-1">
-                <div class="img-prod-1">
-                    <img src="img/product-img/prod1.jpg" alt="">
-                </div>
-                <div class="product-description">
-                    <a href="#">
-                        <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
-                    </a>
-                    <div class="pre-oder-new-arrivals">
-                        <span>Pre&ndash;oder</span>
-                    </div>
-                </div>
-            </div>
-            <div class="prod-2">
-                <div class="img-prod-1">
-                    <img src="img/product-img/prod1.jpg" alt="">
-                </div>
-                <div class="name-pro np-1">
-                    <div class="product-description">
-                        <a href="#">
-                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
+                <div class="prod-2">
+                    <div class="img-prod-1">
+                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[1]->MaSP) }}">
+                            <img src="{{ asset('Storage/SanPham/' . $preOder3ProductsCol1[1]->HinhAnh) }}"
+                                alt="{{ $preOder3ProductsCol1[1]->TenSP }}">
                         </a>
-                        <div class="pre-oder-new-arrivals">
-                            <span>Pre&ndash;oder</span>
+                    </div>
+                    <div class="name-pro np-1">
+                        <div class="product-description">
+                            <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[1]->MaSP) }}">
+                                <h6>{{ $preOder3ProductsCol1[1]->TenSP }}</h6>
+                            </a>
+                            <div class="pre-oder-new-arrivals">
+                                <span>Pre&ndash;order</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="prod-3">
-                <div class="img-prod-1">
-                    <img src="img/product-img/prod1.jpg" alt="">
-                </div>
-                <div class="name-pro np-1">
-                    <div class="product-description">
-                        <a href="#">
-                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
+
+                <div class="prod-3">
+                    <div class="img-prod-1">
+                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[2]->MaSP) }}">
+                            <img src="{{ asset('Storage/SanPham/' . $preOder3ProductsCol1[2]->HinhAnh) }}"
+                                alt="{{ $preOder3ProductsCol1[2]->TenSP }}">
                         </a>
-                        <div class="pre-oder-new-arrivals">
-                            <span>Pre&ndash;oder</span>
+                    </div>
+                    <div class="name-pro np-1">
+                        <div class="product-description">
+                            <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[2]->MaSP) }}">
+                                <h6>{{ $preOder3ProductsCol1[2]->TenSP }}</h6>
+                            </a>
+                            <div class="pre-oder-new-arrivals">
+                                <span>Pre&ndash;order</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @else
+                <p>No products available.</p>
+            @endif
         </div>
+
         <div style="margin-top: 90px;" class="container ctn-top-catagory pre-col2">
-            <div class="prod-1 prod-col-2">
-                <div class="img-prod-1">
-                    <img src="img/product-img/prod1.jpg" alt="">
-                </div>
-                <div class="name-pro np-1">
-                    <div class="product-description">
-                        <a href="#">
-                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
+            @if ($preOder3ProductsCol2->count() >= 3)
+                <div class="prod-1 prod-col-2">
+                    <div class="img-prod-1">
+                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[0]->MaSP) }}">
+                            <img src="{{ asset('Storage/SanPham/' . $preOder3ProductsCol2[0]->HinhAnh) }}"
+                                alt="{{ $preOder3ProductsCol2[0]->TenSP }}">
                         </a>
-                        <div class="pre-oder-new-arrivals">
-                            <span>Pre&ndash;oder</span>
+                    </div>
+                    <div class="name-pro np-1">
+                        <div class="product-description">
+                            <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[0]->MaSP) }}">
+                                <h6>{{ $preOder3ProductsCol2[0]->TenSP }}</h6>
+                            </a>
+                            <div class="pre-oder-new-arrivals">
+                                <span>Pre&ndash;oder</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="prod-2">
-                <div class="img-prod-1">
-                    <img src="img/product-img/prod1.jpg" alt="">
-                </div>
-                <div class="name-pro np-1">
-                    <div class="product-description">
-                        <a href="#">
-                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
+                <div class="prod-2">
+                    <div class="img-prod-1">
+                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[1]->MaSP) }}">
+                            <img src="{{ asset('Storage/SanPham/' . $preOder3ProductsCol2[1]->HinhAnh) }}"
+                                alt="{{ $preOder3ProductsCol2[1]->TenSP }}">
                         </a>
-                        <div class="pre-oder-new-arrivals">
-                            <span>Pre&ndash;oder</span>
+                    </div>
+                    <div class="name-pro np-1">
+                        <div class="product-description">
+                            <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[1]->MaSP) }}">
+                                <h6>{{ $preOder3ProductsCol2[1]->TenSP }}</h6>
+                            </a>
+                            <div class="pre-oder-new-arrivals">
+                                <span>Pre&ndash;oder</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="prod-3">
-                <div class="img-prod-1">
-                    <img src="img/product-img/prod1.jpg" alt="">
-                </div>
-                <div class="name-pro np-1">
-                    <div class="product-description">
-                        <a href="#">
-                            <h6>[PRE-ORDER] Mingyu Esquire Korea Magazine 2024-12</h6>
+                <div class="prod-3">
+                    <div class="img-prod-1">
+                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[2]->MaSP) }}">
+                            <img src="{{ asset('Storage/SanPham/' . $preOder3ProductsCol2[2]->HinhAnh) }}"
+                                alt="{{ $preOder3ProductsCol1[2]->TenSP }}">
                         </a>
-                        <div class="pre-oder-new-arrivals">
-                            <span>Pre&ndash;oder</span>
+                    </div>
+                    <div class="name-pro np-1">
+                        <div class="product-description">
+                            <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[2]->MaSP) }}">
+                                <h6>{{ $preOder3ProductsCol2[2]->TenSP }}</h6>
+                            </a>
+                            <div class="pre-oder-new-arrivals">
+                                <span>Pre&ndash;oder</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @else
+                <p>No products available.</p>
+            @endif
         </div>
     </section>
     <!-- ##### New Arrivals Area Start ##### -->
@@ -117,13 +145,13 @@
                 <div class="col-12">
                     <div class="popular-products-slides owl-carousel">
                         <!-- Single Product -->
-                        @foreach ($products as $item)
+                        @foreach ($allProducts as $product)
                             <div class="single-product-wrapper">
                                 <!-- Product Image -->
                                 <div class="product-img">
-                                    <a href="{{ asset('/single-product-details') }}">
-                                        <img src="{{ asset('Storage/SanPham/' . $item->HinhAnh) }}"
-                                            alt="{{ $item->TenSP }}">
+                                    <a href="{{ url('single-product-details/' . $product->MaSP) }}">
+                                        <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
+                                            alt="{{ $product->TenSP }}">
                                     </a>
                                     <!-- Hover Thumb -->
                                     {{-- <a href="{{ asset('/single-product-details') }}">
@@ -140,9 +168,9 @@
                                         <span>Pre&ndash;oder</span>
                                     </div>
                                     <a href="{{ asset('/single-product-details') }}">
-                                        <h6>{{ $item->TenSP }}</h6>
+                                        <h6>{{ $product->TenSP }}</h6>
                                     </a>
-                                    <p class="product-price price">{{ number_format($item->GiaBan) }} VND</p>
+                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VND</p>
 
 
                                     <!-- Hover Content -->
@@ -151,9 +179,9 @@
                                         <div class="add-to-cart-btn">
                                             <div class="add-to-cart-btn">
                                                 <button class="btn essence-btn add-to-cart-btn"
-                                                    data-id="{{ $item->MaSP }}" data-name="{{ $item->TenSP }}"
-                                                    data-price="{{ $item->GiaBan }}"
-                                                    data-image="{{ asset('Storage/SanPham/' . $item->HinhAnh) }}">
+                                                    data-id="{{ $product->MaSP }}" data-name="{{ $product->TenSP }}"
+                                                    data-price="{{ $product->GiaBan }}"
+                                                    data-image="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}">
                                                     Add to Cart
                                                 </button>
                                             </div>
@@ -202,9 +230,6 @@
                             </div>
                             <!-- Product Description -->
                             <div class="product-description">
-                                <div class="pre-oder-new-arrivals">
-                                    <span>Pre&ndash;oder</span>
-                                </div>
                                 <a href="single-product-details.html">
                                     <h6>[Pre-oder]Born Pink (Gray Ver)</h6>
                                 </a>
@@ -233,9 +258,6 @@
                             </div>
                             <!-- Product Description -->
                             <div class="product-description">
-                                <div class="pre-oder-new-arrivals">
-                                    <span>Pre&ndash;oder</span>
-                                </div>
                                 <a href="single-product-details.html">
                                     <h6>[Pre-oder]Born Pink (Gray Ver)</h6>
                                 </a>
@@ -271,9 +293,6 @@
                             </div>
                             <!-- Product Description -->
                             <div class="product-description">
-                                <div class="pre-oder-new-arrivals">
-                                    <span>Pre&ndash;oder</span>
-                                </div>
                                 <a href="single-product-details.html">
                                     <h6>[Pre-oder]Born Pink (Gray Ver)</h6>
                                 </a>
@@ -310,9 +329,6 @@
                             </div>
                             <!-- Product Description -->
                             <div class="product-description">
-                                <div class="pre-oder-new-arrivals">
-                                    <span>Pre&ndash;oder</span>
-                                </div>
                                 <a href="single-product-details.html">
                                     <h6>[Pre-oder]Born Pink (Gray Ver)</h6>
                                 </a>
@@ -929,9 +945,9 @@
                             },
                             body: JSON.stringify({
                                 // chuyển dl sang json
-                                id: productId, 
-                                name: productName, 
-                                price: productPrice, 
+                                id: productId,
+                                name: productName,
+                                price: productPrice,
                                 image: productImage
                             })
                         })
