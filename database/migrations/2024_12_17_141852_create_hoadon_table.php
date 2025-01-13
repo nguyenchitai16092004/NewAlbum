@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id('MaHD');  
             $table->unsignedBigInteger('MaKH');
             $table->decimal('TongTien', 10, 2);
-            $table->int('TrangThai'); 
+            $table->boolean('PTTT');
+            $table->boolean('TrangThaiTT');
+            $table->integer('TrangThai'); 
             $table->string('DiaChi',255);
             $table->timestamps(); 
 
