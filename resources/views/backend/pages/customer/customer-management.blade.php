@@ -16,7 +16,7 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>ID Customer</th>
+                                        <th>ID </th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Birthday</th>
@@ -56,15 +56,8 @@
                                                     </select>
                                                 </form>
                                             </td>
-                                            <td>{{ $customers->GioiTinh }}</td>
+                                            <td>{{ $customers->GioiTinh ? 'Male' : 'Female' }}</td>
                                             <td>{{ $customers->HinhAnh }}</td>
-                                            {{-- <td>
-                                                @if ($customers->HinhAnh)
-                                                    <img src="{{ asset('uploads/customers/' . $customers->HinhAnh) }}" alt="Customer Image" style="width: 50px; height: 50px; border-radius: 50%;">
-                                                @else
-                                                    No Image
-                                                @endif
-                                            </td> --}}
                                             <td>{{ $customers->DiaChiKH }}</td>
                                             <td>
                                                 <!-- Nút Delete -->

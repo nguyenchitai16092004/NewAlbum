@@ -12,20 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('HOADON', function (Blueprint $table) {
-            $table->id('MaHD'); 
-            $table->unsignedBigInteger('MaQL'); 
+            $table->id('MaHD');  
             $table->unsignedBigInteger('MaKH');
-            $table->string('PhuongThuc', 50);
-            $table->date('NgayLap');
             $table->decimal('TongTien', 10, 2);
-            $table->boolean('TrangThai'); 
-            $table->boolean('PTTT');
-            $table->boolean('TrangThaiTT');
+            $table->int('TrangThai'); 
             $table->string('DiaChi',255);
             $table->timestamps(); 
 
             // Định nghĩa khóa ngoại
-            $table->foreign('MaQL')->references('MaQL')->on('QUANLY');
             $table->foreign('MaKH')->references('MaKH')->on('KHACHHANG');
         });
     }
