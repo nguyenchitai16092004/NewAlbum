@@ -3,29 +3,7 @@
 @section('main')
     <link rel="stylesheet" href="css/home.css">
     <!-- ##### Welcome Area Start ##### -->
-    <section class="welcome_area bg-img background-overlay">
-        <div class="banner">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12 hero-section">
-                        <div class="content">
-                            <h1>After Ego</h1>
-                            <h4>Coming soon</h4>
-                            <a href="#" class="preorder">Pre-order</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="img-child">
-                <img src="img/bg-img/lisa.jpg" alt="bg-lisa">
-            </div>
-        </div>
-        <div class="page-indicator">
-            <a href="#" class="prev">&lt;</a>
-            <span class="page-number">1/2</span>
-            <a href="#" class="next">&gt;</a>
-        </div>
-    </section>
+    @include("frontend.partials.slideshow")
     <!-- ##### Top Catagory Area Start ##### -->
     <section class="top-catagory">
         <div class="container ctn-top-catagory">
