@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('HOADON', function (Blueprint $table) {
+       Schema::create('HOADON', function (Blueprint $table) {
             $table->id('MaHD');  
             $table->unsignedBigInteger('MaKH');
             $table->decimal('TongTien', 10, 2);
+            $table->boolean('PTTT')->default(1);
+            $table->boolean('TrangThaiTT')->default(1);
             $table->integer('TrangThai'); 
             $table->string('DiaChi',255);
             $table->timestamps(); 

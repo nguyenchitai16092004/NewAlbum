@@ -13,9 +13,7 @@
                                     <th>ID</th>
                                     <th>Customer</th>
                                     <th>Date</th>
-                                    <th>Total Price</th>
-                                    <th>Payment Method</th>
-                                    <th>Payment Status</th>
+                                    <th>Total Price</th>    
                                     <th>Action</th>
                                     
                                 </tr> 
@@ -24,9 +22,7 @@
                                     <td>{{$item->MaHD}}</td>
                                     <td>{{$item->TenKH}}</td>
                                     <td>{{$item->created_at}}</td>
-                                    <td>{{$item->TongTien}}</td>
-                                    <td>{{$item->PTTT ? 'pay cash' : 'pay credit'}}</td>
-                                    <td>{{$item->TrangThaiTT ? 'Paid' : 'Unpaid'}}</td>
+                                    <td>{{$item->TongTien}}VND</td>
                                     <td><a href="{{Route('Index_Detail_Bill',$item->MaHD)}}">Detail</a></td>
                                 </tr>
                                 @endforeach 
