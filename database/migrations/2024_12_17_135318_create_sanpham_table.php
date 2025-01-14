@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('SANPHAM', function (Blueprint $table) {
             $table->id('MaSP');
-            $table->unsignedBigInteger('MaNhomNhacCaSi');
+            $table->unsignedBigInteger('MaNhomNhacCaSi')->nullable();
             $table->unsignedBigInteger('MaSPGG')->nullable();
-            $table->unsignedBigInteger('MaLoaiSP');
+            $table->unsignedBigInteger('MaLoaiSP')->nullable();
             $table->string('TenSP', 255);
             $table->decimal('GiaNhap', 10, 2);
             $table->decimal('GiaBan', 10, 2);
@@ -49,7 +49,7 @@ return new class extends Migration
 
             $table->string('HinhAnh',255);
 
-    
+            $table->timestamps();
         });
     }
 

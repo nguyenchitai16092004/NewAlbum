@@ -13,7 +13,9 @@ class UserBillController extends Controller
      */
     public function index($id)
     {
-        $hoaDons = HOADON::where('MaKH', '=', $id)->get();
+        $hoaDons = HOADON::where('MaKH', '=', $id)
+        ->where('TrangThai' , '>' , -2)
+        ->get();
 
         return view('frontend.pages.oder-history', [
             'hoaDons' => $hoaDons

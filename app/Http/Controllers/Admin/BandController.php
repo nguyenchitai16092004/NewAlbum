@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\NHOMNHACCASI;
+use App\Models\SANPHAM;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -56,6 +57,9 @@ class BandController extends Controller
         $nhomNhacCaSi = NHOMNHACCASI::findOrFail($id);
         $nhomNhacCaSi->TrangThai = 0;
         $nhomNhacCaSi->save();
+
+        SANPHAM::where('MaNhomNhacCaSi', '=', $id)->update(['MaNhomNhacCaSi' => null]);
+
         return redirect()->route('Index_Band')->with('success', 'Thêm nhóm nhạc/ca sĩ thành công!');
     }
 
