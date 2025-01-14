@@ -1,9 +1,9 @@
 @extends('frontend.layouts.master')
-@section('title', 'New Arrival')
+@section('title', 'Get Up To 50% Off')
 @section('main')
     <link rel="stylesheet" href="css/new-arrival.css">
     <div class="container-new-arrival">
-        <h1>New Arrivals</h1>
+        <h1>POSTER</h1>
         <div class="container-th2-new-arrival">
             <div class="products">
                 <div class="product-new-arrival-col1">
@@ -55,5 +55,7 @@
             </div>
         </div>
     </div>
+
+
 
 @stop

@@ -14,7 +14,7 @@
                                 <h2>After Ego</h2>
                                 <h3 class="mt-3">Coming soon</h3>
                                 <div class="slideshow-button">
-                                    <a href="#">Pre-oder</a>
+                                    <a href="#">Pre-order</a>
                                 </div>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                                 <h2>After Ego</h2>
                                 <h3 class="mt-3">Coming soon</h3>
                                 <div class="slideshow-button">
-                                    <a href="#">Pre-oder</a>
+                                    <a href="#">Pre-order</a>
                                 </div>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                                 <h2>After Ego</h2>
                                 <h3 class="mt-3">Coming soon</h3>
                                 <div class="slideshow-button">
-                                    <a href="#">Pre-oder</a>
+                                    <a href="#">Pre-order</a>
                                     <i class="fa-solid fa-chevron-left"></i>
                                 </div>
                             </div>
