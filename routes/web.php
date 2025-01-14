@@ -23,6 +23,7 @@ use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\SingleBlogController;
 use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\User\UserBillController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -124,6 +125,10 @@ Route::post('/contact-add', [ContactController::class, 'add'])->name('contact.ad
 Route::get('/single-blog/{MaBL}', [BlogController::class, 'show'])->name('single-blog');
 Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
 Route::post('/cart/update-note', [CartController::class, 'updateNote'])->name('cart.updateNote');
+
+    Route::get('/hoa-don-history/{id}', [UserBillController::class, 'index'])->name('hoa_don_history');
+    Route::post('/hoa-don/cancel/{id}', [UserBillController::class, 'cancel'])->name('hoa-don.cancel');
+
 
 // Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
 // Route::get('/order-history', [OrderController::class, 'orderHistory'])->name('order.history');
