@@ -2,6 +2,22 @@
 @section('title', 'Order History')
 @section('main')
     <link rel="stylesheet" href="css/oder-history.css">
+    <div class="ctn-rating-product">
+        <div class="header">
+            <div>
+                <h1>Welcome back!</h1>
+            </div>
+        </div>
+        <p>You can review and edit your personal information here.</p>
+        <nav class="navigation">
+            <ul>
+                <li><a href="{{ asset('/account') }}" >Account Information</a></li>
+                <li><a href="{{ route('hoa_don_history', ['id' => session('User')]) }}"class="active">Order History</a></li>
+                <li><a href="{{ asset('/wishlist') }}">Wish List</a></li>
+                <li><a href="{{ asset('/rating-product') }}" >Rating Product</a></li>
+            </ul>
+        </nav>
+    </div>
     <div class="container-hoa-don-history">
         <h1>Order History</h1>
 
