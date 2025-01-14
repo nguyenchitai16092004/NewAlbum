@@ -14,7 +14,7 @@ class HOADON extends Model
     protected $primaryKey = 'MaHD';
 
     protected $fillable = [
-        'MaQL',
+        'MaHD',
         'MaKH',
         'TongTien',
         'TrangThai',
@@ -22,4 +22,9 @@ class HOADON extends Model
         'TrangThaiTT',
         'DiaChi',
     ];
+    
+    public function khachHang()
+    {
+        return $this->belongsTo(KhachHang::class, 'MaKH', 'MaKH');
+    }
 }
