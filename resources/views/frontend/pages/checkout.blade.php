@@ -74,7 +74,7 @@
                         <span>{{ number_format($item['price'] * $item['quantity']) }}VNĐ</span>
                     </li>
                     @endforeach
-                    <li><span>Subtotal</span> <span></span> <span>${{ number_format($cartTotal) }}</span></li>
+                    <li><span>Subtotal</span> <span></span> <span>{{ number_format($cartTotal) }}VNĐ</span></li>
                     <li><span>Shipping</span> <span></span> <span>Free</span></li>
                     <li><span>Total</span> <span></span> <span>{{ number_format($cartTotal) }}VNĐ</span></li>
                 </ul>
