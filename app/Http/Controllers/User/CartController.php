@@ -14,35 +14,28 @@ class CartController extends Controller
     public function index(Request $request)
     {
         $cart = session()->get('cart', []);
-        $currentPage = LengthAwarePaginator::resolveCurrentPage(); // Xác định trang hiện tại
-        $cartCollection = collect($cart); // Chuyển mảng -> collection
+        $currentPage = LengthAwarePaginator::resolveCurrentPage(); //xđ trang mđ là 1 
+        $cartCollection = collect($cart); //chuyển mảng -> conllect
         $perPage = 4;
-        $currentPageItems = $cartCollection->slice(($currentPage - 1) * $perPage, $perPage)->all(); // Tính toán các sản phẩm trong trang hiện tại
-        $paginatedCart = new LengthAwarePaginator( // Tạo phân trang
-            $currentPageItems, // Các sản phẩm trong trang hiện tại
-            max($cartCollection->count(), 1), // Số lượng sản phẩm trong giỏ hàng
+        $currentPageItems = $cartCollection->slice(($currentPage - 1) * $perPage, $perPage)->all(); //tính số trang
+        $paginatedCart = new LengthAwarePaginator( //tạo phân trang
+            $currentPageItems, // sp trong trang
+            max($cartCollection->count(), 1), // slsp trg gh
             $perPage,
-            $currentPage, // Trang hiện tại
+            $currentPage, // trang htai
             ['path' => $request->url(), 'query' => $request->query()]
         );
-
-        // Lấy danh sách ID sản phẩm trong giỏ hàng
-        $cartProductIds = array_keys($cart);
-
-        // Lấy 4 sản phẩm ngẫu nhiên không trùng với sản phẩm trong giỏ hàng
-        $recommendedProducts = SANPHAM::whereNotIn('MaSP', $cartProductIds) // Loại trừ sản phẩm trong giỏ hàng
-            ->inRandomOrder()
-            ->take(4)
-            ->get();
-
+        $recommendedProducts = SANPHAM::inRandomOrder()->take(4)->get(); // lấy 4sp ngẫu nhiên trong csdl để hiện sp liên quan
         return view('frontend.pages.cart', [
-            'cart' => $paginatedCart, // Giỏ hàng sau khi phân trang
-            'recommendedProducts' => $recommendedProducts, // Các sản phẩm gợi ý
+            'cart' => $paginatedCart, // gh sau khi phân trang.
+            'recommendedProducts' => $recommendedProducts,
             'cartTotal' => $cartCollection->isEmpty() ? 0 : $cartCollection->sum(function ($item) {
-                return $item['price'] * $item['quantity']; // Tính tổng tiền
+                return $item['price'] * $item['quantity']; // tính tổng tiền
             }),
         ]);
     }
+
+
 
 
     public function addToCart(Request $request)
@@ -69,6 +62,7 @@ class CartController extends Controller
         unset($cart[$request->id]);
         session()->put('cart', $cart);
 
+        // tinh tổng tiền gh
         $cartTotal = array_sum(array_map(function ($item) {
             return $item['price'] * $item['quantity'];
         }, $cart));
@@ -79,7 +73,6 @@ class CartController extends Controller
             'cartTotal' => $cartTotal,
         ]);
     }
-
 
 
     public function updateCart(Request $request)
@@ -110,5 +103,25 @@ class CartController extends Controller
     {
         session()->forget('cart');
         return response()->json(['success' => true]);
+    }
+
+    public function checkout()
+    {
+    $cart = session()->get('cart', []);
+    $cartTotal = array_sum(array_map(function ($item) {
+        return $item['price'] * $item['quantity'];
+    }, $cart));
+
+    return view('frontend.pages.checkout', [
+        'cart' => $cart,
+        'cartTotal' => $cartTotal,
+    ]);
+    }
+    public function updateNote(Request $request)
+    {
+        $note = $request->input('order_note');
+        session()->put('order_note', $note);
+
+        return redirect()->back()->with('success', 'Note updated successfully!');
     }
 }
