@@ -27,4 +27,6 @@ class HOADON extends Model
     {
         return $this->belongsTo(KhachHang::class, 'MaKH', 'MaKH');
     }
+
+    
 }
