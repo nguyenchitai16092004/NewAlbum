@@ -22,7 +22,7 @@ use App\Http\Controllers\User\SearchPaginationController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\SingleBlogController;
-
+use App\Http\Controllers\User\UserBillController;
 use Illuminate\Support\Facades\Route;
 
 /*Route FE */
