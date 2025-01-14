@@ -16,17 +16,14 @@ return new class extends Migration
             $table->unsignedBigInteger('MaSP');
             $table->primary(['MaHD', 'MaSP']);
             $table->integer('SoLuong');
-            $table->string('TenSP', 255);
             $table->decimal('DonGia', 10, 2);
             $table->decimal('TongTien', 10, 2);
-            $table->string('HinhAnh',255);
             $table->boolean('TrangThaiBL')->default(0);
             $table->timestamps(); 
             
             // Định nghĩa khóa ngoại
             $table->foreign('MaHD')->references('MaHD')->on('HOADON');
             $table->foreign('MaSP')->references('MaSP')->on('SANPHAM');
-
         });
     }
 
