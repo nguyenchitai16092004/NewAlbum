@@ -63,7 +63,7 @@ class ProductController extends Controller
 
         $validated = $request->validate([
             'MaNhomNhacCaSi' => 'required|numeric',
-            'MaSPGG'=>'nullable|numberic',
+            'MaSPGG' => 'nullable|numberic',
             'MaLoaiSP' => 'required|numeric',
             'TenSP' => 'required|string|max:255',
             'GiaNhap' => 'required|numeric|min:1',
@@ -74,7 +74,7 @@ class ProductController extends Controller
             'LoaiHang' => 'required|boolean',
             'TrangThai' => 'nullable|boolean',
             'HinhAnh' => 'required|image|max:255',
-        ]);      
+        ]);
         $validated['Slug'] = $slug;
         if ($request->hasFile('HinhAnh')) {
             $HinhAnh = $request->file('HinhAnh');
@@ -126,5 +126,51 @@ class ProductController extends Controller
         $products->save();
 
         return redirect()->route('Index_Product');
+    }
+
+    public function Search(Request $request)
+    {
+        $search = $request->input('search');
+
+        if (empty($search)) {
+            $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
+            ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi')
+            ->where('SANPHAM.TrangThai', '=', 1)
+            ->select(
+                'SANPHAM.*',
+                'LOAISP.TenLoaiSP',
+                'NHOMNHACCASI.TenNhomNhacCaSi'
+            )
+            ->paginate(3);
+
+            return view('backend.pages.product.product', ['products' => $products]);
+        } else {
+            $TimKiem = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
+                ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi')
+                ->where($request->input('filter'), 'LIKE', '%' . $search . '%')->where('SANPHAM.TrangThai', '=', 1)
+                ->select(
+                    'SANPHAM.*',
+                    'LOAISP.TenLoaiSP',
+                    'NHOMNHACCASI.TenNhomNhacCaSi'
+                )->get();
+
+                $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
+                ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi')
+                ->where('SANPHAM.TrangThai', '=', 1)
+                ->select(
+                    'SANPHAM.*',
+                    'LOAISP.TenLoaiSP',
+                    'NHOMNHACCASI.TenNhomNhacCaSi'
+                )
+                ->paginate(3);
+
+            return view(
+                'backend.pages.product.product',
+                [
+                    'TimKiem' => $TimKiem,
+                    'products' => $products,
+                ]
+            );
+        }
     }
 }
