@@ -16,7 +16,9 @@ class AuthController extends Controller
             ->first();
 
         if ($auth) {
-            session()->put('User', $auth->MaKH);
+            // Lưu toàn bộ đối tượng KhachHang vào session
+            session()->put('User', $auth); 
+
             session()->flash('success', 'Login successfully!');
             return redirect()->route('home');
         } else {
@@ -24,12 +26,17 @@ class AuthController extends Controller
             return redirect()->back();
         }
     }
+
     public function logout(Request $request)
     {
-        auth()->logout();
+        // Xóa thông tin người dùng khỏi session
+        session()->forget('User');
+        
+        // Hoặc có thể xóa toàn bộ session
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        $request->session()->flash('Signoutsuccess', 'Sign Out successfully!');
+        
+        session()->flash('Signoutsuccess', 'Sign Out successfully!');
         return redirect()->route('home');
     }
 }
