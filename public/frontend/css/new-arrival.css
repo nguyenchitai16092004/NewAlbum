@@ -1,7 +1,7 @@
 .container-th2-new-arrival {
     display: flex;
     flex-wrap: nowrap;
-    padding: 20px;
+
 }
 .container-new-arrival {
     padding: 50px;
@@ -141,4 +141,89 @@
      .product-card img {
         max-height: 150px; /* Giới hạn chiều cao hình ảnh */
     }
+}
+.pagination {
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination .page-item .page-link {
+    color: #333;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+    padding: 8px 12px;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: black;
+    border-color: black;
+    color: white;
+}
+.pagination-container{
+    margin-bottom: 20px;
+}
+.pre-oder-new-arrivals {
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 0.75px;
+    font-weight: 600;
+    background-color: red;
+    width: 80px;
+    height: 15px;
+    border-radius: 10px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pre-oder-new-arrivals span {
+    color: white !important;
+}
+.card-text{
+    font-weight: bold;
+    color: black;
+}
+ .hover-content {
+    position: absolute;
+    width: calc(100% - 40px);
+    top: 200px;
+    left: 20px;
+    right: 20px;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
+ .hover-content .essence-btn {
+    width: 100%;
+}
+ .hover-content .essence-btn:hover {
+    background-color: black;
+}
+.card:hover .hover-content {
+    opacity: 1;
+    visibility: visible;
+}
+.product-badge {
+    height: 25px;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 0 10px;
+    display: inline-block;
+    line-height: 25px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
+.product-badge.new-badge {
+    background-color: #0315ff;
 }

@@ -22,6 +22,8 @@ use App\Http\Controllers\User\SearchPaginationController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\SingleBlogController;
+use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\User\ProductUserController;
 use App\Http\Controllers\User\UserBillController;
 use App\Http\Controllers\User\WishlistController;
 
@@ -31,15 +33,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'Index'])->name('Index_Home');
 
-Route::get('/single-product-detail', function () {
-    return view('frontend.pages.single-product-details');
-});
+Route::get('/single-product-details/{id}', [ProductUserController::class, 'show'])->name('product.details');
 Route::get('/checkout', function () {
     return view('frontend.pages.checkout');
 });
-Route::get('/blog', function () {
-    return view('frontend.pages.blog');
-});
+
 Route::get('/blog', [BlogController::class, 'Index'])->name('Index_Blog');
 Route::get('/single-blog', function () {
     return view('frontend.pages.single-blog');
@@ -70,9 +68,6 @@ Route::get('/single-product-details', function () {
 Route::get('/new-arrival', function () {
     return view('frontend.pages.new-arrival');
 });
-Route::get('/get-up-50', function () {
-    return view('frontend.pages.get-up-50');
-});
 Route::get('/pre-oders', function () {
     return view('frontend.pages.pre-oders');
 });
@@ -91,9 +86,10 @@ Route::get('/poster', function () {
 Route::get('/kpop', function () {
     return view('frontend.pages.kpop');
 });
-Route::get('/kgood', function () {
-    return view('frontend.pages.kgood');
-});
+
+
+Route::get('/listproduct/{id}', [ProductUserController::class, 'listByCategory'])->name('listproduct');
+
 Route::get('/pre-oders', function () {
     return view('frontend.pages.pre-oders');
 });

@@ -5,14 +5,14 @@
     <div class="container-detail">
         <div class="product-container">
             <div class="product-image1"style="margin-top:40px">
-                <img src="https://via.placeholder.com/400x400" alt="Version 1">
+                <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}" alt="{{ $product->TenSP }}">
             </div>
             <div class="product-details"style="margin-top:40px">
-                <h1>Name Product</h1>
-                <p>Short description of the product</p>
+                <h1>{{ $product->TenSP }}</h1>
+                <p>{{ $product->TieuDe }}</p>
                 <div class="status-price">
                     <p>Status: <strong>2 in stock</strong></p>
-                    <p>Price: <strong>487,555 VND</strong></p>
+                    <p>Price: <strong>{{ number_format($product->GiaBan) }} VND</strong></p>
                 </div>
 
                 <div class="quantity">
@@ -30,19 +30,15 @@
     <div class="container-product">
         <!-- Description Section -->
         <div class="description-section">
-            <h1>BLACKPINK THE ALBUM Boxset</h1>
-            <h2>The standard Lorem Ipsum passage, used since the 1500s</h2>
-            <p>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                anim id est laborum."
+            <h1>{{ $product->TenSP }}</h1>
+            <h2>{{ $product->TieuDe }}</h2>
+            <p id="product-description" style="display: none;">
+                {{ $product->MoTa }}
             </p>
             <div class="product-image2">
-                <img src="https://via.placeholder.com/400x400" alt="Version 1">
+                <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}" alt="{{ $product->TenSP }}">
             </div>
-            <a href="#" class="more-button">More</a>
+            <a href="#" class="more-button" id="more-button">More</a>
         </div>
 
         <!-- Review Section -->
@@ -111,4 +107,22 @@
             </div>
         </div>
     </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const moreButton = document.getElementById('more-button');
+        const productDescription = document.getElementById('product-description');
+
+        moreButton.addEventListener('click', function (event) {
+            event.preventDefault(); 
+            if (productDescription.style.display === 'none') {
+                productDescription.style.display = 'block';
+                moreButton.textContent = 'Hide'; 
+            } else {
+                productDescription.style.display = 'none'; 
+                moreButton.textContent = 'More'; 
+            }
+        });
+    });
+</script>
+
 @stop
