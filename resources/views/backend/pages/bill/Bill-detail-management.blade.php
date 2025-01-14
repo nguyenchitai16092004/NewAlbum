@@ -6,39 +6,54 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="product-status-wrap drp-lst">
-                        <h4>Bill Details List</h4>
-                        <div class="asset-inner">
-                            <table>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Product Name</th>
-                                    <th>Quantity</th>
-                                    <th>Price</th>
-                                    <th>Total Price</th>
-                                </tr>
-                                @foreach ($ChiTietHoaDon as $item)
+                        <h4 class="mb-4">Bill Details List</h4>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="thead-dark">
                                     <tr>
-                                        <td>{{ asset('Storage/SanPham/' . $item->HinhAnh) }}</td>
-                                        <td>{{$item->TenSP}}</td>
-                                        <td>{{$item->SoLuong}}</td>
-                                        <td>{{$item->DonGia}}</td>
-                                        <td>{{$item->TongTien}}</td>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Product Name</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Total Price</th>
+                                        <!-- Bỏ cột TrangThai khỏi giao diện -->
                                     </tr>
-                                @endforeach
-
-
+                                </thead>
+                                <tbody>
+                                    @forelse ($ChiTietHoaDon as $item)
+                                        <tr>
+                                            <td>
+                                                <img src="{{ asset('Storage/SanPham/' . $item->HinhAnh) }}"
+                                                    alt="{{ $item->TenSP }}" class="img-thumbnail"
+                                                    style="width: 80px; height: 80px;">
+                                            </td>
+                                            <td>{{ $item->TenSP }}</td>
+                                            <td>{{ $item->SoLuong }}</td>
+                                            <td>{{ number_format($item->DonGia, 2) }} VND</td>
+                                            <td>{{ number_format($item->TongTien, 2) }} VND</td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="5" class="text-center">No data available</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
                             </table>
                         </div>
-                        <div class="custom-pagination">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                            </nav>
+                        <div class="custom-pagination text-center mt-4">
+                            @if ($ChiTietHoaDon->first()->TrangThai == 0)
+                                <form action="{{ route('Update_Bill', ['id' => $ChiTietHoaDon->first()->MaHD]) }}"
+                                    method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success">Accept</button>
+                                </form>
+                            @elseif($ChiTietHoaDon->first()->TrangThai == -1)
+                                <form action="{{ route('Canncel_Bill', ['id' => $ChiTietHoaDon->first()->MaHD]) }}"
+                                    method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-err" style="background-color: red ; color:white ; margin-left: 10px">Delete</button>
+                                </form>
+                            @endif
                         </div>
                     </div>
                 </div>
