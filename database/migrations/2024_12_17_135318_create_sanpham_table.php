@@ -38,8 +38,7 @@ return new class extends Migration
         // Tạo bảng SANPHAMYEUTHICH (Thực thể yếu)
         Schema::create('SanPhamYeuThich', function (Blueprint $table) {
             $table->unsignedBigInteger('MaKH');
-            $table->unsignedBigInteger('MaSP');
-            $table->date('NgayYeuThich');
+            $table->unsignedBigInteger('MaSP'); 
 
             $table->primary(['MaKH', 'MaSP']);
 
