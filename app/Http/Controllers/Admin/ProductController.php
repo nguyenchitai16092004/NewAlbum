@@ -62,24 +62,21 @@ class ProductController extends Controller
         $slug = Str::slug($request->TenSP, '-');
 
         $validated = $request->validate([
-            'MaNhomNhacCaSi' => 'nullable|numeric',
-            'MaLoaiSP' => 'nullable|numeric',
-            'MaSPGG' => 'nullable|numeric',
-            'TenSP' => 'required|max:255',
-            'GiaNhap' => 'nullable|numeric',
-            'GiaBan' => 'nullable|numeric',
-            'TieuDe' => 'required|max:255',
-            'MoTa' => 'nullable|string',
-            'SoLuong' => 'nullable|integer',
-            'LoaiHang' => 'nullable|boolean',
+            'MaNhomNhacCaSi' => 'required|numeric',
+            'MaSPGG'=>'nullable|numberic',
+            'MaLoaiSP' => 'required|numeric',
+            'TenSP' => 'required|string|max:255',
+            'GiaNhap' => 'required|numeric|min:1',
+            'GiaBan' => 'required|numeric|min:1',
+            'TieuDe' => 'required|string|max:255',
+            'MoTa' => 'required|string',
+            'SoLuong' => 'required|integer',
+            'LoaiHang' => 'required|boolean',
             'TrangThai' => 'nullable|boolean',
-            'HinhAnh' => 'nullable|image|max:2048',
-        ]);
-
+            'HinhAnh' => 'required|image|max:255',
+        ]);      
         $validated['Slug'] = $slug;
-
         if ($request->hasFile('HinhAnh')) {
-
             $HinhAnh = $request->file('HinhAnh');
 
             $TenHinhAnh = $HinhAnh->getClientOriginalName();
