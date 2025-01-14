@@ -21,39 +21,20 @@
                 <div class="classynav">
                     <ul>
                         <li><a style="color: rgb(255, 255, 255);" href="#">Shop</a>
-                            <div class="megamenu">
-                                <ul class="single-mega cn-col-4">
-                                    <li class="title">K-POP</li>
-                                    <li><a href="{{ asset('/shop') }}">Male-Group</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Female</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Solo</a></li>
-                                </ul>
-                                <ul class="single-mega cn-col-4">
-                                    <li class="title">K-GOODS</li>
-                                    <li><a href="{{ asset('/shop') }}">Male-Group</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Female</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Solo</a></li>
-                                </ul>
-                                <ul class="single-mega cn-col-4">
-                                    <li class="title">Poster</li>
-                                    <li><a href="{{ asset('/shop') }}">Male-Group</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Female</a></li>
-                                    <li><a href="{{ asset('/shop') }}">Solo</a></li>
-                                </ul>
-                                <div class="single-mega cn-col-4">
-                                    <img src="img/core-img/kpop.jpg" alt="">
-                                </div>
-                            </div>
+                            <ul class="dropdown">
+                                <li><a href="{{ asset('/kpop') }}">K-POP</a></li>
+                                <li><a href="{{ asset('/kgood') }}">K-GOODS</a></li>
+                                <li><a href="{{ asset('/poster') }}">POSTER</a></li>
+                            </ul>
                         </li>
                         <li><a style="color: rgb(255, 255, 255);" href="#">Pages</a>
                             <ul class="dropdown">
                                 <li><a href="{{ asset('/') }}">Home</a></li>
-                                <li><a href="{{ asset('/single-product-detail') }}">Product Details</a></li>
-                                <li><a href="{{ asset('/checkout') }}">Checkout</a></li>
                                 <li><a href="{{ asset('/blog') }}">Blog</a></li>
-                                <li><a href="{{ asset('/regular-page') }}">Regular Page</a></li>
                                 <li><a href="{{ asset('/contact') }}">Contact</a></li>
-                                <li><a href="{{ asset('/wishlist') }}">Wishlist</a></li>
+                                <li><a href="{{ asset('/about-us') }}">About Us</a></li>
+                                <li><a href="{{ asset('/new-arrival') }}">New Arrivals</a></li>
+                                 <li><a href="{{ asset('/pre-oders') }}">Pre-Order</a></li>
                             </ul>
                         </li>
                         <li><a style="color: rgb(255, 255, 255);" href="{{ asset('/blog') }}">Blog</a></li>

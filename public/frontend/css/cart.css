@@ -52,7 +52,7 @@ p {
 
 .cart-container tbody td img {
     width: 100px;
-    height: auto;
+    height: 150px;
     border-radius: 5px;
 }
 
@@ -255,7 +255,9 @@ p {
     color: #000;
     margin: 0;
 }
-
+.container-product .row .product img {
+    height: 200px;
+}
 /* Product Section */
 .container-product {
     margin: 50px auto;
@@ -355,15 +357,15 @@ p {
     transform: translateY(-2px);
 }
 .swal2-confirm {
-    background-color: #000 !important; 
-    color: #fff !important; 
-    border-radius: 8px; 
-    padding: 10px 20px; 
-    font-size: 16px; 
-    font-weight: bold; 
+    background-color: #000 !important;
+    color: #fff !important;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .swal2-confirm:hover {
     background-color: #333 !important;
-    color: #fff !important; 
+    color: #fff !important;
 }

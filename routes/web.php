@@ -43,9 +43,6 @@ Route::get('/blog', [BlogController::class, 'Index'])->name('Index_Blog');
 Route::get('/single-blog', function () {
     return view('frontend.pages.single-blog');
 });
-Route::get('/regular-page', function () {
-    return view('frontend.pages.regular-page');
-});
 Route::get('/about-us', [AboutUsController::class, 'aboutUs'])->name('about-us');
 
 Route::get('/wishlist', function () {
@@ -87,8 +84,14 @@ Route::get('/oder-history', function () {
 Route::get('/new-arrival', function () {
     return view('frontend.pages.new-arrival');
 });
-Route::get('/get-up-50', function () {
-    return view('frontend.pages.get-up-50');
+Route::get('/poster', function () {
+    return view('frontend.pages.poster');
+});
+Route::get('/kpop', function () {
+    return view('frontend.pages.kpop');
+});
+Route::get('/kgood', function () {
+    return view('frontend.pages.kgood');
 });
 Route::get('/pre-oders', function () {
     return view('frontend.pages.pre-oders');
