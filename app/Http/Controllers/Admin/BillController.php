@@ -16,6 +16,6 @@ class BillController extends Controller
         return view('backend.pages.bill.bill-management', compact('HoaDon'));
     }
     public function Show($id){
-        $ChiTietHoaDon = CHITIETHOADON::
+        //$ChiTietHoaDon = CHITIETHOADON::
     }
 }
