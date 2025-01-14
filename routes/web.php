@@ -23,7 +23,6 @@ use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\SingleBlogController;
 use App\Http\Controllers\User\CheckoutController;
-use App\Http\Controllers\User\UserBillController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -126,10 +125,6 @@ Route::get('/single-blog/{MaBL}', [BlogController::class, 'show'])->name('single
 Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
 Route::post('/cart/update-note', [CartController::class, 'updateNote'])->name('cart.updateNote');
 
-    Route::get('/hoa-don-history/{id}', [UserBillController::class, 'index'])->name('hoa_don_history');
-    Route::post('/hoa-don/cancel/{id}', [UserBillController::class, 'cancel'])->name('hoa-don.cancel');
-
-
 // Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
 // Route::get('/order-history', [OrderController::class, 'orderHistory'])->name('order.history');
 
@@ -152,6 +147,8 @@ Route::prefix('/admin')->group(function () {
         Route::post('/edit/{id}', [ProductController::class, 'Edit'])->name('Edit_Product');
         // Xóa sản phẩm
         Route::delete('/delete/{id}', [ProductController::class, 'Delete'])->name('Delete_Product');
+        // Tìm kiếm sản phẩm
+        Route::get('/search-product', [ProductController::class, 'Search'])->name('Search_Product');
     });
 
     // Route cho nhóm nhạc ca sĩ
@@ -203,11 +200,11 @@ Route::prefix('/admin')->group(function () {
     Route::prefix('bill-management')->group(function () {
         Route::get('/bill-management', [BillController::class, 'Index'])->name('Index_Bill_Management');
         //Chi tiết hóa đơn
-        Route::view('/bill-detail-management/{id}', [BillController::class, 'Show'])->name('Index_Bill_Detail');
+        Route::get('/bill-detail-management/{id}', [BillController::class, 'Show'])->name('Index_Bill_Detail');
         //Cập nhật trạng thái sản phẩm 
-        Route::view('/edit-bill',[BillController::class, 'Edit'])->name('Update_Bill');
+        Route::post('/edit-bill/{id}',[BillController::class, 'Edit'])->name('Update_Bill');
+        Route::post('/canncel-bill/{id}',[BillController::class, 'Canncel'])->name('Canncel_Bill');
     });
-
     // Route cho quản lý bình luận
     Route::prefix('comments')->group(function () {
         Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');

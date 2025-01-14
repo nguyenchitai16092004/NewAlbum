@@ -17,6 +17,7 @@
                                         <th>Total Price</th>
                                         <th>Payment Method</th>
                                         <th>Payment Status</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -31,7 +32,20 @@
                                                 <td>{{ $item->PTTT ? 'Pay Cash' : 'Pay Credit' }}</td>
                                                 <td>{{ $item->TrangThaiTT ? 'Paid' : 'Unpaid' }}</td>
                                                 <td>
-                                                    <a href="{{ Route('Index_Bill_Detail', $item->MaHD) }}" class="btn btn-primary btn-sm">
+                                                    @if ($item->TrangThai == -1)
+                                                        Cancelled
+                                                    @elseif ($item->TrangThai == 0)
+                                                        Not yet confirmed
+                                                    @elseif ($item->TrangThai == 1)
+                                                        Confirmed
+                                                    @elseif ($item->TrangThai == 2)
+                                                        In delivery
+                                                    @elseif ($item->TrangThai == 3)
+                                                        Delivered
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <a href="{{ Route('Index_Bill_Detail',['id' =>   $item->MaHD]) }}" class="btn btn-primary btn-sm">
                                                         Detail
                                                     </a>
                                                 </td>
