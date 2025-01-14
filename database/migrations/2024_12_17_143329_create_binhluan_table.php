@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('binhluan', function (Blueprint $table) {
-            $table->id('MaBL');
-            $table->unsignedBigInteger('MaSP');
-            $table->unsignedBigInteger('MaKH');
+        Schema::create('BINHLUAN', function (Blueprint $table) {
+            $table->unsignedBigInteger('MaSP'); 
+            $table->unsignedBigInteger('MaKH'); 
             $table->integer('SoSao');
-            $table->text('NoiDung')->nullable();
+            $table->text('NoiDung'); 
+            $table->primary(['MaSP', 'MaKH']); 
             $table->boolean('TrangThai')->default(1);
             $table->timestamps();
-
+            
             // Định nghĩa khóa ngoại
-            $table->foreign('MaSP')->references('MaSP')->on('sanpham')->cascadeOnDelete();
-            $table->foreign('MaKH')->references('MaKH')->on('khachhang')->cascadeOnDelete();
+            $table->foreign('MaSP')->references('MaSP')->on('SANPHAM'); 
+            $table->foreign('MaKH')->references('MaKH')->on('KHACHHANG');
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('binhluans');
+        Schema::dropIfExists('BINHLUAN');
     }
 };
