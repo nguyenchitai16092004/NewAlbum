@@ -164,9 +164,11 @@
                                         <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
                                             alt="{{ $product->TenSP }}">
                                     </a>
-                                    <div class="product-badge new-badge">
-                                        <span>New</span>
-                                    </div>
+                                    @if ($product->isNew)
+                                        <div class="product-badge new-badge">
+                                            <span>New</span>
+                                        </div>
+                                    @endif
                                     <div class="product-favourite">
                                         <a href="#" class="favme fa fa-heart"></a>
                                     </div>
@@ -231,6 +233,11 @@
                                         <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
                                             alt="{{ $product->TenSP }}">
                                     </a>
+                                    @if ($product->isNew)
+                                        <div class="product-badge new-badge">
+                                            <span>New</span>
+                                        </div>
+                                    @endif
                                     <!-- Favourite -->
                                     <div class="product-favourite">
                                         <a href="#" class="favme fa fa-heart"></a>
@@ -291,6 +298,11 @@
                                         <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
                                             alt="{{ $product->TenSP }}">
                                     </a>
+                                    @if ($product->isNew)
+                                        <div class="product-badge new-badge">
+                                            <span>New</span>
+                                        </div>
+                                    @endif
                                     <!-- Favourite -->
                                     <div class="product-favourite">
                                         <a href="#" class="favme fa fa-heart"></a>
@@ -350,6 +362,11 @@
                                         <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
                                             alt="{{ $product->TenSP }}">
                                     </a>
+                                    @if ($product->isNew)
+                                        <div class="product-badge new-badge">
+                                            <span>New</span>
+                                        </div>
+                                    @endif
                                     <!-- Favourite -->
                                     <div class="product-favourite">
                                         <a href="#" class="favme fa fa-heart"></a>

@@ -22,9 +22,12 @@
                     <ul>
                         <li><a style="color: rgb(255, 255, 255);" href="#">Shop</a>
                             <ul class="dropdown">
-                                <li><a href="{{ asset('/kpop') }}">K-POP</a></li>
-                                <li><a href="{{ asset('/kgood') }}">K-GOODS</a></li>
-                                <li><a href="{{ asset('/poster') }}">POSTER</a></li>
+                                @foreach ($allCategoryProducts as $cate)
+                                    <li>
+                                        <a
+                                            href="{{ url('/listproduct/' . $cate->MaLoaiSP) }}">{{ $cate->TenLoaiSP }}</a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </li>
                         <li><a style="color: rgb(255, 255, 255);" href="#">Pages</a>
@@ -34,7 +37,7 @@
                                 <li><a href="{{ asset('/contact') }}">Contact</a></li>
                                 <li><a href="{{ asset('/about-us') }}">About Us</a></li>
                                 <li><a href="{{ asset('/new-arrival') }}">New Arrivals</a></li>
-                                 <li><a href="{{ asset('/pre-oders') }}">Pre-Order</a></li>
+                                <li><a href="{{ asset('/pre-oders') }}">Pre-Order</a></li>
                             </ul>
                         </li>
                         <li><a style="color: rgb(255, 255, 255);" href="{{ asset('/blog') }}">Blog</a></li>
