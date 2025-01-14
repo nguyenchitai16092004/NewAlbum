@@ -17,7 +17,7 @@ return new class extends Migration
             $table->decimal('TongTien', 10, 2);
             $table->boolean('PTTT')->default(1);
             $table->boolean('TrangThaiTT')->default(1);
-            $table->integer('TrangThai'); 
+            $table->integer('TrangThai')->default(0); 
             $table->string('DiaChi',255);
             $table->timestamps(); 
 
