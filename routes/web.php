@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\ContactAdminController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DiscountedProductController;
+use App\Http\Controllers\Admin\BillController;
 
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\User\HomeController;
@@ -121,8 +122,8 @@ Route::get('/single-blog/{MaBL}', [BlogController::class, 'show'])->name('single
 Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
 Route::post('/cart/update-note', [CartController::class, 'updateNote'])->name('cart.updateNote');
 
-Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
-Route::get('/order-history', [OrderController::class, 'orderHistory'])->name('order.history');
+// Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
+// Route::get('/order-history', [OrderController::class, 'orderHistory'])->name('order.history');
 
 
 Route::prefix('/admin')->group(function () {
@@ -184,17 +185,19 @@ Route::prefix('/admin')->group(function () {
     });
 
     //Route cho quản lý đội ngũ
-    Route::prefix(prefix: 'staff')->group(function () {
+    Route::prefix('staff')->group(function () {
         Route::view('/staff-management', 'backend.pages.staff.staff-management')->name('Index_Staff_Management');
         //Thêm 
         Route::view('/add-staff-management', 'backend.pages.staff.add-staff-management')->name('Index_Add_Staff_Management');
     });
 
     // Route cho quản lý hóa đơn
-    Route::prefix(prefix: 'bill-management')->group(function () {
-        Route::view('/bill-management', 'backend.pages.bill.bill-management')->name('Index_Bill_Management');
-        //Chi tiết
-        Route::view('/bill-detail-management', 'backend.pages.bill.bill-detail-management')->name('Index_Bill_Detail_Management');
+    Route::prefix('bill-management')->group(function () {
+        Route::get('/bill-management', [BillController::class, 'Index'])->name('Index_Bill_Management');
+        //Chi tiết hóa đơn
+        Route::view('/bill-detail-management/{id}', [BillController::class, 'Show'])->name('Index_Bill_Detail');
+        //Cập nhật trạng thái sản phẩm 
+        Route::view('/edit-bill',[BillController::class, 'Edit'])->name('Update_Bill');
     });
 
     // Route cho quản lý bình luận
@@ -204,7 +207,7 @@ Route::prefix('/admin')->group(function () {
     });
 
     //Route cho quản lý khách hàng
-    Route::prefix(prefix: 'customer')->group(function (): void {
+    Route::prefix('customer')->group(function (): void {
         Route::get('/customer', [CustomerController::class, 'index'])->name('customer.index');
         Route::delete('/customer/{id}', [CustomerController::class, 'destroy'])->name('customer.destroy');
         Route::patch('/customer/{id}/status', [CustomerController::class, 'updateStatus'])->name('customer.updateStatus');
@@ -234,7 +237,7 @@ Route::prefix('/admin')->group(function () {
     });
 
     //Route cho giao diện admin
-    Route::prefix(prefix: 'admin-profile')->group(function () {
+    Route::prefix('admin-profile')->group(function () {
         Route::view('/admin-profile', 'backend.pages.admin-profile.admin-profile')->name('Index_Admin_Profile');
         Route::view('/edit-admin-profile', 'backend.pages.admin-profile.edit-admin-profile')->name('Index_Edit_Admin_Profile');
     });

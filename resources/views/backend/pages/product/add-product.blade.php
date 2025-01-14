@@ -6,10 +6,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    
+
                     <div class="product-payment-inner-st">
                         <ul id="myTabedu1" class="tab-review-design">
-                            <li class="active; text-align: center; "><a href="#description" style="color: black;" >Add Product</a></li>
+                            <li class="active; text-align: center; "><a href="#description" style="color: black;">Add
+                                    Product</a></li>
                         </ul>
                         <!-- Add Product Form -->
                         <form action="{{ Route('Add_Product') }}" method="POST" enctype="multipart/form-data"
@@ -20,8 +21,8 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="TenSP">Product Name</label>
-                                        <input name="TenSP" type="text" class="form-control"
-                                            placeholder="Product Name" required>
+                                        <input name="TenSP" type="text" class="form-control" placeholder="Product Name"
+                                            required>
                                     </div>
                                     <div class="form-group">
                                         <label for="GiaNhap">Import Price</label>
@@ -69,7 +70,7 @@
 
                                     <div class="form-group">
                                         <label for="MaLoaiSP">Category</label>
-                                        <select name="MaLoaiSP" id="MaLoaiSP" class="form-control" >
+                                        <select name="MaLoaiSP" id="MaLoaiSP" class="form-control">
                                             @foreach ($Category as $item)
                                                 <option value="{{ $item->MaLoaiSP }}">{{ $item->TenLoaiSP }}</option>
                                             @endforeach
@@ -95,14 +96,22 @@
     <!-- JavaScript Validation -->
     <script>
         document.getElementById('addProductForm').addEventListener('submit', function(e) {
+            const form = e.target;
+
+            if (!form.checkValidity()) {
+                e.preventDefault();
+                form.reportValidity();
+            }
+
             const giaNhap = parseFloat(document.getElementById('GiaNhap').value);
             const giaBan = parseFloat(document.getElementById('GiaBan').value);
 
             if (giaNhap >= giaBan) {
-                e.preventDefault(); // Ngăn chặn gửi form
+                e.preventDefault();
                 alert('Import Price must be less than Selling Price!');
             }
         });
+
 
         // Xử lý khi đổi Product Type
         const productTypeSelect = document.querySelector('select[name="LoaiHang"]');

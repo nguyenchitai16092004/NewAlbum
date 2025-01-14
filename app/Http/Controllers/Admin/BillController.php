@@ -16,6 +16,15 @@ class BillController extends Controller
         return view('backend.pages.bill.bill-management', compact('HoaDon'));
     }
     public function Show($id){
-        //$ChiTietHoaDon = CHITIETHOADON::
+        $ChiTietHoaDon = CHITIETHOADON::where('MaHD' , '=' , $id)->get();
+
+        return view('backend.pages.bill.Bill-detail-management',compact('ChiTietHoaDon'));
+    }
+
+    public function Edit($id){
+        $HoaDon = HOADON::findOrFail($id);
+        $HoaDon->TrangThai = 1;
+        $HoaDon->save();
+        return view('backend.pages.bill.bill-detail-management',compact('ChiTietHoaDon'));
     }
 }
