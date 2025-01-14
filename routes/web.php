@@ -23,6 +23,8 @@ use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\SingleBlogController;
 use App\Http\Controllers\User\UserBillController;
+use App\Http\Controllers\User\WishlistController;
+
 use Illuminate\Support\Facades\Route;
 
 /*Route FE */
@@ -124,9 +126,12 @@ Route::get('/single-blog/{MaBL}', [BlogController::class, 'show'])->name('single
 Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
 Route::post('/cart/update-note', [CartController::class, 'updateNote'])->name('cart.updateNote');
 
-    Route::get('/hoa-don-history/{id}', [UserBillController::class, 'index'])->name('hoa_don_history');
-    Route::post('/hoa-don/cancel/{id}', [UserBillController::class, 'cancel'])->name('hoa-don.cancel');
+Route::get('/hoa-don-history/{id}', [UserBillController::class, 'index'])->name('hoa_don_history');
+Route::post('/hoa-don/cancel/{id}', [UserBillController::class, 'cancel'])->name('hoa-don.cancel');
 
+Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+Route::post('/wishlist', [WishlistController::class, 'store'])->name('wishlist.store');
+//Route::delete('/wishlist/{id}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
 // Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
 // Route::get('/order-history', [OrderController::class, 'orderHistory'])->name('order.history');
 
@@ -200,10 +205,7 @@ Route::prefix('/admin')->group(function () {
 
     // Route cho quản lý hóa đơn
     Route::prefix('bill-management')->group(function () {
-        Route::get('/bill-management', [BillController::class, 'Index'])->name('Index_Bill_Management');
-        //Chi tiết hóa đơn
-        Route::get('/bill-detail-management/{id}', [BillController::class, 'Show'])->name('Index_Bill_Detail');
-        //Cập nhật trạng thái sản phẩm 
+    
         Route::post('/edit-bill/{id}',[BillController::class, 'Edit'])->name('Update_Bill');
         Route::post('/canncel-bill/{id}',[BillController::class, 'Canncel'])->name('Canncel_Bill');
     });
