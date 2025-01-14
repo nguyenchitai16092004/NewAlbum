@@ -369,11 +369,16 @@
                                     @endif
                                     <!-- Favourite -->
                                     <div class="product-favourite">
-                                        <a href="#" class="favme fa fa-heart"></a>
+                                        <form action="{{ route('wishlist.store') }}" method="POST" id="wishlist">
+                                            @csrf
+                                            <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
+                                            <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
+                                            <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist').submit();"></a>
+                                        </form>
                                     </div>
                                 </div>
                                 <!-- Product Description -->
-                                <div class="product-description">
+                                <div class="product-description">   
                                     @if ($product->LoaiHang == 1)
                                         <div class="pre-oder-new-arrivals">
                                             <span>Pre&ndash;order</span>

@@ -41,4 +41,6 @@ class CHITIETHOADON extends Model
     {
         return $this->belongsTo(SanPham::class, 'MaSP', 'MaSP');
     }
+
+    
 }
