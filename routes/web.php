@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\ContactAdminController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DiscountedProductController;
+use App\Http\Controllers\Admin\BillController;
 
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\User\HomeController;
@@ -21,6 +22,8 @@ use App\Http\Controllers\User\SearchPaginationController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\SingleBlogController;
+use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\User\UserBillController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -40,9 +43,6 @@ Route::get('/blog', function () {
 Route::get('/blog', [BlogController::class, 'Index'])->name('Index_Blog');
 Route::get('/single-blog', function () {
     return view('frontend.pages.single-blog');
-});
-Route::get('/regular-page', function () {
-    return view('frontend.pages.regular-page');
 });
 Route::get('/about-us', [AboutUsController::class, 'aboutUs'])->name('about-us');
 
@@ -85,8 +85,14 @@ Route::get('/oder-history', function () {
 Route::get('/new-arrival', function () {
     return view('frontend.pages.new-arrival');
 });
-Route::get('/get-up-50', function () {
-    return view('frontend.pages.get-up-50');
+Route::get('/poster', function () {
+    return view('frontend.pages.poster');
+});
+Route::get('/kpop', function () {
+    return view('frontend.pages.kpop');
+});
+Route::get('/kgood', function () {
+    return view('frontend.pages.kgood');
 });
 Route::get('/pre-oders', function () {
     return view('frontend.pages.pre-oders');
@@ -117,6 +123,16 @@ Route::get('/blog', [SearchController::class, 'index'])->name('blog');
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
 Route::post('/contact-add', [ContactController::class, 'add'])->name('contact.add');
 Route::get('/single-blog/{MaBL}', [BlogController::class, 'show'])->name('single-blog');
+Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+Route::post('/cart/update-note', [CartController::class, 'updateNote'])->name('cart.updateNote');
+
+    Route::get('/hoa-don-history/{id}', [UserBillController::class, 'index'])->name('hoa_don_history');
+    Route::post('/hoa-don/cancel/{id}', [UserBillController::class, 'cancel'])->name('hoa-don.cancel');
+
+
+// Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
+// Route::get('/order-history', [OrderController::class, 'orderHistory'])->name('order.history');
+
 
 Route::prefix('/admin')->group(function () {
 
@@ -177,17 +193,19 @@ Route::prefix('/admin')->group(function () {
     });
 
     //Route cho quản lý đội ngũ
-    Route::prefix(prefix: 'staff')->group(function () {
+    Route::prefix('staff')->group(function () {
         Route::view('/staff-management', 'backend.pages.staff.staff-management')->name('Index_Staff_Management');
         //Thêm 
         Route::view('/add-staff-management', 'backend.pages.staff.add-staff-management')->name('Index_Add_Staff_Management');
     });
 
     // Route cho quản lý hóa đơn
-    Route::prefix(prefix: 'bill-management')->group(function () {
-        Route::view('/bill-management', 'backend.pages.bill.bill-management')->name('Index_Bill_Management');
-        //Chi tiết
-        Route::view('/bill-detail-management', 'backend.pages.bill.bill-detail-management')->name('Index_Bill_Detail_Management');
+    Route::prefix('bill-management')->group(function () {
+        Route::get('/bill-management', [BillController::class, 'Index'])->name('Index_Bill_Management');
+        //Chi tiết hóa đơn
+        Route::view('/bill-detail-management/{id}', [BillController::class, 'Show'])->name('Index_Bill_Detail');
+        //Cập nhật trạng thái sản phẩm 
+        Route::view('/edit-bill',[BillController::class, 'Edit'])->name('Update_Bill');
     });
 
     // Route cho quản lý bình luận
@@ -197,7 +215,7 @@ Route::prefix('/admin')->group(function () {
     });
 
     //Route cho quản lý khách hàng
-    Route::prefix(prefix: 'customer')->group(function (): void {
+    Route::prefix('customer')->group(function (): void {
         Route::get('/customer', [CustomerController::class, 'index'])->name('customer.index');
         Route::delete('/customer/{id}', [CustomerController::class, 'destroy'])->name('customer.destroy');
         Route::patch('/customer/{id}/status', [CustomerController::class, 'updateStatus'])->name('customer.updateStatus');
@@ -227,7 +245,7 @@ Route::prefix('/admin')->group(function () {
     });
 
     //Route cho giao diện admin
-    Route::prefix(prefix: 'admin-profile')->group(function () {
+    Route::prefix('admin-profile')->group(function () {
         Route::view('/admin-profile', 'backend.pages.admin-profile.admin-profile')->name('Index_Admin_Profile');
         Route::view('/edit-admin-profile', 'backend.pages.admin-profile.edit-admin-profile')->name('Index_Edit_Admin_Profile');
     });

@@ -12,12 +12,33 @@ class HomeController extends Controller
 {
     public function Index()
     {
-        $products = SANPHAM::all();
+        $allProducts = SANPHAM::where('TrangThai', 1)->get();
+        $allPreOderProducts = SANPHAM::where('TrangThai', 1)
+        ->where('LoaiHang',1)
+        ->get();
+        $allPosterProducts = SANPHAM::where('TrangThai', 1)
+        ->where('MaLoaiSP',3)
+        ->get();
+        $allKGoodsProducts = SANPHAM::where('TrangThai', 1)
+        ->where('MaLoaiSP', 2)
+        ->get();
+
+        $preOder3ProductsCol1 = SANPHAM::where('TrangThai', 1)
+            ->where('LoaiHang', 1)
+            ->take(3)
+            ->get();
+
+        $preOder3ProductsCol2 = SANPHAM::where('TrangThai', 1)
+            ->where('LoaiHang', 1)
+            ->skip(3) 
+            ->take(3) 
+            ->get();
+
         $cart = session()->get('cart', []);
-        // tổng slsp trong gh
         $totalQuantity = array_sum(array_column($cart, 'quantity'));
-        // thông tin trang web
+
         $thongtinlienlac = thongtinlienlac::first();
-        return view('frontend.pages.home', compact('products', 'totalQuantity', 'thongtinlienlac'));
+
+        return view('frontend.pages.home', compact('allProducts', 'preOder3ProductsCol1', 'preOder3ProductsCol2', 'totalQuantity', 'thongtinlienlac', 'allPreOderProducts', 'allPosterProducts', 'allKGoodsProducts'));
     }
 }

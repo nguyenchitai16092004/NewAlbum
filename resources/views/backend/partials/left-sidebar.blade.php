@@ -16,33 +16,34 @@
                         </a>
                     </li>
                     <li>
+                        <a class="" href="{{ Route('Index_Bill_Management') }}" aria-expanded="false">
+                            <span class="fa fa-file icon-wrap"></span>
+                            <span class="mini-click-non">Bill</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ Route('customer.index') }}" aria-expanded="false">
                             <span class="fa fa-users icon-wrap"></span>
                             <span class="mini-click-non">Customers</span>
                         </a>
                     </li>
                     <li>
-                        <a class="has-arrow" href="#" aria-expanded="false">
+                        <a class="" href="{{ Route('Index_Contact_Management') }}" aria-expanded="false">
                             <span class="fa fa-envelope icon-wrap"></span>
                             <span class="mini-click-non">Contact</span>
                         </a>
-                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false"><a href="{{ Route('Index_Contact_Management') }}"><span class="mini-sub-pro">Contact Management</span></a></ul>
                     </li>
                     <li>
-                        <a class="has-arrow" href="#" aria-expanded="false">
-                            <span class="fa fa-file icon-wrap"></span>
-                            <span class="mini-click-non">Bill</span>
+                        <a href="{{ asset('admin/statistic') }}" aria-expanded="false">
+                            <span class="fa fa-chart-bar icon-wrap"></span>
+                            <span class="mini-click-non">Statistics</span>
                         </a>
-                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li>
-                                <a href="{{ Route('Index_Bill_Management') }}"><span class="mini-sub-pro">Bill
-                                        Management</span></a>
-                            </li>
-                            <li>
-                                <a href="{{ Route('Index_Bill_Detail_Management') }}"><span class="mini-sub-pro">Bill
-                                        Detail Management</span></a>
-                            </li>
-                        </ul>
+                    </li>
+                    <li>
+                        <a href="{{ Route('comments.index') }}" aria-expanded="false">
+                            <span class="fa fa-comments icon-wrap"></span>
+                            <span class="mini-click-non">Comments</span>
+                        </a>
                     </li>
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false">
@@ -59,18 +60,6 @@
                                         Blog</span></a>
                             </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="{{ asset('admin/statistic') }}" aria-expanded="false">
-                            <span class="fa fa-chart-bar icon-wrap"></span>
-                            <span class="mini-click-non">Statistics</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ Route('comments.index') }}" aria-expanded="false">
-                            <span class="fa fa-comments icon-wrap"></span>
-                            <span class="mini-click-non">Comments</span>
-                        </a>
                     </li>
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false">
@@ -94,10 +83,22 @@
                             <span class="mini-click-non">Category</span>
                         </a>
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li><a href="{{ asset('admin/category') }}"><span class="mini-sub-pro">Category
+                            <li><a href="{{ Route('Index_Category') }}"><span class="mini-sub-pro">Category
                                         List</span></a></li>
-                            <li><a href="{{ asset('admin/add-category') }}"><span class="mini-sub-pro">Add
+                            <li><a href="{{ Route('Index_Add_Category') }}"><span class="mini-sub-pro">Add
                                         Category</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="#" aria-expanded="false">
+                            <span class="fa fa-microphone icon-wrap"></span>
+                            <span class="mini-click-non">Band/Singer</span>
+                        </a>
+                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
+                            <li><a href="{{ asset('admin/band-singer') }}"><span
+                                        class="mini-sub-pro">Band/Singer</span></a></li>
+                            <li><a href="{{ route('Index_Add_Band') }}"><span class="mini-sub-pro">Add
+                                        Band/Singer</span></a></li>
                         </ul>
                     </li>
                     <li>
@@ -108,19 +109,7 @@
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
                             <li><a href="{{ Route('Index_Product') }}"><span class="mini-sub-pro">Product
                                         List</span></a></li>
-                            <li><a href="{{ Route('Add_Product') }}"><span class="mini-sub-pro">Add
-                                        Product</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="#" aria-expanded="false">
-                            <span class="fa fa-tags icon-wrap"></span>
-                            <span class="mini-click-non">Discount Products </span>
-                        </a>
-                        <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li><a href="{{ Route('Index_Discount') }}"><span class="mini-sub-pro">Discount
-                                        List</span></a></li>
-                            <li><a href="{{ Route('Index_Add_Discount') }}"><span class="mini-sub-pro">Add Discount
+                            <li><a href="{{ Route('Add_Index_Product') }}"><span class="mini-sub-pro">Add
                                         Product</span></a></li>
                         </ul>
                     </li>
@@ -136,17 +125,16 @@
                                         Goods-Receipt</span></a></li>
                         </ul>
                     </li>
-
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false">
-                            <span class="fa fa-microphone icon-wrap"></span>
-                            <span class="mini-click-non">Band/Singer</span>
+                            <span class="fa fa-tags icon-wrap"></span>
+                            <span class="mini-click-non">Discount Products </span>
                         </a>
                         <ul class="submenu-angle chart-mini-nb-dp" aria-expanded="false">
-                            <li><a href="{{ asset('admin/band-singer') }}"><span
-                                        class="mini-sub-pro">Band/Singer</span></a></li>
-                            <li><a href="{{ route('Index_Add_Band') }}"><span class="mini-sub-pro">Add
-                                        Band/Singer</span></a></li>
+                            <li><a href="{{ Route('Index_Discount') }}"><span class="mini-sub-pro">Discount
+                                        List</span></a></li>
+                            <li><a href="{{ Route('Index_Add_Discount') }}"><span class="mini-sub-pro">Add Discount
+                                        Product</span></a></li>
                         </ul>
                     </li>
                     <li id="removable">

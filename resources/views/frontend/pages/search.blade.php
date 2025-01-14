@@ -44,7 +44,7 @@
                             class="product-image">
                         <div class="product-details">
                             <h2 class="product-title">{{ $product->TenSP }}</h2>
-                            <p class="product-price">{{ $product->GiaBan }}</p>
+                            <p class="product-price">{{ number_format($product->GiaBan) }} VND</p>
                             <div class="action-buttons">
                                 <button class="action-button add-to-cart">
                                     <i class="fa fa-shopping-cart"></i> Add to Cart

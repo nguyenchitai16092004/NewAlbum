@@ -148,11 +148,13 @@
                                                 </td>
                                             @endif
                                             <td>
+                                                @if ($item->TrangThai == 0)
                                                 <form action="{{ route('Accept_Contact', ['id' => $item->MaLH]) }}"
                                                     method="GET" class="d-inline">
                                                     <button class="btn btn-success btn-sm" data-toggle="tooltip"
                                                         title="Accept">Accept</button>
                                                 </form>
+                                                @endif
                                                 <form action="{{ route('Delete_Contact', ['id' => $item->MaLH]) }}"
                                                     method="POST" class="d-inline">
                                                     @csrf

@@ -6,7 +6,12 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
+
                     <div class="product-payment-inner-st">
+                        <ul id="myTabedu1" class="tab-review-design">
+                            <li class="active; text-align: center; "><a href="#description" style="color: black;">Add
+                                    Product</a></li>
+                        </ul>
                         <!-- Add Product Form -->
                         <form action="{{ Route('Add_Product') }}" method="POST" enctype="multipart/form-data"
                             class="dropzone dropzone-custom" id="addProductForm">
@@ -16,27 +21,27 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="TenSP">Product Name</label>
-                                        <input name="TenSP" type="text" class="form-control"
-                                            placeholder="Product Name">
+                                        <input name="TenSP" type="text" class="form-control" placeholder="Product Name"
+                                            required>
                                     </div>
                                     <div class="form-group">
                                         <label for="GiaNhap">Import Price</label>
                                         <input name="GiaNhap" id="GiaNhap" type="number" class="form-control"
-                                            min="0" placeholder="Import Price">
+                                            min="0" placeholder="Import Price" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="GiaBan">Selling Price</label>
                                         <input name="GiaBan" id="GiaBan" type="number" class="form-control"
-                                            min="0" placeholder="Selling Price">
+                                            min="0" placeholder="Selling Price" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="TieuDe">Title</label>
                                         <input name="TieuDe" type="text" class="form-control"
-                                            placeholder="Title Description">
+                                            placeholder="Title Description" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="MoTa">Description</label>
-                                        <textarea name="MoTa" class="form-control" placeholder="Description"></textarea>
+                                        <textarea name="MoTa" class="form-control" placeholder="Description" required></textarea>
                                     </div>
                                 </div>
                                 <!-- Right Column -->
@@ -44,7 +49,7 @@
                                     <div class="form-group">
                                         <label for="SoLuong">Quantity</label>
                                         <input name="SoLuong" type="number" class="form-control" min="0"
-                                            placeholder="Quantity">
+                                            placeholder="Quantity" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="LoaiHang">Product Type</label>
@@ -74,7 +79,7 @@
 
                                     <div class="form-group">
                                         <label for="HinhAnh">Image</label>
-                                        <input name="HinhAnh" type="file" class="form-control-file">
+                                        <input name="HinhAnh" type="file" class="form-control-file" required>
                                     </div>
                                 </div>
                             </div>
@@ -91,14 +96,22 @@
     <!-- JavaScript Validation -->
     <script>
         document.getElementById('addProductForm').addEventListener('submit', function(e) {
+            const form = e.target;
+
+            if (!form.checkValidity()) {
+                e.preventDefault();
+                form.reportValidity();
+            }
+
             const giaNhap = parseFloat(document.getElementById('GiaNhap').value);
             const giaBan = parseFloat(document.getElementById('GiaBan').value);
 
             if (giaNhap >= giaBan) {
-                e.preventDefault(); // Ngăn chặn gửi form
+                e.preventDefault();
                 alert('Import Price must be less than Selling Price!');
             }
         });
+
 
         // Xử lý khi đổi Product Type
         const productTypeSelect = document.querySelector('select[name="LoaiHang"]');
