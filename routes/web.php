@@ -201,11 +201,13 @@ Route::prefix('/admin')->group(function () {
 
     // Route cho quản lý hóa đơn
     Route::prefix('bill-management')->group(function () {
-    
+        Route::get('/bill-management', [BillController::class, 'Index'])->name('Index_Bill_Management');
+        //Chi tiết hóa đơn
+        Route::get('/bill-detail-management/{id}', [BillController::class, 'Show'])->name('Index_Bill_Detail');
+        //Cập nhật trạng thái sản phẩm 
         Route::post('/edit-bill/{id}',[BillController::class, 'Edit'])->name('Update_Bill');
         Route::post('/canncel-bill/{id}',[BillController::class, 'Canncel'])->name('Canncel_Bill');
-    });
-    Route::view('/bill-management', 'backend.pages.bill.bill-management')->name('Index_Bill_Management');
+    }); 
     // Route cho quản lý bình luận
     Route::prefix('comments')->group(function () {
         Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');

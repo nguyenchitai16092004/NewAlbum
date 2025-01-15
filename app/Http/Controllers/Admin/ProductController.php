@@ -14,20 +14,20 @@ class ProductController extends Controller
     // Hiện danh sách sản phẩm
     public function Index()
     {
-        $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
-            ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi')
-            ->where('SANPHAM.TrangThai', '=', 1)
+        $products = SANPHAM::leftJoin('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
+            ->leftJoin('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi')
+            ->where('SANPHAM.TrangThai', 1)
             ->select(
                 'SANPHAM.*',
                 'LOAISP.TenLoaiSP',
                 'NHOMNHACCASI.TenNhomNhacCaSi'
             )
             ->paginate(3);
-
-
-        return view('backend.pages.product.product', compact('products'));
+    
+        return view('backend.pages.product.product', [
+            'products' => $products
+        ]);
     }
-
     //Hiện chi tiết sản phẩm
     public function Show()
     {

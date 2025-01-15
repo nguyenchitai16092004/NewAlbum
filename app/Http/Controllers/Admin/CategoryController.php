@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\LOAISP;
+use App\Models\SANPHAM;
 
 use function Laravel\Prompts\search;
 
@@ -44,6 +45,9 @@ class CategoryController extends Controller
         $categories = LOAISP::findOrFail($id);
         $categories->TrangThai = 0;
         $categories->save();
+
+        SANPHAM::where('MaLoaiSP', '=', $id)->update(['MaLoaiSP' => null]);
+        
         return redirect()->route('Index_Category');
     }
 
