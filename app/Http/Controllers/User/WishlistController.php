@@ -42,10 +42,10 @@ class WishlistController extends Controller
         // Kiểm tra nếu sản phẩm đã có trong wishlist
         $exists = SANPHAMYEUTHICH::where('MaKH', $userId)
             ->where('MaSP', $request->MaSP)
-            ->exists();
+            ->first();
 
         if ($exists) {
-            return redirect()->back()->with('info', 'Product is already in your wishlist.');
+            return redirect()->back()->with('error', 'Product is already in your wishlist.');
         }
 
         // Thêm sản phẩm vào wishlist
@@ -60,17 +60,22 @@ class WishlistController extends Controller
         return redirect()->back()->with('success', 'Product added to wishlist successfully!');
     }
 
-    public function destroy($id)
+    public function destroy($id) // $id là MaSP
     {
-        $wishlist = SANPHAMYEUTHICH::findOrFail($id);
+        // Lấy userId từ session
+        $userId = session('User')['MaKH'];
 
-        // Kiểm tra nếu sản phẩm thuộc người dùng hiện tại
-        if (session()->get('User')['MaKH'] == $wishlist->MaKH) {
+        // Tìm sản phẩm trong wishlist của người dùng dựa trên MaKH và MaSP
+        $wishlist = SANPHAMYEUTHICH::where('MaKH', $userId)->where('MaSP', $id)->first();
+
+        if ($wishlist) {
+            // Xóa sản phẩm khỏi wishlist
             $wishlist->delete();
             return redirect()->back()->with('success', 'Product removed from wishlist.');
         }
 
-        return redirect()->back()->with('error', 'Unauthorized action.');
+        return redirect()->back()->with('error', 'Product not found in wishlist.');
     }
+
 
 }

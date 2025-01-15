@@ -169,9 +169,26 @@
                                             <span>New</span>
                                         </div>
                                     @endif
-                                    <div class="product-favourite">
-                                        <a href="#" class="favme fa fa-heart"></a>
-                                    </div>
+                                    <!-- Favourite -->
+                                    @php
+                                        $isInWishlist = \App\Models\SANPHAMYEUTHICH::where('MaKH', session('User')['MaKH'])
+                                                          ->where('MaSP', $product->MaSP)
+                                                          ->exists();
+                                    @endphp
+                                    @if ($isInWishlist)
+                                        <div class="product-favourite">
+                                            <a class="favme fa fa-heart"></a>
+                                        </div>
+                                    @else
+                                        <div class="product-favourite">
+                                            <form action="{{ route('wishlist.store') }}" method="POST" id="wishlist-{{ $product->MaSP }}">
+                                                @csrf
+                                                <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
+                                                <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
+                                                <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
+                                            </form>
+                                        </div>
+                                    @endif
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
@@ -239,9 +256,25 @@
                                         </div>
                                     @endif
                                     <!-- Favourite -->
-                                    <div class="product-favourite">
-                                        <a href="#" class="favme fa fa-heart"></a>
-                                    </div>
+                                    @php
+                                        $isInWishlist = \App\Models\SANPHAMYEUTHICH::where('MaKH', session('User')['MaKH'])
+                                                          ->where('MaSP', $product->MaSP)
+                                                          ->exists();
+                                    @endphp
+                                    @if ($isInWishlist)
+                                        <div class="product-favourite">
+                                            <a class="favme fa fa-heart"></a>
+                                        </div>
+                                    @else
+                                        <div class="product-favourite">
+                                            <form action="{{ route('wishlist.store') }}" method="POST" id="wishlist-{{ $product->MaSP }}">
+                                                @csrf
+                                                <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
+                                                <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
+                                                <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
+                                            </form>
+                                        </div>
+                                    @endif
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
@@ -304,9 +337,25 @@
                                         </div>
                                     @endif
                                     <!-- Favourite -->
-                                    <div class="product-favourite">
-                                        <a href="#" class="favme fa fa-heart"></a>
-                                    </div>
+                                    @php
+                                        $isInWishlist = \App\Models\SANPHAMYEUTHICH::where('MaKH', session('User')['MaKH'])
+                                                          ->where('MaSP', $product->MaSP)
+                                                          ->exists();
+                                    @endphp
+                                    @if ($isInWishlist)
+                                        <div class="product-favourite">
+                                            <a class="favme fa fa-heart"></a>
+                                        </div>
+                                    @else
+                                        <div class="product-favourite">
+                                            <form action="{{ route('wishlist.store') }}" method="POST" id="wishlist-{{ $product->MaSP }}">
+                                                @csrf
+                                                <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
+                                                <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
+                                                <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
+                                            </form>
+                                        </div>
+                                    @endif
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
@@ -353,7 +402,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="pre-oders-product owl-carousel">
+                    < class="pre-oders-product owl-carousel">
                         @foreach ($allPosterProducts as $product)
                             <div class="single-product-wrapper">
                                 <!-- Product Image -->
@@ -368,14 +417,25 @@
                                         </div>
                                     @endif
                                     <!-- Favourite -->
-                                    <div class="product-favourite">
-                                        <form action="{{ route('wishlist.store') }}" method="POST" id="wishlist-{{ $product->MaSP }}">
-                                            @csrf
-                                            <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
-                                            <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
-                                            <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
-                                        </form>
-                                    </div>
+                                    @php
+                                        $isInWishlist = \App\Models\SANPHAMYEUTHICH::where('MaKH', session('User')['MaKH'])
+                                                          ->where('MaSP', $product->MaSP)
+                                                          ->exists();
+                                    @endphp
+                                    @if ($isInWishlist)
+                                        <div class="product-favourite">
+                                            <a class="favme fa fa-heart"></a>
+                                        </div>
+                                    @else
+                                        <div class="product-favourite">
+                                            <form action="{{ route('wishlist.store') }}" method="POST" id="wishlist-{{ $product->MaSP }}">
+                                                @csrf
+                                                <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
+                                                <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
+                                                <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
+                                            </form>
+                                        </div>
+                                    @endif
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">   
