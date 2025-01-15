@@ -29,26 +29,24 @@ class CategoryController extends Controller
     //Thêm loại sản phẩm
     public function Add(Request $request)
     {
-        $sp = LOAISP::where('TrangThai', '=', 1)
-            ->where('TenLoaiSP', 'LIKE', $request->input('TenLoaiSP'));
-    
-        if ($sp->count() == 0) {
+        $sp = LOAISP::where('TrangThai', '=', 1)->where('TenLoaiSP' , 'LIKE' , $request->input('TenLoaiSP'));
+
+        if( $sp->count() == 0){
             $slug = Str::slug($request->TenLoaiSP, '-');
             $request->validate([
                 'TenLoaiSP' => 'required|string|max:255',
-                'Slug' => 'required|string|max:255',
+                'Slug'=> 'requied|string|max:255'
             ]);
     
             $categories = new LOAISP();
-            $categories->TenLoaiSP = $request->input('TenLoaiSP');
+            $categories->TenloaiSP = $request->input('TenLoaiSP');
             $categories->Slug = $slug;
             $categories->save();
     
-            return redirect()->route('Index_Category')
-                ->with('success', 'Danh mục sản phẩm đã được thêm thành công!');
-        } else {
-            return redirect()->route('Index_Category')
-                ->with('error', 'Danh mục này đã tồn tại!');
+            return redirect()->route('Index_Category')->with('success','add successful product categories');
+        }
+        else{
+            return redirect()->route('Index_Category')->with('error','This category already exists');
         }
     }
     
@@ -62,16 +60,18 @@ class CategoryController extends Controller
 
         SANPHAM::where('MaLoaiSP', '=', $id)->update(['MaLoaiSP' => null]);
         
-        return redirect()->route('Index_Category');
+        return redirect()->route('Index_Category')->with('error','Delete category successfully');
     }
 
     //Sửa loại sản phẩm
     public function Edit(Request $request, $id)
     {
+        $slug = Str::slug($request->input('TenloaiSP'), '-');
         $categories = LOAISP::findOrFail($id);
         $categories->TenloaiSP = $request->input('TenloaiSP');
+        $categories->Slug = $slug;
         $categories->save();
-        return redirect()->route('Index_Category');
+        return redirect()->route('Index_Category')->with('success','Update category successfully');
     }
 
     //Tìm kiếm sản phẩm

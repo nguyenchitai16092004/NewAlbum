@@ -30,6 +30,7 @@ class DashboardController extends Controller
          $productStats = DB::table('LOAISP')
             ->leftjoin('SANPHAM', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
             ->select('LOAISP.TenLoaiSP', DB::raw('COUNT(SANPHAM.MaSP) as SoLuong'))
+            ->where('LOAISP.TrangThai' , '=' , 1)
             ->groupBy('LOAISP.TenLoaiSP')
             ->get();
         // Truyền dữ liệu vào view

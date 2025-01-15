@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/css/custom-style-dashboard.css">
 
     <div class="analytics-sparkle-area">
-        <h1>Statistics</h1>
+        <h1>Dashboard</h1>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
