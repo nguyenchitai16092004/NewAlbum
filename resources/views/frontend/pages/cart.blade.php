@@ -24,9 +24,9 @@
                 @if ($cart->count())
                     @foreach ($cart as $id => $item)
                         <tr>
-                            <td><a href="{{ asset('/single-product-detail') }}"><img src="{{ $item['image'] }}"
+                            <td><a href="{{ url('single-product-details/' . $id) }}"><img src="{{ $item['image'] }}"
                                         alt="{{ $item['name'] }}"></a></td>
-                            <td> <a href="{{ asset('/single-product-detail') }}">
+                            <td> <a href="{{ url('single-product-details/' . $id) }}">
                                     <h6>{{ $item['name'] }}</h6>
                                 </a></td>
                             <td class="price">{{ number_format($item['price']) }} VND</td>
@@ -115,9 +115,9 @@
         <div class="row">
             @foreach ($recommendedProducts as $product)
                 <div class="product">
-                    <a href="{{ asset('/single-product-detail') }}"><img
+                    <a href="{{ url('single-product-details/' . $product->MaSP) }}"><img
                             src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}" alt="{{ $product->TenSP }}"></a>
-                    <a href="{{ asset('/single-product-detail') }}">
+                    <a href="{{ url('single-product-details/' . $product->MaSP) }}">
                         <p>{{ $product->TenSP }}</p>
                     </a>
                     <span class="price">{{ number_format($product->GiaBan) }} VND</span>

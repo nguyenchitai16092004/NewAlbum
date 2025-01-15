@@ -43,21 +43,32 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
-        $product = $request->all(); // đọc dlsp từ request
+        $product = $request->all(); // Lấy thông tin sản phẩm từ request
         $cart = session()->get('cart', []);
-        if (isset($cart[$product['id']])) { // ktra sp đã có trong gh chưa
-            $cart[$product['id']]['quantity']++; // tăng 1 nếu đã có
+
+        // Nếu không có số lượng được gửi từ request, mặc định là 1
+        $quantity = isset($product['quantity']) && $product['quantity'] > 0 ? $product['quantity'] : 1;
+
+        if (isset($cart[$product['id']])) {
+            // Tăng số lượng nếu sản phẩm đã có trong giỏ
+            $cart[$product['id']]['quantity'] += $quantity;
         } else {
+            // Thêm sản phẩm mới vào giỏ hàng
             $cart[$product['id']] = [
                 "name" => $product['name'],
-                "quantity" => 1,
+                "quantity" => $quantity, // Sử dụng số lượng đã kiểm tra
                 "price" => $product['price'],
-                "image" =>  $product['image']
+                "image" => $product['image']
             ];
         }
-        session()->put('cart', $cart); // update lại gh trong session
+
+        // Lưu lại giỏ hàng trong session
+        session()->put('cart', $cart);
+
         return response()->json(['success' => true, 'cart' => $cart]);
     }
+
+
 
     public function removeFromCart(Request $request)
     {

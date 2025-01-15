@@ -186,6 +186,7 @@
 .card-text{
     font-weight: bold;
     color: black;
+    font-size: 20px;
 }
  .hover-content {
     position: absolute;
