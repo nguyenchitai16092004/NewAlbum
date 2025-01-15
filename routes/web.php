@@ -86,7 +86,7 @@ Route::get('/poster', function () {
 Route::get('/kpop', function () {
     return view('frontend.pages.kpop');
 });
-
+Route::view('/bill-management', 'backend.pages.bill.bill-management')->name('Index_Bill_Management');
 
 Route::get('/listproduct/{id}', [ProductUserController::class, 'listByCategory'])->name('listproduct');
 

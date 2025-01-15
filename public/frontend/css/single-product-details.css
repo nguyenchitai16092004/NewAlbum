@@ -1,5 +1,4 @@
 .container-product {
-    display: flex;
     flex-wrap: wrap;
     padding: 20px;
 }
@@ -74,15 +73,36 @@
 .status-price {
     margin-bottom: 20px;
 }
-
 .quantity input {
-    width: 50px;
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
+    width: 110px;
+    height: 40px;
+    margin: 0 auto;
+    border: none;
+    background-color: #fff8f3;
+    margin-bottom: 10px;
+    outline: none;
+    text-align: center;
+    display: block;
 }
 
-.add-to-cart {
+.quantity {
+    border: 1px solid black;
+    display: flex;
+    width: 230px;
+    height: 44px;
+    margin-bottom: 28px;
+    border-radius: 2px;
+}
+.btn-minus, .btn-plus{
+    background-color: #fff8f3;
+    color: #000;
+}
+.btn-minus:hover, .btn-plus:hover{
+    background-color: #000;
+    color: white;
+    border-radius: 2px;
+}
+.add-to-cart-btn {
     display: inline-block;
     padding: 10px 20px;
     background-color: #000000;
@@ -94,7 +114,7 @@
     margin-bottom: 10px;
 }
 
-.add-to-cart:hover {
+.add-to-cart-btn:hover {
     background-color: #000000;
 }
 
@@ -121,6 +141,12 @@
 
 .description-section {
     text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
@@ -166,7 +192,9 @@
 }
 
 .more-button:hover {
-    background-color: #333;
+    transform: scale(1.05) translateY(-2px);
+    transition: transform 0.2s ease;
+    background-color: #000;
 }
 
 /* General Styling for the Review Section */
@@ -176,10 +204,34 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
-    max-width: 800px;
     margin: 20px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 800px;
+    height: 450px;
+}
+.review-section-comment {
+    font-family: "Arial", sans-serif;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 70vw;
+    height: auto;
+}
+
+.ctn-comment {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.btn-comment:hover {
+    transform: scale(1.05) translateY(-2px);
+    transition: transform 0.2s ease;
+    background-color: #000;
 }
 
 /* Review Section Heading */
@@ -271,12 +323,6 @@ textarea:hover,
     align-items: center;
     justify-content: space-between;
     margin-bottom: 15px;
-}
-
-.review-header span {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #333;
 }
 
 .filter-controls {
@@ -417,47 +463,11 @@ textarea:hover,
 }
 
 /* Review Header Section */
-.review-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
-}
-
 .review-header span {
     font-size: 1rem;
     font-weight: bold;
     color: #333;
-}
-
-.filter-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.filter-controls label {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-.filter-controls select {
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-.filter-controls select:focus {
-    border-color: #ff9800;
-    box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
-}
-.product-recommendation {
-    display: block;
-    clear: both;
-    margin-top: 20px;
+    font-size: 25px;
 }
 
 /* Styling cụ thể cho sản phẩm */
@@ -476,12 +486,14 @@ textarea:hover,
     text-align: center;
     max-width: 300px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
 }
 
 .product-card img {
     border-radius: 8px;
     margin-bottom: 10px;
     width: 300px;
+    height: 280px;
 }
 
 .product-card p {
@@ -494,15 +506,52 @@ textarea:hover,
     font-size: 1rem;
     color: #000;
 }
-/* Đảm bảo review-section nằm trên và product-recommendation nằm dưới */
-.review-section2,
-.product-recommendation {
-    display: block;
-    margin: 20px auto;
-    clear: both;
+.review-section2 {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-/* Sắp xếp riêng phần product-recommendation */
-.product-recommendation {
-    margin-top: 40px;
+.comment-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.comment-item:last-child {
+    border-bottom: none;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.comment-author {
+    font-size: 1rem;
+}
+
+.comment-date {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.comment-body {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.comment-rating {
+    font-size: 0.9rem;
+    color: #ff9800;
+    font-weight: bold;
+}
+.ctn-rating {
+    display: flex;
 }
