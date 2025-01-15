@@ -30,14 +30,16 @@
                         <h2 class="product-title">{{ $wishlist->product->TenSP }}</h2>
                         <p class="product-price">${{ number_format($wishlist->product->GiaBan, 2) }}</p>
                         <div class="action-buttons">
-                            <form action="{{ route('add.to.cart') }}" method="POST" class="inline-form">
-                                @csrf
-                                <input type="hidden" name="MaSP" value="{{ $wishlist->product->MaSP }}">
-                                <button class="action-button add-to-cart" type="submit">
+                            <div class="hover-content">
+                                <!-- Add to Cart -->
+                                <button class="btn essence-btn add-to-cart-btn action-button add-to-cart" data-id="{{ $wishlist->product->MaSP }}"
+                                    data-name="{{ $wishlist->product->TenSP }}" data-price="{{ $wishlist->product->GiaBan }}"
+                                    data-image="{{ asset('Storage/SanPham/' . $wishlist->product->HinhAnh) }}"
+                                    data-slug="{{ $wishlist->product->Slug }}">
                                     <i class="fa fa-shopping-cart"></i>
                                     Add to Cart
                                 </button>
-                            </form>
+                            </div>
                             <form action="{{ route('wishlist.delete', ['id' => $wishlist->product->MaSP]) }}" method="POST"
                                 class="inline-form">
                                 @csrf
@@ -67,4 +69,51 @@
         <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
     </ul>
 </nav>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const productId = this.dataset.id;
+                const productName = this.dataset.name;
+                const productPrice = this.dataset.price;
+                const productImage = this.dataset.image;
+                const productSlug = this.dataset.slug;
+
+                fetch("{{ route('add.to.cart') }}", {
+                    // gửi yc đến cart
+                    method: "POST",
+                    headers: {
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                        "Content-Type": "application/json" // khai báo dl là json
+                    },
+                    body: JSON.stringify({
+                        // chuyển dl sang json
+                        id: productId,
+                        name: productName,
+                        price: productPrice,
+                        image: productImage,
+                        slug: productSlug,
+                    })
+                })
+                    .then(response => response.json())
+                    // trả phản hồi json-> js
+
+                    .then(data => {
+                        if (data.success) {
+                            const cartQuantity = document.querySelector(
+                                '.header-meta .favourite-area span');
+                            if (cartQuantity) {
+                                cartQuantity.textContent = Object.values(data.cart).reduce((
+                                    total, item) => total + item.quantity, 0);
+                                // cập nhật slsp trong gh lên header.
+                            }
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+        });
+    });
+</script>
 @stop
