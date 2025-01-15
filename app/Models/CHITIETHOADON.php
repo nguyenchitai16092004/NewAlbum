@@ -36,11 +36,4 @@ class CHITIETHOADON extends Model
         return $this->belongsTo(HoaDon::class, 'MaHD', 'MaHD');
     }
 
-    // Liên kết với bảng SANPHAM
-    public function sanPham()
-    {
-        return $this->belongsTo(SanPham::class, 'MaSP', 'MaSP');
-    }
-
-    
 }

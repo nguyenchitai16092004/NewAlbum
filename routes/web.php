@@ -22,7 +22,7 @@ use App\Http\Controllers\User\SearchPaginationController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\SingleBlogController;
-use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\User\OrderController;
 use App\Http\Controllers\User\ProductUserController;
 use App\Http\Controllers\User\UserBillController;
 use App\Http\Controllers\User\WishlistController;
