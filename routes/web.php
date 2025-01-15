@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ContactAdminController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DiscountedProductController;
 use App\Http\Controllers\Admin\BillController;
+use App\Http\Controllers\Admin\StatisticsController;
 
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\User\HomeController;
@@ -118,11 +119,14 @@ Route::delete('/wishlist/{id}', [WishlistController::class, 'destroy'])->name('w
 // Route::get('/order-history', [OrderController::class, 'orderHistory'])->name('order.history');
 Route::post('/checkout/place-order', [OrderController::class, 'placeOrder'])->name('checkout.placeOrder');
 
+
+
 Route::prefix('/admin')->group(function () {
 
     // Route cho trang dashboard
     Route::view('/', 'backend.pages.sign-in');
     Route::post('/login', [LoginController::class, 'Login'])->name('Login_Admin');
+    Route::get('/logout', [LoginController::class, 'Logout'])->name('Logout_Admin');
     Route::get('/dashboard', [DashboardController::class, 'editDashboard'])->name('dashboard.edit');
     Route::post('/dashboard/update', [DashboardController::class, 'updateDashboard'])->name('dashboard.update');
     // Route cho sản phẩm
@@ -191,9 +195,9 @@ Route::prefix('/admin')->group(function () {
         //Chi tiết hóa đơn
         Route::get('/bill-detail-management/{id}', [BillController::class, 'Show'])->name('Index_Bill_Detail');
         //Cập nhật trạng thái sản phẩm 
-        Route::post('/edit-bill/{id}',[BillController::class, 'Edit'])->name('Update_Bill');
-        Route::post('/canncel-bill/{id}',[BillController::class, 'Canncel'])->name('Canncel_Bill');
-    }); 
+        Route::post('/edit-bill/{id}', [BillController::class, 'Edit'])->name('Update_Bill');
+        Route::post('/canncel-bill/{id}', [BillController::class, 'Canncel'])->name('Canncel_Bill');
+    });
     // Route cho quản lý bình luận
     Route::prefix('comments')->group(function () {
         Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
@@ -247,5 +251,9 @@ Route::prefix('/admin')->group(function () {
         Route::get('/edit/{id}', [DiscountedProductController::class, 'Edit'])->name('Edit_Discount');
         // Xóa sản phẩm giảm giá
         Route::delete('/delete/{id}', [DiscountedProductController::class, 'Delete'])->name('Delete_Discount');
+    });
+    //Route trang thống kê
+    Route::prefix('Statistics')->group(function () {
+        Route::get('/Statistics-product', [StatisticsController::class, 'Index'])->name('Index_Statistics_Category');
     });
 });

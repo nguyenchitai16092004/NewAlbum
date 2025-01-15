@@ -16,10 +16,14 @@ class LoginController extends Controller
 
         if ($auth) {
             session()->put('Admin', $auth->MaQL); 
-            return view('backend.pages.dashboard');  
+            return redirect()->route('dashboard.edit');
         } else {
             session()->flash('error', 'Nhập sai, vui lòng nhập lại');
             return view('backend.pages.sign-in');
         }
+    }
+    public function logout(){
+        session()->forget('Admin');
+        return view('backend.pages.sign-in');
     }
 }

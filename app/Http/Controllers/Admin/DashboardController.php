@@ -5,15 +5,37 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\thongtinlienlac; // Import model ThongTinLienLac
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     //Hiển thị form chỉnh sửa
     public function editDashboard()
     {
-        $contactInfo = thongtinlienlac::first(); // Lấy thông tin liên lạc
-        return view('backend.pages.dashboard', compact('contactInfo'));
+        // Lấy thông tin liên lạc
+        $contactInfo = thongtinlienlac::first();
+
+        // Thống kê số lượng đơn hàng trong tháng này
+        $donHangThangNay = DB::table('HOADON')
+            ->whereMonth('created_at', now()->month)
+            ->whereYear('created_at', now()->year)
+            ->count();
+
+        // Thống kê số lượng người dùng đã đăng ký trong tháng này
+        $nguoiDungThangNay = DB::table('KHACHHANG')
+            ->whereMonth('created_at', now()->month)
+            ->whereYear('created_at', now()->year)
+            ->count();
+
+         $productStats = DB::table('LOAISP')
+            ->leftjoin('SANPHAM', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
+            ->select('LOAISP.TenLoaiSP', DB::raw('COUNT(SANPHAM.MaSP) as SoLuong'))
+            ->groupBy('LOAISP.TenLoaiSP')
+            ->get();
+        // Truyền dữ liệu vào view
+        return view('backend.pages.dashboard', compact('contactInfo', 'donHangThangNay', 'nguoiDungThangNay' , 'productStats' ));
     }
+
 
 
     public function updateDashboard(Request $request)
@@ -47,5 +69,4 @@ class DashboardController extends Controller
 
         return redirect()->route('dashboard.edit')->with('success', 'The information was updated successfully!');
     }
-
 }

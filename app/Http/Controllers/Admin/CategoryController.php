@@ -29,19 +29,29 @@ class CategoryController extends Controller
     //Thêm loại sản phẩm
     public function Add(Request $request)
     {
-        $slug = Str::slug($request->TenLoaiSP, '-');
-        $request->validate([
-            'TenLoaiSP' => 'required|string|max:255',
-            'Slug'=> 'requied|string|max:255'
-        ]);
-
-        $categories = new LOAISP();
-        $categories->TenloaiSP = $request->input('TenLoaiSP');
-        $categories->Slug = $slug;
-        $categories->save();
-
-        return redirect()->route('Index_Category');
+        $sp = LOAISP::where('TrangThai', '=', 1)
+            ->where('TenLoaiSP', 'LIKE', $request->input('TenLoaiSP'));
+    
+        if ($sp->count() == 0) {
+            $slug = Str::slug($request->TenLoaiSP, '-');
+            $request->validate([
+                'TenLoaiSP' => 'required|string|max:255',
+                'Slug' => 'required|string|max:255',
+            ]);
+    
+            $categories = new LOAISP();
+            $categories->TenLoaiSP = $request->input('TenLoaiSP');
+            $categories->Slug = $slug;
+            $categories->save();
+    
+            return redirect()->route('Index_Category')
+                ->with('success', 'Danh mục sản phẩm đã được thêm thành công!');
+        } else {
+            return redirect()->route('Index_Category')
+                ->with('error', 'Danh mục này đã tồn tại!');
+        }
     }
+    
 
     //Xóa loại sản phẩm
     public function Delete($id)

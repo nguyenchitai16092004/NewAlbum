@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class KhachHang extends Model
+class KHACHHANG extends Model
 {
     //sử dụng SoftDelelte
     use SoftDeletes;

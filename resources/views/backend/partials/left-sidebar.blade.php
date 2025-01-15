@@ -34,7 +34,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ asset('admin/statistic') }}" aria-expanded="false">
+                        <a href="{{ route('Index_Statistics_Category') }}" aria-expanded="false">
                             <span class="fa fa-chart-bar icon-wrap"></span>
                             <span class="mini-click-non">Statistics</span>
                         </a>
@@ -138,13 +138,10 @@
                         </ul>
                     </li>
                     <li id="removable">
-                        <a class="has-arrow" href="#" aria-expanded="false">
+                        <a  href="{{route('Logout_Admin')}}" aria-expanded="false">
                             <span class="educate-icon educate-pages icon-wrap"></span>
                             <span class="mini-click-non">Pages</span>
                         </a>
-                        <ul class="submenu-angle page-mini-nb-dp" aria-expanded="false">
-                            <li><a href="{{ asset('admin/login') }}"><span class="mini-sub-pro">Login</span></a></li>
-                        </ul>
                     </li>
                 </ul>
             </nav>
