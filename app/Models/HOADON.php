@@ -30,7 +30,7 @@ class HOADON extends Model
 
     public function chiTietHoaDons()
     {
-        return $this->hasMany(ChiTietHoaDon::class, 'MaHD', 'MaHD');
+        return $this->hasMany(CHITIETHOADON::class, 'MaHD', 'MaHD');
     }
     
 }

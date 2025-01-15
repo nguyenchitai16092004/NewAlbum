@@ -126,12 +126,20 @@ class CartController extends Controller
         return response()->json(['success' => true]);
     }
 
-    public function checkout()
+        public function checkout()
     {
+        if (!session()->has('User')) {
+            return redirect()->route('cart.index')->with('error', 'Please sign in to complete your purchase'); // Redirect to login
+        }
+
         $cart = session()->get('cart', []);
         $cartTotal = array_sum(array_map(function ($item) {
             return $item['price'] * $item['quantity'];
         }, $cart));
+
+        if (empty($cart)) { // Check if the cart is empty
+            return redirect()->route('cart')->with('error', 'Your cart is empty.'); // Redirect to cart if empty
+        }
 
         return view('frontend.pages.checkout', [
             'cart' => $cart,
