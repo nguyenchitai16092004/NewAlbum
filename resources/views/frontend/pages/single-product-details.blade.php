@@ -112,9 +112,34 @@
                         </div>
                     </div>
                 @endforeach
-                <div class="pagination-links">
-                    {{ $commentProducts->links() }}
+                <div class="d-flex justify-content-center mt-4 pagination-container">
+                    <nav>
+                        <ul class="pagination">
+                            {{-- Nút Prev --}}
+                            <li class="page-item {{ $commentProducts->onFirstPage() ? 'disabled' : '' }}">
+                                <a class="page-link" href="{{ $commentProducts->previousPageUrl() ?? '#' }}"
+                                    tabindex="-1">
+                                    <i class="fa-solid fa-angle-left"></i>
+                                </a>
+                            </li>
+
+                            {{-- Các số trang --}}
+                            @for ($i = 1; $i <= $commentProducts->lastPage(); $i++)
+                                <li class="page-item {{ $i == $commentProducts->currentPage() ? 'active' : '' }}">
+                                    <a class="page-link" href="{{ $commentProducts->url($i) }}">{{ $i }}</a>
+                                </li>
+                            @endfor
+
+                            {{-- Nút Next --}}
+                            <li class="page-item {{ $commentProducts->hasMorePages() ? '' : 'disabled' }}">
+                                <a class="page-link" href="{{ $commentProducts->nextPageUrl() ?? '#' }}">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
+
             </div>
         </div>
     </div>
