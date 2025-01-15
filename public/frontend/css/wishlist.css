@@ -167,7 +167,6 @@
     justify-content: center;
 }
 .action-button {
-    padding: 15px 15px;
     background-color: #000;
     color: #fff;
     border: none;
@@ -178,6 +177,7 @@
     align-items: center;
     gap: 5px;
     font-family: inherit;
+    white-space: nowrap;
 }
 
 .action-button:hover {

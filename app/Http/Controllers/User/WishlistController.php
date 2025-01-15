@@ -60,21 +60,14 @@ class WishlistController extends Controller
         return redirect()->back()->with('success', 'Product added to wishlist successfully!');
     }
 
-    public function destroy($id) // $id là MaSP
+    public function delete($id)
     {
-        // Lấy userId từ session
         $userId = session('User')['MaKH'];
 
-        // Tìm sản phẩm trong wishlist của người dùng dựa trên MaKH và MaSP
-        $wishlist = SANPHAMYEUTHICH::where('MaKH', $userId)->where('MaSP', $id)->first();
+        $wishlist = SANPHAMYEUTHICH::where('MaKH', $userId)->where('MaSP', $id)->delete();
 
-        if ($wishlist) {
-            // Xóa sản phẩm khỏi wishlist
-            $wishlist->delete();
-            return redirect()->back()->with('success', 'Product removed from wishlist.');
-        }
+        return redirect()->back()->with('success', 'Product removed from wishlist.');
 
-        return redirect()->back()->with('error', 'Product not found in wishlist.');
     }
 
 
