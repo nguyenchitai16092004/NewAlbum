@@ -1,60 +1,72 @@
 @extends('backend.layouts.master')
-@section('title', 'Quản lý phiếu nhập')
+@section('This page is Add Library', 'Add Library')
 @section('main')
-<div class="product-status mg-b-15">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="product-status-wrap drp-lst">
-                    <h4>Goods-Receipt-List</h4>
-                    <div class="add-product">
-                        {{-- <a href="{{ route('') }}">Thêm phiếu nhập</a> --}}
-                    </div>
-                    <div class="asset-inner">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Import ID</th>
-                                    <th>Import Name</th>
-                                    <th>Total Amount</th>
-                                    <th>Import Date</th>
-                                    <th>Update Date</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($goods as $item)
-                                <tr>
-                                    <td>{{ $item->MaPN }}</td>
-                                    <td>{{ number_format($item->TongTien, 2) }} đ</td>
-                                    <td>{{ $item->NgayNhap }}</td>
-                                    <td>{{ $item->NgayCapNhat }}</td>
-                                    <td>
-                                        <button class="btn {{ $item->TrangThai ? 'btn-success' : 'btn-danger' }}">
-                                            {{ $item->TrangThai ? 'Hoạt động' : 'Không hoạt động' }}
+    <div class="product-status mg-b-15">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="product-status-wrap drp-lst">
+                        <h4>Edit Discounted List</h4>
+                        <div class="product-status-wrap drp-lst">
+                            <div class="search-container mb-3">
+                                <div class="input-group" style="width: 250px; display: flex; align-items: center;padding-bottom:10px ">
+                                    <input type="text" class="form-control" placeholder="Search Product"
+                                        style="border-radius: 10px 0 0 10px;">
+
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" style="height: 40px;" type="button">
+                                            <i class="fa fa-search"></i>
                                         </button>
-                                    </td>
-                                    <td>{{ $item->MaQL }}</td>
-                                    <td>
-                                        <a href="{{ route('phieu-nhap.edit', $item->MaPN) }}" class="btn btn-primary" data-toggle="tooltip" title="Chỉnh sửa">
-                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                        </a>
-                                        <form action="{{ route('phieu-nhap.destroy', $item->MaPN) }}" method="POST" style="display:inline-block;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" data-toggle="tooltip" title="Xóa" onclick="return confirm('Bạn có chắc chắn muốn xóa phiếu nhập này?');">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                    </div>
+                                </div>
+                                <div class="asset-inner">
+                                    <table>
+                                        <tr>
+
+                                            <th>ID</th>
+                                            <th>Product Name</th>
+                                            <th>Category</th>
+                                            <th>Quantity</th>
+                                            <th>Selling price</th>
+                                            <th>Acction</th>
+                                        </tr>
+                                        {{-- @foreach ($Products as $item)
+                                            <tr>
+                                                <td>{{ $item->MaSP }}</td>
+                                                <td>{{ $item->TenSP }}</td>
+                                                <td>{{ $item->TenLoaiSP }}</td>
+                                                <td>{{ $item->SoLuong }}</td>
+                                                <td>{{ $item->GiaBan }}</td>
+                                                <td>{{ $item->MoTa }}</td>
+                                                <td>
+                                                    <form
+                                                        action="{{ route('Delete_Category', ['id' => $item->MaSP]) }}"method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button data-toggle="tooltip" title="Xóa" class="pd-setting-ed">
+                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach --}}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <form action="{{ Route('Index_Discount') }}" style=" display: flex ; justify-content: flex-end; align-items: flex-end;">
+                            <div class="mb-3">
+                                <label for="discount" class="form-label">Percentage Discount</label>
+                                <input type="number" id="discount" name="discount" class="form-control" placeholder="Enter discount percentage" pattern="" required>
+                            </div>
+                            <div class="text-end">
+                                <button type="submit" class="btn-bottom-right">Apply Discount</button>
+                            </div>
+                        </form>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @stop

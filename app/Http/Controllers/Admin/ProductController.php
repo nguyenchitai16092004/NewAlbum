@@ -41,21 +41,26 @@ class ProductController extends Controller
 
     public function Show_Edit($id)
     {
-        $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
-            ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi')
-            ->where('SANPHAM.MaSP', '=', $id)
+        $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP', 'left')
+            ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi', 'left')
+            ->where(function($query) use ($id) {
+                $query->where('SANPHAM.MaSP', '=', $id)
+                      ->whereNull('SANPHAM.MaLoaiSP')
+                      ->orWhereNull('SANPHAM.MaNhomNhacCaSi');
+            })
             ->select('SANPHAM.*', 'LOAISP.TenLoaiSP', 'NHOMNHACCASI.TenNhomNhacCaSi')
             ->first();
-
+    
         $NhomNhacCaSi = NHOMNHACCASI::all();
         $LoaiSP = LOAISP::all();
-
+    
         return view('backend.pages.product.edit-product', [
             'products' => $products,
             'Band' => $NhomNhacCaSi,
             'Category' => $LoaiSP,
         ]);
     }
+    
 
     public function Add(Request $request)
     {

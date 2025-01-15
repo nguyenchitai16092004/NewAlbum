@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Discounted List')
+@section('This page is Home Admin', 'Home Admin')
 @section('main')
     <div class="product-status mg-b-15">
         <div class="container-fluid">
