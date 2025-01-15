@@ -369,11 +369,11 @@
                                     @endif
                                     <!-- Favourite -->
                                     <div class="product-favourite">
-                                        <form action="{{ route('wishlist.store') }}" method="POST" id="wishlist">
+                                        <form action="{{ route('wishlist.store') }}" method="POST" id="wishlist-{{ $product->MaSP }}">
                                             @csrf
                                             <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
                                             <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
-                                            <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist').submit();"></a>
+                                            <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
                                         </form>
                                     </div>
                                 </div>
@@ -399,7 +399,7 @@
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                            @endforeach
                     </div>
                 </div>
             </div>

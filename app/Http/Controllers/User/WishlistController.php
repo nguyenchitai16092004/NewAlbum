@@ -12,32 +12,49 @@ class WishlistController extends Controller
 {
     public function index()
     {
-        $wishlists = SANPHAMYEUTHICH::where('MaKH', session()->get('User'))->get();
+        if (!session()->has('User')) {
+            return redirect()->back()->with('error', 'Please log in to access your wishlist.');
+        }
+
+        $userId = session('User')['MaKH'];
+        $wishlists = SANPHAMYEUTHICH::where('MaKH', $userId)->get();
 
         foreach ($wishlists as $wishlist) {
-        $wishlist->product = SANPHAM::find($wishlist->MaSP); 
-    }
+            $wishlist->product = SANPHAM::find($wishlist->MaSP);
+        }
+
         return view('frontend.pages.wishlist', compact('wishlists'));
     }
 
     public function store(Request $request)
     {
         if (!session()->has('User')) {
-            return redirect()->back()->with('error', 'Please log in first.');
+            return redirect()->back()->with('error', 'Please log in to add products to your wishlist');
         }
 
-        $userId = session()->get('User'); 
+        $userId = session('User')['MaKH']; // Lấy MaKH từ session
 
-        if (!$request->has('MaSP') || is_null($request->MaSP)) {
-            return redirect()->back()->with('error', 'Product ID is required.');
+        // Kiểm tra nếu thiếu thông tin sản phẩm
+        $request->validate([
+            'MaSP' => 'required|exists:SANPHAM,MaSP',
+        ]);
+
+        // Kiểm tra nếu sản phẩm đã có trong wishlist
+        $exists = SANPHAMYEUTHICH::where('MaKH', $userId)
+            ->where('MaSP', $request->MaSP)
+            ->exists();
+
+        if ($exists) {
+            return redirect()->back()->with('info', 'Product is already in your wishlist.');
         }
 
-        $wishlists = SANPHAMYEUTHICH::create([
-            'MaKH' => $userId,              
-            'MaSP' => $request->MaSP,       
-            'HinhAnh' => $request->HinhAnh, 
-            'created_at' => now(),          
-            'updated_at' => now(),          
+        // Thêm sản phẩm vào wishlist
+        SANPHAMYEUTHICH::create([
+            'MaKH' => $userId,
+            'MaSP' => $request->MaSP,
+            'HinhAnh' => $request->HinhAnh,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         return redirect()->back()->with('success', 'Product added to wishlist successfully!');
@@ -46,7 +63,9 @@ class WishlistController extends Controller
     public function destroy($id)
     {
         $wishlist = SANPHAMYEUTHICH::findOrFail($id);
-        if ($wishlist->MaKH == Auth::id()) {
+
+        // Kiểm tra nếu sản phẩm thuộc người dùng hiện tại
+        if (session()->get('User')['MaKH'] == $wishlist->MaKH) {
             $wishlist->delete();
             return redirect()->back()->with('success', 'Product removed from wishlist.');
         }
