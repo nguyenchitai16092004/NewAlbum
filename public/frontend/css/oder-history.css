@@ -7,7 +7,14 @@
     margin: 0 auto;
     padding: 20px;
 }
-
+.ctn-rating-product {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.ctn-rating-product p{
+    text-align: center;
+}
 .header {
     text-align: center;
     background-color: black;
