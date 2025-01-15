@@ -81,6 +81,18 @@
         @include('backend.partials.footer')
     </div>
 
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          setTimeout(function() {
+              let alerts = document.querySelectorAll('.alert');
+              alerts.forEach(alert => {
+                  alert.classList.remove('show');
+                  alert.classList.add('fade');
+                  setTimeout(() => alert.remove(), 500); // Thêm một chút thời gian để hiệu ứng mờ diễn ra
+              });
+          }, 3000);
+      });
+  </script>
     <!-- jquery
   ============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>

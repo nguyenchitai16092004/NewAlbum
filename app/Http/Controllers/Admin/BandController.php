@@ -38,7 +38,7 @@ class BandController extends Controller
         $nhomNhacCaSi->Loai = $request->input('Loai');
         $nhomNhacCaSi->save();
 
-        return redirect()->route('Index_Band')->with('success', 'Thêm nhóm nhạc/ca sĩ thành công!');
+        return redirect()->route('Index_Band')->with('success', '"Add successful music group/singer"!');
     }
 
     //Sửa thông tin nhóm nhạc ca sĩ
@@ -49,7 +49,7 @@ class BandController extends Controller
         $nhomNhacCaSi->GioiTinh = $request->input('GioiTinh');
         $nhomNhacCaSi->Loai = $request->input('Loai');
         $nhomNhacCaSi->save();
-        return redirect()->route('Index_Band');
+        return redirect()->route('Index_Band')->with('success', '"Edit successful music group/singer"!');
     }
 
     //Xóa nhóm nhạc ca sĩ (xóa mềm) 
@@ -60,7 +60,7 @@ class BandController extends Controller
 
         SANPHAM::where('MaNhomNhacCaSi', '=', $id)->update(['MaNhomNhacCaSi' => null]);
 
-        return redirect()->route('Index_Band')->with('success', 'Thêm nhóm nhạc/ca sĩ thành công!');
+        return redirect()->route('Index_Band')->with('success', 'Delete music group/singer successfully!');
     }
 
     //Tìm kiếm sản phẩm

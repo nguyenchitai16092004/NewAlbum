@@ -69,7 +69,7 @@
                     <div class="product-status-wrap">
                         <h4>Band/Singer List</h4>
                         <div class="add-product mb-3">
-                            <a href="{{ route('Index_Add_Band') }}" class="btn btn-dark">Add Band/Singer</a>
+                            <a href="{{ route('Index_Add_Band') }}" class="btn btn-dark" style="background-color: black">Add Band/Singer</a>
                         </div>
                         <table class="table table-bordered text-center">
                             <thead class="thead-dark">

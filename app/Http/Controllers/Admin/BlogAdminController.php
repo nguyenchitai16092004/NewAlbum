@@ -39,7 +39,7 @@ class BlogAdminController extends Controller
         }
 
         BLOG::create($validated);
-        return redirect()->route('Index_Blog_Management');
+        return redirect()->route('Index_Blog_Management')->with('success', 'Blog added successfully!');
     }
 
     public function Show($id)
@@ -62,7 +62,7 @@ class BlogAdminController extends Controller
         }
         $blog->save();
 
-        return redirect()->route('Index_Blog_Management');
+        return redirect()->route('Index_Blog_Management')->with('success', 'Product edit successfully!');;
     }
 
     public function Delete($id){
@@ -70,6 +70,6 @@ class BlogAdminController extends Controller
         $blog->TrangThai = 0;
         $blog->save();
 
-        return redirect()->route('Index_Blog_Management');
+        return redirect()->route('Index_Blog_Management')->with('success', 'Product deleted successfully!');
     }
 }

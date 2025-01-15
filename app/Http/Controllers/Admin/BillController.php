@@ -4,10 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\HOADON;
-use App\Models\SANPHAM;
 use App\Models\CHITIETHOADON;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class BillController extends Controller
 {
@@ -37,8 +34,7 @@ class BillController extends Controller
         $HoaDon->TrangThai = 1;
         $HoaDon->save();
 
-        Log::info('Cập nhật danh sách thành công');
-        return redirect()->route('Index_Bill_Management');
+        return redirect()->route('Index_Bill_Management')->with('success', 'Invoice Accept successfully!');
     }
 
     public function Canncel($id)
@@ -47,7 +43,6 @@ class BillController extends Controller
         $HoaDon->TrangThai = -2;
         $HoaDon->save();
 
-        Log::info('Cập nhật danh sách thành công');
-        return redirect()->route('Index_Bill_Management');
+        return redirect()->route('Index_Bill_Management')->with('success', 'Invoice deleted successfully!');
     }
 }

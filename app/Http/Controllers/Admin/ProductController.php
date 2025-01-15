@@ -65,7 +65,7 @@ class ProductController extends Controller
     public function Add(Request $request)
     {
         $slug = Str::slug($request->TenSP, '-');
-
+    
         $validated = $request->validate([
             'MaNhomNhacCaSi' => 'required|numeric',
             'MaSPGG' => 'nullable|numberic',
@@ -83,16 +83,16 @@ class ProductController extends Controller
         $validated['Slug'] = $slug;
         if ($request->hasFile('HinhAnh')) {
             $HinhAnh = $request->file('HinhAnh');
-
+    
             $TenHinhAnh = $HinhAnh->getClientOriginalName();
-
+    
             $HinhAnh->move(public_path('storage/SanPham'), $TenHinhAnh);
-
+    
             $validated['HinhAnh'] = $TenHinhAnh;
         }
         SANPHAM::create($validated);
-
-        return redirect()->route('Index_Product');
+    
+        return redirect()->route('Index_Product')->with('success', 'Product added successfully!');
     }
 
     public function Delete($id)
@@ -100,15 +100,15 @@ class ProductController extends Controller
         $products = SANPHAM::findOrFail($id);
         $products->TrangThai = 0;
         $products->save();
-
-        session()->flash('success_delete', 'Xóa sản phẩm thành công!');
-        return redirect()->route('Index_Product')->with('success', 'Thêm sản phẩm thành công!');
+    
+        return redirect()->route('Index_Product')->with('success', 'Product deleted successfully!');
     }
+
 
     public function Edit(Request $request, $id)
     {
         $products = SANPHAM::findOrFail($id);
-
+    
         // Gán giá trị từ request vào sản phẩm
         $products->MaNhomNhacCaSi = $request->input('MaNhomNhacCaSi');
         $products->MaLoaiSP = $request->input('MaLoaiSP');
@@ -119,18 +119,18 @@ class ProductController extends Controller
         $products->TieuDe = $request->input('TieuDe');
         $products->MoTa = $request->input('MoTa');
         $products->SoLuong = $request->input('SoLuong');
-
+    
         if ($request->hasFile('HinhAnh')) {
             $HinhAnh = $request->file('HinhAnh');
             $TenHinhAnh = $HinhAnh->getClientOriginalName();
             $HinhAnh->move(public_path('storage/SanPham'), $TenHinhAnh);
-
+    
             $products->HinhAnh = $TenHinhAnh;
         }
-
+    
         $products->save();
-
-        return redirect()->route('Index_Product');
+    
+        return redirect()->route('Index_Product')->with('success', 'Product updated successfully!');
     }
 
     public function Search(Request $request)

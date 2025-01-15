@@ -16,7 +16,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> 
                 </div>
             </div>
 
@@ -69,7 +69,7 @@
                     <div class="product-status-wrap">
                         <h4>Category List</h4>
                         <div class="add-product mb-3">
-                            <a href="{{ route('Index_Add_Category') }}" class="btn btn-dark">Add Category</a>
+                            <a href="{{ route('Index_Add_Category') }}" class="btn btn-dark" style="background-color: black">Add Category</a>
                         </div>
                         <table class="table table-bordered text-center">
                             <thead class="thead-dark">

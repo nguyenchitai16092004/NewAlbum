@@ -15,11 +15,10 @@ class LoginController extends Controller
             ->first();
 
         if ($auth) {
-            session()->put('Admin', $auth->MaQL); 
-            return redirect()->route('dashboard.edit');
+            return redirect()->route('dashboard.edit')->with('error', 'Login Fail!');;
         } else {
-            session()->flash('error', 'Nhập sai, vui lòng nhập lại');
-            return view('backend.pages.sign-in');
+           
+            return view('backend.pages.sign-in')->with('success', 'Login successful !');;
         }
     }
     public function logout(){

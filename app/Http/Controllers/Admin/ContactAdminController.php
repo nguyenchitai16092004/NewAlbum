@@ -21,13 +21,13 @@ class ContactAdminController extends Controller
         $LienHe->TrangThai = 1;
         $LienHe->save();
 
-        return redirect()->Route('Index_Contact_Management');
+        return redirect()->Route('Index_Contact_Management')->with('success', 'Contact accept successfully!');
     }
 
     public function Delete($id){
         $LienHe = CONTACT::findOrFail($id);
         $LienHe->delete();
 
-        return redirect()->route('Index_Contact_Management');
+        return redirect()->route('Index_Contact_Management')->with('success', 'Contact deleted successfully!');
     }
 }
