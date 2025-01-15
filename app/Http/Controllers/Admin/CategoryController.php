@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use App\Models\LOAISP;
 use App\Models\SANPHAM;
 
@@ -28,12 +29,15 @@ class CategoryController extends Controller
     //Thêm loại sản phẩm
     public function Add(Request $request)
     {
+        $slug = Str::slug($request->TenLoaiSP, '-');
         $request->validate([
             'TenLoaiSP' => 'required|string|max:255',
+            'Slug'=> 'requied|string|max:255'
         ]);
 
         $categories = new LOAISP();
         $categories->TenloaiSP = $request->input('TenLoaiSP');
+        $categories->Slug = $slug;
         $categories->save();
 
         return redirect()->route('Index_Category');
