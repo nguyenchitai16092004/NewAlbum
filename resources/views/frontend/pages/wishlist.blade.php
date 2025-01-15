@@ -32,12 +32,13 @@
                         <div class="action-buttons">
                             <form action="{{ route('add.to.cart') }}" method="POST" class="inline-form">
                                 @csrf
-                                <input type="hidden" name="product_id" value="{{ $wishlist->product->MaSP }}">
+                                <input type="hidden" name="MaSP" value="{{ $wishlist->product->MaSP }}">
                                 <button class="action-button add-to-cart" type="submit">
-                                    <i class="fa fa-shopping-cart"></i> Add to Cart
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Add to Cart
                                 </button>
                             </form>
-                            <form action="{{ route('wishlist.destroy', ['id' => $wishlist->MaSP]) }}" method="POST"
+                            <form action="{{ route('wishlist.delete', ['id' => $wishlist->product->MaSP]) }}" method="POST"
                                 class="inline-form">
                                 @csrf
                                 @method('DELETE')
