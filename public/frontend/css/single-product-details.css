@@ -624,7 +624,7 @@ textarea:hover,
     color: white;
     border-radius: #555;
 }
-input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
@@ -647,16 +647,21 @@ input[type="number"] {
     margin-top: 20px;
 }
 
-.pagination a, .pagination span {
+.pagination a,
+.pagination span {
     margin: 0 5px;
     padding: 8px 12px;
     border: 1px solid #ddd;
-    color: #007bff;
+    color: black;
     text-decoration: none;
+    background-color: white;
 }
 
 .pagination .active span {
-    background-color: #007bff;
+    background-color: white;
     color: #fff;
-    border-color: #007bff;
+    border-color: black;
+}
+.pagination a:hover {
+    background-color: white;
 }
