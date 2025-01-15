@@ -21,7 +21,7 @@
                         </a>
                         @if ($preOder3ProductsCol1[0]->LoaiHang == 1)
                             <div class="pre-oder-new-arrivals">
-                                <span>Pre&ndash;order</span>
+                                <span style="margin-left: 7px">Pre&ndash;order</span>
                             </div>
                         @endif
                     </div>
@@ -40,7 +40,7 @@
                             </a>
                             @if ($preOder3ProductsCol1[1]->LoaiHang == 1)
                                 <div class="pre-oder-new-arrivals">
-                                    <span>Pre&ndash;order</span>
+                                    <span style="margin-left: 7px">Pre&ndash;order</span>
                                 </div>
                             @endif
                         </div>
@@ -61,7 +61,7 @@
                             </a>
                             @if ($preOder3ProductsCol1[2]->LoaiHang == 1)
                                 <div class="pre-oder-new-arrivals">
-                                    <span>Pre&ndash;order</span>
+                                    <span style="margin-left: 7px">Pre&ndash;order</span>
                                 </div>
                             @endif
                         </div>
@@ -88,7 +88,7 @@
                             </a>
                             @if ($preOder3ProductsCol2[0]->LoaiHang == 1)
                                 <div class="pre-oder-new-arrivals">
-                                    <span>Pre&ndash;order</span>
+                                    <span style="margin-left: 7px">Pre&ndash;order</span>
                                 </div>
                             @endif
                         </div>
@@ -108,7 +108,7 @@
                             </a>
                             @if ($preOder3ProductsCol2[1]->LoaiHang == 1)
                                 <div class="pre-oder-new-arrivals">
-                                    <span>Pre&ndash;order</span>
+                                    <span style="margin-left: 7px">Pre&ndash;order</span>
                                 </div>
                             @endif
                         </div>
@@ -128,7 +128,7 @@
                             </a>
                             @if ($preOder3ProductsCol2[2]->LoaiHang == 1)
                                 <div class="pre-oder-new-arrivals">
-                                    <span>Pre&ndash;order</span>
+                                    <span style="margin-left: 7px">Pre&ndash;order</span>
                                 </div>
                             @endif
                         </div>
@@ -164,23 +164,25 @@
                                         <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
                                             alt="{{ $product->TenSP }}">
                                     </a>
-                                    <div class="product-badge new-badge">
-                                        <span>New</span>
-                                    </div>
+                                    @if ($product->isNew)
+                                        <div class="product-badge new-badge">
+                                            <span>New</span>
+                                        </div>
+                                    @endif
                                     <div class="product-favourite">
                                         <a href="#" class="favme fa fa-heart"></a>
                                     </div>
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
+                                    <a href="{{ url('single-product-details/' . $product->MaSP) }}">
+                                        <h6>{{ $product->TenSP }}</h6>
+                                    </a>
                                     @if ($product->LoaiHang == 1)
                                         <div class="pre-oder-new-arrivals">
                                             <span>Pre&ndash;order</span>
                                         </div>
                                     @endif
-                                    <a href="{{ url('single-product-details/' . $product->MaSP) }}">
-                                        <h6>{{ $product->TenSP }}</h6>
-                                    </a>
                                     <p class="product-price price">{{ number_format($product->GiaBan) }} VND</p>
                                     <!-- Hover Content -->
                                     <div class="hover-content">
@@ -231,6 +233,11 @@
                                         <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
                                             alt="{{ $product->TenSP }}">
                                     </a>
+                                    @if ($product->isNew)
+                                        <div class="product-badge new-badge">
+                                            <span>New</span>
+                                        </div>
+                                    @endif
                                     <!-- Favourite -->
                                     <div class="product-favourite">
                                         <a href="#" class="favme fa fa-heart"></a>
@@ -238,14 +245,14 @@
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
+                                    <a href="{{ url('single-product-details/' . $product->MaSP) }}">
+                                        <h6>{{ $product->TenSP }}</h6>
+                                    </a>
                                     @if ($product->LoaiHang == 1)
                                         <div class="pre-oder-new-arrivals">
                                             <span>Pre&ndash;order</span>
                                         </div>
                                     @endif
-                                    <a href="{{ url('single-product-details/' . $product->MaSP) }}">
-                                        <h6>{{ $product->TenSP }}</h6>
-                                    </a>
                                     <p class="product-price price">{{ number_format($product->GiaBan) }} VND</p>
                                     <!-- Hover Content -->
                                     <div class="hover-content">
@@ -291,6 +298,11 @@
                                         <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
                                             alt="{{ $product->TenSP }}">
                                     </a>
+                                    @if ($product->isNew)
+                                        <div class="product-badge new-badge">
+                                            <span>New</span>
+                                        </div>
+                                    @endif
                                     <!-- Favourite -->
                                     <div class="product-favourite">
                                         <a href="#" class="favme fa fa-heart"></a>
@@ -298,14 +310,14 @@
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
+                                    <a href="{{ url('single-product-details/' . $product->MaSP) }}">
+                                        <h6>{{ $product->TenSP }}</h6>
+                                    </a>
                                     @if ($product->LoaiHang == 1)
                                         <div class="pre-oder-new-arrivals">
                                             <span>Pre&ndash;order</span>
                                         </div>
                                     @endif
-                                    <a href="{{ url('single-product-details/' . $product->MaSP) }}">
-                                        <h6>{{ $product->TenSP }}</h6>
-                                    </a>
                                     <p class="product-price price">{{ number_format($product->GiaBan) }} VND</p>
                                     <!-- Hover Content -->
                                     <div class="hover-content">
@@ -350,6 +362,11 @@
                                         <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
                                             alt="{{ $product->TenSP }}">
                                     </a>
+                                    @if ($product->isNew)
+                                        <div class="product-badge new-badge">
+                                            <span>New</span>
+                                        </div>
+                                    @endif
                                     <!-- Favourite -->
                                     <div class="product-favourite">
                                         <form action="{{ route('wishlist.store') }}" method="POST" id="wishlist">
@@ -363,13 +380,13 @@
                                 <!-- Product Description -->
                                 <div class="product-description">   
                                     @if ($product->LoaiHang == 1)
-                                        <div class="pre-oder-new-arrivals">
-                                            <span>Pre&ndash;order</span>
-                                        </div>
                                     @endif
                                     <a href="{{ url('single-product-details/' . $product->MaSP) }}">
                                         <h6>{{ $product->TenSP }}</h6>
                                     </a>
+                                    <div class="pre-oder-new-arrivals">
+                                        <span>Pre&ndash;order</span>
+                                    </div>
                                     <p class="product-price price">{{ number_format($product->GiaBan) }} VND</p>
                                     <!-- Hover Content -->
                                     <div class="hover-content">

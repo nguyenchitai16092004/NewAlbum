@@ -1,53 +1,36 @@
-.checkout_details_area form label {
-    font-size: 12px;
-    text-transform: uppercase;
-    font-weight: 600;
+/* Wrapper Styles */
+.checkout-wrapper {
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    min-height: calc(100vh - 100px); /* Chiều cao trừ footer (giả định footer cao 100px) */
+    padding: 20px 0; /* Đệm phía trên và dưới */
+    background-color: #f4f4f4;
 }
 
-.checkout_details_area form label span {
-    color: #0315ff;
-}
-
-.checkout_details_area form .form-control {
-    height: 42px;
-    border: 1px solid #ebebeb;
-    background-color: transparent;
-    border-radius: 0;
-}
-
-.checkout_details_area form .nice-select {
-    border-radius: 0;
-    border: 1px solid #ebebeb;
-}
-
-.checkout_details_area form .nice-select .list {
-    width: 100%;
-    border-radius: 0;
-}
-
+/* Order Details Confirmation */
 .order-details-confirmation {
     width: 100%;
+    max-width: 600px; /* Giới hạn chiều rộng form */
     border: 2px solid #ebebeb;
     padding: 40px;
+    background-color: #fff; /* Màu nền form */
+    border-radius: 8px; /* Bo góc nhẹ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng */
 }
 
+/* Responsive Styles */
 @media only screen and (max-width: 767px) {
     .order-details-confirmation {
-        margin-top: 100px;
+        margin-top: 20px;
         padding: 20px;
     }
 }
 
+/* Order Details Form */
 .order-details-confirmation .order-details-form li {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -ms-grid-row-align: center;
     align-items: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
     margin-bottom: 0;
     font-size: 12px;
@@ -57,16 +40,20 @@
     font-weight: 600;
 }
 
-.order-details-confirmation .card-header h6 a {
-    display: block;
-    font-size: 14px;
-    text-transform: uppercase;
+.order-details-confirmation .order-details-form li span {
+    flex: 1;
+    text-align: center;
 }
 
-.order-details-confirmation .card-header h6 a i {
-    color: #9f9f9f;
+.order-details-confirmation .order-details-form li span:first-child {
+    text-align: left;
 }
 
+.order-details-confirmation .order-details-form li span:last-child {
+    text-align: right;
+}
+
+/* Card Styles */
 .order-details-confirmation .card {
     border: none;
 }
@@ -81,21 +68,61 @@
     line-height: 2;
     color: #9f9f9f;
 }
+
+/* Place Order Button */
 .btn-place-order:hover {
     background-color: black;
     transform: scale(1.05);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
-    transform: translateY(-2px); /* Lift button slightly */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Đổ bóng khi hover */
+    transform: translateY(-2px); /* Nhấc nút lên nhẹ */
 }
 
-.order-details-confirmation .order-details-form li span {
-    flex: 1; 
-    text-align: center; 
-}
-.order-details-confirmation .order-details-form li span:first-child {
-    text-align: left;
+/* Định dạng cho vùng bao bọc order-details */
+.order-details {
+    background-color: #f9f9f9; /* Màu nền nhẹ */
+    padding: 20px; /* Khoảng cách bên trong */
+    border: 1px solid #ddd; /* Viền mỏng */
+    border-radius: 8px; /* Bo tròn các góc */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
 }
 
-.order-details-confirmation .order-details-form li span:last-child {
-    text-align: right;
+/* Danh sách các mục trong order-details */
+.order-details-form {
+    list-style-type: none; /* Loại bỏ các gạch đầu dòng */
+    padding: 0; /* Loại bỏ khoảng cách mặc định */
+    margin: 0; /* Loại bỏ khoảng cách mặc định */
+}
+
+.order-details-form li {
+    display: flex; /* Hiển thị dạng hàng ngang */
+    justify-content: space-between; /* Căn đều khoảng cách giữa các mục */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 10px 0; /* Khoảng cách giữa các mục */
+    border-bottom: 1px solid #ddd; /* Đường kẻ dưới mỗi mục */
+}
+
+.order-details-form li:last-child {
+    border-bottom: none; /* Loại bỏ đường kẻ dưới mục cuối cùng */
+}
+
+/* Định dạng cho văn bản tên sản phẩm */
+.order-details-form li span:first-child {
+    font-weight: bold; /* In đậm tên sản phẩm */
+    flex: 2; /* Chiếm nhiều không gian hơn */
+    color: #333; /* Màu chữ đậm */
+}
+
+/* Định dạng cho số lượng */
+.order-details-form li span:nth-child(2) {
+    flex: 1; /* Chiếm ít không gian hơn */
+    text-align: center; /* Căn giữa số lượng */
+    color: #555; /* Màu chữ nhạt hơn một chút */
+}
+
+/* Định dạng cho giá */
+.order-details-form li span:last-child {
+    flex: 1; /* Chiếm ít không gian hơn */
+    text-align: right; /* Căn phải giá */
+    color: #e63946; /* Màu đỏ cho giá */
+    font-weight: bold; /* In đậm giá */
 }

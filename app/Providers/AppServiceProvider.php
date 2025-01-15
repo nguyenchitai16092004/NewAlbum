@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Session;
 use App\Models\thongtinlienlac;
 use Illuminate\Pagination\Paginator;
+use App\Models\LOAISP;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,9 +30,14 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         View::composer('*', function ($view) {
-            $cart = Session::get('cart', []); // nhận tt gh từ session
+            $cart = Session::get('cart', []);
             $totalQuantity = array_sum(array_column($cart, 'quantity'));
-            $view->with('totalQuantity', $totalQuantity);
+            $allCategoryProducts = LOAISP::where('TrangThai', 1)->get();
+
+            $view->with([
+                'totalQuantity' => $totalQuantity,
+                'allCategoryProducts' => $allCategoryProducts,
+            ]);
         });
     }
 }

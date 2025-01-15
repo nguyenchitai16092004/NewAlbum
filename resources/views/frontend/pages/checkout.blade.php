@@ -14,50 +14,21 @@
         </div>
     </div>
 </div>
-
 <div class="container-checkout">
     <div class="row">
-        <!-- Billing Address -->
-        <div class="col-12 col-md-6">
-            <div class="checkout_details_area mt-50 clearfix">
-                <div class="cart-page-heading mb-30" style="text-align:center">
-                    <h5>Billing Address</h5>
-                </div>
-                <form action="#" method="post" style="margin-bottom:30px">
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="first_name">First Name <span>*</span></label>
-                            <input type="text" class="form-control" id="first_name" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="last_name">Last Name <span>*</span></label>
-                            <input type="text" class="form-control" id="last_name" required>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="col-12 mb-3">
-                            <label for="phone_number">Phone Number <span>*</span></label>
-                            <input type="text" class="form-control" id="phone_number" required>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <label for="street_address">Address <span>*</span></label>
-                            <input type="text" class="form-control" id="street_address" required>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <label for="city">City <span>*</span></label>
-                            <input type="text" class="form-control" id="city" required>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <label for="note">Note</label>
-                            <textarea class="form-control" id="note" rows="3"></textarea>
-                        </div>
-                    </div>
-                </form>
+        <div class="col-12 col-md-6 col-lg-5 ml-lg-auto">
+            <div class="order-details">
+                <ul class="order-details-form mb-4">
+                    @foreach($cart as $item)
+                    <li>
+                        <span>{{ $item['name'] }}</span>
+                        <span>{{ $item['quantity'] }}</span>
+                        <span>{{ number_format($item['price'] * $item['quantity']) }}VNĐ</span>
+                    </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
-
         <!-- Order Details -->
         <div class="col-12 col-md-6 col-lg-5 ml-lg-auto">
             <div class="order-details-confirmation">
@@ -80,7 +51,13 @@
                 </ul>
                 <div class="terms-check">
                     <div id="accordion" role="tablist" class="mb-4">
-                        <button class="btn-place-order">Place Order</button>
+                        <form action="{{ route('checkout.placeOrder') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="cart" value="{{ json_encode($cart) }}">
+                            <input type="hidden" name="cartTotal" value="{{ $cartTotal }}">
+                            <input type="text" name="diaChi" placeholder="Nhập địa chỉ giao hàng" required>
+                            <button type="submit" class="btn-place-order">Place Order</button>
+                        </form>
                     </div>
                 </div>
             </div>
