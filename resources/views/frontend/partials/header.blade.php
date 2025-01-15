@@ -24,8 +24,7 @@
                             <ul class="dropdown">
                                 @foreach ($allCategoryProducts as $cate)
                                     <li>
-                                        <a
-                                            href="{{ url('/listproduct/' . $cate->MaLoaiSP) }}">{{ $cate->TenLoaiSP }}</a>
+                                        <a href="{{ url('/listproduct/' . $cate->Slug) }}">{{ $cate->TenLoaiSP }}</a>
                                     </li>
                                 @endforeach
                             </ul>

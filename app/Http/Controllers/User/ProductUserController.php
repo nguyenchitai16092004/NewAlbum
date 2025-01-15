@@ -33,16 +33,19 @@ class ProductUserController extends Controller
         return view('frontend.pages.single-product-details', compact('product', 'recommendedProducts'));
     }
 
-    public function listByCategory($id)
+    public function listByCategory($slug)
     {
-        $category = LOAISP::find($id);
+        $category = LOAISP::where('Slug', $slug)->first();
 
         if (!$category) {
             abort(404, 'Category does not exist!');
         }
-        $productsQuery = SANPHAM::where('MaLoaiSP', $id)
+
+        $productsQuery = SANPHAM::where('MaLoaiSP', $category->MaLoaiSP)
             ->where('TrangThai', 1);
+
         $products = $productsQuery->paginate(6);
+
         $products->getCollection()->transform(function ($product) {
             $product->isNew = $product->created_at >= Carbon::now()->subDays(7);
             return $product;
@@ -50,4 +53,5 @@ class ProductUserController extends Controller
 
         return view('frontend.pages.listproduct', compact('category', 'products'));
     }
+
 }
