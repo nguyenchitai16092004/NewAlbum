@@ -65,34 +65,20 @@ Route::post('/clear-cart', [CartController::class, 'clearCart'])->name('clear.ca
 Route::get('/single-product-details', function () {
     return view('frontend.pages.single-product-details');
 });
-Route::get('/new-arrival', function () {
-    return view('frontend.pages.new-arrival');
-});
-Route::get('/pre-oders', function () {
-    return view('frontend.pages.pre-oders');
-});
+Route::get('/new-arrival', [HomeController::class, 'showNewArrival'])->name('new.arrival');
+
+Route::get('/pre-oders', [HomeController::class, 'showPreOrders'])->name('pre.oders');
+
 Route::get('/our-blog-post', function () {
     return view('frontend.pages.our-blog-post');
 });
 Route::get('/oder-history', function () {
     return view('frontend.pages.oder-history');
 });
-Route::get('/new-arrival', function () {
-    return view('frontend.pages.new-arrival');
-});
-Route::get('/poster', function () {
-    return view('frontend.pages.poster');
-});
-Route::get('/kpop', function () {
-    return view('frontend.pages.kpop');
-});
 Route::view('/bill-management', 'backend.pages.bill.bill-management')->name('Index_Bill_Management');
 
 Route::get('/listproduct/{id}', [ProductUserController::class, 'listByCategory'])->name('listproduct');
 
-Route::get('/pre-oders', function () {
-    return view('frontend.pages.pre-oders');
-});
 Route::get('/our-blog-post', function () {
     return view('frontend.pages.our-blog-post');
 });

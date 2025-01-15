@@ -23,7 +23,7 @@
 
                 <button class="btn essence-btn add-to-cart-btn" data-id="{{ $product->MaSP }}"
                     data-name="{{ $product->TenSP }}" data-price="{{ $product->GiaBan }}"
-                    data-image="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}">
+                    data-image="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}" data-slug="{{ $product->Slug }}">
                     ADD TO CART →
                 </button>
                 <div class="wishlist">
@@ -148,8 +148,22 @@
         <div class="products">
             @foreach ($recommendedProducts as $reProd)
                 <div class="product-card">
-                    <img src="{{ asset('Storage/SanPham/' . $reProd->HinhAnh) }}" alt="{{ $reProd->TenSP }}">
-                    <p>{{ $product->TenSP }}</< /p>
+                    <a href="{{ url('single-product-details/' . $reProd->Slug) }}">
+                        <img src="{{ asset('Storage/SanPham/' . $reProd->HinhAnh) }}" alt="{{ $reProd->TenSP }}">
+                    </a>
+                    <a href="{{ url('single-product-details/' . $reProd->Slug) }}">
+                        <p>{{ $product->TenSP }}</< /p>
+                    </a>
+                    @if ($reProd->isNew)
+                        <div class="product-badge new-badge">
+                            <span>New</span>
+                        </div>
+                    @endif
+                    @if ($reProd->LoaiHang == 1)
+                        <div class="pre-oder-new-arrivals">
+                            <span>Pre&ndash;order</span>
+                        </div>
+                    @endif
                     <p><strong>305.000 VND</strong></p>
                 </div>
             @endforeach
@@ -182,6 +196,7 @@
                     const productName = this.dataset.name;
                     const productPrice = this.dataset.price;
                     const productImage = this.dataset.image;
+                    const productSlug = this.dataset.slug;
 
                     // Lấy giá trị số lượng từ ô input liền trước nút
                     const quantityInput = this.parentElement.querySelector('.quantity input');
@@ -199,7 +214,8 @@
                                 name: productName,
                                 price: productPrice,
                                 image: productImage,
-                                quantity: quantity // Gửi số lượng tới server
+                                quantity: quantity, // Gửi số lượng tới server
+                                slug: productSlug,
                             })
                         })
                         .then(response => response.json())

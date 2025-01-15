@@ -10,13 +10,13 @@
             @if ($preOder3ProductsCol1->count() >= 3)
                 <div class="prod-1">
                     <div class="img-prod-1">
-                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[0]->MaSP) }}">
+                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[0]->Slug) }}">
                             <img src="{{ asset('Storage/SanPham/' . $preOder3ProductsCol1[0]->HinhAnh) }}"
                                 alt="{{ $preOder3ProductsCol1[0]->TenSP }}">
                         </a>
                     </div>
                     <div class="product-description">
-                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[0]->MaSP) }}">
+                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[0]->Slug) }}">
                             <h6>{{ $preOder3ProductsCol1[0]->TenSP }}</h6>
                         </a>
                         @if ($preOder3ProductsCol1[0]->LoaiHang == 1)
@@ -28,14 +28,14 @@
                 </div>
                 <div class="prod-2">
                     <div class="img-prod-1">
-                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[1]->MaSP) }}">
+                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[1]->Slug) }}">
                             <img src="{{ asset('Storage/SanPham/' . $preOder3ProductsCol1[1]->HinhAnh) }}"
                                 alt="{{ $preOder3ProductsCol1[1]->TenSP }}">
                         </a>
                     </div>
                     <div class="name-pro np-1">
                         <div class="product-description">
-                            <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[1]->MaSP) }}">
+                            <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[1]->Slug) }}">
                                 <h6>{{ $preOder3ProductsCol1[1]->TenSP }}</h6>
                             </a>
                             @if ($preOder3ProductsCol1[1]->LoaiHang == 1)
@@ -49,14 +49,14 @@
 
                 <div class="prod-3">
                     <div class="img-prod-1">
-                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[2]->MaSP) }}">
+                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[2]->Slug) }}">
                             <img src="{{ asset('Storage/SanPham/' . $preOder3ProductsCol1[2]->HinhAnh) }}"
                                 alt="{{ $preOder3ProductsCol1[2]->TenSP }}">
                         </a>
                     </div>
                     <div class="name-pro np-1">
                         <div class="product-description">
-                            <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[2]->MaSP) }}">
+                            <a href="{{ url('single-product-details/' . $preOder3ProductsCol1[2]->Slug) }}">
                                 <h6>{{ $preOder3ProductsCol1[2]->TenSP }}</h6>
                             </a>
                             @if ($preOder3ProductsCol1[2]->LoaiHang == 1)
@@ -76,14 +76,14 @@
             @if ($preOder3ProductsCol2->count() >= 3)
                 <div class="prod-1 prod-col-2">
                     <div class="img-prod-1">
-                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[0]->MaSP) }}">
+                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[0]->Slug) }}">
                             <img src="{{ asset('Storage/SanPham/' . $preOder3ProductsCol2[0]->HinhAnh) }}"
                                 alt="{{ $preOder3ProductsCol2[0]->TenSP }}">
                         </a>
                     </div>
                     <div class="name-pro np-1">
                         <div class="product-description">
-                            <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[0]->MaSP) }}">
+                            <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[0]->Slug) }}">
                                 <h6>{{ $preOder3ProductsCol2[0]->TenSP }}</h6>
                             </a>
                             @if ($preOder3ProductsCol2[0]->LoaiHang == 1)
@@ -96,14 +96,14 @@
                 </div>
                 <div class="prod-2">
                     <div class="img-prod-1">
-                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[1]->MaSP) }}">
+                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[1]->Slug) }}">
                             <img src="{{ asset('Storage/SanPham/' . $preOder3ProductsCol2[1]->HinhAnh) }}"
                                 alt="{{ $preOder3ProductsCol2[1]->TenSP }}">
                         </a>
                     </div>
                     <div class="name-pro np-1">
                         <div class="product-description">
-                            <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[1]->MaSP) }}">
+                            <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[1]->Slug) }}">
                                 <h6>{{ $preOder3ProductsCol2[1]->TenSP }}</h6>
                             </a>
                             @if ($preOder3ProductsCol2[1]->LoaiHang == 1)
@@ -116,14 +116,14 @@
                 </div>
                 <div class="prod-3">
                     <div class="img-prod-1">
-                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[2]->MaSP) }}">
+                        <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[2]->Slug) }}">
                             <img src="{{ asset('Storage/SanPham/' . $preOder3ProductsCol2[2]->HinhAnh) }}"
                                 alt="{{ $preOder3ProductsCol1[2]->TenSP }}">
                         </a>
                     </div>
                     <div class="name-pro np-1">
                         <div class="product-description">
-                            <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[2]->MaSP) }}">
+                            <a href="{{ url('single-product-details/' . $preOder3ProductsCol2[2]->Slug) }}">
                                 <h6>{{ $preOder3ProductsCol2[2]->TenSP }}</h6>
                             </a>
                             @if ($preOder3ProductsCol2[2]->LoaiHang == 1)
@@ -160,7 +160,7 @@
                             <div class="single-product-wrapper">
                                 <!-- Product Image -->
                                 <div class="product-img">
-                                    <a href="{{ url('single-product-details/' . $product->MaSP) }}">
+                                    <a href="{{ url('single-product-details/' . $product->Slug) }}">
                                         <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
                                             alt="{{ $product->TenSP }}">
                                     </a>
@@ -192,7 +192,7 @@
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
-                                    <a href="{{ url('single-product-details/' . $product->MaSP) }}">
+                                    <a href="{{ url('single-product-details/' . $product->Slug) }}">
                                         <h6>{{ $product->TenSP }}</h6>
                                     </a>
                                     @if ($product->LoaiHang == 1)
@@ -209,7 +209,8 @@
                                                 <button class="btn essence-btn add-to-cart-btn"
                                                     data-id="{{ $product->MaSP }}" data-name="{{ $product->TenSP }}"
                                                     data-price="{{ $product->GiaBan }}"
-                                                    data-image="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}">
+                                                    data-image="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
+                                                    data-slug="{{ $product->Slug }}">
                                                     Add to Cart
                                                 </button>
                                             </div>
@@ -246,7 +247,7 @@
                             <div class="single-product-wrapper">
                                 <!-- Product Image -->
                                 <div class="product-img">
-                                    <a href="{{ url('single-product-details/' . $product->MaSP) }}">
+                                    <a href="{{ url('single-product-details/' . $product->Slug) }}">
                                         <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
                                             alt="{{ $product->TenSP }}">
                                     </a>
@@ -278,7 +279,7 @@
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
-                                    <a href="{{ url('single-product-details/' . $product->MaSP) }}">
+                                    <a href="{{ url('single-product-details/' . $product->Slug) }}">
                                         <h6>{{ $product->TenSP }}</h6>
                                     </a>
                                     @if ($product->LoaiHang == 1)
@@ -292,7 +293,8 @@
                                         <!-- Add to Cart -->
                                         <button class="btn essence-btn add-to-cart-btn" data-id="{{ $product->MaSP }}"
                                             data-name="{{ $product->TenSP }}" data-price="{{ $product->GiaBan }}"
-                                            data-image="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}">
+                                            data-image="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
+                                            data-slug="{{ $product->Slug }}">
                                             Add to Cart
                                         </button>
                                     </div>
@@ -327,7 +329,7 @@
                             <div class="single-product-wrapper">
                                 <!-- Product Image -->
                                 <div class="product-img">
-                                    <a href="{{ url('single-product-details/' . $product->MaSP) }}">
+                                    <a href="{{ url('single-product-details/' . $product->Slug) }}">
                                         <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
                                             alt="{{ $product->TenSP }}">
                                     </a>
@@ -359,7 +361,7 @@
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
-                                    <a href="{{ url('single-product-details/' . $product->MaSP) }}">
+                                    <a href="{{ url('single-product-details/' . $product->Slug) }}">
                                         <h6>{{ $product->TenSP }}</h6>
                                     </a>
                                     @if ($product->LoaiHang == 1)
@@ -373,7 +375,8 @@
                                         <!-- Add to Cart -->
                                         <button class="btn essence-btn add-to-cart-btn" data-id="{{ $product->MaSP }}"
                                             data-name="{{ $product->TenSP }}" data-price="{{ $product->GiaBan }}"
-                                            data-image="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}">
+                                            data-image="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
+                                            data-slug="{{ $product->Slug }}">
                                             Add to Cart
                                         </button>
                                     </div>
@@ -407,7 +410,7 @@
                             <div class="single-product-wrapper">
                                 <!-- Product Image -->
                                 <div class="product-img">
-                                    <a href="{{ url('single-product-details/' . $product->MaSP) }}">
+                                    <a href="{{ url('single-product-details/' . $product->Slug) }}">
                                         <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
                                             alt="{{ $product->TenSP }}">
                                     </a>
@@ -438,10 +441,10 @@
                                     @endif
                                 </div>
                                 <!-- Product Description -->
-                                <div class="product-description">   
+                                <div class="product-description">
                                     @if ($product->LoaiHang == 1)
                                     @endif
-                                    <a href="{{ url('single-product-details/' . $product->MaSP) }}">
+                                    <a href="{{ url('single-product-details/' . $product->Slug) }}">
                                         <h6>{{ $product->TenSP }}</h6>
                                     </a>
                                     <div class="pre-oder-new-arrivals">
@@ -453,7 +456,8 @@
                                         <!-- Add to Cart -->
                                         <button class="btn essence-btn add-to-cart-btn" data-id="{{ $product->MaSP }}"
                                             data-name="{{ $product->TenSP }}" data-price="{{ $product->GiaBan }}"
-                                            data-image="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}">
+                                            data-image="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
+                                            data-slug="{{ $product->Slug }}">
                                             Add to Cart
                                         </button>
                                     </div>
@@ -478,6 +482,7 @@
                     const productName = this.dataset.name;
                     const productPrice = this.dataset.price;
                     const productImage = this.dataset.image;
+                    const productSlug = this.dataset.slug;
 
                     fetch("{{ route('add.to.cart') }}", {
                             // gửi yc đến cart
@@ -491,7 +496,8 @@
                                 id: productId,
                                 name: productName,
                                 price: productPrice,
-                                image: productImage
+                                image: productImage,
+                                slug: productSlug,
                             })
                         })
                         .then(response => response.json())

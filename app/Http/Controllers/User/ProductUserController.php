@@ -12,18 +12,24 @@ class ProductUserController extends Controller
 {
     public function show($id)
     {
-        $product = SANPHAM::where('MaSP', $id)->where('TrangThai', 1)->first();
+        // Tìm sản phẩm dựa trên Slug
+        $product = SANPHAM::where('Slug', $id)->where('TrangThai', 1)->first();
 
         if (!$product) {
             abort(404);
         }
 
         $recommendedProducts = SANPHAM::where('MaLoaiSP', $product->MaLoaiSP)
-            ->where('MaSP', '!=', $id)
+            ->where('MaSP', '!=', $product->MaSP)
             ->where('TrangThai', 1)
             ->take(5)
-            ->get();
+            ->get()
+            ->map(function ($product) {
+                $product->isNew = $product->created_at >= Carbon::now()->subDays(7);
+                return $product;
+            });
 
+        // Trả về view với dữ liệu
         return view('frontend.pages.single-product-details', compact('product', 'recommendedProducts'));
     }
 
@@ -34,15 +40,9 @@ class ProductUserController extends Controller
         if (!$category) {
             abort(404, 'Category does not exist!');
         }
-
-        // Query sản phẩm
         $productsQuery = SANPHAM::where('MaLoaiSP', $id)
             ->where('TrangThai', 1);
-
-        // Phân trang
         $products = $productsQuery->paginate(6);
-
-        // Thêm thuộc tính `isNew` cho từng sản phẩm
         $products->getCollection()->transform(function ($product) {
             $product->isNew = $product->created_at >= Carbon::now()->subDays(7);
             return $product;

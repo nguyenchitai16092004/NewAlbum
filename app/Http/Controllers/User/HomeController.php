@@ -24,21 +24,21 @@ class HomeController extends Controller
             ->where('LoaiHang', 1)
             ->get()
             ->map(function ($product) {
-                $product->isNew = $product->created_at >= Carbon::now()->subDays(7); 
+                $product->isNew = $product->created_at >= Carbon::now()->subDays(7);
                 return $product;
             });
         $allPosterProducts = SANPHAM::where('TrangThai', 1)
             ->where('MaLoaiSP', 3)
             ->get()
             ->map(function ($product) {
-                $product->isNew = $product->created_at >= Carbon::now()->subDays(7); 
+                $product->isNew = $product->created_at >= Carbon::now()->subDays(7);
                 return $product;
             });
         $allKGoodsProducts = SANPHAM::where('TrangThai', 1)
             ->where('MaLoaiSP', 2)
             ->get()
             ->map(function ($product) {
-                $product->isNew = $product->created_at >= Carbon::now()->subDays(7); 
+                $product->isNew = $product->created_at >= Carbon::now()->subDays(7);
                 return $product;
             });
 
@@ -47,7 +47,7 @@ class HomeController extends Controller
             ->take(3)
             ->get()
             ->map(function ($product) {
-                $product->isNew = $product->created_at >= Carbon::now()->subDays(7); 
+                $product->isNew = $product->created_at >= Carbon::now()->subDays(7);
                 return $product;
             });
 
@@ -57,7 +57,7 @@ class HomeController extends Controller
             ->take(3)
             ->get()
             ->map(function ($product) {
-                $product->isNew = $product->created_at >= Carbon::now()->subDays(7); 
+                $product->isNew = $product->created_at >= Carbon::now()->subDays(7);
                 return $product;
             });
 
@@ -67,5 +67,35 @@ class HomeController extends Controller
         $thongtinlienlac = thongtinlienlac::first();
 
         return view('frontend.pages.home', compact('allProducts', 'preOder3ProductsCol1', 'preOder3ProductsCol2', 'totalQuantity', 'thongtinlienlac', 'allPreOderProducts', 'allPosterProducts', 'allKGoodsProducts'));
+    }
+    public function showNewArrival()
+    {
+        // Lấy sản phẩm có trạng thái hoạt động và phân trang
+        $products = SANPHAM::where('TrangThai', 1)
+            ->paginate(6); // Phân trang, mỗi trang 6 sản phẩm
+
+        // Áp dụng thuộc tính `isNew`
+        $products->getCollection()->transform(function ($product) {
+            $product->isNew = $product->created_at >= Carbon::now()->subDays(7);
+            return $product;
+        });
+
+        // Trả về view và truyền biến `$products`
+        return view('frontend.pages.new-arrival', compact('products'));
+    }
+    public function showPreOrders()
+    {
+        // Lấy sản phẩm có trạng thái hoạt động và phân trang
+        $products = SANPHAM::where('TrangThai', 1)
+            ->where('LoaiHang', 1)
+            ->paginate(6); // Phân trang, mỗi trang 6 sản phẩm
+        // Áp dụng thuộc tính `isNew`
+        $products->getCollection()->transform(function ($product) {
+            $product->isNew = $product->created_at >= Carbon::now()->subDays(7);
+            return $product;
+        });
+
+        // Trả về view và truyền biến `$products`
+        return view('frontend.pages.pre-oders', compact('products'));
     }
 }

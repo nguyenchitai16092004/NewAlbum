@@ -10,7 +10,7 @@
             @foreach ($products as $product)
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="{{ url('single-product-details/' . $product->MaSP) }}">
+                        <a href="{{ url('single-product-details/' . $product->Slug) }}">
                             <img class="card-img-top" src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
                                 alt="{{ $product->TenSP }}" style="height: 250px; object-fit: cover;">
                         </a>
@@ -31,7 +31,8 @@
                                 <!-- Add to Cart -->
                                 <button class="btn essence-btn add-to-cart-btn" data-id="{{ $product->MaSP }}"
                                     data-name="{{ $product->TenSP }}" data-price="{{ $product->GiaBan }}"
-                                    data-image="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}">
+                                    data-image="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}"
+                                    data-slug="{{ $product->Slug }}">
                                     Add to Cart
                                 </button>
                             </div>
@@ -78,6 +79,7 @@
                     const productName = this.dataset.name;
                     const productPrice = this.dataset.price;
                     const productImage = this.dataset.image;
+                    const productSlug = this.dataset.slug;
 
                     fetch("{{ route('add.to.cart') }}", {
                             // gửi yc đến cart
@@ -91,7 +93,8 @@
                                 id: productId,
                                 name: productName,
                                 price: productPrice,
-                                image: productImage
+                                image: productImage,
+                                slug: productSlug,
                             })
                         })
                         .then(response => response.json())

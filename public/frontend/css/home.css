@@ -309,11 +309,8 @@ hr {
     z-index: 10;
 }
 
-.single-product-wrapper .product-img .product-badge.offer-badge {
-    background-color: #dc0345;
-}
 
-.product-badge.new-badge {
+.product-badge .new-badge {
     background-color: #0315ff;
 }
 
@@ -373,12 +370,12 @@ hr {
     margin-right: auto;
     display: block;
 }
-.pre-order span {
-    margin-left: 7px;
-}
 .pre-oder-new-arrivals span {
     color: white !important;
     text-align: center;
+}
+.pre-order span {
+    margin-left: 7px;
 }
 
 .product-description h6 {

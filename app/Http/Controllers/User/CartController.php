@@ -46,8 +46,13 @@ class CartController extends Controller
         $product = $request->all(); // Lấy thông tin sản phẩm từ request
         $cart = session()->get('cart', []);
 
-        // Nếu không có số lượng được gửi từ request, mặc định là 1
+        // Kiểm tra dữ liệu
         $quantity = isset($product['quantity']) && $product['quantity'] > 0 ? $product['quantity'] : 1;
+        $slug = $product['slug'] ?? null; // Lấy slug, mặc định null nếu không có
+
+        if (!$slug) {
+            return response()->json(['success' => false, 'message' => 'Invalid product slug.'], 400);
+        }
 
         if (isset($cart[$product['id']])) {
             // Tăng số lượng nếu sản phẩm đã có trong giỏ
@@ -56,7 +61,8 @@ class CartController extends Controller
             // Thêm sản phẩm mới vào giỏ hàng
             $cart[$product['id']] = [
                 "name" => $product['name'],
-                "quantity" => $quantity, // Sử dụng số lượng đã kiểm tra
+                "quantity" => $quantity,
+                "slug" => $slug, // Lưu slug trong giỏ hàng
                 "price" => $product['price'],
                 "image" => $product['image']
             ];
@@ -67,6 +73,7 @@ class CartController extends Controller
 
         return response()->json(['success' => true, 'cart' => $cart]);
     }
+
 
 
 
