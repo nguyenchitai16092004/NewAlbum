@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\KhachHang;
 
 class BinhLuan extends Model
 {
@@ -18,6 +19,9 @@ class BinhLuan extends Model
         'SoSao',
         'NoiDung',
     ];
-
+    public function khachHang()
+    {
+        return $this->belongsTo(KhachHang::class, 'MaKH', 'MaKH');
+    }
     protected $dates = ['deleted_at'];
 }

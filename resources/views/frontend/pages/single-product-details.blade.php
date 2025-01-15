@@ -11,7 +11,19 @@
                 <h1>{{ $product->TenSP }}</h1>
                 <p>{{ $product->TieuDe }}</p>
                 <div class="status-price">
-                    <p>Status: <strong>2 in stock</strong></p>
+                    <div class="status-product">
+                        <p>Status:</p>
+                        @if ($product->LoaiHang == 1)
+                            <div class="pre-oder-new-arrivals pre-order">
+                                <span>Pre&ndash;order</span>
+                            </div>
+                        @endif
+                        @if ($product->LoaiHang != 1)
+                            <div class="pre-oder-new-arrivals normal">
+                                <span>Normal</span>
+                            </div>
+                        @endif
+                    </div>
                     <p>Price: <strong>{{ number_format($product->GiaBan) }} VND</strong></p>
                 </div>
 
@@ -37,12 +49,12 @@
         <div class="description-section">
             <h1>{{ $product->TenSP }}</h1>
             <h2>{{ $product->TieuDe }}</h2>
-            <p id="product-description" style="display: none;">
-                {{ $product->MoTa }}
-            </p>
             <div class="product-image2">
                 <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}" alt="{{ $product->TenSP }}">
             </div>
+            <p id="product-description" style="display: none;">
+                {{ $product->MoTa }}
+            </p>
             <a href="#" class="more-button" id="more-button">More</a>
         </div>
 
@@ -51,93 +63,57 @@
             <div class="review-section">
                 <h3>Review</h3>
                 <div class="rating">
-                    <div class="rating-score">4.0</div>
-                    <div class="rating-stars">★★★★☆</div>
+                    <div class="rating-score">
+                        {{ number_format($averageRating ?? 0, 1) }}
+                    </div>
+                    <div class="rating-stars">
+                        @php
+                            $fullStars = floor($averageRating);
+                            $halfStar = $averageRating - $fullStars >= 0.5;
+                        @endphp
+                        @for ($i = 1; $i <= 5; $i++)
+                            @if ($i <= $fullStars)
+                                ★
+                            @elseif ($i == $fullStars + 1 && $halfStar)
+                                ☆
+                            @else
+                                ☆
+                            @endif
+                        @endfor
+                    </div>
                 </div>
-                <div class="write-review">
+                {{-- <div class="write-review">
                     <label for="review">Write a review</label>
                     <textarea id="review" placeholder="Write your review here..."></textarea>
                     <div class="star-input">★★★★★</div>
                 </div>
                 <div class="ctn-comment">
                     <button class="btn-comment">Comment</button>
-                </div>
+                </div> --}}
             </div>
 
             <div class="review-section-comment">
                 <div class="review-section2">
                     <div class="review-header">
-                        <span>All reviews (5)</span>
+                        <span>All reviews ({{ $commentCount }})</span>
                     </div>
                 </div>
-                <!-- Comment 1 -->
-                <div class="comment-item">
-                    <div class="comment-header">
-                        <span class="comment-author">John Doe</span>
-                        <span class="comment-date">January 15, 2025</span>
+                @foreach ($commentProducts as $comment)
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <span class="comment-author">{{ $comment->khachHang->TenKH ?? 'Anonymous' }}</span>
+                            <span class="comment-date">{{ $comment->created_at->format('F d, Y') }}</span>
+                        </div>
+                        <div class="comment-body">
+                            <p>{{ $comment->NoiDung }}</p>
+                        </div>
+                        <div class="comment-rating">
+                            Rating: {{ str_repeat('★', $comment->SoSao) }}{{ str_repeat('☆', 5 - $comment->SoSao) }}
+                        </div>
                     </div>
-                    <div class="comment-body">
-                        <p>Great product! I'm really satisfied with the quality and fast delivery.</p>
-                    </div>
-                    <div class="comment-rating">
-                        Rating: ★★★★☆
-                    </div>
-                </div>
-
-                <!-- Comment 2 -->
-                <div class="comment-item">
-                    <div class="comment-header">
-                        <span class="comment-author">Jane Smith</span>
-                        <span class="comment-date">January 14, 2025</span>
-                    </div>
-                    <div class="comment-body">
-                        <p>The product is good, but the packaging could be better.</p>
-                    </div>
-                    <div class="comment-rating">
-                        Rating: ★★★☆☆
-                    </div>
-                </div>
-
-                <!-- Comment 3 -->
-                <div class="comment-item">
-                    <div class="comment-header">
-                        <span class="comment-author">Michael Lee</span>
-                        <span class="comment-date">January 13, 2025</span>
-                    </div>
-                    <div class="comment-body">
-                        <p>I bought this for my friend, and they loved it! Would definitely recommend.</p>
-                    </div>
-                    <div class="comment-rating">
-                        Rating: ★★★★★
-                    </div>
-                </div>
-
-                <!-- Comment 4 -->
-                <div class="comment-item">
-                    <div class="comment-header">
-                        <span class="comment-author">Emily Davis</span>
-                        <span class="comment-date">January 12, 2025</span>
-                    </div>
-                    <div class="comment-body">
-                        <p>It's okay for the price, but I've seen better alternatives.</p>
-                    </div>
-                    <div class="comment-rating">
-                        Rating: ★★☆☆☆
-                    </div>
-                </div>
-
-                <!-- Comment 5 -->
-                <div class="comment-item">
-                    <div class="comment-header">
-                        <span class="comment-author">Chris Brown</span>
-                        <span class="comment-date">January 11, 2025</span>
-                    </div>
-                    <div class="comment-body">
-                        <p>Absolutely loved it! Will definitely purchase again.</p>
-                    </div>
-                    <div class="comment-rating">
-                        Rating: ★★★★★
-                    </div>
+                @endforeach
+                <div class="pagination-links">
+                    {{ $commentProducts->links() }}
                 </div>
             </div>
         </div>

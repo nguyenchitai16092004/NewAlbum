@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\SANPHAM;
 use App\Models\LOAISP;
 use Illuminate\Support\Carbon;
+use App\Models\BinhLuan;
 
 class ProductUserController extends Controller
 {
@@ -19,6 +20,7 @@ class ProductUserController extends Controller
             abort(404);
         }
 
+        // Lấy các sản phẩm đề xuất
         $recommendedProducts = SANPHAM::where('MaLoaiSP', $product->MaLoaiSP)
             ->where('MaSP', '!=', $product->MaSP)
             ->where('TrangThai', 1)
@@ -29,9 +31,22 @@ class ProductUserController extends Controller
                 return $product;
             });
 
+        // Phân trang bình luận (3 bình luận/trang)
+        $commentProducts = BinhLuan::with('khachHang')
+            ->where('MaSP', '=', $product->MaSP)
+            ->where('TrangThai', 1)
+            ->paginate(3);
+
+        // Tính tổng số bình luận và trung bình số sao
+        $commentCount = $commentProducts->total(); // Sử dụng total() để đếm tổng số bình luận
+        $averageRating = BinhLuan::where('MaSP', $product->MaSP)
+            ->where('TrangThai', 1)
+            ->avg('SoSao'); // Tính trung bình số sao
+
         // Trả về view với dữ liệu
-        return view('frontend.pages.single-product-details', compact('product', 'recommendedProducts'));
+        return view('frontend.pages.single-product-details', compact('product', 'recommendedProducts', 'commentProducts', 'commentCount', 'averageRating'));
     }
+
 
     public function listByCategory($slug)
     {
@@ -53,5 +68,4 @@ class ProductUserController extends Controller
 
         return view('frontend.pages.listproduct', compact('category', 'products'));
     }
-
 }

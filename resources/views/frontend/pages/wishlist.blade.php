@@ -1,12 +1,13 @@
 @extends('frontend.layouts.master')
 @section('title', 'Wishlist')
 @section('main')
-<link rel="stylesheet" href="css/wishlist.css">
-<link rel="stylesheet" href="css/pagination.css">
-<div class="ctn-rating-product">
-    <div class="header">
-        <div>
-            <h1>Welcome back!</h1>
+    <link rel="stylesheet" href="css/wishlist.css">
+    <link rel="stylesheet" href="css/pagination.css">
+    <div class="ctn-rating-product">
+        <div class="header">
+            <div>
+                <h1>Welcome back!</h1>
+            </div>
         </div>
         <p>You can review and edit your personal information here.</p>
         <nav class="navigation">
@@ -50,11 +51,11 @@
                             </form>
                         </div>
                     </div>
-                </div>
-            @endforeach
-        @else
-            <p style="text-align: center;">No items in your wishlist.</p>
-        @endif
+                @endforeach
+            @else
+                <p style="text-align: center;">No items in your wishlist.</p>
+            @endif
+        </div>
     </div>
 </div>
 <!-- Pagination -->
