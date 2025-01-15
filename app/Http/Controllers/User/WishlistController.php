@@ -62,10 +62,8 @@ class WishlistController extends Controller
 
     public function delete($id)
     {
-        // Lấy userId từ session
         $userId = session('User')['MaKH'];
 
-        // Tìm sản phẩm trong wishlist của người dùng dựa trên MaKH và MaSP
         $wishlist = SANPHAMYEUTHICH::where('MaKH', $userId)->where('MaSP', $id)->delete();
 
         return redirect()->back()->with('success', 'Product removed from wishlist.');
