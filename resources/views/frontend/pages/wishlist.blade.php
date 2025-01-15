@@ -24,16 +24,18 @@
         @if (isset($wishlists) && count($wishlists) > 0)
             @foreach ($wishlists as $wishlist)
                 <div class="product-card">
-                    <img src="{{ asset('Storage/Sanpham/' . $wishlist->product->HinhAnh) }}"
-                        alt="{{ $wishlist->product->TenSP }}" class="product-image">
+                    <a href="{{ url('single-product-details/' . $wishlist->product->Slug) }}">
+                        <img src="{{ asset('Storage/SanPham/' . $wishlist->product->HinhAnh) }}" alt="{{ $wishlist->product->TenSP }}" class="product-image">
+                    </a>
                     <div class="product-details">
                         <h2 class="product-title">{{ $wishlist->product->TenSP }}</h2>
                         <p class="product-price">${{ number_format($wishlist->product->GiaBan, 2) }}</p>
                         <div class="action-buttons">
                             <div class="hover-content">
                                 <!-- Add to Cart -->
-                                <button class="btn essence-btn add-to-cart-btn action-button add-to-cart" data-id="{{ $wishlist->product->MaSP }}"
-                                    data-name="{{ $wishlist->product->TenSP }}" data-price="{{ $wishlist->product->GiaBan }}"
+                                <button class="btn essence-btn add-to-cart-btn action-button add-to-cart"
+                                    data-id="{{ $wishlist->product->MaSP }}" data-name="{{ $wishlist->product->TenSP }}"
+                                    data-price="{{ $wishlist->product->GiaBan }}"
                                     data-image="{{ asset('Storage/SanPham/' . $wishlist->product->HinhAnh) }}"
                                     data-slug="{{ $wishlist->product->Slug }}">
                                     <i class="fa fa-shopping-cart"></i>
