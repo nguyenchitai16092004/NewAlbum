@@ -33,7 +33,7 @@ class CHITIETHOADON extends Model
     // Liên kết với bảng HOADON
     public function hoaDon()
     {
-        return $this->belongsTo(HoaDon::class, 'MaHD', 'MaHD');
+        return $this->belongsTo(HOADON::class, 'MaHD', 'MaHD');
     }
 
 }
