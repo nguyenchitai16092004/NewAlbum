@@ -130,7 +130,7 @@ Route::post('/wishlist', [WishlistController::class, 'store'])->name('wishlist.s
 //Route::delete('/wishlist/{id}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
 // Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
 // Route::get('/order-history', [OrderController::class, 'orderHistory'])->name('order.history');
-
+Route::post('/checkout/place-order', [OrderController::class, 'placeOrder'])->name('checkout.placeOrder');
 
 Route::prefix('/admin')->group(function () {
 
@@ -205,6 +205,7 @@ Route::prefix('/admin')->group(function () {
         Route::post('/edit-bill/{id}',[BillController::class, 'Edit'])->name('Update_Bill');
         Route::post('/canncel-bill/{id}',[BillController::class, 'Canncel'])->name('Canncel_Bill');
     });
+    Route::view('/bill-management', 'backend.pages.bill.bill-management')->name('Index_Bill_Management');
     // Route cho quản lý bình luận
     Route::prefix('comments')->group(function () {
         Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
