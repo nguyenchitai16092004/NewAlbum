@@ -27,12 +27,17 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
             $view->with('thongtinlienlac', thongtinlienlac::first());
         });
+
         Paginator::useBootstrap();
 
         View::composer('*', function ($view) {
             $cart = Session::get('cart', []);
             $totalQuantity = array_sum(array_column($cart, 'quantity'));
-            $allCategoryProducts = LOAISP::where('TrangThai', 1)->get();
+
+            // Lấy danh mục dựa trên `slug`
+            $allCategoryProducts = LOAISP::where('TrangThai', 1)
+                ->select('Slug', 'TenLoaiSP')
+                ->get();
 
             $view->with([
                 'totalQuantity' => $totalQuantity,

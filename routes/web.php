@@ -77,7 +77,7 @@ Route::get('/oder-history', function () {
 });
 Route::view('/bill-management', 'backend.pages.bill.bill-management')->name('Index_Bill_Management');
 
-Route::get('/listproduct/{id}', [ProductUserController::class, 'listByCategory'])->name('listproduct');
+Route::get('/listproduct/{slug}', [ProductUserController::class, 'listByCategory'])->name('listproduct');
 
 Route::get('/our-blog-post', function () {
     return view('frontend.pages.our-blog-post');

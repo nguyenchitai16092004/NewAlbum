@@ -170,7 +170,7 @@
                                         </div>
                                     @endif
                                     <!-- Favourite -->
-                                    @php
+                                    {{-- @php
                                         $isInWishlist = \App\Models\SANPHAMYEUTHICH::where('MaKH', session('User')['MaKH'])
                                                           ->where('MaSP', $product->MaSP)
                                                           ->exists();
@@ -188,7 +188,7 @@
                                                 <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
                                             </form>
                                         </div>
-                                    @endif
+                                    @endif --}}
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
@@ -257,7 +257,7 @@
                                         </div>
                                     @endif
                                     <!-- Favourite -->
-                                    @php
+                                    {{-- @php
                                         $isInWishlist = \App\Models\SANPHAMYEUTHICH::where('MaKH', session('User')['MaKH'])
                                                           ->where('MaSP', $product->MaSP)
                                                           ->exists();
@@ -275,7 +275,7 @@
                                                 <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
                                             </form>
                                         </div>
-                                    @endif
+                                    @endif --}}
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
@@ -339,7 +339,7 @@
                                         </div>
                                     @endif
                                     <!-- Favourite -->
-                                    @php
+                                    {{-- @php
                                         $isInWishlist = \App\Models\SANPHAMYEUTHICH::where('MaKH', session('User')['MaKH'])
                                                           ->where('MaSP', $product->MaSP)
                                                           ->exists();
@@ -357,7 +357,7 @@
                                                 <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
                                             </form>
                                         </div>
-                                    @endif
+                                    @endif --}}
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
@@ -420,7 +420,7 @@
                                         </div>
                                     @endif
                                     <!-- Favourite -->
-                                    @php
+                                    {{-- @php
                                         $isInWishlist = \App\Models\SANPHAMYEUTHICH::where('MaKH', session('User')['MaKH'])
                                                           ->where('MaSP', $product->MaSP)
                                                           ->exists();
@@ -438,7 +438,7 @@
                                                 <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
                                             </form>
                                         </div>
-                                    @endif
+                                    @endif --}}
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
