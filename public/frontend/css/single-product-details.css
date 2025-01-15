@@ -25,7 +25,7 @@
 }
 
 .product-image1 img {
-    width: 100%;
+    width: 500px;
     max-width: 500px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -73,6 +73,10 @@
 .status-price {
     margin-bottom: 20px;
 }
+.status-price strong {
+    color: black;
+    font-weight: bold;
+}
 .quantity input {
     width: 110px;
     height: 40px;
@@ -93,11 +97,13 @@
     margin-bottom: 28px;
     border-radius: 2px;
 }
-.btn-minus, .btn-plus{
+.btn-minus,
+.btn-plus {
     background-color: #fff8f3;
     color: #000;
 }
-.btn-minus:hover, .btn-plus:hover{
+.btn-minus:hover,
+.btn-plus:hover {
     background-color: #000;
     color: white;
     border-radius: 2px;
@@ -115,7 +121,9 @@
 }
 
 .add-to-cart-btn:hover {
-    background-color: #000000;
+    transform: scale(1.05) translateY(-2px);
+    transition: transform 0.2s ease;
+    background-color: #000;
 }
 
 .wishlist {
@@ -207,7 +215,7 @@
     margin: 20px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 800px;
-    height: 450px;
+    height: 200px;
 }
 .review-section-comment {
     font-family: "Arial", sans-serif;
@@ -483,7 +491,7 @@ textarea:hover,
     color: black;
     margin: 5px 0;
 }
-.product-card a{
+.product-card a {
     color: black;
 }
 .product-card strong {
@@ -591,5 +599,56 @@ textarea:hover,
     color: white !important;
     text-align: center;
 }
+.status-product {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.pre-order {
+    position: relative;
+    right: 120px;
+    bottom: 5px;
+}
+.pre-order span {
+    margin-left: 7px;
+}
+.normal {
+    position: relative;
+    right: 120px;
+    bottom: 5px;
+    background-color: #555;
+    border: #555;
+}
+.normal span {
+    margin-left: 16px;
+    color: white;
+    border-radius: #555;
+}
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
 
+.pagination a, .pagination span {
+    margin: 0 5px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.pagination .active span {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}

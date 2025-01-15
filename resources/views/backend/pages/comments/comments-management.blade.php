@@ -55,13 +55,13 @@
                                 <tbody>
                                     @foreach ($comments as $comment)
                                         <tr>
-                                            <td>{{ $comment->id }}</td>
+                                            <td>{{ $comment->MaBL }}</td>
                                             <td>{{ $comment->MaSP }}</td>
                                             <td>{{ $comment->MaKH }}</td>
                                             <td>{{ $comment->SoSao }}</td>
                                             <td>{{ $comment->NoiDung }}</td>
                                             <td>
-                                                <form action="{{ route('comments.destroy', $comment->id) }}" method="POST"
+                                                <form action="{{ route('comments.destroy', $comment->MaBL) }}" method="POST"
                                                     onsubmit="return confirmDelete()">
                                                     @csrf
                                                     @method('DELETE')
