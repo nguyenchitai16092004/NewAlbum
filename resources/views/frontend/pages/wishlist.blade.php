@@ -28,16 +28,17 @@
                         alt="{{ $wishlist->product->TenSP }}" class="product-image">
                     <div class="product-details">
                         <h2 class="product-title">{{ $wishlist->product->TenSP }}</h2>
-                        <p class="product-price">${{ number_format($wishlist->product->price, 2) }}</p>
+                        <p class="product-price">${{ number_format($wishlist->product->GiaBan, 2) }}</p>
                         <div class="action-buttons">
-                            <form action="" method="POST" class="inline-form">
+                            <form action="{{ route('add.to.cart') }}" method="POST" class="inline-form">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $wishlist->product->MaSP }}">
                                 <button class="action-button add-to-cart" type="submit">
                                     <i class="fa fa-shopping-cart"></i> Add to Cart
                                 </button>
                             </form>
-                            <form action="" method="POST" class="inline-form">
+                            <form action="{{ route('wishlist.destroy', ['id' => $wishlist->MaSP]) }}" method="POST"
+                                class="inline-form">
                                 @csrf
                                 @method('DELETE')
                                 <button class="action-button remove-button" type="submit">
