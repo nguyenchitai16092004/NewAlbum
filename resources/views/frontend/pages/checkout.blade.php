@@ -51,7 +51,13 @@
                 </ul>
                 <div class="terms-check">
                     <div id="accordion" role="tablist" class="mb-4">
-                        <button class="btn-place-order">Place Order</button>
+                        <form action="{{ route('checkout.placeOrder') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="cart" value="{{ json_encode($cart) }}">
+                            <input type="hidden" name="cartTotal" value="{{ $cartTotal }}">
+                            <input type="text" name="diaChi" placeholder="Nhập địa chỉ giao hàng" required>
+                            <button type="submit" class="btn-place-order">Place Order</button>
+                        </form>
                     </div>
                 </div>
             </div>
