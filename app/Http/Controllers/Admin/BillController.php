@@ -13,8 +13,10 @@ class BillController extends Controller
 {
     public function Index()
     {
-        $HoaDon = HOADON::join('KHACHHANG', 'KHACHHANG.MaKH', '=', 'HOADON.MaKH')->where('HOADON.TrangThai' , '>' , -2)
-            ->select('HOADON.*', 'KHACHHANG.TenKH')->paginate(4);
+        $HoaDon = HOADON::join('KHACHHANG', 'KHACHHANG.MaKH', '=', 'HOADON.MaKH')
+            ->where('HOADON.TrangThai', '>', -2)
+            ->select('HOADON.*', 'KHACHHANG.TenKH')
+            ->paginate(4);
 
         return view('backend.pages.bill.bill-management', compact('HoaDon'));
     }
@@ -24,7 +26,7 @@ class BillController extends Controller
             ->join('HOADON', 'HOADON.MaHD', '=', 'CHITIETHOADON.MaHD')
             ->where('CHITIETHOADON.MaHD', '=', $id)
             ->get();
-            
+
         return view('backend.pages.bill.bill-detail-management', compact('ChiTietHoaDon'));
     }
 

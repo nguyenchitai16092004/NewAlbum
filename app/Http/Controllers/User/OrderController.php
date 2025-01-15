@@ -7,48 +7,41 @@ use Illuminate\Http\Request;
 use App\Models\HoaDon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Log;
 
 class OrderController extends Controller
 {
-        public function placeOrder(Request $request)
+    public function placeOrder(Request $request)
     {
         $cart = json_decode($request->input('cart'), true);
-
-        $cartTotal = $request->input('cartTotal');
-
         $diaChi = $request->input('diaChi');
-
+    
+        $userData = session('User');
+        $maKH = $userData['MaKH'];
+        if (empty($cart)) {
+            return back()->with('error', 'Giỏ hàng của bạn đang trống.');
+        }
+    
         if (!$diaChi) {
             return back()->with('error', 'Vui lòng nhập địa chỉ.');
         }
-
+    
         try {
             $hoaDon = new HoaDon();
-            $hoaDon->MaKH = Auth::id();
-
-            $hoaDon->TongTien = $cartTotal;
+            $hoaDon->MaKH =  $maKH;
+            $hoaDon->TongTien = $request->input('cartTotal');
             $hoaDon->DiaChi = $diaChi;
-
-            $hoaDon->save(); // Lưu dữ liệu
-
+            $hoaDon->save();
+    
+            // Xóa giỏ hàng chỉ sau khi đặt hàng thành công
             Session::forget('cart');
-
+    
             return redirect('/')->with('success', 'Đặt hàng thành công!');
         } catch (\Exception $e) {
-            \Log::error($e);
-            return back()->with('error', 'Có lỗi xảy ra khi đặt hàng.');
+            Log::error("Đặt hàng thất bại: " . $e->getMessage());
+            return back()->with('error', 'Có lỗi xảy ra khi đặt hàng. Vui lòng thử lại.');
         }
-    }
-        public function showCheckout()
-    {
-        $cart = session()->get('cart', []); // Lấy giỏ hàng từ session
-        $cartTotal = $this->getCartTotal($cart); // Hàm tính tổng giỏ hàng (bạn cần tự định nghĩa)
-
-        // Debug: Kiểm tra giá trị của $cart và $cartTotal
-        dd($cart, $cartTotal); // BỎ DÒNG NÀY SAU KHI ĐÃ KIỂM TRA
-
-        return view('frontend.checkout', compact('cart', 'cartTotal'));
-    }
+    }    
 
     // Hàm tính tổng giỏ hàng (ví dụ)
     private function getCartTotal($cart) {
