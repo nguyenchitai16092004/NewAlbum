@@ -23,7 +23,7 @@ class ProductController extends Controller
                 'NHOMNHACCASI.TenNhomNhacCaSi'
             )
             ->paginate(3);
-    
+
         return view('backend.pages.product.product', [
             'products' => $products
         ]);
@@ -43,29 +43,29 @@ class ProductController extends Controller
     {
         $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP', 'left')
             ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi', 'left')
-            ->where(function($query) use ($id) {
+            ->where(function ($query) use ($id) {
                 $query->where('SANPHAM.MaSP', '=', $id)
-                      ->whereNull('SANPHAM.MaLoaiSP')
-                      ->orWhereNull('SANPHAM.MaNhomNhacCaSi');
+                    ->whereNull('SANPHAM.MaLoaiSP')
+                    ->orWhereNull('SANPHAM.MaNhomNhacCaSi');
             })
             ->select('SANPHAM.*', 'LOAISP.TenLoaiSP', 'NHOMNHACCASI.TenNhomNhacCaSi')
             ->first();
-    
+
         $NhomNhacCaSi = NHOMNHACCASI::all();
         $LoaiSP = LOAISP::all();
-    
+
         return view('backend.pages.product.edit-product', [
             'products' => $products,
             'Band' => $NhomNhacCaSi,
             'Category' => $LoaiSP,
         ]);
     }
-    
+
 
     public function Add(Request $request)
     {
         $slug = Str::slug($request->TenSP, '-');
-    
+
         $validated = $request->validate([
             'MaNhomNhacCaSi' => 'required|numeric',
             'MaSPGG' => 'nullable|numberic',
@@ -83,15 +83,15 @@ class ProductController extends Controller
         $validated['Slug'] = $slug;
         if ($request->hasFile('HinhAnh')) {
             $HinhAnh = $request->file('HinhAnh');
-    
+
             $TenHinhAnh = $HinhAnh->getClientOriginalName();
-    
+
             $HinhAnh->move(public_path('storage/SanPham'), $TenHinhAnh);
-    
+
             $validated['HinhAnh'] = $TenHinhAnh;
         }
         SANPHAM::create($validated);
-    
+
         return redirect()->route('Index_Product')->with('success', 'Product added successfully!');
     }
 
@@ -100,7 +100,7 @@ class ProductController extends Controller
         $products = SANPHAM::findOrFail($id);
         $products->TrangThai = 0;
         $products->save();
-    
+
         return redirect()->route('Index_Product')->with('success', 'Product deleted successfully!');
     }
 
@@ -108,7 +108,7 @@ class ProductController extends Controller
     public function Edit(Request $request, $id)
     {
         $products = SANPHAM::findOrFail($id);
-    
+
         // Gán giá trị từ request vào sản phẩm
         $products->MaNhomNhacCaSi = $request->input('MaNhomNhacCaSi');
         $products->MaLoaiSP = $request->input('MaLoaiSP');
@@ -119,17 +119,17 @@ class ProductController extends Controller
         $products->TieuDe = $request->input('TieuDe');
         $products->MoTa = $request->input('MoTa');
         $products->SoLuong = $request->input('SoLuong');
-    
+
         if ($request->hasFile('HinhAnh')) {
             $HinhAnh = $request->file('HinhAnh');
             $TenHinhAnh = $HinhAnh->getClientOriginalName();
             $HinhAnh->move(public_path('storage/SanPham'), $TenHinhAnh);
-    
+
             $products->HinhAnh = $TenHinhAnh;
         }
-    
+
         $products->save();
-    
+
         return redirect()->route('Index_Product')->with('success', 'Product updated successfully!');
     }
 
@@ -139,14 +139,14 @@ class ProductController extends Controller
 
         if (empty($search)) {
             $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
-            ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi')
-            ->where('SANPHAM.TrangThai', '=', 1)
-            ->select(
-                'SANPHAM.*',
-                'LOAISP.TenLoaiSP',
-                'NHOMNHACCASI.TenNhomNhacCaSi'
-            )
-            ->paginate(3);
+                ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi')
+                ->where('SANPHAM.TrangThai', '=', 1)
+                ->select(
+                    'SANPHAM.*',
+                    'LOAISP.TenLoaiSP',
+                    'NHOMNHACCASI.TenNhomNhacCaSi'
+                )
+                ->paginate(3);
 
             return view('backend.pages.product.product', ['products' => $products]);
         } else {
@@ -159,7 +159,7 @@ class ProductController extends Controller
                     'NHOMNHACCASI.TenNhomNhacCaSi'
                 )->get();
 
-                $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
+            $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
                 ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi')
                 ->where('SANPHAM.TrangThai', '=', 1)
                 ->select(
