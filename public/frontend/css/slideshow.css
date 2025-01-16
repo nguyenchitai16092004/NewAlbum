@@ -1,10 +1,172 @@
+/* Cấu hình container của swiper */
 .swiper-container {
-  height: calc(90vh - 0px);
-  margin: 0px;
-  background-color: #212741;
+  height: calc(80vh - 0px);  /* Chiều cao của swiper được tính dựa trên 80% chiều cao cửa sổ trình duyệt */
+  margin: 0px;               /* Không có margin xung quanh container */
+  background-color: #a1e7ea; /* Màu nền của container */
 }
 
-.swiper-slide {
+/* Cấu hình cho mỗi slide */
+.swiper-slide { 
+  overflow: hidden;               /* Ẩn phần tràn ra ngoài slide */
+  display: flex;                  /* Sử dụng flexbox để dễ dàng căn chỉnh các phần tử bên trong */
+  justify-content: center;        /* Căn giữa các phần tử trong slide theo chiều ngang */
+  align-items: center;            /* Căn giữa các phần tử trong slide theo chiều dọc */
+  height: 100%;                   /* Đảm bảo chiều cao của mỗi slide bằng 100% chiều cao container */
+}
+
+/* Cấu hình cho mỗi slide-inner (bao bọc cả hình ảnh và nội dung) */
+.slide-inner { 
+  display: flex;                  /* Sử dụng flexbox để căn chỉnh các phần tử con (hình ảnh và nội dung) theo hàng ngang */
+  flex-direction: row-reverse;    /* Đảo ngược thứ tự các phần tử, ảnh sẽ nằm bên phải, chữ sẽ nằm bên trái */
+  justify-content: space-between; /* Căn đều khoảng cách giữa hình ảnh và nội dung */
+  width: 100%;                    /* Đảm bảo slide-inner chiếm 100% chiều rộng của slide */
+  height: 100%;                   /* Đảm bảo chiều cao của slide-inner bằng chiều cao của slide */
+  position: relative;             /* Để sử dụng các tính năng vị trí tuyệt đối bên trong */
+}
+
+/* Cấu hình cho container chứa ảnh */
+.image-container {
+  margin-top: 100px;
+  margin-right: 100px;
+  width: 500px;                   /* Chiều rộng cố định của ảnh là 500px */
+  height: 370px;                  /* Chiều cao cố định của ảnh là 370px */
+  background-size: cover;         /* Đảm bảo hình ảnh bao phủ toàn bộ vùng chứa */
+  background-position: center;    /* Đặt vị trí của hình ảnh ở chính giữa vùng chứa */
+  flex-shrink: 0;                 /* Ngăn ảnh co lại khi không đủ không gian */
+  border-radius: 17px;
+}
+
+/* Cấu hình cho container chứa nội dung */
+.content-container {
+  margin-left: 100px;
+  width: 50%;                     /* Nội dung chiếm 50% chiều rộng của slide */
+  padding: 20px;                  /* Padding để tạo khoảng cách giữa nội dung và viền */
+  display: flex;                  /* Dùng flexbox để căn giữa các phần tử trong nội dung */
+  justify-content: center;        /* Căn giữa theo chiều ngang */
+  align-items: center;            /* Căn giữa theo chiều dọc */
+  flex-direction: column;         /* Căn các phần tử theo chiều dọc */
+}
+
+/* Cấu hình phần tiêu đề trong nội dung */
+.header-text {
+  text-align: center;             /* Căn giữa văn bản của tiêu đề */
+}
+
+/* Cấu hình cho phần h2 của tiêu đề */
+.header-text h2 {
+  font-size: 40px;                /* Kích thước font chữ là 40px */
+  color: black;                   /* Màu sắc của văn bản là đen */
+  font-weight: 700;                /* Đậm chữ */
+  line-height: 70px;              /* Đảm bảo chiều cao của dòng chữ */
+}
+
+/* Cấu hình cho phần trang trí dưới tiêu đề (div-decoration) */
+.header-text .div-dec {
+  width: 80px;                    /* Chiều rộng của đường kẻ là 80px */
+  height: 6px;                    /* Chiều cao của đường kẻ là 6px */
+  border-radius: 3px;             /* Làm tròn các góc của đường kẻ */
+  background-color: #fff;         /* Màu nền của đường kẻ là trắng */
+  margin-bottom: 40px;            /* Khoảng cách dưới đường kẻ là 40px */
+}
+
+/* Cấu hình cho đoạn văn bản trong header-text */
+.header-text p {
+  color: #fff;                    /* Màu sắc chữ là trắng */
+  margin-right: 60px;              /* Khoảng cách bên phải */
+  margin-bottom: 50px;             /* Khoảng cách bên dưới */
+}
+
+/* Cấu hình cho nút slideshow */
+.slideshow-button {
+  width: 130px;                   /* Chiều rộng của nút slideshow là 130px */
+  height: 45px;                   /* Chiều cao của nút slideshow là 45px */
+  background-color: black;        /* Màu nền của nút là đen */
+  display: flex;                  /* Dùng flexbox để căn giữa chữ trong nút */
+  justify-content: center;        /* Căn giữa theo chiều ngang */
+  align-items: center;            /* Căn giữa theo chiều dọc */
+  transition: all 0.3s ease;      /* Hiệu ứng chuyển động mượt mà khi hover */
+  margin-left: 36%;               /* Đặt khoảng cách bên trái */
+}
+
+/* Hiệu ứng hover cho slideshow-button */
+.slideshow-button:hover {
+  transform: scale(1.1) translateY(-5px); /* Phóng to nút khi hover và dịch chuyển lên */
+}
+
+/* Cấu hình cho liên kết trong slideshow-button */
+.slideshow-button a {
+  color: white;                   /* Màu chữ của liên kết là trắng */
+  font-weight: bold;               /* Chữ đậm */
+  text-decoration: none;           /* Loại bỏ gạch chân */
+  font-size: 20px;                 /* Kích thước chữ là 20px */
+}
+
+.action-slideshow {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+  position: relative;
+  bottom: 80px;
+  z-index: 2;
+  font-size: 20px;
+  color: black;
+  font-weight: 700;
+  opacity: 1;
+  visibility: visible;
+  cursor: pointer;
+}
+
+/* Cấu hình cho các nút chuyển slide trước và sau */
+.swiper-prev, .swiper-next {
+  width: 30px;                    /* Chiều rộng của nút */
+  height: 30px;                   /* Chiều cao của nút */
+  color: #fff;                    /* Màu chữ là trắng */
+  background-color: black;        /* Màu nền là đen */
+  border-radius: 2px;             /* Bo góc nút */
+  display: flex;                  /* Dùng flexbox để căn giữa icon */
+  justify-content: center;        /* Căn giữa icon theo chiều ngang */
+  align-items: center;            /* Căn giữa icon theo chiều dọc */
+  transition: all 0.3s ease;      /* Hiệu ứng chuyển động mượt mà khi hover */
+}
+
+/* Hiệu ứng hover cho các nút chuyển slide */
+.swiper-prev:hover, .swiper-next:hover {
+  transform: scale(1.1) translateY(-5px); /* Phóng to và dịch chuyển lên khi hover */
+}
+
+/* Cấu hình cho các icon trong nút chuyển slide */
+.swiper-prev i, .swiper-next i {
+  display: flex;                  /* Dùng flexbox để căn giữa icon */
+  justify-content: center;        /* Căn giữa icon theo chiều ngang */
+  align-items: center;            /* Căn giữa icon theo chiều dọc */
+}
+
+/* Cấu hình cho phần ctn-slideshow (vị trí của phần chứa slideshow) */
+.ctn-slideshow {
+  position: relative;
+  top: 350px;                      /* Đặt phần chứa slideshow cách phần trên 350px */
+  left: 130px;                     /* Đặt phần chứa slideshow cách bên trái 130px */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* .swiper-container {
+  height: calc(80vh - 0px);
+  margin: 0px;
+  background-color: #a1e7ea;
+}
+
+.swiper-slide { 
   overflow: hidden;
 }
 
@@ -50,7 +212,7 @@
 .slide-inner .header-text h2 {
   position: relative;
   z-index: 2;
-  font-size: 90px;
+  font-size: 40px;
   color: black;
   font-weight: 700;
   opacity: 1;
@@ -153,4 +315,4 @@
   position: relative;
   top:350px;
   left: 130px;
-}
+} */
