@@ -15,13 +15,14 @@ class LoginController extends Controller
             ->first();
 
         if ($auth) {
-            return redirect()->route('dashboard.edit')->with('error', 'Login Fail!');;
+            return redirect()->route('dashboard.edit')->with('success', 'Login successful!');;
         } else {
-           
-            return view('backend.pages.sign-in')->with('success', 'Login successful !');;
+
+            return view('backend.pages.sign-in')->with('error', 'Login Fail!');;
         }
     }
-    public function logout(){
+    public function logout()
+    {
         session()->forget('Admin');
         return view('backend.pages.sign-in');
     }
