@@ -20,19 +20,19 @@ class HomeController extends Controller
         // Lấy sản phẩm KPOP nổi bật
         $kpopProduct = SANPHAM::where('MaLoaiSP', 1)
                             ->where('TrangThai', 1)
-                            ->orderBy('luot_xem', 'desc')  // Sắp xếp theo lượt xem cao nhất
+                            ->orderBy('LuotXem', 'desc')  // Sắp xếp theo lượt xem cao nhất
                             ->first();  // Lấy sản phẩm có lượt xem cao nhất
 
         // Lấy sản phẩm KGOODS nổi bật
         $kgoodsProduct = SANPHAM::where('MaLoaiSP', 2)
                                 ->where('TrangThai', 1)
-                                ->orderBy('luot_xem', 'desc')  // Sắp xếp theo lượt xem cao nhất
+                                ->orderBy('LuotXem', 'desc')  // Sắp xếp theo lượt xem cao nhất
                                 ->first();  // Lấy sản phẩm có lượt xem cao nhất
 
         // Lấy sản phẩm POSTER nổi bật
         $posterProduct = SANPHAM::where('MaLoaiSP', 3)
                                 ->where('TrangThai', 1)
-                                ->orderBy('luot_xem', 'desc')  // Sắp xếp theo lượt xem cao nhất
+                                ->orderBy('LuotXem', 'desc')  // Sắp xếp theo lượt xem cao nhất
                                 ->first();  // Lấy sản phẩm có lượt xem cao nhất
 
         // Lấy bài viết blog

@@ -22,7 +22,7 @@ class ProductUserController extends Controller
         }
 
         // Tăng lượt xem lên 1
-        $product->luot_xem += 1;
+        $product->LuotXem += 1;
         $product->save();
 
         // Lấy thông tin khách hàng đăng nhập
