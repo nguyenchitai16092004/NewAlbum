@@ -47,4 +47,29 @@ class BillController extends Controller
         return redirect()->route('Index_Bill_Management')->with('success', 'Invoice deleted successfully!');
     }
 
+    public function updateStatus(Request $request, $id)
+    {
+        $HoaDon = HOADON::findOrFail($id);
+
+        $newStatus = $request->input('TrangThai');
+        $HoaDon->TrangThai = $newStatus;
+        $HoaDon->save();
+
+        return redirect()->route('Index_Bill_Management')
+            ->with('success', 'Status updated successfully!');
+    }
+
+    private function getStatusMessage($status)
+    {
+        $statusMessages = [
+            -1 => 'Cancelled',
+            0  => 'Not yet confirmed',
+            1  => 'Confirmed',
+            2  => 'In delivery',
+            3  => 'Delivered'
+        ];
+
+        return $statusMessages[$status] ?? 'Unknown status';
+    }
+
 }
