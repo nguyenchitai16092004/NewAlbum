@@ -16,7 +16,6 @@
                                         <th scope="col">Quantity</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Total Price</th>
-                                        <!-- Bỏ cột TrangThai khỏi giao diện -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,22 +39,25 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="custom-pagination text-center mt-4">
-                            @if ($ChiTietHoaDon->first()->TrangThai == 0)
-                                <form action="{{ route('Update_Bill', ['id' => $ChiTietHoaDon->first()->MaHD]) }}"
-                                    method="POST">
-                                    @csrf
-                                    <button type="submit" class="btn btn-success">Accept</button>
-                                </form>
-                            @elseif($ChiTietHoaDon->first()->TrangThai == -1)
-                                <form action="{{ route('Canncel_Bill', ['id' => $ChiTietHoaDon->first()->MaHD]) }}"
-                                    method="POST">
-                                    @csrf
-                                    <button type="submit" class="btn btn-err"
-                                        style="background-color: red ; color:white ; margin-left: 10px">Delete</button>
-                                </form>
-                            @endif
-                        </div>
+
+                        @if ($ChiTietHoaDon->isNotEmpty())
+                            <div class="custom-pagination text-center mt-4">
+                                @if ($ChiTietHoaDon->first()->TrangThai == 0)
+                                    <form action="{{ route('Update_Bill', ['id' => $ChiTietHoaDon->first()->MaHD]) }}"
+                                        method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success">Accept</button>
+                                    </form>
+                                @elseif($ChiTietHoaDon->first()->TrangThai == -1)
+                                    <form action="{{ route('Canncel_Bill', ['id' => $ChiTietHoaDon->first()->MaHD]) }}"
+                                        method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-err"
+                                            style="background-color: red ; color:white ; margin-left: 10px">Delete</button>
+                                    </form>
+                                @endif
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
