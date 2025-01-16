@@ -28,7 +28,7 @@ class HOADON extends Model
         return $this->belongsTo(KhachHang::class, 'MaKH', 'MaKH');
     }
 
-    public function chiTietHoaDons()
+    public function CTHD()
     {
         return $this->hasMany(CHITIETHOADON::class, 'MaHD', 'MaHD');
     }

@@ -34,7 +34,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'Index'])->name('Index_Home');
 
-Route::get('/single-product-details/{id}', [ProductUserController::class, 'show'])->name('product.details');
+Route::get('/single-product-details/{slug}', [ProductUserController::class, 'show'])->name('product.details');
+Route::post('/single-product-details/{slug}/comment', [ProductUserController::class, 'storeComment'])->name('product.comment');
+
 Route::get('/checkout', function () {
     return view('frontend.pages.checkout');
 });
@@ -62,10 +64,6 @@ Route::post('/remove-from-cart', [CartController::class, 'removeFromCart'])->nam
 Route::post('/update-cart', [CartController::class, 'updateCart'])->name('update.cart');
 Route::post('/clear-cart', [CartController::class, 'clearCart'])->name('clear.cart');
 
-
-Route::get('/single-product-details', function () {
-    return view('frontend.pages.single-product-details');
-});
 
 Route::get('/new-arrival', [HomeController::class, 'showNewArrival'])->name('new.arrival');
 
