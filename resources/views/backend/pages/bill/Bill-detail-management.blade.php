@@ -51,7 +51,8 @@
                                 <form action="{{ route('Canncel_Bill', ['id' => $ChiTietHoaDon->first()->MaHD]) }}"
                                     method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-err" style="background-color: red ; color:white ; margin-left: 10px">Delete</button>
+                                    <button type="submit" class="btn btn-err"
+                                        style="background-color: red ; color:white ; margin-left: 10px">Delete</button>
                                 </form>
                             @endif
                         </div>
