@@ -68,4 +68,5 @@ class ProductUserController extends Controller
 
         return view('frontend.pages.listproduct', compact('category', 'products'));
     }
+
 }

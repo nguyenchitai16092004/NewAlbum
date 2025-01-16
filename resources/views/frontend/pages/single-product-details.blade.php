@@ -92,14 +92,14 @@
                         @endfor
                     </div>
                 </div>
-                {{-- <div class="write-review">
+                <div class="write-review">
                     <label for="review">Write a review</label>
                     <textarea id="review" placeholder="Write your review here..."></textarea>
                     <div class="star-input">★★★★★</div>
                 </div>
                 <div class="ctn-comment">
                     <button class="btn-comment">Comment</button>
-                </div> --}}
+                </div>
             </div>
 
             <div class="review-section-comment">
