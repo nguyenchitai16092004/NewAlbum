@@ -1,9 +1,8 @@
 @extends('backend.layouts.master')
 @section('title', 'Add Blog')
-@section('main')
 
+@section('main')
     <link rel="stylesheet" href="css/custom-style-addstaff.css">
-    
     <div class="single-pro-review-area mt-t-30 mg-b-15">
         <div class="container-fluid">
             <div class="row">
