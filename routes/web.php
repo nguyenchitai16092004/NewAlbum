@@ -27,7 +27,7 @@ use App\Http\Controllers\User\OrderController;
 use App\Http\Controllers\User\ProductUserController;
 use App\Http\Controllers\User\UserBillController;
 use App\Http\Controllers\User\WishlistController;
-
+use App\Http\Controllers\User\CommentUserController;
 use Illuminate\Support\Facades\Route;
 
 /*Route FE */
@@ -94,6 +94,8 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 Route::get('/rating-product', function () {
     return view('frontend.pages.rating-product');
 });
+Route::get('/rating-product', [CommentUserController::class, 'index'])->name('comments.index');
+
 Route::get('/account', function () {
     return view('frontend.pages.account');
 });

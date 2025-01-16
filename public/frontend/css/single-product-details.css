@@ -660,3 +660,7 @@ input[type="number"] {
 .pagination a:hover {
     background-color: white;
 }
+
+.product-favourite a{
+    cursor: pointer;
+}
