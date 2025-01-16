@@ -1,8 +1,10 @@
 @extends('backend.layouts.master')
 @section('This page is Add Library', 'Add Library')
 @section('main')
-<link rel="stylesheet" href="/css/custom-style-addstaff.css">
-    <div class="single-pro-review-area mt-t-30 mg-b-15">
+
+    <link rel="stylesheet" href="css/custom-style-addstaff.css">
+
+<div class="single-pro-review-area mt-t-30 mg-b-15">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

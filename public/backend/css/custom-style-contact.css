@@ -1,0 +1,105 @@
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    background-color: #343a40;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f3f5;
+    cursor: pointer;
+}
+
+thead.thead-dark th {
+    background-color: #212529;
+    color: white;
+}
+
+.custom-pagination a {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 0 5px;
+    color: #007bff;
+    text-decoration: none;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+.custom-pagination a:hover {
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+}
+
+.btn {
+    padding: 10px 20px; 
+    font-size: 14px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: bold; 
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    border: none;
+    margin-bottom: 10px;
+}
+
+.btn-sm {
+    padding: 8px 15px;
+    font-size: 12px;
+    border-radius: 6px;
+}
+
+.btn-success {
+    background-color: #000000;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-danger {
+    background-color: #000000;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.25);
+}
+
+h4 {
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #495057;
+}
+
+.product-status-wrap {
+    padding: 20px;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}

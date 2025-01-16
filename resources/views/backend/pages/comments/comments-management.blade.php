@@ -2,7 +2,7 @@
 @section('title', 'Comments Management')
 @section('main')
 
-    <link rel="stylesheet" href="/css/custom-style-pagination.css">
+    <link rel="stylesheet" href="css/custom-style-pagination.css">
     <script src="/js/onclick.js"></script>
 
     <div class="product-status mg-b-15">
