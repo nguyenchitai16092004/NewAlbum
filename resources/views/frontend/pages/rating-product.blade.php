@@ -29,13 +29,13 @@
                     <img src="{{ asset('Storage/SanPham/' . $comment->SANPHAM->HinhAnh) }}" alt="{{ $comment->SANPHAM->TenSP }}"
                         class="product-image">
                     <div class="product-info">
+                        <span class="comment-date">{{ $comment->created_at->format('F d, Y') }}</span>
                         <div class="rating">
                             {{ str_repeat('★', $comment->SoSao) }}{{ str_repeat('☆', 5 - $comment->SoSao) }}
                         </div>
                         <div class="description">
                             <p style="margin-left:10px">{{ $comment->NoiDung }}</p>
                         </div>
-                        <!-- <span class="comment-date">{{ $comment->created_at->format('F d, Y') }}</span> -->
                     </div>
                 </div>
             @endforeach

@@ -33,7 +33,7 @@
                         <div class="action-buttons">
                             <div class="hover-content">
                                 <!-- Add to Cart -->
-                                <button class="btn essence-btn add-to-cart-btn action-button add-to-cart"
+                                <button class="btn essence-btn add-to-cart-btn action-button"
                                     data-id="{{ $wishlist->product->MaSP }}" data-name="{{ $wishlist->product->TenSP }}"
                                     data-price="{{ $wishlist->product->GiaBan }}"
                                     data-image="{{ asset('Storage/SanPham/' . $wishlist->product->HinhAnh) }}"
