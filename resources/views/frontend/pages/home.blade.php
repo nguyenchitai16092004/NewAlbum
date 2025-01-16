@@ -397,7 +397,6 @@
                                         </div>
                                     @endif
                                     <!-- Favourite -->
-
                                     <div class="product-favourite">
                                         <form action="{{ route('wishlist.store') }}" method="POST"
                                             id="wishlist-{{ $product->MaSP }}">

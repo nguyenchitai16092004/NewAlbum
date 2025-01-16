@@ -19,7 +19,9 @@
                                 </div>
                             @endif
                             <div class="card-body text-center">
-                                <h5 class="card-title">{{ $product->TenSP }}</h5>
+                                <a href="{{ url('single-product-details/' . $product->Slug) }}">
+                                    <h5 class="card-title">{{ $product->TenSP }}</h5>
+                                </a>
                                 @if ($product->LoaiHang == 1)
                                     <div class="pre-oder-new-arrivals">
                                         <span>Pre&ndash;order</span>
