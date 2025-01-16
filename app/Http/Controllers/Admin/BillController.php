@@ -47,17 +47,7 @@ class BillController extends Controller
         return redirect()->route('Index_Bill_Management')->with('success', 'Invoice deleted successfully!');
     }
 
-    public function updateStatus(Request $request, $id)
-    {
-        $HoaDon = HOADON::findOrFail($id);
-
-        $newStatus = $request->input('TrangThai');
-        $HoaDon->TrangThai = $newStatus;
-        $HoaDon->save();
-
-        return redirect()->route('Index_Bill_Management')
-            ->with('success', 'Status updated successfully!');
-    }
+    
 
     private function getStatusMessage($status)
     {
@@ -70,6 +60,26 @@ class BillController extends Controller
         ];
 
         return $statusMessages[$status] ?? 'Unknown status';
+    }
+        public function updateStatus(Request $request, $id)
+    {
+        // Lấy hóa đơn từ database
+        $hoaDon = HoaDon::findOrFail($id);
+
+        // Lấy trạng thái hiện tại và trạng thái mới từ request
+        $currentStatus = $hoaDon->TrangThai;
+        $newStatus = (int) $request->input('TrangThai');
+
+        // Kiểm tra trạng thái mới phải lớn hơn hoặc bằng trạng thái hiện tại
+        if ($newStatus < $currentStatus) {
+            return redirect()->back()->with('error', 'Cannot change to a previous status.');
+        }
+
+        // Cập nhật trạng thái nếu hợp lệ
+        $hoaDon->TrangThai = $newStatus;
+        $hoaDon->save();
+
+        return redirect()->back()->with('success', 'Status has been updated successfully.');
     }
 
 }
