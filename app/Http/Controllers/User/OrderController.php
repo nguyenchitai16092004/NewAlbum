@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\HoaDon;
+use App\Models\ChiTietHoaDon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Log;
@@ -25,14 +26,22 @@ class OrderController extends Controller
         if (!$diaChi) {
             return back()->with('error', 'Vui lòng nhập địa chỉ.');
         }
-    
         try {
             $hoaDon = new HoaDon();
             $hoaDon->MaKH =  $maKH;
             $hoaDon->TongTien = $request->input('cartTotal');
             $hoaDon->DiaChi = $diaChi;
             $hoaDon->save();
-    
+
+            foreach ($cart as $item) {
+                $chiTietHoaDon = new ChiTietHoaDon();
+                $chiTietHoaDon->MaHD = $hoaDon->id;
+                $chiTietHoaDon->MaSP = $item['productId'];
+                $chiTietHoaDon->SoLuong = $item['quantity'];
+                $chiTietHoaDon->DonGia = $item['price'];
+                $chiTietHoaDon->TongTien = $item['price'] * $item['quantity'];
+                $chiTietHoaDon->save();
+            }
             // Xóa giỏ hàng chỉ sau khi đặt hàng thành công
             Session::forget('cart');
     

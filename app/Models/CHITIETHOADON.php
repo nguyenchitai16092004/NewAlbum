@@ -8,19 +8,18 @@ class CHITIETHOADON extends Model
 {
     protected $table = 'CHITIETHOADON';
 
-    // Khóa chính
-    protected $primaryKey = ['MaHD', 'MaSP'];
-    public $incrementing = false;
+    // Tắt timestamps nếu không dùng
+    public $timestamps = false;
+
+    // Sử dụng khóa chính tự động tăng thay vì khóa phức hợp
+    protected $primaryKey = 'MaSP,MaHD';
 
     protected $fillable = [
         'MaHD',
         'MaSP',
         'SoLuong',
-        'TenSP',
         'DonGia',
         'TongTien',
-        'HinhAnh',
-        'TrangThaiBL',
     ];
 
     // Kiểu dữ liệu của các cột
@@ -35,5 +34,4 @@ class CHITIETHOADON extends Model
     {
         return $this->belongsTo(HOADON::class, 'MaHD', 'MaHD');
     }
-
 }

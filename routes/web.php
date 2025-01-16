@@ -116,7 +116,7 @@ Route::delete('/wishlist/{id}', [WishlistController::class, 'delete'])->name('wi
 // Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
 // Route::get('/order-history', [OrderController::class, 'orderHistory'])->name('order.history');
 Route::post('/checkout/place-order', [OrderController::class, 'placeOrder'])->name('checkout.placeOrder');
-
+Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('placeOrder');
 
 
 Route::prefix('/admin')->group(function () {
