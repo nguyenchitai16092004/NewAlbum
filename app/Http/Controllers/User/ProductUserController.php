@@ -75,7 +75,8 @@ class ProductUserController extends Controller
             'commentProducts',
             'commentCount',
             'averageRating',
-            'canComment'
+            'canComment',
+            'userId'
         ));
     }
 

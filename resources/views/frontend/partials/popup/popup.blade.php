@@ -47,16 +47,16 @@
                             <input type="password" id="password" name="password" placeholder="Password" required>
                             <span id="passwordError" style="color: red; display: none;">Password is not valid!</span>
                             <div class="button-container">
-                                <button id="openPopupBtn" class="btn-left">Register</button>
+                                <!-- <button id="openPopupBtn" class="btn-left">Register</button> -->
                                 <button type="submit" class="btn-right">Login</button>
                             </div>
                         </form>
-                        <div class="parent"><button type="button" class="parent-link" id="forgotpassButton">Forgot
-                                Password</button></div>
+                        <!-- <div class="parent"><button type="button" class="parent-link" id="forgotpassButton">Forgot
+                                Password</button></div> -->
                     </div>
                 </div>
                 <!-- Popup Đăng ký-->
-                <div id="registerPopup" class="popup hidden">
+                <!-- <div id="registerPopup" class="popup hidden">
                     <div class="popup-content register">
                         <span class="close">&times;</span>
                         <h2 style="text-align: center">Register</h2>
@@ -78,9 +78,9 @@
                                     Login</button></div>
                         </form>
                     </div>
-                </div>
+                </div> -->
                 <!-- Quay lại Popup Đăng nhập-->
-                <div id="loginPopup" class="popup">
+                <!-- <div id="loginPopup" class="popup">
                     <div class="popup-content">
                         <span class="close">&times;</span>
                         <h2 style="text-align: center">Login</h2>
@@ -98,9 +98,9 @@
                         <div class="parent"><button type="button" class="parent-link" id="forgotpassButton">Forgot
                                 Password</button></div>
                     </div>
-                </div>
+                </div> -->
                 <!-- Popup Quên mật khẩu-->
-                <div id="forgotpassPopup" class="popup hidden">
+                <!-- <div id="forgotpassPopup" class="popup hidden">
                     <div class="popup-content">
                         <span class="close">&times;</span>
                         <h2 style="text-align: center">Forgot Password</h2>
@@ -112,9 +112,9 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> -->
                 <!-- Popup OTP Code-->
-                <div id="otpcodePopup" class="popup">
+                <!-- <div id="otpcodePopup" class="popup">
                     <div class="popup-content">
                         <span class="close">&times;</span>
                         <h2 style="text-align: center">Enter OTP Code</h2>
@@ -126,9 +126,9 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> -->
                 <!-- Popup thay đổi password -->
-                <div id="changepassPopup" class="popup">
+                <!-- <div id="changepassPopup" class="popup">
                     <div class="popup-content">
                         <span class="close">&times;</span>
                         <h2 style="text-align: center">Enter OTP Code</h2>
@@ -142,7 +142,7 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> -->
             </li>
         </ul>
     </div>
