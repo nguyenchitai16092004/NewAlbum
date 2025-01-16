@@ -38,4 +38,8 @@ class SANPHAM extends Model
     {
         return $this->belongsTo(SANPHAMGIAMGIA::class, 'MaSPGG', 'MaSPGG');
     }
+    public function BinhLuans()
+    {
+        return $this->hasMany(BinhLuan::class, 'MaSP', 'MaSP');  
+    }
 }

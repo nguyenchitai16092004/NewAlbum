@@ -43,15 +43,9 @@
                     @csrf
                     <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
                     <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
-                    <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();">Add to Wishlist</a>
+                    <a type="submit" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();">🤍</a>
                 </form>
             </div>
-            <!-- @auth
-                <div class="wishlist">
-                    <span>🤍</span> WishList
-                     <button type="submit" class="btn btn-primary">🤍 Add to Wishlist</button>
-                </div>
-            @endauth -->
         </div>
     </div>
     <div class="container-product">
