@@ -195,6 +195,7 @@ Route::prefix('/admin')->group(function () {
         //Cập nhật trạng thái sản phẩm 
         Route::post('/edit-bill/{id}', [BillController::class, 'Edit'])->name('Update_Bill');
         Route::post('/canncel-bill/{id}', [BillController::class, 'Canncel'])->name('Canncel_Bill');
+        Route::post('/update-status/{id}', [BillController::class, 'updateStatus'])->name('Update_Status');
     });
     // Route cho quản lý bình luận
     Route::prefix('comments')->group(function () {

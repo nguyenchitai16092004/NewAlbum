@@ -32,38 +32,31 @@
                                                 <td>{{ $item->PTTT ? 'Pay Cash' : 'Pay Credit' }}</td>
                                                 <td>{{ $item->TrangThaiTT ? 'Paid' : 'Unpaid' }}</td>
                                                 <td>
-                                                    <select name="LoaiHang" class="form-control">
-                                                        <option value="-1"
-                                                            {{ $item->TrangThai == -1 ? 'selected' : '' }}>Cancelled
-                                                        </option>
-                                                        <option value="0"
-                                                            {{ $item->TrangThai == 0 ? 'selected' : '' }}>Not yet confirmed
-                                                        </option>
-                                                        <option value="1"
-                                                            {{ $item->TrangThai == 1 ? 'selected' : '' }}>Confirmed</option>
-                                                        <option value="2"
-                                                            {{ $item->TrangThai == 2 ? 'selected' : '' }}>In delivery
-                                                        </option>
-                                                        <option value="3"
-                                                            {{ $item->TrangThai == 3 ? 'selected' : '' }}>Delivered
-                                                        </option>
-                                                    </select>
+                                                    <form action="{{ route('Update_Status', ['id' => $item->MaHD]) }}" method="POST">
+                                                        @csrf
+                                                        @method('POST')
+                                                        <select name="TrangThai" class="form-control" onchange="this.form.submit()">
+                                                            <option value="-1" {{ $item->TrangThai == -1 ? 'selected' : '' }}>Cancelled</option>
+                                                            <option value="0" {{ $item->TrangThai == 0 ? 'selected' : '' }}>Not yet confirmed</option>
+                                                            <option value="1" {{ $item->TrangThai == 1 ? 'selected' : '' }}>Confirmed</option>
+                                                            <option value="2" {{ $item->TrangThai == 2 ? 'selected' : '' }}>In delivery</option>
+                                                            <option value="3" {{ $item->TrangThai == 3 ? 'selected' : '' }}>Delivered</option>
+                                                        </select>
+                                                    </form>
                                                 </td>
                                                 <td>
-                                                <a href="{{ Route('Index_Bill_Detail', ['id' => $item->MaHD]) }}"
-                                                    class="btn btn-primary btn-sm">
-                                                    Detail
-                                                </a>
+                                                    <a href="{{ Route('Index_Bill_Detail', ['id' => $item->MaHD]) }}"
+                                                       class="btn btn-primary btn-sm">Detail</a>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     @else
                                         <tr>
-                                            <td colspan="7" class="text-center">No bills found</td>
+                                            <td colspan="8" class="text-center">No bills found</td>
                                         </tr>
                                     @endif
                                 </tbody>
-                            </table>
+                            </table>                            
                         </div>
                         <div class="custom-pagination text-center mt-4">
                             {{ $HoaDon->links('pagination::bootstrap-4') }}
