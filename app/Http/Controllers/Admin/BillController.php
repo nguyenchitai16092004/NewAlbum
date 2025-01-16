@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\HOADON;
 use App\Models\CHITIETHOADON;
-
+use Illuminate\Http\Request;
 class BillController extends Controller
+
 {
     public function Index()
     {
@@ -45,4 +46,5 @@ class BillController extends Controller
 
         return redirect()->route('Index_Bill_Management')->with('success', 'Invoice deleted successfully!');
     }
+
 }

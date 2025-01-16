@@ -22,7 +22,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if($HoaDon->count() > 0)
+                                    @if ($HoaDon->count() > 0)
                                         @foreach ($HoaDon as $item)
                                             <tr>
                                                 <td>{{ $item->MaHD }}</td>
@@ -32,22 +32,28 @@
                                                 <td>{{ $item->PTTT ? 'Pay Cash' : 'Pay Credit' }}</td>
                                                 <td>{{ $item->TrangThaiTT ? 'Paid' : 'Unpaid' }}</td>
                                                 <td>
-                                                    @if ($item->TrangThai == -1)
-                                                        Cancelled
-                                                    @elseif ($item->TrangThai == 0)
-                                                        Not yet confirmed
-                                                    @elseif ($item->TrangThai == 1)
-                                                        Confirmed
-                                                    @elseif ($item->TrangThai == 2)
-                                                        In delivery
-                                                    @elseif ($item->TrangThai == 3)
-                                                        Delivered
-                                                    @endif
+                                                    <select name="LoaiHang" class="form-control">
+                                                        <option value="-1"
+                                                            {{ $item->TrangThai == -1 ? 'selected' : '' }}>Cancelled
+                                                        </option>
+                                                        <option value="0"
+                                                            {{ $item->TrangThai == 0 ? 'selected' : '' }}>Not yet confirmed
+                                                        </option>
+                                                        <option value="1"
+                                                            {{ $item->TrangThai == 1 ? 'selected' : '' }}>Confirmed</option>
+                                                        <option value="2"
+                                                            {{ $item->TrangThai == 2 ? 'selected' : '' }}>In delivery
+                                                        </option>
+                                                        <option value="3"
+                                                            {{ $item->TrangThai == 3 ? 'selected' : '' }}>Delivered
+                                                        </option>
+                                                    </select>
                                                 </td>
                                                 <td>
-                                                    <a href="{{ Route('Index_Bill_Detail',['id' =>   $item->MaHD]) }}" class="btn btn-primary btn-sm">
-                                                        Detail
-                                                    </a>
+                                                <a href="{{ Route('Index_Bill_Detail', ['id' => $item->MaHD]) }}"
+                                                    class="btn btn-primary btn-sm">
+                                                    Detail
+                                                </a>
                                                 </td>
                                             </tr>
                                         @endforeach
