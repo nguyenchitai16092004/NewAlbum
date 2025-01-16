@@ -36,13 +36,12 @@
                                                         @csrf
                                                         @method('POST')
                                                         <select name="TrangThai" class="form-control" onchange="this.form.submit()">
-                                                            <option value="-1" {{ $item->TrangThai == -1 ? 'selected' : '' }}>Cancelled</option>
                                                             <option value="0" {{ $item->TrangThai == 0 ? 'selected' : '' }}>Not yet confirmed</option>
                                                             <option value="1" {{ $item->TrangThai == 1 ? 'selected' : '' }}>Confirmed</option>
                                                             <option value="2" {{ $item->TrangThai == 2 ? 'selected' : '' }}>In delivery</option>
                                                             <option value="3" {{ $item->TrangThai == 3 ? 'selected' : '' }}>Delivered</option>
                                                         </select>
-                                                    </form>
+                                                    </form>                                                    
                                                 </td>
                                                 <td>
                                                     <a href="{{ Route('Index_Bill_Detail', ['id' => $item->MaHD]) }}"

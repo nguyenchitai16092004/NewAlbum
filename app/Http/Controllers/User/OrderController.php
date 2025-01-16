@@ -14,6 +14,8 @@ class OrderController extends Controller
 {
     public function placeOrder(Request $request)
     {
+        
+        $cart = session()->get('cart', []);
         $cart = json_decode($request->input('cart'), true);
         $diaChi = $request->input('diaChi');
     
@@ -32,16 +34,6 @@ class OrderController extends Controller
             $hoaDon->TongTien = $request->input('cartTotal');
             $hoaDon->DiaChi = $diaChi;
             $hoaDon->save();
-
-            foreach ($cart as $item) {
-                $chiTietHoaDon = new ChiTietHoaDon();
-                $chiTietHoaDon->MaHD = $hoaDon->id;
-                $chiTietHoaDon->MaSP = $item['productId'];
-                $chiTietHoaDon->SoLuong = $item['quantity'];
-                $chiTietHoaDon->DonGia = $item['price'];
-                $chiTietHoaDon->TongTien = $item['price'] * $item['quantity'];
-                $chiTietHoaDon->save();
-            }
             // Xóa giỏ hàng chỉ sau khi đặt hàng thành công
             Session::forget('cart');
     
