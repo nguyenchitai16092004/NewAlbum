@@ -9,26 +9,24 @@
         <!-- Slide KPOP -->
         <div class="swiper-slide">
             <div class="slide-inner">  <!-- Bao bọc các phần tử bên trong slide -->
-                {{-- {{ route('product.detail', ['id' => $kpopProduct->id]) }} --}}
-                <a href="#"> <!-- Link đến trang chi tiết sản phẩm -->
-                    <div class="image-container" style="background-image: url('{{ asset('storage/SanPham/' . $kpopProduct->HinhAnh ?? 'path/to/default-image.jpg') }}');"></div>
-                </a>                <div class="content-container">  <!-- Nội dung của slide -->
-                    <div class="header-text">  <!-- Tiêu đề của nội dung -->
-                        <h2>Best of the KPOP in NewAlbum</h2>
+                <a href="{{ route('product.details', ['slug' => $kpopProduct->Slug]) }}" class="image-container" style="background-image: url('{{ asset('storage/SanPham/' . $kpopProduct->HinhAnh ?? 'path/to/default-image.jpg') }}');"></a>
+                    <div class="content-container">  <!-- Nội dung của slide -->
+                        <div class="header-text">  <!-- Tiêu đề của nội dung -->
+                            <h2>Best of the KPOP in NewAlbum</h2>
+                            <h3><a href="{{ route('product.details', ['slug' => $kpopProduct->Slug]) }}" style="font-size: 30px">{{$kpopProduct->TenSP}}</a></h3>
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
 
         <!-- Slide KGOODS -->
         <div class="swiper-slide">
             <div class="slide-inner">
-                {{-- {{ route('product.detail', ['id' => $kgoodsProduct->id]) }} --}}
-                <a href="#">
-                    <div class="image-container" style="background-image: url('{{ asset('storage/SanPham/' . $kgoodsProduct->HinhAnh ?? 'path/to/default-image.jpg') }}');"></div>
-                </a>                <div class="content-container">
+                <a href="{{ route('product.details', ['slug' => $kgoodsProduct->Slug]) }}" class="image-container" style="background-image: url('{{ asset('storage/SanPham/' . $kgoodsProduct->HinhAnh ?? 'path/to/default-image.jpg') }}');"></a>
+                <div class="content-container">
                     <div class="header-text">
                         <h2>Best of the KGOODS in NewAlbum</h2>
+                        <h3><a href="{{ route('product.details', ['slug' => $kgoodsProduct->Slug]) }}" style="font-size: 30px">{{$kgoodsProduct->TenSP}}</a></h3>
                     </div>
                 </div>
             </div>
@@ -37,12 +35,11 @@
         <!-- Slide POSTER -->
         <div class="swiper-slide">
             <div class="slide-inner">
-                {{-- {{ route('product.detail', ['id' => $posterProduct->id]) }} --}}
-                <a href="#">
-                    <div class="image-container" style="background-image: url('{{ asset('storage/SanPham/' . $posterProduct->HinhAnh ?? 'path/to/default-image.jpg') }}');"></div>
-                </a>                <div class="content-container">
+                <a href="{{ route('product.details', ['slug' => $posterProduct->Slug]) }}" class="image-container" style="background-image: url('{{ asset('storage/SanPham/' . $posterProduct->HinhAnh ?? 'path/to/default-image.jpg') }}');"></a>
+                <div class="content-container">
                     <div class="header-text">
                         <h2>Best of the POSTER in NewAlbum</h2>
+                        <h3><a href="{{ route('product.details', ['slug' => $posterProduct->Slug]) }}" style="font-size: 30px">{{$posterProduct->TenSP}}</a></h3>
                     </div>
                 </div>
             </div>
@@ -51,13 +48,11 @@
         <!-- Slide BLOG -->
         <div class="swiper-slide">
             <div class="slide-inner">
-                {{-- {{ route('blog.detail', ['id' => $blogPost->id]) }} --}}
-                <a href="#">
-                    <div class="image-container" style="background-image: url('{{ asset('storage/SanPham/' . $blogPost->HinhAnh ?? 'path/to/default-image.jpg') }}');"></div>
-                </a>
+                <a href="{{ route('blog.details', ['MaBL' => $blogPost->MaBL]) }}" class="image-container" style="background-image: url('{{ asset('storage/SanPham/' . $blogPost->HinhAnh ?? 'path/to/default-image.jpg') }}');"></a>
                 <div class="content-container">
                     <div class="header-text">
                         <h2>Best of the BLOG in NewAlbum</h2>
+                        <h3><a href="{{ route('blog.details', ['MaBL' => $blogPost->MaBL]) }}" style="font-size: 30px">{{$blogPost->TieuDeBlog}}</a></h3>
                     </div>
                 </div>
             </div>
@@ -70,83 +65,6 @@
     </div>
     
 </div>
-
-
-
-
-
-{{-- <div class="swiper-container" id="top">
-    <div class="swiper-wrapper">
-        <!-- Slide KPOP -->
-        <div class="swiper-slide">
-            <div class="slide-inner" style="background-image: url('{{ asset('storage/SanPham/' . $kpopProduct->HinhAnh ?? 'path/to/default-image.jpg') }}'); width:300px; height: 300px;">
-                <div class="container ctn-slideshow">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="header-text text-center">
-                                <h2>Best of the KPOP in NewAlbum</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide KGOODS -->
-        <div class="swiper-slide">
-            <div class="slide-inner" style="background-image: url('{{ asset('storage/SanPham/' . $kgoodsProduct->HinhAnh ?? 'path/to/default-image.jpg') }}'); width:300px; height: 300px;">
-                <div class="container ctn-slideshow">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="header-text text-center">
-                                <h2>Best of the KGOODS in NewAlbum</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide POSTER -->
-        <div class="swiper-slide">
-            <div class="slide-inner" style="background-image: 
-            url('{{ asset('storage/SanPham/' . $posterProduct->HinhAnh ?? 'path/to/default-image.jpg') }}'); width:300px; height: 300px;">
-                <div class="container ctn-slideshow">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="header-text text-center">
-                                <h2>Best of the POSTER in NewAlbum</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide BLOG -->
-        <div class="swiper-slide">
-            <div class="slide-inner" style="background-image: 
-            url('{{ asset('storage/SanPham/' . $blogPost->HinhAnh ?? 'path/to/default-image.jpg') }}'); width:300px; height: 300px;">
-                <div class="container ctn-slideshow">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="header-text text-center">
-                                <h2>Best of the BLOG in NewAlbum</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="action-slideshow">
-        <div class="swiper-prev"><i class="fa-solid fa-chevron-left"></i></div>
-        <div class="swiper-next"><i class="fa-solid fa-chevron-right"></i></div>
-    </div>
-
-</div> --}}
 
 <script src="js/swiper.js"></script>
 <script src="js/slideshow.js"></script>

@@ -21,6 +21,10 @@ class ProductUserController extends Controller
             abort(404);
         }
 
+        // Tăng lượt xem lên 1
+        $product->luot_xem += 1;
+        $product->save();
+
         // Lấy thông tin khách hàng đăng nhập
         $userId = session('User')['MaKH'] ?? null;
 

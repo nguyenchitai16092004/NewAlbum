@@ -42,9 +42,9 @@ Route::get('/checkout', function () {
 });
 
 Route::get('/blog', [BlogController::class, 'Index'])->name('Index_Blog');
-Route::get('/single-blog', function () {
-    return view('frontend.pages.single-blog');
-});
+// Route để xem chi tiết bài blog
+Route::get('/blog/{MaBL}', [BlogController::class, 'show'])->name('blog.details');
+
 Route::get('/about-us', [AboutUsController::class, 'aboutUs'])->name('about-us');
 
 Route::get('/wishlist', function () {

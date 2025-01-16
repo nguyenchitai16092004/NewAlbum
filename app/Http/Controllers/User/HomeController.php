@@ -17,14 +17,23 @@ class HomeController extends Controller
 {
     public function Index()
     {
-        // Lấy sản phẩm KPOP
-        $kpopProduct = SANPHAM::where('MaLoaiSP', 1)->where('TrangThai', 1)->first();
+        // Lấy sản phẩm KPOP nổi bật
+        $kpopProduct = SANPHAM::where('MaLoaiSP', 1)
+                            ->where('TrangThai', 1)
+                            ->orderBy('luot_xem', 'desc')  // Sắp xếp theo lượt xem cao nhất
+                            ->first();  // Lấy sản phẩm có lượt xem cao nhất
 
-        // Lấy sản phẩm KGOODS
-        $kgoodsProduct = SANPHAM::where('MaLoaiSP', 2)->where('TrangThai', 1)->first();
+        // Lấy sản phẩm KGOODS nổi bật
+        $kgoodsProduct = SANPHAM::where('MaLoaiSP', 2)
+                                ->where('TrangThai', 1)
+                                ->orderBy('luot_xem', 'desc')  // Sắp xếp theo lượt xem cao nhất
+                                ->first();  // Lấy sản phẩm có lượt xem cao nhất
 
-        // Lấy sản phẩm POSTER
-        $posterProduct = SANPHAM::where('MaLoaiSP', 3)->where('TrangThai', 1)->first();
+        // Lấy sản phẩm POSTER nổi bật
+        $posterProduct = SANPHAM::where('MaLoaiSP', 3)
+                                ->where('TrangThai', 1)
+                                ->orderBy('luot_xem', 'desc')  // Sắp xếp theo lượt xem cao nhất
+                                ->first();  // Lấy sản phẩm có lượt xem cao nhất
 
         // Lấy bài viết blog
         $blogPost = BLOG::where('TrangThai', 1)->inRandomOrder()->first();
@@ -81,20 +90,24 @@ class HomeController extends Controller
 
         $thongtinlienlac = thongtinlienlac::first();
 
-        return view('frontend.pages.home', compact(
-            'allProducts', 
-            'preOder3ProductsCol1', 
-            'preOder3ProductsCol2', 
-            'totalQuantity', 
-            'thongtinlienlac', 
-            'allPreOderProducts', 
-            'allPosterProducts', 
-            'allKGoodsProducts',
-            'kpopProduct',        // Thêm dữ liệu KPOP
-            'kgoodsProduct',      // Thêm dữ liệu KGOODS
-            'posterProduct',      // Thêm dữ liệu POSTER
-            'blogPost'            // Thêm dữ liệu BLOG
-        ));
+        try {
+            return view('frontend.pages.home', compact(
+                'allProducts', 
+                'preOder3ProductsCol1', 
+                'preOder3ProductsCol2', 
+                'totalQuantity', 
+                'thongtinlienlac', 
+                'allPreOderProducts', 
+                'allPosterProducts', 
+                'allKGoodsProducts',
+                'kpopProduct',
+                'kgoodsProduct',
+                'posterProduct',
+                'blogPost'
+            ));
+        } catch (\Exception $e) {
+            dd($e->getMessage()); // In lỗi để kiểm tra
+        }
     }
     public function showNewArrival()
     {
