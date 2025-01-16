@@ -66,6 +66,7 @@ Route::post('/clear-cart', [CartController::class, 'clearCart'])->name('clear.ca
 Route::get('/single-product-details', function () {
     return view('frontend.pages.single-product-details');
 });
+
 Route::get('/new-arrival', [HomeController::class, 'showNewArrival'])->name('new.arrival');
 
 Route::get('/pre-oders', [HomeController::class, 'showPreOrders'])->name('pre.oders');
@@ -82,9 +83,6 @@ Route::get('/listproduct/{slug}', [ProductUserController::class, 'listByCategory
 
 Route::get('/our-blog-post', function () {
     return view('frontend.pages.our-blog-post');
-});
-Route::get('/oder-history', function () {
-    return view('frontend.pages.oder-history');
 });
 
 Route::get('/search', function () {
