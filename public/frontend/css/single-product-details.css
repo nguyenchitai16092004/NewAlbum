@@ -664,3 +664,18 @@ input[type="number"] {
 .product-favourite a{
     cursor: pointer;
 }
+.star-input {
+    display: flex;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.star {
+    color: white; 
+    transition: color 0.3s;
+    -webkit-text-stroke: 1px #ff9800; 
+}
+
+.star.selected {
+    color: #ff9800; 
+}

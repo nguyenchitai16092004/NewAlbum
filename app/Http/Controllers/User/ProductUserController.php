@@ -8,16 +8,37 @@ use App\Models\SANPHAM;
 use App\Models\LOAISP;
 use Illuminate\Support\Carbon;
 use App\Models\BinhLuan;
+use App\Models\HOADON;
 
 class ProductUserController extends Controller
 {
-    public function show($id)
+    public function show($slug)
     {
         // Tìm sản phẩm dựa trên Slug
-        $product = SANPHAM::where('Slug', $id)->where('TrangThai', 1)->first();
+        $product = SANPHAM::where('Slug', $slug)->where('TrangThai', 1)->first();
 
         if (!$product) {
             abort(404);
+        }
+
+        // Lấy thông tin khách hàng đăng nhập
+        $userId = session('User')['MaKH'] ?? null;
+
+        // Kiểm tra quyền bình luận
+        $canComment = false;
+        if ($userId) {
+            $hasPurchased = HOADON::where('MaKH', $userId)
+                ->where('TrangThai', 3) // Trạng thái hóa đơn là 3 (đã giao)
+                ->whereHas('CTHD', function ($query) use ($product) {
+                    $query->where('MaSP', $product->MaSP);
+                })
+                ->exists();
+
+            $hasCommented = BinhLuan::where('MaSP', $product->MaSP)
+                ->where('MaKH', $userId)
+                ->exists();
+
+            $canComment = $hasPurchased && !$hasCommented;
         }
 
         // Lấy các sản phẩm đề xuất
@@ -38,14 +59,22 @@ class ProductUserController extends Controller
             ->paginate(3);
 
         // Tính tổng số bình luận và trung bình số sao
-        $commentCount = $commentProducts->total(); // Sử dụng total() để đếm tổng số bình luận
+        $commentCount = $commentProducts->total();
         $averageRating = BinhLuan::where('MaSP', $product->MaSP)
             ->where('TrangThai', 1)
-            ->avg('SoSao'); // Tính trung bình số sao
+            ->avg('SoSao');
 
         // Trả về view với dữ liệu
-        return view('frontend.pages.single-product-details', compact('product', 'recommendedProducts', 'commentProducts', 'commentCount', 'averageRating'));
+        return view('frontend.pages.single-product-details', compact(
+            'product',
+            'recommendedProducts',
+            'commentProducts',
+            'commentCount',
+            'averageRating',
+            'canComment'
+        ));
     }
+
 
 
     public function listByCategory($slug)
@@ -68,5 +97,62 @@ class ProductUserController extends Controller
 
         return view('frontend.pages.listproduct', compact('category', 'products'));
     }
+    public function storeComment(Request $request, $slug)
+    {
+        // Tìm sản phẩm dựa trên Slug
+        $product = SANPHAM::where('Slug', $slug)->first();
+
+        if (!$product) {
+            return response()->json(['error' => 'Product not found'], 404);
+        }
+
+        // Lấy thông tin khách hàng đăng nhập
+        $userId = session('User')['MaKH'] ?? null;
+
+        if (!$userId) {
+            return response()->json(['error' => 'You need to log in to comment.'], 401);
+        }
+
+        // Kiểm tra khách hàng đã mua sản phẩm và trạng thái đơn hàng
+        $hasPurchased = HOADON::where('MaKH', $userId)
+            ->where('TrangThai', 3) // Trạng thái đã giao
+            ->whereHas('CTHD', function ($query) use ($product) {
+                $query->where('MaSP', $product->MaSP);
+            })
+            ->exists();
+
+        if (!$hasPurchased) {
+            return response()->json(['error' => 'You can only comment after purchasing this product.'], 403);
+        }
+
+        // Kiểm tra nếu khách hàng đã đánh giá sản phẩm này
+        $existingComment = BinhLuan::where('MaSP', $product->MaSP)
+            ->where('MaKH', $userId)
+            ->exists();
+
+        if ($existingComment) {
+            return response()->json(['error' => 'You can only rate this product once.'], 403);
+        }
+
+        // Validate dữ liệu bình luận
+        $validatedData = $request->validate([
+            'NoiDung' => 'required|string|max:1000',
+            'SoSao' => 'required|integer|min:1|max:5',
+        ]);
+
+        // Lưu bình luận vào bảng `binhluan`
+        BinhLuan::create([
+            'MaSP' => $product->MaSP,
+            'MaKH' => $userId,
+            'NoiDung' => $validatedData['NoiDung'],
+            'SoSao' => $validatedData['SoSao'],
+            'TrangThai' => 1, // Bình luận hiển thị
+            'created_at' => now(),
+        ]);
+
+        return response()->json(['success' => 'Comment added successfully']);
+    }
+
+
 
 }
