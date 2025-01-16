@@ -12,7 +12,7 @@ class KHACHHANG extends Model
 
     // Chỉ định khóa chính là 'MaKH'
     protected $primaryKey = 'MaKH';
-    
+
     protected $table = 'khachhang';
 
     protected $fillable = [
@@ -28,6 +28,10 @@ class KHACHHANG extends Model
         'HinhAnh',
         'DiaChiKH',
     ];
-
+    public function HOADON()
+    {
+        return $this->hasMany(HOADON::class, 'MaKH', 'MaKH');
+    }
     protected $dates = ['deleted_at'];
+
 }
