@@ -8,12 +8,27 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
 use App\Models\thongtinlienlac;
 use App\Models\LOAISP;
+use App\Models\BLOG;
 use Illuminate\Support\Carbon;
+
+
 
 class HomeController extends Controller
 {
     public function Index()
     {
+        // Lấy sản phẩm KPOP
+        $kpopProduct = SANPHAM::where('MaLoaiSP', 1)->where('TrangThai', 1)->first();
+
+        // Lấy sản phẩm KGOODS
+        $kgoodsProduct = SANPHAM::where('MaLoaiSP', 2)->where('TrangThai', 1)->first();
+
+        // Lấy sản phẩm POSTER
+        $posterProduct = SANPHAM::where('MaLoaiSP', 3)->where('TrangThai', 1)->first();
+
+        // Lấy bài viết blog
+        $blogPost = BLOG::where('TrangThai', 1)->inRandomOrder()->first();
+
         $allProducts = SANPHAM::where('TrangThai', 1)
             ->get()
             ->map(function ($product) {
@@ -66,7 +81,20 @@ class HomeController extends Controller
 
         $thongtinlienlac = thongtinlienlac::first();
 
-        return view('frontend.pages.home', compact('allProducts', 'preOder3ProductsCol1', 'preOder3ProductsCol2', 'totalQuantity', 'thongtinlienlac', 'allPreOderProducts', 'allPosterProducts', 'allKGoodsProducts'));
+        return view('frontend.pages.home', compact(
+            'allProducts', 
+            'preOder3ProductsCol1', 
+            'preOder3ProductsCol2', 
+            'totalQuantity', 
+            'thongtinlienlac', 
+            'allPreOderProducts', 
+            'allPosterProducts', 
+            'allKGoodsProducts',
+            'kpopProduct',        // Thêm dữ liệu KPOP
+            'kgoodsProduct',      // Thêm dữ liệu KGOODS
+            'posterProduct',      // Thêm dữ liệu POSTER
+            'blogPost'            // Thêm dữ liệu BLOG
+        ));
     }
     public function showNewArrival()
     {
