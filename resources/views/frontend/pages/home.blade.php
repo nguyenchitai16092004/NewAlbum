@@ -364,7 +364,7 @@
             </div>
         </div>
         <div class="view-all">
-            <a href="{{ url('/listproduct/' . $allCategoryProducts[1]->Slug) }}">View All <i
+            <a href="{{ url('/listproduct/k-goods') }}">View All <i
                     class="fa-solid fa-arrow-right"></i></a>
         </div>
     </section>
@@ -438,7 +438,7 @@
             </div>
         </div>
         <div class="view-all">
-            <a href="{{ url('/listproduct/' . $allCategoryProducts[2]->Slug) }}">View All <i
+            <a href="{{ url('/listproduct/poster') }}">View All <i
                     class="fa-solid fa-arrow-right"></i></a>
         </div>
     </section>
