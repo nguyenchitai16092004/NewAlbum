@@ -2,7 +2,7 @@
 @section('title', 'Home Admin')
 @section('main')
 
-    <link rel="stylesheet" href="/css/custom-style-dashboard.css">
+    <link rel="stylesheet" href="css/custom-style-dashboard.css">
 
     <div class="analytics-sparkle-area">
         <h1>Dashboard</h1>
@@ -102,7 +102,7 @@
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Số lượng sản phẩm',
+                    label: 'Product Quantity',
                     data: data,
                     backgroundColor: 'rgba(54, 162, 235, 0.5)',
                     borderColor: 'rgba(54, 162, 235, 1)',

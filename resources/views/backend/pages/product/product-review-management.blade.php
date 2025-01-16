@@ -2,6 +2,7 @@
 @section('This page is Add Library', 'Add Library')
 @section('main')
     <link rel="stylesheet" href="css/dropzone/dropzone.css">
+    
     <div class="all-content-wrapper">
         <div class="single-pro-review-area mt-t-30 mg-b-15">
             <div class="container-fluid">
