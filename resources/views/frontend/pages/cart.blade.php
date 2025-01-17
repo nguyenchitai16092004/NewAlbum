@@ -157,7 +157,7 @@
                                 .then(response => response.json())
                                 .then(data => {
                                     if (data.success) {
-                                        // Xóa toàn bộ sản phẩm trong bảng
+                                        // xóa hết sp trong gh
                                         const cartContainer = document.querySelector(
                                             '.cart-container tbody');
                                         if (cartContainer) {
@@ -166,28 +166,22 @@
                                     <td colspan="6" style="text-align: center;">Your cart is empty</td>
                                 </tr>`;
                                         }
-
-                                        // Ẩn phần tổng kết
                                         const summaryEl = document.querySelector('.summary');
                                         if (summaryEl) {
                                             summaryEl.style.display = 'none';
                                         }
-
-                                        // Cập nhật số lượng sản phẩm trong giỏ hàng
+                                        // update slsp trong gh
                                         const cartCountEl = document.querySelector(
-                                            '.cart-count'); // Lớp hiển thị số lượng giỏ hàng
+                                            '.cart-count'); 
                                         if (cartCountEl) {
                                             cartCountEl.innerText =
-                                                '0'; // Cập nhật số lượng sản phẩm về 0
+                                                '0'; // update slsp về 0
                                         }
-
-                                        // Hiển thị thông báo thành công
                                         Swal.fire(
                                             'Deleted!',
                                             'All products have been removed from your cart.',
                                             'success'
                                         ).then(() => {
-                                            // Tải lại trang sau khi người dùng nhấn "OK"
                                             location.reload();
                                         });
                                     }
@@ -197,9 +191,6 @@
                     });
                 });
             }
-
-
-            // sk thay đổi slsp
             document.querySelectorAll('.btn-plus, .btn-minus').forEach(button => {
                 button.addEventListener('click', function() {
                     const row = this.closest('tr'); // hàng chứa btn
@@ -210,7 +201,6 @@
                     const quantityEl = row.querySelector('.quantity'); // slsp hiện tại
                     let quantity = parseInt(quantityEl.innerText);
                     quantity = isIncrease ? quantity + 1 : quantity - 1;
-
                     if (quantity === 0) {
                         fetch("{{ route('remove.from.cart') }}", {
                                 method: "POST",
@@ -225,7 +215,6 @@
                             .then(response => response.json())
                             .then(data => {
                                 if (data.success) {
-
                                     location.reload();
                                 }
                             })
@@ -245,7 +234,6 @@
                             .then(response => response.json())
                             .then(data => {
                                 if (data.success) {
-
                                     location.reload();
                                 }
                             })
@@ -253,13 +241,11 @@
                     }
                 });
             });
-
             // sk xóa sản phẩm
             document.querySelectorAll('.remove-from-cart').forEach(button => {
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
                     const productId = this.dataset.id;
-
                     fetch("{{ route('remove.from.cart') }}", {
                             method: "POST",
                             headers: {
@@ -279,13 +265,10 @@
                                 const cartTotalEl = document.querySelector(
                                     '.summary .container-text p:last-child');
                                 const summaryEl = document.querySelector('.summary');
-
                                 if (data.cartTotal !== undefined && cartTotalEl) {
                                     cartTotalEl.innerText =
                                         `${new Intl.NumberFormat().format(data.cartTotal)} VND`;
                                 }
-
-
                                 if (Object.keys(data.cart).length === 0) {
                                     document.querySelector('.cart-container tbody').innerHTML =
                                         `<tr><td colspan="6" style="text-align: center;">Your cart is empty</td></tr>`;
@@ -299,7 +282,6 @@
                         .catch(error => console.error('Error:', error));
                 });
             });
-
         });
     </script>
 @stop

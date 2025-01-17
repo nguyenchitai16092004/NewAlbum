@@ -43,12 +43,13 @@ class ProductController extends Controller
     {
         $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP', 'left')
             ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi', 'left')
+            ->where('SANPHAM.MaSP', '=' , $id)
             ->select('SANPHAM.*', 'LOAISP.TenLoaiSP', 'NHOMNHACCASI.TenNhomNhacCaSi')
             ->first();
-    
-        $NhomNhacCaSi = NHOMNHACCASI::all();
-        $LoaiSP = LOAISP::all();
-    
+
+        $NhomNhacCaSi = NHOMNHACCASI::where('TrangThai' , '=' ,1)->get();
+        $LoaiSP = LOAISP::where('TrangThai' , '=' ,1)->get();
+
         return view('backend.pages.product.edit-product', [
             'products' => $products,
             'Band' => $NhomNhacCaSi,
@@ -95,7 +96,7 @@ class ProductController extends Controller
         $products = SANPHAM::findOrFail($id);
         $products->TrangThai = 0;
         $products->save();
-    
+
         return redirect()->route('Index_Product')->with('success', 'Product deleted successfully!');
     }
 

@@ -11,10 +11,10 @@
         <p>You can review and edit your personal information here.</p>
         <nav class="navigation">
             <ul>
-                <li><a href="{{ asset('/account') }}" >Account Information</a></li>
+                <li><a href="{{ asset('/account') }}">Account Information</a></li>
                 <li><a href="{{ route('hoa_don_history', ['id' => session('User')]) }}"class="active">Order History</a></li>
                 <li><a href="{{ asset('/wishlist') }}">Wish List</a></li>
-                <li><a href="{{ asset('/rating-product') }}" >Rating Product</a></li>
+                <li><a href="{{ asset('/rating-product') }}">Rating Product</a></li>
             </ul>
         </nav>
     </div>
@@ -49,45 +49,45 @@
             </thead>
             <tbody>
                 @if (isset($hoaDons) && count($hoaDons) > 0)
-                @foreach ($hoaDons as $hoaDon)
+                    @foreach ($hoaDons as $hoaDon)
+                        <tr>
+                            <td>{{ $hoaDon->MaHD }}</td>
+                            <td>{{ number_format($hoaDon->TongTien, 2) }} VND</td>
+                            <td>{{ $hoaDon->PTTT ? 'Online' : 'Cash' }}</td>
+                            <td>{{ $hoaDon->TrangThaiTT ? 'Paid' : 'Unpaid' }}</td>
+                            <td>
+                                @if ($hoaDon->TrangThai == -1)
+                                    Cancelled
+                                @elseif ($hoaDon->TrangThai == 0)
+                                    Not yet confirmed
+                                @elseif ($hoaDon->TrangThai == 1)
+                                    Confirmed
+                                @elseif ($hoaDon->TrangThai == 2)
+                                    In delivery
+                                @elseif ($hoaDon->TrangThai == 3)
+                                    Delivered
+                                @endif
+                            </td>
+                            <td>{{ $hoaDon->DiaChi }}</td>
+                            <td>
+                                @if ($hoaDon->TrangThai == 0)
+                                    <form action="{{ route('hoa-don.cancel', $hoaDon->MaHD) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="fas fa-times"></i> Cancel
+                                        </button>
+                                    </form>
+                                @else
+                                    <button class="btn btn-secondary" disabled>Not Available</button>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
                     <tr>
-                        <td>{{ $hoaDon->MaHD }}</td>
-                        <td>{{ number_format($hoaDon->TongTien, 2) }} VND</td>
-                        <td>{{ $hoaDon->PTTT ? 'Online' : 'Cash' }}</td>
-                        <td>{{ $hoaDon->TrangThaiTT ? 'Paid' : 'Unpaid' }}</td>
-                        <td>
-                            @if ($hoaDon->TrangThai == -1)
-                                                        Cancelled
-                                                    @elseif ($hoaDon->TrangThai == 0)
-                                                        Not yet confirmed
-                                                    @elseif ($hoaDon->TrangThai == 1)
-                                                        Confirmed
-                                                    @elseif ($hoaDon->TrangThai == 2)
-                                                        In delivery
-                                                    @elseif ($hoaDon->TrangThai == 3)
-                                                        Delivered
-                                                    @endif
-                        </td>
-                        <td>{{ $hoaDon->DiaChi }}</td>
-                        <td>
-                            @if ($hoaDon->TrangThai == 0)
-                                <form action="{{ route('hoa-don.cancel', $hoaDon->MaHD) }}" method="POST">
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="fas fa-times"></i> Cancel
-                                    </button>
-                                </form>
-                            @else
-                                <button class="btn btn-secondary" disabled>Not Available</button>
-                            @endif
-                        </td>
+                        <td colspan="7">No orders found.</td>
                     </tr>
-                @endforeach
-            @else
-                <tr>
-                    <td colspan="7">No orders found.</td>
-                </tr>
-            @endif            
+                @endif
             </tbody>
         </table>
     </div>
