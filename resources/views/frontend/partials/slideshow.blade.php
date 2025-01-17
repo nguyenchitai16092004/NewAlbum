@@ -6,20 +6,21 @@
 <div class="swiper-container" id="top">  <!-- Container chứa swiper -->
     <div class="swiper-wrapper">  <!-- Wrapper bao quanh tất cả các slide -->
 
-        <!-- Slide KPOP -->
-        <div class="swiper-slide">
-            <div class="slide-inner">  <!-- Bao bọc các phần tử bên trong slide -->
-                <a href="{{ route('product.details', ['slug' => $kpopProduct->Slug]) }}" class="image-container" style="background-image: url('{{ asset('storage/SanPham/' . $kpopProduct->HinhAnh ?? 'path/to/default-image.jpg') }}');"></a>
-                    <div class="content-container">  <!-- Nội dung của slide -->
-                        <div class="header-text">  <!-- Tiêu đề của nội dung -->
-                            <h2>Best of the KPOP in NewAlbum</h2>
-                            <h3><a href="{{ route('product.details', ['slug' => $kpopProduct->Slug]) }}" style="font-size: 30px">{{$kpopProduct->TenSP}}</a></h3>
+        @foreach($newArrivalProducts as $product)
+            <div class="swiper-slide">
+                <div class="slide-inner">  <!-- Bao bọc các phần tử bên trong slide -->
+                    <a href="{{ route('product.details', ['slug' => $product->Slug]) }}" class="image-container" style="background-image: url('{{ asset('storage/SanPham/' . $product->HinhAnh ?? 'path/to/default-image.jpg') }}');"></a>
+                        <div class="content-container">  <!-- Nội dung của slide -->
+                            <div class="header-text">  <!-- Tiêu đề của nội dung -->
+                                <h2>New Arrivals in NewAlbum</h2>
+                                <h3><a href="{{ route('product.details', ['slug' => $product->Slug]) }}" style="font-size: 30px">{{$product->TenSP}}</a></h3>
+                            </div>
                         </div>
-                    </div>
+                </div>
             </div>
-        </div>
+        @endforeach
 
-        <!-- Slide KGOODS -->
+        {{-- <!-- Slide KGOODS -->
         <div class="swiper-slide">
             <div class="slide-inner">
                 <a href="{{ route('product.details', ['slug' => $kgoodsProduct->Slug]) }}" class="image-container" style="background-image: url('{{ asset('storage/SanPham/' . $kgoodsProduct->HinhAnh ?? 'path/to/default-image.jpg') }}');"></a>
@@ -43,7 +44,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- Slide BLOG -->
         <div class="swiper-slide">

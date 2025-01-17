@@ -17,23 +17,15 @@ class HomeController extends Controller
 {
     public function Index()
     {
-        // Lấy sản phẩm KPOP nổi bật
-        $kpopProduct = SANPHAM::where('MaLoaiSP', 1)
-                            ->where('TrangThai', 1)
-                            ->orderBy('LuotXem', 'desc')  // Sắp xếp theo lượt xem cao nhất
-                            ->first();  // Lấy sản phẩm có lượt xem cao nhất
-
-        // Lấy sản phẩm KGOODS nổi bật
-        $kgoodsProduct = SANPHAM::where('MaLoaiSP', 2)
-                                ->where('TrangThai', 1)
-                                ->orderBy('LuotXem', 'desc')  // Sắp xếp theo lượt xem cao nhất
-                                ->first();  // Lấy sản phẩm có lượt xem cao nhất
-
-        // Lấy sản phẩm POSTER nổi bật
-        $posterProduct = SANPHAM::where('MaLoaiSP', 3)
-                                ->where('TrangThai', 1)
-                                ->orderBy('LuotXem', 'desc')  // Sắp xếp theo lượt xem cao nhất
-                                ->first();  // Lấy sản phẩm có lượt xem cao nhất
+        // Lấy 4 sản phẩm "New Arrivals" mới nhất
+        $newArrivalProducts = SANPHAM::where('TrangThai', 1)
+            ->orderBy('created_at', 'desc') // Sắp xếp theo ngày tạo mới nhất
+            ->take(4) // Lấy 4 sản phẩm
+            ->get()
+            ->map(function ($product) {
+                $product->isNew = $product->created_at >= Carbon::now()->subDays(7);
+                return $product;
+            });
 
         // Lấy bài viết blog
         $blogPost = BLOG::where('TrangThai', 1)->inRandomOrder()->first();
@@ -100,10 +92,8 @@ class HomeController extends Controller
                 'allPreOderProducts', 
                 'allPosterProducts', 
                 'allKGoodsProducts',
-                'kpopProduct',
-                'kgoodsProduct',
-                'posterProduct',
-                'blogPost'
+                'newArrivalProducts', // Truyền danh sách sản phẩm "New Arrivals"
+                'blogPost',
             ));
         } catch (\Exception $e) {
             dd($e->getMessage()); // In lỗi để kiểm tra
