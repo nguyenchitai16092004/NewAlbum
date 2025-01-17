@@ -195,7 +195,7 @@
                                             <span>Pre&ndash;order</span>
                                         </div>
                                     @endif
-                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VND</p>
+                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VNĐ</p>
                                     <!-- Hover Content -->
                                     <div class="hover-content">
                                         <!-- Add to Cart -->
@@ -274,7 +274,7 @@
                                             <span>Pre&ndash;order</span>
                                         </div>
                                     @endif
-                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VND</p>
+                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VNĐ</p>
                                     <!-- Hover Content -->
                                     <div class="hover-content">
                                         <!-- Add to Cart -->
@@ -348,7 +348,7 @@
                                             <span>Pre&ndash;order</span>
                                         </div>
                                     @endif
-                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VND</p>
+                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VNĐ</p>
                                     <!-- Hover Content -->
                                     <div class="hover-content">
                                         <!-- Add to Cart -->
@@ -422,7 +422,7 @@
                                             <span>Pre&ndash;order</span>
                                         </div>
                                     @endif
-                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VND</p>
+                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VNĐ</p>
                                     <!-- Hover Content -->
                                     <div class="hover-content">
                                         <!-- Add to Cart -->

@@ -27,7 +27,7 @@
                                         <span>Pre&ndash;order</span>
                                     </div>
                                 @endif
-                                <p class="card-text">{{ number_format($product->GiaBan) }} VND</p>
+                                <p class="card-text">{{ number_format($product->GiaBan) }} VNĐ</p>
                                 <div class="hover-content">
                                     <!-- Add to Cart -->
                                     <button class="btn essence-btn add-to-cart-btn" data-id="{{ $product->MaSP }}"
