@@ -42,4 +42,8 @@ class SANPHAM extends Model
     {
         return $this->hasMany(BinhLuan::class, 'MaSP', 'MaSP');  
     }
+    public function sanPhamYeuThich()
+    {
+        return $this->belongsTo(SANPHAM::class, 'MaSP', 'MaSP');
+    }
 }

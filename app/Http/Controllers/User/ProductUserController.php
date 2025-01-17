@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SANPHAM;
+use App\Models\SANPHAMYEUTHICH;
 use App\Models\LOAISP;
 use Illuminate\Support\Carbon;
 use App\Models\BinhLuan;
@@ -27,7 +28,13 @@ class ProductUserController extends Controller
 
         // Lấy thông tin khách hàng đăng nhập
         $userId = session('User')['MaKH'] ?? null;
+        $wishlistItem = null;
 
+        if ($userId) {
+            $wishlistItem = SANPHAMYEUTHICH::where('MaKH', $userId)
+                ->where('MaSP', $product->MaSP)
+                ->first();
+        }
         // Kiểm tra quyền bình luận
         $canComment = false;
         if ($userId) {
@@ -76,11 +83,10 @@ class ProductUserController extends Controller
             'commentCount',
             'averageRating',
             'canComment',
-            'userId'
+            'userId',
+            'wishlistItem',
         ));
     }
-
-
 
     public function listByCategory($slug)
     {
