@@ -151,3 +151,14 @@
   left: 130px;                     /* Đặt phần chứa slideshow cách bên trái 130px */
 }
 
+/* Đặt màu chữ mặc định cho liên kết Pre-order */
+.pre-order {
+  font-size: 30px;        /* Kích thước chữ */
+  color:  black;             /* Màu đỏ mặc định */
+  transition: color 0.3s ease; /* Hiệu ứng mượt mà khi đổi màu */
+}
+
+/* Hiệu ứng khi hover vào liên kết Pre-order */
+.pre-order:hover {
+  color: rgb(230, 85, 85);           /* Chuyển sang màu trắng khi hover */
+}
