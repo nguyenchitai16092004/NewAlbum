@@ -2,60 +2,52 @@
 @section('title', 'Contact Management')
 @section('main')
 
-    <link rel="stylesheet" href="css/custom-style-contact.css">  
+    <link rel="stylesheet" href="css/custom-style-contact.css">
 
-    <div class="product-status mg-b-15">
-        <div class="container-fluid">
+    <div class="container-fluid">
+        <div class="product-status mg-b-15">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-12">
                     <div class="product-status-wrap drp-lst">
-                        <h4>Contacts List</h4>
+                        <h4>Contact List</h4>
                         <div class="asset-inner">
-                            <table class="table table-bordered table-hover">
+                            <table class="table table-bordered">
                                 <thead class="thead-dark">
                                     <tr>
-                                        <th>ID Contact</th>
+                                        <th>ID</th>
                                         <th>Name</th>
-                                        <th>Phone Number</th>
                                         <th>Email</th>
+                                        <th>Phone</th>
                                         <th>Message</th>
-                                        <th>Date</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($LienHe as $item)
+                                    @foreach ($LienHe as $contact)
                                         <tr>
-                                            <td>{{ $item->MaLH }}</td>
-                                            <td>{{ $item->Ten }}</td>
-                                            <td>{{ $item->SDT }}</td>
-                                            <td>{{ $item->Email }}</td>
-                                            <td>{{ Str::limit($item->TinNhan, 50, '...') }}</td>
-                                            <td>{{ $item->created_at->format('d/m/Y') }}</td>
-                                            @if ($item->TrangThai)
-                                                <td style="color: rgb(0, 0, 0); font-weight: bold;">
-                                                    ✔
-                                                </td>
-                                            @else
-                                                <td style="color: rgb(0, 0, 0); font-weight: bold;">
-                                                    ✘
-                                                </td>
-                                            @endif
+                                            <td>{{ $contact->MaLH }}</td>
+                                            <td>{{ $contact->Ten }}</td>
+                                            <td>{{ $contact->Email }}</td>
+                                            <td>{{ $contact->SDT }}</td>
+                                            <td>{{ Str::limit($contact->TinNhan, 50, '...') }}</td>
                                             <td>
-                                                @if ($item->TrangThai == 0)
-                                                <form action="{{ route('Accept_Contact', ['id' => $item->MaLH]) }}"
-                                                    method="GET" class="d-inline">
-                                                    <button class="btn btn-success btn-sm" data-toggle="tooltip"
-                                                        title="Accept">Accept</button>
-                                                </form>
+                                                <span style="font-weight: bold;">
+                                                    {{ $contact->TrangThai ? '✔' : '✘' }}
+                                                </span>
+                                            </td>
+                                            <td>{{ $contact->created_at->format('d/m/Y') }}</td>
+                                            <td>
+                                                @if (!$contact->TrangThai)
+                                                    <form action="{{ route('Accept_Contact', ['id' => $contact->MaLH]) }}" method="GET" class="d-inline">
+                                                        <button class="btn btn-success btn-sm">Accept</button>
+                                                    </form>
                                                 @endif
-                                                <form action="{{ route('Delete_Contact', ['id' => $item->MaLH]) }}"
-                                                    method="POST" class="d-inline">
+                                                <form action="{{ route('Delete_Contact', ['id' => $contact->MaLH]) }}" method="POST" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="btn btn-danger btn-sm" data-toggle="tooltip"
-                                                    title="Delete"onclick="return confirm('Are you sure you want to delete this \contact?');">Delete</button>
+                                                    <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this contact?');">Delete</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -63,7 +55,6 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- Pagination -->
                         <div class="custom-pagination text-center mt-4">
                             {!! $LienHe->links('pagination::bootstrap-4') !!}
                         </div>
@@ -72,4 +63,5 @@
             </div>
         </div>
     </div>
+
 @stop
