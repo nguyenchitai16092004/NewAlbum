@@ -29,7 +29,7 @@
                                         <th>Gender</th>
                                         <th>Image</th>
                                         <th>Address</th>
-                                        <th>Action</th>
+                                        {{-- <th>Action</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,7 +61,7 @@
                                             <td>{{ $customers->GioiTinh ? 'Male' : 'Female' }}</td>
                                             <td>{{ $customers->HinhAnh }}</td>
                                             <td>{{ $customers->DiaChiKH }}</td>
-                                            <td>
+                                            {{-- <td>
                                                 <!-- Nút Delete -->
                                                 <form action="{{ route('customer.destroy', $customers->MaKH) }}"
                                                     method="POST" style="display: inline-block;"
@@ -71,7 +71,7 @@
                                                     <button type="submit" class="btn btn-danger btn-sm"
                                                         style="padding: 8px 17px;">Delete</button>
                                                 </form>
-                                            </td>
+                                            </td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>

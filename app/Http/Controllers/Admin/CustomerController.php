@@ -14,7 +14,6 @@ class CustomerController extends Controller
     {
         // Lấy tất cả khách hàng với phân trang, mỗi trang hiển thị 2 khách hàng
         $customer = KhachHang::paginate(5); 
-
         //truyền dữ liệu vào view
         return view( 'backend.pages.customer.customer-management', compact(var_name: 'customer'));  
     }
@@ -22,15 +21,12 @@ class CustomerController extends Controller
     public function destroy($id)
     {
         $customer = KhachHang::find($id);
-
         if ($customer) {
             $customer->delete(); // Xóa mềm
             return redirect()->route('customer.index')->with('success', 'Customer deleted successfully.');
         }
-
         return redirect()->route('customer.index')->with('error', 'Customer not found.');
     }
-
 
     public function updateStatus(Request $request, $id)
     {
