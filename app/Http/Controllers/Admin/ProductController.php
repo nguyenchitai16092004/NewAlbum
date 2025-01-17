@@ -41,8 +41,8 @@ class ProductController extends Controller
 
     public function Show_Edit($id)
     {
-        $products = SANPHAM::leftJoin('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
-            ->leftJoin('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi')
+        $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP', 'left')
+            ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi', 'left')
             ->where(function ($query) use ($id) {
                 $query->where('SANPHAM.MaSP', '=', $id)
                     ->whereNull('SANPHAM.MaLoaiSP')
@@ -50,12 +50,13 @@ class ProductController extends Controller
             })
             ->select('SANPHAM.*', 'LOAISP.TenLoaiSP', 'NHOMNHACCASI.TenNhomNhacCaSi')
             ->first();
-            
+
         if (!$products) {
-            return redirect()->back()->with('error', 'Không tìm thấy sản phẩm!');
+            return redirect()->back()->with('error', 'Unkown Product!');
         }
-        $NhomNhacCaSi = NHOMNHACCASI::all();
-        $LoaiSP = LOAISP::all();
+        $NhomNhacCaSi = NHOMNHACCASI::select('MaNhomNhacCaSi', 'TenNhomNhacCaSi')->get();
+        $LoaiSP = LOAISP::select('MaLoaiSP', 'TenLoaiSP')->get();
+
 
         return view('backend.pages.product.edit-product', [
             'products' => $products,
@@ -103,7 +104,7 @@ class ProductController extends Controller
         $products = SANPHAM::findOrFail($id);
         $products->TrangThai = 0;
         $products->save();
-
+    
         return redirect()->route('Index_Product')->with('success', 'Product deleted successfully!');
     }
 
