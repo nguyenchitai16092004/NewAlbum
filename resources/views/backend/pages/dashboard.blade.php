@@ -8,14 +8,13 @@
         <h1>Dashboard</h1>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" style="width: 500px">
                     <div class="analytics-sparkle-line reso-mg-b-30">
                         <div class="analytics-content">
-                            <h5>Customer</h5>
+                            <h5 style="">Customer</h5>
                             {{-- <span class="counter"></span>  --}}
-                            <h2>{{ $nguoiDungThangNay }}<span class="tuition-fees">sign-up in this month</span>
+                            <h2>{{ $nguoiDungThangNay }} <span class="tuition-fees">sign-up in this month</span>
                             </h2>
-                            <span class="text-success">xx</span>
                             <div class="progress m-b-0">
                                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50"
                                     aria-valuemin="0" aria-valuemax="100" style="width:50%;"> <span class="sr-only">50%
@@ -24,45 +23,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" style="width: 500px">
                     <div class="analytics-sparkle-line reso-mg-b-30">
                         <div class="analytics-content">
                             <h5>Bill</h5>
                             <h2>{{ $donHangThangNay }}</span> <span class="tuition-fees">in this month</span>
                             </h2>
-                            <span class="text-danger">xx</span>
                             <div class="progress m-b-0">
                                 <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50"
-                                    aria-valuemin="0" aria-valuemax="100" style="width:50%;"> <span class="sr-only">50%
-                                        Complete</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="analytics-sparkle-line reso-mg-b-30 table-mg-t-pro dk-res-t-pro-30">
-                        <div class="analytics-content">
-                            <h5>Website Traffic</h5>
-                            <h2>xx/xx</span> <span class="tuition-fees">in this month</span>
-                            </h2>
-                            <span class="text-info">xx</span>
-                            <div class="progress m-b-0">
-                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
-                                    aria-valuemin="0" aria-valuemax="100" style="width:50%;"> <span class="sr-only">50%
-                                        Complete</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="analytics-sparkle-line reso-mg-b-30 table-mg-t-pro dk-res-t-pro-30">
-                        <div class="analytics-content">
-                            <h5>XX</h5>
-                            <h2>xx/xx</span> <span class="tuition-fees">in this month</span>
-                            </h2>
-                            <span class="text-warning">xx</span>
-                            <div class="progress m-b-0">
-                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50"
                                     aria-valuemin="0" aria-valuemax="100" style="width:50%;"> <span class="sr-only">50%
                                         Complete</span> </div>
                             </div>
