@@ -43,21 +43,12 @@ class ProductController extends Controller
     {
         $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP', 'left')
             ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi', 'left')
-            ->where(function ($query) use ($id) {
-                $query->where('SANPHAM.MaSP', '=', $id)
-                    ->whereNull('SANPHAM.MaLoaiSP')
-                    ->orWhereNull('SANPHAM.MaNhomNhacCaSi');
-            })
             ->select('SANPHAM.*', 'LOAISP.TenLoaiSP', 'NHOMNHACCASI.TenNhomNhacCaSi')
             ->first();
-
-        if (!$products) {
-            return redirect()->back()->with('error', 'Unkown Product!');
-        }
-        $NhomNhacCaSi = NHOMNHACCASI::select('MaNhomNhacCaSi', 'TenNhomNhacCaSi')->get();
-        $LoaiSP = LOAISP::select('MaLoaiSP', 'TenLoaiSP')->get();
-
-
+    
+        $NhomNhacCaSi = NHOMNHACCASI::all();
+        $LoaiSP = LOAISP::all();
+    
         return view('backend.pages.product.edit-product', [
             'products' => $products,
             'Band' => $NhomNhacCaSi,
