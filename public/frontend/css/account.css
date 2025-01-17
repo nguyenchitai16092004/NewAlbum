@@ -170,3 +170,17 @@
 .sex-options {
     margin-left: 75px;
 }
+
+.btn-toggle-password {
+        background-color: black;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        margin-left: 10px; /* Điều chỉnh khoảng cách giữa input và nút */
+        margin-right: 350px;
+        height: 30px;  /* Đặt chiều cao của nút */
+        width: 30px;   /* Đặt chiều rộng của nút */
+        text-align: center; /* Canh giữa chữ trong nút */
+        font-size: 12px; /* Điều chỉnh kích thước font chữ nếu cần */
+        display: inline-block; /* Đảm bảo nút chỉ chiếm đúng kích thước */
+    }
