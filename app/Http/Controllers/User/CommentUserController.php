@@ -17,9 +17,9 @@ class CommentUserController extends Controller
 
         if ($user) {
             $purchasedProducts = $user->HOADON()
-                ->with('chiTietHoaDons') 
+                ->with('CTHD') 
                 ->get()
-                ->pluck('chiTietHoaDons')  
+                ->pluck('CTHD')  
                 ->flatten();  
 
             $productIds = $purchasedProducts->pluck('MaSP');  

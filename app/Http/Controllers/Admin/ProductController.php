@@ -41,8 +41,8 @@ class ProductController extends Controller
 
     public function Show_Edit($id)
     {
-        $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP', 'left')
-            ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi', 'left')
+        $products = SANPHAM::leftJoin('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
+            ->leftJoin('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi')
             ->where(function ($query) use ($id) {
                 $query->where('SANPHAM.MaSP', '=', $id)
                     ->whereNull('SANPHAM.MaLoaiSP')
@@ -50,7 +50,10 @@ class ProductController extends Controller
             })
             ->select('SANPHAM.*', 'LOAISP.TenLoaiSP', 'NHOMNHACCASI.TenNhomNhacCaSi')
             ->first();
-
+            
+        if (!$products) {
+            return redirect()->back()->with('error', 'Không tìm thấy sản phẩm!');
+        }
         $NhomNhacCaSi = NHOMNHACCASI::all();
         $LoaiSP = LOAISP::all();
 

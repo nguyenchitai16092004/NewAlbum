@@ -170,15 +170,17 @@
                                         </div>
                                     @endif
                                     <!-- Favourite -->
-                                    
-                                        <div class="product-favourite">
-                                            <form action="{{ route('wishlist.store') }}" method="POST" id="wishlist-{{ $product->MaSP }}">
-                                                @csrf
-                                                <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
-                                                <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
-                                                <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
-                                            </form>
-                                        </div>
+
+                                    <div class="product-favourite">
+                                        <form action="{{ route('wishlist.store') }}" method="POST"
+                                            id="wishlist-{{ $product->MaSP }}">
+                                            @csrf
+                                            <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
+                                            <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
+                                            <a type="submit" class="favme fa fa-heart"
+                                                onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
+                                        </form>
+                                    </div>
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
@@ -247,15 +249,17 @@
                                         </div>
                                     @endif
                                     <!-- Favourite -->
-                                    
-                                        <div class="product-favourite">
-                                            <form action="{{ route('wishlist.store') }}" method="POST" id="wishlist-{{ $product->MaSP }}">
-                                                @csrf
-                                                <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
-                                                <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
-                                                <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
-                                            </form>
-                                        </div>
+
+                                    <div class="product-favourite">
+                                        <form action="{{ route('wishlist.store') }}" method="POST"
+                                            id="wishlist-{{ $product->MaSP }}">
+                                            @csrf
+                                            <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
+                                            <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
+                                            <a type="submit" class="favme fa fa-heart"
+                                                onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
+                                        </form>
+                                    </div>
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
@@ -319,15 +323,17 @@
                                         </div>
                                     @endif
                                     <!-- Favourite -->
-                                    
-                                        <div class="product-favourite">
-                                            <form action="{{ route('wishlist.store') }}" method="POST" id="wishlist-{{ $product->MaSP }}">
-                                                @csrf
-                                                <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
-                                                <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
-                                                <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
-                                            </form>
-                                        </div>
+
+                                    <div class="product-favourite">
+                                        <form action="{{ route('wishlist.store') }}" method="POST"
+                                            id="wishlist-{{ $product->MaSP }}">
+                                            @csrf
+                                            <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
+                                            <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
+                                            <a type="submit" class="favme fa fa-heart"
+                                                onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
+                                        </form>
+                                    </div>
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
@@ -358,7 +364,8 @@
             </div>
         </div>
         <div class="view-all">
-            <a href="{{ asset('/kgood') }}">View All <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="{{ url('/listproduct/k-goods') }}">View All <i
+                    class="fa-solid fa-arrow-right"></i></a>
         </div>
     </section>
     <section class="new_arrivals_area section-padding-80 clearfix">
@@ -390,15 +397,17 @@
                                         </div>
                                     @endif
                                     <!-- Favourite -->
-                                    
-                                        <div class="product-favourite">
-                                            <form action="{{ route('wishlist.store') }}" method="POST" id="wishlist-{{ $product->MaSP }}">
-                                                @csrf
-                                                <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
-                                                <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
-                                                <a type="submit" class="favme fa fa-heart" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
-                                            </form>
-                                        </div>
+
+                                    <div class="product-favourite">
+                                        <form action="{{ route('wishlist.store') }}" method="POST"
+                                            id="wishlist-{{ $product->MaSP }}">
+                                            @csrf
+                                            <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
+                                            <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
+                                            <a type="submit" class="favme fa fa-heart"
+                                                onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
+                                        </form>
+                                    </div>
                                 </div>
                                 <!-- Product Description -->
                                 <div class="product-description">
@@ -423,13 +432,14 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
         <div class="view-all">
-            <a href="{{ asset('/poster') }}">View All <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="{{ url('/listproduct/poster') }}">View All <i
+                    class="fa-solid fa-arrow-right"></i></a>
         </div>
     </section>
     <script>
