@@ -2,7 +2,7 @@
 .swiper-container {
   height: calc(80vh - 0px);  /* Chiều cao của swiper được tính dựa trên 80% chiều cao cửa sổ trình duyệt */
   margin: 0px;               /* Không có margin xung quanh container */
-  background-color: #ace2f582; /* Màu nền của container */
+  background-color: #e3d4ae; /* Màu nền của container */
 }
 
 /* Cấu hình cho mỗi slide */
