@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Models\SANPHAM;
+use App\Models\SANPHAMYEUTHICH;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
 use App\Models\thongtinlienlac;
@@ -17,6 +18,18 @@ class HomeController extends Controller
 {
     public function Index()
     {
+        $product = SANPHAM::where('TrangThai', 1)->first();
+
+        // Lấy thông tin khách hàng đăng nhập
+        $userId = session('User')['MaKH'] ?? null;
+        $wishlistItem = null;
+
+        if ($userId) {
+            $wishlistItem = SANPHAMYEUTHICH::where('MaKH', $userId)
+                ->where('MaSP', $product->MaSP)
+                ->first();
+        }
+        
         // Lấy 4 sản phẩm "New Arrivals" mới nhất
         $newArrivalProducts = SANPHAM::where('TrangThai', 1)
             ->orderBy('created_at', 'desc') // Sắp xếp theo ngày tạo mới nhất
@@ -94,6 +107,8 @@ class HomeController extends Controller
                 'allKGoodsProducts',
                 'newArrivalProducts', // Truyền danh sách sản phẩm "New Arrivals"
                 'blogPost',
+                'userId',
+                'wishlistItem',
             ));
         } catch (\Exception $e) {
             dd($e->getMessage()); // In lỗi để kiểm tra

@@ -37,14 +37,17 @@
                 data-image="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}" data-slug="{{ $product->Slug }}">
                 ADD TO CART →
             </button>
-
             @if($userId)
                 <div class="product-favourite">
                     <form action="{{ route('wishlist.store') }}" method="POST" id="wishlist-{{ $product->MaSP }}">
                         @csrf
                         <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
                         <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
-                        <a type="submit" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();">🤍</a>
+                        @if($wishlistItem)
+                            <a type="submit" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();">❤️</a>
+                        @else
+                            <a type="submit" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();">🤍</a>
+                        @endif
                     </form>
                 </div>
             @endif
