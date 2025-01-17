@@ -93,16 +93,13 @@ class ProductUserController extends Controller
         $category = LOAISP::where('Slug', $slug)
         ->where('TrangThai',1)
         ->first();
-
         if (!$category) {
             abort(404, 'Category does not exist!');
         }
 
         $productsQuery = SANPHAM::where('MaLoaiSP', $category->MaLoaiSP)
             ->where('TrangThai', 1);
-
         $products = $productsQuery->paginate(6);
-
         $products->getCollection()->transform(function ($product) {
             $product->isNew = $product->created_at >= Carbon::now()->subDays(7);
             return $product;

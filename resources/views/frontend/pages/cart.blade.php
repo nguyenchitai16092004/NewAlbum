@@ -31,13 +31,13 @@
                             <td> <a href="{{ url('single-product-details/' . $item['slug']) }}">
                                     <h6>{{ $item['name'] }}</h6>
                                 </a></td>
-                            <td class="price">{{ number_format($item['price']) }} VND</td>
+                            <td class="price">{{ number_format($item['price']) }} VNĐ</td>
                             <td class="quantity-buttons">
                                 <button class="btn-minus">-</button>
                                 <span class="quantity">{{ $item['quantity'] }}</span>
                                 <button class="btn-plus">+</button>
                             </td>
-                            <td class="total">{{ number_format($item['price'] * $item['quantity']) }} VND</td>
+                            <td class="total">{{ number_format($item['price'] * $item['quantity']) }} VNĐ</td>
                             <td>
                                 <button class="btn delete remove-from-cart" data-id="{{ $id }}">
                                     <i class="fas fa-trash"></i>
@@ -101,7 +101,7 @@
             <div class="summary">
                 <div class="container-text">
                     <p>Subtotal:</p>
-                    <p>{{ number_format($cartTotal) }} VND</p>
+                    <p>{{ number_format($cartTotal) }} VNĐ</p>
                 </div>
                 <form action="{{ route('checkout') }}" method="GET">
                     <button type="submit" class="checkout">CHECK OUT</button>
@@ -124,7 +124,7 @@
                             <p>{{ $product->TenSP }}</p>
                         </a>
                     </a>
-                    <span class="price">{{ number_format($product->GiaBan) }} VND</span>
+                    <span class="price">{{ number_format($product->GiaBan) }} VNĐ</span>
                 </div>
             @endforeach
         </div>
@@ -267,7 +267,7 @@
                                 const summaryEl = document.querySelector('.summary');
                                 if (data.cartTotal !== undefined && cartTotalEl) {
                                     cartTotalEl.innerText =
-                                        `${new Intl.NumberFormat().format(data.cartTotal)} VND`;
+                                        `${new Intl.NumberFormat().format(data.cartTotal)} VNĐ`;
                                 }
                                 if (Object.keys(data.cart).length === 0) {
                                     document.querySelector('.cart-container tbody').innerHTML =

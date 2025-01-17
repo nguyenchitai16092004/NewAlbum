@@ -28,8 +28,8 @@
                                             </td>
                                             <td>{{ $item->TenSP }}</td>
                                             <td>{{ $item->SoLuong }}</td>
-                                            <td>{{ number_format($item->DonGia, 2) }} VND</td>
-                                            <td>{{ number_format($item->TongTien, 2) }} VND</td>
+                                            <td>{{ number_format($item->DonGia) }} VNĐ</td>
+                                            <td>{{ number_format($item->TongTien) }} VNĐ</td>
                                         </tr>
                                     @empty
                                         <tr>

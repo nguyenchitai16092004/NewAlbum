@@ -52,7 +52,7 @@
                     @foreach ($hoaDons as $hoaDon)
                         <tr>
                             <td>{{ $hoaDon->MaHD }}</td>
-                            <td>{{ number_format($hoaDon->TongTien, 2) }} VND</td>
+                            <td>{{ number_format($hoaDon->TongTien) }} VNĐ</td>
                             <td>{{ $hoaDon->PTTT ? 'Online' : 'Cash' }}</td>
                             <td>{{ $hoaDon->TrangThaiTT ? 'Paid' : 'Unpaid' }}</td>
                             <td>

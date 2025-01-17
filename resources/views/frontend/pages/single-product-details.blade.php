@@ -24,7 +24,7 @@
                             </div>
                         @endif
                     </div>
-                    <p>Price: <strong>{{ number_format($product->GiaBan) }} VND</strong></p>
+                    <p>Price: <strong>{{ number_format($product->GiaBan) }} VNĐ</strong></p>
                 </div>
                 <div class="quantity">
                     <button class="btn-minus">-</button>
@@ -189,7 +189,7 @@
                             <span>Pre&ndash;order</span>
                         </div>
                     @endif
-                    <p><strong>305.000 VND</strong></p>
+                    <p><strong>305.000 VNĐ</strong></p>
                 </div>
             @endforeach
         </div>

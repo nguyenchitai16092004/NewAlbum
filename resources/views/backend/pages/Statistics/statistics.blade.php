@@ -67,7 +67,8 @@
             labels: ['Revenue (VND)'],
             barColors: ['#006DF0'],
             hideHover: 'auto',
-            resize: true
+            resize: true,
+            gridTextColor: '#000000'
         });
 
         // Biểu đồ lượt mua
@@ -79,7 +80,8 @@
             labels: ['Purchases (Items)'],
             barColors: ['#65b12d'],
             hideHover: 'auto',
-            resize: true
+            resize: true,
+            gridTextColor: '#000000'
         });
     </script>
 
