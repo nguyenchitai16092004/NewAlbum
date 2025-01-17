@@ -20,7 +20,7 @@
                     @endif
                     @if ($product->LoaiHang != 1)
                         <div class="pre-oder-new-arrivals normal">
-                            <span>Normal</span>
+                            <span>In Stock</span>
                         </div>
                     @endif
                 </div>
