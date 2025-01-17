@@ -90,7 +90,9 @@ class ProductUserController extends Controller
 
     public function listByCategory($slug)
     {
-        $category = LOAISP::where('Slug', $slug)->first();
+        $category = LOAISP::where('Slug', $slug)
+        ->where('TrangThai',1)
+        ->first();
 
         if (!$category) {
             abort(404, 'Category does not exist!');

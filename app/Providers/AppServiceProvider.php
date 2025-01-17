@@ -38,7 +38,6 @@ class AppServiceProvider extends ServiceProvider
             $allCategoryProducts = LOAISP::where('TrangThai', 1)
                 ->select('Slug', 'TenLoaiSP')
                 ->get();
-
             $view->with([
                 'totalQuantity' => $totalQuantity,
                 'allCategoryProducts' => $allCategoryProducts,

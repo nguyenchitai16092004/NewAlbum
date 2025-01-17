@@ -73,7 +73,6 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-
             document.querySelectorAll('.add-to-cart-btn').forEach(button => {
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -82,7 +81,6 @@
                     const productPrice = this.dataset.price;
                     const productImage = this.dataset.image;
                     const productSlug = this.dataset.slug;
-
                     fetch("{{ route('add.to.cart') }}", {
                             // gửi yc đến cart
                             method: "POST",
@@ -101,7 +99,6 @@
                         })
                         .then(response => response.json())
                         // trả phản hồi json-> js
-
                         .then(data => {
                             if (data.success) {
                                 const cartQuantity = document.querySelector(
