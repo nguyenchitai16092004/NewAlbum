@@ -62,9 +62,9 @@
                         <label>Username</label>
                         <span>{{ session('User')->TenDN }}</span>
                     </div>
-                    <div class="account-field password-field" style="display:flex;">
+                    <div class="account-field password-field" style="display: flex;">
                         <label>Password</label>
-                        <input type="password" id="passwordInput" value="{{ session('User')->MatKhau }}" style="width: 300px; height: 30px; margin-left: 65px; margin-bottom: 40px;"> <!-- Mật khẩu sẽ được hiển thị dưới dạng dấu hoa thị -->
+                        <input type="password" id="passwordInput" value="{{ session('User')->MatKhau }}" style="width: 300px; height: 30px; margin-left: 65px;"> <!-- Mật khẩu sẽ được hiển thị dưới dạng dấu hoa thị -->
                         <button type="button" id="togglePassword" class="btn-toggle-password">Show</button> <!-- Nút để chuyển đổi trạng thái -->
                     </div> 
                 </div>
@@ -87,23 +87,3 @@
     });
     </script>
 @stop
-
- 
-
-<style>
-.btn-toggle-password {
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    margin-left: 10px; /* Điều chỉnh khoảng cách giữa input và nút */
-    margin-right: 370px;
-    height: 30px;  /* Đặt chiều cao của nút */
-    width: 30px;   /* Đặt chiều rộng của nút */
-    text-align: center; /* Canh giữa chữ trong nút */
-    font-size: 12px; /* Điều chỉnh kích thước font chữ nếu cần */
-    display: inline-block; /* Đảm bảo nút chỉ chiếm đúng kích thước */
-}
-
-</style>
