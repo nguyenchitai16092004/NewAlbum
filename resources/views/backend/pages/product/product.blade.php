@@ -164,7 +164,7 @@
 
                         <!-- Pagination -->
                         <div class="custom-pagination text-center mt-4">
-                            {!! $products->links('pagination::bootstrap-4') !!}
+                            {{ $products->links('pagination::bootstrap-4')}}
                         </div>
 
                     </div>

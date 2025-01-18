@@ -189,7 +189,7 @@
                             <span>Pre&ndash;order</span>
                         </div>
                     @endif
-                    <p><strong>305.000 VNĐ</strong></p>
+                    <p><strong>{{ number_format($reProd->GiaBan) }} VNĐ</strong></p>
                 </div>
             @endforeach
         </div>
@@ -219,7 +219,8 @@
                     const productPrice = this.dataset.price;
                     const productImage = this.dataset.image;
                     const productSlug = this.dataset.slug;
-                    const quantityInput = this.parentElement.querySelector('.quantity input');// lấy slsp ở input
+                    const quantityInput = this.parentElement.querySelector(
+                        '.quantity input'); // lấy slsp ở input
                     const quantity = parseInt(quantityInput.value) ||
                         1;
                     fetch("{{ route('add.to.cart') }}", {
@@ -233,11 +234,12 @@
                                 name: productName,
                                 price: productPrice,
                                 image: productImage,
-                                quantity: quantity, 
+                                quantity: quantity,
                                 slug: productSlug,
                             })
                         })
                         .then(response => response.json())
+                    location.reload()
                         .then(data => {
                             if (data.success) {
                                 const cartQuantity = document.querySelector(
@@ -262,17 +264,17 @@
             plusButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const quantityInput = this.previousElementSibling;
-                    let currentValue = parseInt(quantityInput.value) || 1; 
-                    quantityInput.value = currentValue + 1; 
+                    let currentValue = parseInt(quantityInput.value) || 1;
+                    quantityInput.value = currentValue + 1;
                 });
             });
             // nút -
             minusButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    const quantityInput = this.nextElementSibling; 
-                    let currentValue = parseInt(quantityInput.value) || 1; 
+                    const quantityInput = this.nextElementSibling;
+                    let currentValue = parseInt(quantityInput.value) || 1;
                     if (currentValue > 1) {
-                        quantityInput.value = currentValue - 1; 
+                        quantityInput.value = currentValue - 1;
                     }
                 });
             });
@@ -298,6 +300,7 @@
                 });
             });
         });
+
         //bắt sk comment
         // document.addEventListener("DOMContentLoaded", function() {
         //     const stars = document.querySelectorAll('.star');

@@ -50,7 +50,7 @@
                                     <i class="fa fa-shopping-cart"></i> Add to Cart
                                 </button>
                                 <button class="action-button remove-button">
-                                    <i class="fa fa-heart"></i> Add to WishList
+                                    <i class="fa fa-heart"></i> Add WishList
                                 </button>
                             </div>
                         </div>
