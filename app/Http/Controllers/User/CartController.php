@@ -28,7 +28,7 @@ class CartController extends Controller
         $recommendedProducts = SANPHAM::inRandomOrder()
             ->where('TrangThai', 1)
             ->take(4)
-            ->get(); // lấy 4sp ngẫu nhiên trong csdl để hiện sp liên quan
+            ->get(); 
         return view('frontend.pages.cart', [
             'cart' => $paginatedCart, // gh sau khi phân trang.
             'recommendedProducts' => $recommendedProducts,
@@ -43,7 +43,8 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
-        $product = $request->all(); // Lấy thông tin sản phẩm từ request
+
+        $product = $request->all(); 
         $cart = session()->get('cart', []);
 
         // Kiểm tra dữ liệu

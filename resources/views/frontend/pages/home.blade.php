@@ -177,11 +177,8 @@
                                             @csrf
                                             <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
                                             <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
-                                            @if($wishlistItem)
-                                                <a type="submit" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();">❤️</a>
-                                            @else
-                                                <a type="submit" onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();">🤍</a>
-                                            @endif
+                                            <a type="submit" class="favme fa fa-heart"
+                                                onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();"></a>
                                         </form>
                                     </div>
                                 </div>

@@ -13,8 +13,6 @@
                 <div class="content-container"> <!-- Nội dung của slide -->
                     <div class="header-text"> <!-- Tiêu đề của nội dung -->
                         <h2 style="font-size: 50px;">After Ego - Comming Soon</h2>
-                        <h3><a class="pre-order" href="{{ asset('/pre-oders') }}" style="font-size: 30px;">Pre-order</a>
-                        </h3>
                     </div>
                 </div>
             </div>
@@ -26,9 +24,9 @@
                         style="background-image: url('{{ asset('storage/SanPham/' . $product->HinhAnh ?? 'path/to/default-image.jpg') }}');"></a>
                     <div class="content-container"> <!-- Nội dung của slide -->
                         <div class="header-text"> <!-- Tiêu đề của nội dung -->
-                            <h2>New Arrivals in NewAlbum</h2>
-                            <h3><a href="{{ route('product.details', ['slug' => $product->Slug]) }}"
-                                    style="font-size: 30px">{{ $product->TenSP }}</a></h3>
+                            <h5>New Arrivals in NewAlbum</h5>
+                            <h1><a class="sildeshow-name-product" href="{{ route('product.details', ['slug' => $product->Slug]) }}"
+                                    style="font-size: 30px">{{ $product->TenSP }}</a></h1>
                         </div>
                     </div>
                 </div>

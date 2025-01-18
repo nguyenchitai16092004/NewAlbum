@@ -10,7 +10,7 @@ class AboutUsController extends Controller
 {
     public function aboutUs()
     {
-        $contactInfo = THONGTINLIENLAC::first(); // Lấy dòng đầu tiên trong bảng
+        $contactInfo = THONGTINLIENLAC::first();
         return view('frontend.pages.about-us', compact('contactInfo'));
     }
     public function Index(){
