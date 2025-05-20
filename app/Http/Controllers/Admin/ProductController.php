@@ -41,21 +41,14 @@ class ProductController extends Controller
 
     public function Show_Edit($id)
     {
-        $products = SANPHAM::leftJoin('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP')
-            ->leftJoin('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi')
-            ->where(function ($query) use ($id) {
-                $query->where('SANPHAM.MaSP', '=', $id)
-                    ->whereNull('SANPHAM.MaLoaiSP')
-                    ->orWhereNull('SANPHAM.MaNhomNhacCaSi');
-            })
+        $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP', 'left')
+            ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi', 'left')
+            ->where('SANPHAM.MaSP', '=', $id)
             ->select('SANPHAM.*', 'LOAISP.TenLoaiSP', 'NHOMNHACCASI.TenNhomNhacCaSi')
             ->first();
-            
-        if (!$products) {
-            return redirect()->back()->with('error', 'Không tìm thấy sản phẩm!');
-        }
-        $NhomNhacCaSi = NHOMNHACCASI::all();
-        $LoaiSP = LOAISP::all();
+
+        $NhomNhacCaSi = NHOMNHACCASI::where('TrangThai', '=', 1)->get();
+        $LoaiSP = LOAISP::where('TrangThai', '=', 1)->get();
 
         return view('backend.pages.product.edit-product', [
             'products' => $products,
@@ -111,6 +104,7 @@ class ProductController extends Controller
     public function Edit(Request $request, $id)
     {
         $products = SANPHAM::findOrFail($id);
+        if ($request->input('SoLuong') < 1 && $request->input('LoaiHang') == 0) return redirect()->route('Edit_Index_Product',$id)->with('error', 'Invalid input!');
 
         // Gán giá trị từ request vào sản phẩm
         $products->MaNhomNhacCaSi = $request->input('MaNhomNhacCaSi');
@@ -122,6 +116,8 @@ class ProductController extends Controller
         $products->TieuDe = $request->input('TieuDe');
         $products->MoTa = $request->input('MoTa');
         $products->SoLuong = $request->input('SoLuong');
+        $products->LoaiHang = $request->input('LoaiHang');
+
 
         if ($request->hasFile('HinhAnh')) {
             $HinhAnh = $request->file('HinhAnh');

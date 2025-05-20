@@ -32,14 +32,13 @@ class WishlistController extends Controller
             return redirect()->back()->with('error', 'Please log in to add products to your wishlist');
         }
 
-        $userId = session('User')['MaKH']; // Lấy MaKH từ session
+        $userId = session('User')['MaKH'];
 
         // Kiểm tra nếu thiếu thông tin sản phẩm
         $request->validate([
             'MaSP' => 'required|exists:SANPHAM,MaSP',
         ]);
 
-        // Kiểm tra nếu sản phẩm đã có trong wishlist
         $exists = SANPHAMYEUTHICH::where('MaKH', $userId)
             ->where('MaSP', $request->MaSP)
             ->first();
@@ -69,6 +68,5 @@ class WishlistController extends Controller
         return redirect()->back()->with('success', 'Product removed from wishlist.');
 
     }
-
-
+    
 }

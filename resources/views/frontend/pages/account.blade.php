@@ -29,16 +29,16 @@
                     </div>
                     <div class="account-field name-field">
                         <label>Email</label>
-                        <span>{{ session('User')->Email }}</span>
+                        <span style="margin-left: 96px">{{ session('User')->Email }}</span>
                     </div>
                     <div class="account-field phone-field">
                         <label>Phone number</label>
-                        <span>{{ session('User')->SDT ?? 'Not provided' }}</span>
+                        <span style="margin-left: 37px;">{{ session('User')->SDT ?? 'Not provided' }}</span>
                     </div>
                     <div class="account-field sex-field">
                         <label>Sex</label>
                         <div class="sex-options">
-                            <input type="radio" id="male" name="sex" {{ session('User')->GioiTinh == 1 ? 'checked' : '' }}>
+                            <input type="radio" id="male" name="sex" {{ session('User')->GioiTinh == 1 ? 'checked' : '' }}  style="margin-left: 11px;">
                             <label for="male">Male</label>
                     
                             <input type="radio" id="female" name="sex" {{ session('User')->GioiTinh == 0 ? 'checked' : '' }}>
@@ -47,11 +47,11 @@
                     </div>                    
                     <div class="account-field birthday-field">
                         <label>Birthday</label>
-                        <span>{{ session('User')->NgaySinh ?? 'Not provided' }}</span>
+                        <span style="margin-left: 78px;">{{ session('User')->NgaySinh ?? 'Not provided' }}</span>
                     </div>
                     <div class="account-field address-field">
                         <label>Address</label>
-                        <span>{{ session('User')->DiaChiKH ?? 'Not provided' }}</span>
+                        <span style="margin-left: 78px;">{{ session('User')->DiaChiKH ?? 'Not provided' }}</span>
                     </div>
                 </div>
             </div>
@@ -62,12 +62,28 @@
                         <label>Username</label>
                         <span>{{ session('User')->TenDN }}</span>
                     </div>
-                    <div class="account-field password-field">
+                    <div class="account-field password-field" style="display: flex;">
                         <label>Password</label>
-                        <span>{{ session('User')->MatKhau }}</span> <!-- Mật khẩu không hiển thị -->
-                    </div>
+                        <input type="password" id="passwordInput" value="{{ session('User')->MatKhau }}" style="width: 300px; height: 30px; margin-left: 65px;"> <!-- Mật khẩu sẽ được hiển thị dưới dạng dấu hoa thị -->
+                        <button type="button" id="togglePassword" class="btn-toggle-password">Show</button> <!-- Nút để chuyển đổi trạng thái -->
+                    </div> 
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function() {
+        var passwordInput = document.getElementById('passwordInput');
+        var button = document.getElementById('togglePassword');
+    
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text'; // Hiển thị mật khẩu
+            button.innerHTML = 'Hide'; // Đổi chữ thành "Hide"
+        } else {
+            passwordInput.type = 'password'; // Ẩn mật khẩu
+            button.innerHTML = 'Show'; // Đổi chữ thành "Show"
+        }
+    });
+    </script>
 @stop

@@ -31,16 +31,15 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         View::composer('*', function ($view) {
-            $cart = Session::get('cart', []);
-            $totalQuantity = array_sum(array_column($cart, 'quantity'));
+            $cart = session()->get('cart', []); 
+            $totalProductIds = count($cart); 
 
-            // Lấy danh mục dựa trên `slug`
+            
             $allCategoryProducts = LOAISP::where('TrangThai', 1)
                 ->select('Slug', 'TenLoaiSP')
                 ->get();
-
             $view->with([
-                'totalQuantity' => $totalQuantity,
+                'totalQuantity' => $totalProductIds,
                 'allCategoryProducts' => $allCategoryProducts,
             ]);
         });

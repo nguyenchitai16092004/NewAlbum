@@ -192,7 +192,7 @@
                                             <span>Pre&ndash;order</span>
                                         </div>
                                     @endif
-                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VND</p>
+                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VNĐ</p>
                                     <!-- Hover Content -->
                                     <div class="hover-content">
                                         <!-- Add to Cart -->
@@ -271,7 +271,7 @@
                                             <span>Pre&ndash;order</span>
                                         </div>
                                     @endif
-                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VND</p>
+                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VNĐ</p>
                                     <!-- Hover Content -->
                                     <div class="hover-content">
                                         <!-- Add to Cart -->
@@ -345,7 +345,7 @@
                                             <span>Pre&ndash;order</span>
                                         </div>
                                     @endif
-                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VND</p>
+                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VNĐ</p>
                                     <!-- Hover Content -->
                                     <div class="hover-content">
                                         <!-- Add to Cart -->
@@ -364,8 +364,7 @@
             </div>
         </div>
         <div class="view-all">
-            <a href="{{ url('/listproduct/k-goods') }}">View All <i
-                    class="fa-solid fa-arrow-right"></i></a>
+            <a href="{{ url('/listproduct/k-goods') }}">View All <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </section>
     <section class="new_arrivals_area section-padding-80 clearfix">
@@ -397,7 +396,6 @@
                                         </div>
                                     @endif
                                     <!-- Favourite -->
-
                                     <div class="product-favourite">
                                         <form action="{{ route('wishlist.store') }}" method="POST"
                                             id="wishlist-{{ $product->MaSP }}">
@@ -416,10 +414,12 @@
                                     <a href="{{ url('single-product-details/' . $product->Slug) }}">
                                         <h6>{{ $product->TenSP }}</h6>
                                     </a>
-                                    <div class="pre-oder-new-arrivals">
-                                        <span>Pre&ndash;order</span>
-                                    </div>
-                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VND</p>
+                                    @if ($product->LoaiHang == 1)
+                                        <div class="pre-oder-new-arrivals">
+                                            <span>Pre&ndash;order</span>
+                                        </div>
+                                    @endif
+                                    <p class="product-price price">{{ number_format($product->GiaBan) }} VNĐ</p>
                                     <!-- Hover Content -->
                                     <div class="hover-content">
                                         <!-- Add to Cart -->
@@ -438,28 +438,25 @@
             </div>
         </div>
         <div class="view-all">
-            <a href="{{ url('/listproduct/poster') }}">View All <i
-                    class="fa-solid fa-arrow-right"></i></a>
+            <a href="{{ url('/listproduct/poster') }}">View All <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </section>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-
-            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-                button.addEventListener('click', function(e) {
+            document.querySelectorAll(".add-to-cart-btn").forEach((button) => {
+                button.addEventListener("click", function(e) {
                     e.preventDefault();
                     const productId = this.dataset.id;
                     const productName = this.dataset.name;
                     const productPrice = this.dataset.price;
                     const productImage = this.dataset.image;
                     const productSlug = this.dataset.slug;
-
                     fetch("{{ route('add.to.cart') }}", {
                             // gửi yc đến cart
                             method: "POST",
                             headers: {
                                 "X-CSRF-TOKEN": "{{ csrf_token() }}",
-                                "Content-Type": "application/json" // khai báo dl là json
+                                "Content-Type": "application/json", // khai báo dl là json
                             },
                             body: JSON.stringify({
                                 // chuyển dl sang json
@@ -468,23 +465,24 @@
                                 price: productPrice,
                                 image: productImage,
                                 slug: productSlug,
-                            })
+                            }),
                         })
-                        .then(response => response.json())
+                        .then((response) => response.json())
                         // trả phản hồi json-> js
-
-                        .then(data => {
+                        .then((data) => {
                             if (data.success) {
                                 const cartQuantity = document.querySelector(
-                                    '.header-meta .favourite-area span');
+                                    ".header-meta .favourite-area span"
+                                );
                                 if (cartQuantity) {
-                                    cartQuantity.textContent = Object.values(data.cart).reduce((
-                                        total, item) => total + item.quantity, 0);
+                                    cartQuantity.textContent = Object.values(
+                                        data.cart
+                                    ).reduce((total, item) => total + item.quantity, 0);
                                     // cập nhật slsp trong gh lên header.
                                 }
                             }
                         })
-                        .catch(error => console.error('Error:', error));
+                        .catch((error) => console.error("Error:", error));
                 });
             });
         });

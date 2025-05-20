@@ -7,7 +7,7 @@
             <div class="product-image1" style="margin-top:40px">
                 <img src="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}" alt="{{ $product->TenSP }}">
             </div>
-            <div class="product-details"style="margin-top:40px">
+            <div class="product-details" style="margin-top:40px">
                 <h1>{{ $product->TenSP }}</h1>
                 <p>{{ $product->TieuDe }}</p>
                 <div class="status-price">
@@ -20,11 +20,11 @@
                         @endif
                         @if ($product->LoaiHang != 1)
                             <div class="pre-oder-new-arrivals normal">
-                                <span>Normal</span>
+                                <span>In Stock</span>
                             </div>
                         @endif
                     </div>
-                    <p>Price: <strong>{{ number_format($product->GiaBan) }} VND</strong></p>
+                    <p>Price: <strong>{{ number_format($product->GiaBan) }} VNĐ</strong></p>
                 </div>
                 <div class="quantity">
                     <button class="btn-minus">-</button>
@@ -37,17 +37,22 @@
                     data-image="{{ asset('Storage/SanPham/' . $product->HinhAnh) }}" data-slug="{{ $product->Slug }}">
                     ADD TO CART →
                 </button>
-
-                <div class="product-favourite">
-                    <form class="add" action="{{ route('wishlist.store') }}" method="POST"
-                        id="wishlist-{{ $product->MaSP }}">
-                        @csrf
-                        <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
-                        <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
-                        <a type="submit"
-                            onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();">🤍</a>
-                    </form>
-                </div>
+                @if ($userId)
+                    <div class="product-favourite">
+                        <form action="{{ route('wishlist.store') }}" method="POST" id="wishlist-{{ $product->MaSP }}">
+                            @csrf
+                            <input type="hidden" name="MaSP" value="{{ $product->MaSP }}">
+                            <input type="hidden" name="HinhAnh" value="{{ $product->HinhAnh }}">
+                            @if ($wishlistItem)
+                                <a type="submit"
+                                    onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();">❤️</a>
+                            @else
+                                <a type="submit"
+                                    onclick="document.getElementById('wishlist-{{ $product->MaSP }}').submit();">🤍</a>
+                            @endif
+                        </form>
+                    </div>
+                @endif
             </div>
         </div>
         <div class="container-product">
@@ -184,7 +189,7 @@
                             <span>Pre&ndash;order</span>
                         </div>
                     @endif
-                    <p><strong>305.000 VND</strong></p>
+                    <p><strong>{{ number_format($reProd->GiaBan) }} VNĐ</strong></p>
                 </div>
             @endforeach
         </div>
@@ -193,7 +198,6 @@
         document.addEventListener("DOMContentLoaded", function() {
             const moreButton = document.getElementById('more-button');
             const productDescription = document.getElementById('product-description');
-
             moreButton.addEventListener('click', function(event) {
                 event.preventDefault();
                 if (productDescription.style.display === 'none') {
@@ -205,24 +209,20 @@
                 }
             });
         });
-
+        // sk click nút add to cart
         document.addEventListener("DOMContentLoaded", function() {
-            // Xử lý nút "ADD TO CART"
             document.querySelectorAll('.add-to-cart-btn').forEach(button => {
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
-
                     const productId = this.dataset.id;
                     const productName = this.dataset.name;
                     const productPrice = this.dataset.price;
                     const productImage = this.dataset.image;
                     const productSlug = this.dataset.slug;
-
-                    // Lấy giá trị số lượng từ ô input liền trước nút
-                    const quantityInput = this.parentElement.querySelector('.quantity input');
+                    const quantityInput = this.parentElement.querySelector(
+                        '.quantity input'); // lấy slsp ở input
                     const quantity = parseInt(quantityInput.value) ||
-                        1; // Mặc định là 1 nếu giá trị không hợp lệ
-
+                        1;
                     fetch("{{ route('add.to.cart') }}", {
                             method: "POST",
                             headers: {
@@ -234,17 +234,18 @@
                                 name: productName,
                                 price: productPrice,
                                 image: productImage,
-                                quantity: quantity, // Gửi số lượng tới server
+                                quantity: quantity,
                                 slug: productSlug,
                             })
                         })
                         .then(response => response.json())
+                    location.reload()
                         .then(data => {
                             if (data.success) {
                                 const cartQuantity = document.querySelector(
                                     '.header-meta .favourite-area span');
                                 if (cartQuantity) {
-                                    // Cập nhật số lượng sản phẩm trong giỏ hàng
+                                    // update slsp trong gh
                                     cartQuantity.textContent = Object.values(data.cart).reduce((
                                         total, item) => total + item.quantity, 0);
                                 }
@@ -254,119 +255,111 @@
                 });
             });
         });
+        //bắt sk thay điều chỉnh slsp
         document.addEventListener("DOMContentLoaded", function() {
-            // Lấy các nút và ô input số lượng
             const quantityInputs = document.querySelectorAll('.quantity input');
             const plusButtons = document.querySelectorAll('.btn-plus');
             const minusButtons = document.querySelectorAll('.btn-minus');
-
-            // Xử lý khi nhấn nút "+"
+            // nút +
             plusButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    const quantityInput = this.previousElementSibling; // Input liền trước nút "+"
-                    let currentValue = parseInt(quantityInput.value) || 1; // Giá trị hiện tại
-                    quantityInput.value = currentValue + 1; // Tăng giá trị lên 1
+                    const quantityInput = this.previousElementSibling;
+                    let currentValue = parseInt(quantityInput.value) || 1;
+                    quantityInput.value = currentValue + 1;
                 });
             });
-
-            // Xử lý khi nhấn nút "-"
+            // nút -
             minusButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    const quantityInput = this.nextElementSibling; // Input liền sau nút "-"
-                    let currentValue = parseInt(quantityInput.value) || 1; // Giá trị hiện tại
+                    const quantityInput = this.nextElementSibling;
+                    let currentValue = parseInt(quantityInput.value) || 1;
                     if (currentValue > 1) {
-                        quantityInput.value = currentValue - 1; // Giảm giá trị đi 1 (nếu lớn hơn 1)
+                        quantityInput.value = currentValue - 1;
                     }
                 });
             });
-
-            // Xử lý khi người dùng nhập trực tiếp vào ô input
+            // nhập sl vào ô input
             quantityInputs.forEach(input => {
                 input.addEventListener('input', function() {
-                    // Lấy giá trị đã nhập
+                    // nhận gtr đã nhập
                     let value = parseInt(this.value);
-
-                    // Kiểm tra nếu giá trị không hợp lệ (NaN, số âm, hoặc nhỏ hơn 1)
                     if (isNaN(value) || value < 1) {
-                        this.value = 1; // Gán lại giá trị tối thiểu là 1
+                        this.value = 1; //tối thiểu
                     } else {
-                        this.value = value; // Cập nhật giá trị hợp lệ
+                        this.value = value;
                     }
                 });
-
-                // Ngăn nhập ký tự đặc biệt hoặc chữ vào ô input
+                //ngăn ký tự dbiet
                 input.addEventListener('keydown', function(event) {
                     const allowedKeys = ["Backspace", "ArrowLeft", "ArrowRight", "Tab", "Delete"];
                     const isNumber = event.key >= '0' && event.key <= '9';
                     const isAllowedKey = allowedKeys.includes(event.key);
-
                     if (!isNumber && !isAllowedKey) {
-                        event.preventDefault(); // Ngăn hành động nhập
+                        event.preventDefault();
                     }
                 });
             });
         });
-        document.addEventListener("DOMContentLoaded", function() {
-            const stars = document.querySelectorAll('.star');
-            let rating = 0; // Biến lưu số sao được chọn
 
-            // Lắng nghe sự kiện click trên từng ngôi sao
-            stars.forEach(star => {
-                star.addEventListener('click', function() {
-                    rating = parseInt(this.getAttribute('data-value')); // Lấy giá trị của ngôi sao
-                    updateStars(rating); // Cập nhật giao diện
-                });
-            });
+        //bắt sk comment
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     const stars = document.querySelectorAll('.star');
+        //     let rating = 0; // Biến lưu số sao được chọn
+        //     // Lắng nghe sự kiện click trên từng ngôi sao
+        //     stars.forEach(star => {
+        //         star.addEventListener('click', function() {
+        //             rating = parseInt(this.getAttribute('data-value')); // Lấy giá trị của ngôi sao
+        //             updateStars(rating); // Cập nhật giao diện
+        //         });
+        //     });
+        //     // Hàm cập nhật giao diện các ngôi sao
+        //     function updateStars(rating) {
+        //         stars.forEach(star => {
+        //             const starValue = parseInt(star.getAttribute('data-value'));
+        //             if (starValue <= rating) {
+        //                 star.classList.add('selected'); // Đổi màu vàng cho ngôi sao đã chọn
+        //             } else {
+        //                 star.classList.remove('selected'); // Ngôi sao không được chọn vẫn màu xám
+        //             }
+        //         });
+        //     }
 
-            // Hàm cập nhật giao diện các ngôi sao
-            function updateStars(rating) {
-                stars.forEach(star => {
-                    const starValue = parseInt(star.getAttribute('data-value'));
-                    if (starValue <= rating) {
-                        star.classList.add('selected'); // Đổi màu vàng cho ngôi sao đã chọn
-                    } else {
-                        star.classList.remove('selected'); // Ngôi sao không được chọn vẫn màu xám
-                    }
-                });
-            }
-
-            // Xử lý khi người dùng nhấn nút "Comment"
-            const commentButton = document.querySelector('.btn-comment');
-            commentButton.addEventListener('click', function() {
-                const reviewText = document.getElementById('review').value;
-                if (rating === 0) {
-                    alert('Please select a rating before commenting.');
-                    return;
-                }
-                if (!reviewText) {
-                    alert('Please write a review before commenting.');
-                    return;
-                }
-
-                // Gửi dữ liệu đánh giá và bình luận tới server
-                fetch('/single-product-details/{{ $product->Slug }}/comment', {
-                        method: 'POST',
-                        headers: {
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            SoSao: rating,
-                            NoiDung: reviewText,
-                        }),
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            alert(data.success);
-                            location.reload(); // Reload để hiển thị bình luận mới
-                        } else if (data.error) {
-                            alert(data.error);
-                        }
-                    })
-                    .catch(error => console.error('Error:', error));
-            });
-        });
+        //     // Xử lý khi người dùng nhấn nút "Comment"
+        //     const commentButton = document.querySelector('.btn-comment');
+        //     commentButton.addEventListener('click', function() {
+        //         const reviewText = document.getElementById('review').value;
+        //         if (rating === 0) {
+        //             alert('Please select a rating before commenting.');
+        //             return;
+        //         }
+        //         if (!reviewText) {
+        //             alert('Please write a review before commenting.');
+        //             return;
+        //         }
+        //         // Gửi dữ liệu đánh giá và bình luận tới server
+        //         fetch('/single-product-details/{{ $product->Slug }}/comment', {
+        //                 method: 'POST',
+        //                 headers: {
+        //                     'X-CSRF-TOKEN': '{{ csrf_token() }}',
+        //                     'Content-Type': 'application/json',
+        //                 },
+        //                 body: JSON.stringify({
+        //                     SoSao: rating,
+        //                     NoiDung: reviewText,
+        //                 }),
+        //             })
+        //             .then(response => response.json())
+        //             .then(data => {
+        //                 if (data.success) {
+        //                     alert(data.success);
+        //                     location.reload(); // Reload để hiển thị bình luận mới
+        //                 } else if (data.error) {
+        //                     alert(data.error);
+        //                 }
+        //             })
+        //             .catch(error => console.error('Error:', error));
+        //     });
+        // });
     </script>
 
 @stop

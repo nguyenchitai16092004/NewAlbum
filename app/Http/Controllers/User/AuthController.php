@@ -20,7 +20,7 @@ class AuthController extends Controller
             session()->put('User', $auth); 
 
             session()->flash('success', 'Login successfully!');
-            return redirect()->route('home');
+            return redirect()->back();
         } else {
             session()->flash('error', 'Login Name or password is incorrect.');
             return redirect()->back();
@@ -37,6 +37,6 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
         
         session()->flash('Signoutsuccess', 'Sign Out successfully!');
-        return redirect()->route('home');
+        return redirect()->back();
     }
 }

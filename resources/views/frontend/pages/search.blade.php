@@ -26,7 +26,7 @@
         <option value="">Filter</option>
         <option value="1" {{ request('filter') == '1' ? 'selected' : '' }}>K-POP</option>
         <option value="2" {{ request('filter') == '2' ? 'selected' : '' }}>K-GOODS</option>
-        <option value="3" {{ request('filter') == '3' ? 'selected' : '' }}>POSTER</option>
+        <option value="3" {{ request('filter') == '4' ? 'selected' : '' }}>POSTER</option>
     </select>
     <button class="btn-search" type="submit">Search</button>
 </form>
@@ -44,13 +44,13 @@
                             class="product-image">
                         <div class="product-details">
                             <h2 class="product-title">{{ $product->TenSP }}</h2>
-                            <p class="product-price">{{ number_format($product->GiaBan) }} VND</p>
+                            <p class="product-price">{{ number_format($product->GiaBan) }} VNĐ</p>
                             <div class="action-buttons">
                                 <button class="action-button add-to-cart">
                                     <i class="fa fa-shopping-cart"></i> Add to Cart
                                 </button>
                                 <button class="action-button remove-button">
-                                    <i class="fa fa-heart"></i> Add to WishList
+                                    <i class="fa fa-heart"></i> Add WishList
                                 </button>
                             </div>
                         </div>

@@ -27,7 +27,7 @@ class ContactController extends Controller
             'Ten' => $validated['Ten'],
             'SDT' => $validated['SDT'],
             'Email' => $validated['Email'],
-            'TinNhan' => $validated['TinNhan'] ?? null,
+            'TinNhan' => $validated['TinNhan'],
         ]);
 
         return redirect()->route('contact.form')->with('success', 'Contact saved successfully!');

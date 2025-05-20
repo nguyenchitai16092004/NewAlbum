@@ -135,7 +135,7 @@
                                             <td>{{ $item->SoLuong }}</td>
                                             <td>{{ number_format($item->GiaNhap, 0) }} VND</td>
                                             <td>{{ number_format($item->GiaBan, 0) }} VND</td>
-                                            <td>{{ $item->LoaiHang ? 'Available' : 'Pre-Order' }}</td>
+                                            <td>{{ $item->LoaiHang ? 'Pre-Order' : 'Available' }}</td>
                                             <td>{{ Str::limit($item->MoTa, 20, '...') }}</td>
                                             <td>
                                                 <form action="{{ route('Edit_Index_Product', ['id' => $item->MaSP]) }}"
@@ -164,7 +164,7 @@
 
                         <!-- Pagination -->
                         <div class="custom-pagination text-center mt-4">
-                            {!! $products->links('pagination::bootstrap-4') !!}
+                            {{ $products->links('pagination::bootstrap-4')}}
                         </div>
 
                     </div>

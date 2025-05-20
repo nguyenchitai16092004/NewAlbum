@@ -20,13 +20,15 @@
                             </div>
                         @endif
                         <div class="card-body text-center">
-                            <h5 class="card-title">{{ $product->TenSP }}</h5>
+                            <a href="{{ url('single-product-details/' . $product->Slug) }}">
+                                <h5 class="card-title">{{ $product->TenSP }}</h5>
+                            </a>
                             @if ($product->LoaiHang == 1)
                                 <div class="pre-oder-new-arrivals">
                                     <span>Pre&ndash;order</span>
                                 </div>
                             @endif
-                            <p class="card-text">{{ number_format($product->GiaBan) }} VND</p>
+                            <p class="card-text">{{ number_format($product->GiaBan) }} VNĐ</p>
                             <div class="hover-content">
                                 <!-- Add to Cart -->
                                 <button class="btn essence-btn add-to-cart-btn" data-id="{{ $product->MaSP }}"
@@ -71,7 +73,6 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-
             document.querySelectorAll('.add-to-cart-btn').forEach(button => {
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -80,7 +81,6 @@
                     const productPrice = this.dataset.price;
                     const productImage = this.dataset.image;
                     const productSlug = this.dataset.slug;
-
                     fetch("{{ route('add.to.cart') }}", {
                             // gửi yc đến cart
                             method: "POST",
@@ -99,7 +99,6 @@
                         })
                         .then(response => response.json())
                         // trả phản hồi json-> js
-
                         .then(data => {
                             if (data.success) {
                                 const cartQuantity = document.querySelector(

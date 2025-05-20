@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SANPHAM;
+use App\Models\SANPHAMYEUTHICH;
 use App\Models\LOAISP;
 use Illuminate\Support\Carbon;
 use App\Models\BinhLuan;
@@ -27,7 +28,13 @@ class ProductUserController extends Controller
 
         // Lấy thông tin khách hàng đăng nhập
         $userId = session('User')['MaKH'] ?? null;
+        $wishlistItem = null;
 
+        if ($userId) {
+            $wishlistItem = SANPHAMYEUTHICH::where('MaKH', $userId)
+                ->where('MaSP', $product->MaSP)
+                ->first();
+        }
         // Kiểm tra quyền bình luận
         $canComment = false;
         if ($userId) {
@@ -75,25 +82,24 @@ class ProductUserController extends Controller
             'commentProducts',
             'commentCount',
             'averageRating',
-            'canComment'
+            'canComment',
+            'userId',
+            'wishlistItem',
         ));
     }
 
-
-
     public function listByCategory($slug)
     {
-        $category = LOAISP::where('Slug', $slug)->first();
-
+        $category = LOAISP::where('Slug', $slug)
+        ->where('TrangThai',1)
+        ->first();
         if (!$category) {
             abort(404, 'Category does not exist!');
         }
 
         $productsQuery = SANPHAM::where('MaLoaiSP', $category->MaLoaiSP)
             ->where('TrangThai', 1);
-
         $products = $productsQuery->paginate(6);
-
         $products->getCollection()->transform(function ($product) {
             $product->isNew = $product->created_at >= Carbon::now()->subDays(7);
             return $product;
