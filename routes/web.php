@@ -28,6 +28,7 @@ use App\Http\Controllers\User\ProductUserController;
 use App\Http\Controllers\User\UserBillController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CommentUserController;
+use App\Http\Controllers\Admin\WarehouseController;
 use Illuminate\Support\Facades\Route;
 
 /*Route FE */
@@ -256,4 +257,8 @@ Route::prefix('/admin')->group(function () {
     Route::prefix('Statistics')->group(function () {
         Route::get('/Statistics-product', [StatisticsController::class, 'Index'])->name('Index_Statistics_Category');
     });
+    // Route cho kho hàng
+    Route::prefix('warehouse')->group(function () {
+    Route::get('/', [WarehouseController::class, 'Index'])->name('Index_Warehouse');
+});
 });
