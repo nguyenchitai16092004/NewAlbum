@@ -137,6 +137,12 @@
                                         Product</span></a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="{{ Route('Index_Warehouse') }}" aria-expanded="false">
+                            <span class="fa fa-comments icon-wrap"></span>
+                            <span class="mini-click-non">Warehouse</span>
+                        </a>
+                    </li>
                     <li id="removable">
                         <a  href="{{route('Logout_Admin')}}" aria-expanded="false">
                             <span class="educate-icon educate-pages icon-wrap"></span>
