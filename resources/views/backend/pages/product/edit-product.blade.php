@@ -18,11 +18,12 @@
                                         <input name="TenSP" type="text" class="form-control"
                                             value="{{ $products->TenSP }}" placeholder="Product Name">
                                     </div>
-                                    <div class="form-group">
+                                     <div class="form-group">
                                         <label for="GiaNhap">Import Price</label>
                                         <input name="GiaNhap" type="number" class="form-control"
-                                            value="{{ $products->GiaNhap }}" placeholder="Import Price">
+                                            value="{{ $products->GiaNhap }}" min="0" placeholder="Import Price">
                                     </div>
+                                
                                     <div class="form-group">
                                         <label for="GiaBan">Selling Price</label>
                                         <input name="GiaBan" type="number" class="form-control"

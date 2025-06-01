@@ -104,7 +104,11 @@
                                             <td>{{ $item->created_at }}</td>
                                             <td>{{ $item->updated_at }}</td>
                                             <td>
+                                                    <a href="{{ Route('Index_Warehouse_Detail', ['id' => $item->MaKho]) }}"
+                                                       class="btn btn-primary btn-sm">Detail</a>
                                             </td>
+                                            </td>
+                                            
                                         </tr>
                                     @endforeach
                                 </tbody>
