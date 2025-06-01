@@ -11,8 +11,6 @@ class KhoHang extends Model
 
     protected $fillable = [
         'MaQL',
-        'GiaNhap',
-        'GiaBan',
         'NgayNhap',
         'NgayXuat',
         'DiaChi',

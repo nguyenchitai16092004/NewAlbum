@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('khohang', function (Blueprint $table) {
             $table->bigIncrements('MaKho');  // bigint unsigned, auto-increment
             $table->unsignedBigInteger('MaQL');  // bigint unsigned
-            $table->decimal('GiaNhap', 10, 2);
-            $table->decimal('GiaBan', 10, 2);
             $table->date('NgayNhap');
             $table->date('NgayXuat');
             $table->string('DiaChi', 255);

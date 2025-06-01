@@ -17,8 +17,6 @@
                                     <tr>
                                         <th>Warehouse ID</th>
                                         <th>Manager ID</th>
-                                        <th>Import Price</th>
-                                        <th>Selling Price</th>
                                         <th>Import Date</th>
                                         <th>Export Date</th>
                                         <th>Address</th>
@@ -33,8 +31,6 @@
                                         <tr>
                                             <td>{{ $item->MaKho }}</td>
                                             <td>{{ $item->MaQL }}</td>
-                                            <td>{{ number_format($item->GiaNhap, 2) }} VND</td>
-                                            <td>{{ number_format($item->GiaBan, 2) }} VND</td>
                                             <td>{{ $item->NgayNhap }}</td>
                                             <td>{{ $item->NgayXuat }}</td>
                                             <td>{{ Str::limit($item->DiaChi, 20, '...') }}</td>
@@ -79,8 +75,6 @@
                                     <tr>
                                         <th>Warehouse ID</th>
                                         <th>Manager ID</th>
-                                        <th>Import Price</th>
-                                        <th>Selling Price</th>
                                         <th>Import Date</th>
                                         <th>Export Date</th>
                                         <th>Address</th>
@@ -95,8 +89,6 @@
                                         <tr>
                                             <td>{{ $item->MaKho }}</td>
                                             <td>{{ $item->MaQL }}</td>
-                                            <td>{{ number_format($item->GiaNhap, 2) }} VND</td>
-                                            <td>{{ number_format($item->GiaBan, 2) }} VND</td>
                                             <td>{{ $item->NgayNhap }}</td>
                                             <td>{{ $item->NgayXuat }}</td>
                                             <td>{{ Str::limit($item->DiaChi, 20, '...') }}</td>

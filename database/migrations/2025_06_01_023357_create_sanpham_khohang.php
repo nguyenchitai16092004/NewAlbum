@@ -15,6 +15,8 @@ return new class extends Migration
             $table->unsignedBigInteger('MaSP');
             $table->unsignedBigInteger('MaKho');
             $table->integer('SoLuongTon');
+            $table->decimal('GiaNhap', 10, 2);
+            $table->decimal('GiaBan', 10, 2);
 
             // Thiết lập khóa chính kép
             $table->primary(['MaSP', 'MaKho']);

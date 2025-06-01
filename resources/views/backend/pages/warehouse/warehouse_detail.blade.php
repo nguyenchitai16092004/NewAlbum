@@ -16,6 +16,8 @@
                                         <th scope="col">Warehouse Name</th>
                                         <th scope="col">Address</th>
                                         <th scope="col">Stock Quantity</th>
+                                        <th scope="col">Import Price</th>
+                                        <th scope="col">Selling Price</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -30,6 +32,8 @@
                                             <td>{{ $item->TenKho }}</td>
                                             <td>{{ $item->DiaChi }}</td>
                                             <td>{{ $item->SoLuongTon }}</td>
+                                            <td>{{ number_format($item->GiaNhap, 2) }} VND</td>
+                                            <td>{{ number_format($item->GiaBan, 2) }} VND</td>
                                         </tr>
                                     @empty
                                         <tr>
