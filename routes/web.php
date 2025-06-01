@@ -260,5 +260,7 @@ Route::prefix('/admin')->group(function () {
     // Route cho kho hàng
     Route::prefix('warehouse')->group(function () {
     Route::get('/', [WarehouseController::class, 'Index'])->name('Index_Warehouse');
+    Route::get('/warehouse-detail/{id}', [WarehouseController::class, 'Show'])->name('Index_Warehouse_Detail');
+
 });
 });
