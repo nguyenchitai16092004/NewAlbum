@@ -18,6 +18,8 @@ class CHITIETKHO extends Model
         'MaSP',
         'MaKho',
         'SoLuongTon',
+        'GiaNhap',
+        'GiaBan',
     ];
 
     /**

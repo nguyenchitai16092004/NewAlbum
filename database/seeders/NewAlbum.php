@@ -492,8 +492,6 @@ class KhoHangSeeder extends Seeder
         DB::table('khohang')->insert([
             [
                 'MaQL' => 1,
-                'GiaNhap' => 100000,
-                'GiaBan' => 150000,
                 'NgayNhap' => '2025-06-01',
                 'NgayXuat' => '2025-06-10',
                 'DiaChi' => '123 Đường A, Quận 1',
@@ -503,8 +501,6 @@ class KhoHangSeeder extends Seeder
             ],
             [
                 'MaQL' => 1,
-                'GiaNhap' => 200000,
-                'GiaBan' => 250000,
                 'NgayNhap' => '2025-06-02',
                 'NgayXuat' => '2025-06-11',
                 'DiaChi' => '456 Đường B, Quận 2',
@@ -514,8 +510,6 @@ class KhoHangSeeder extends Seeder
             ],
             [
                 'MaQL' => 1,
-                'GiaNhap' => 300000,
-                'GiaBan' => 350000,
                 'NgayNhap' => '2025-06-03',
                 'NgayXuat' => '2025-06-12',
                 'DiaChi' => '789 Đường C, Quận 3',
@@ -536,16 +530,22 @@ class SanPham_KhohangSeeder extends Seeder
                 'MaSP' => 13,
                 'MaKho' => 1,
                 'SoLuongTon' => 50,
+                'GiaNhap' => 100000,
+                'GiaBan' => 150000,
             ],
             [
                 'MaSP' => 14,
                 'MaKho' => 2,
                 'SoLuongTon' => 30,
+                'GiaNhap' => 200000,
+                'GiaBan' => 250000,
             ],
             [
                 'MaSP' => 15,
                 'MaKho' => 3,
                 'SoLuongTon' => 20,
+                'GiaNhap' => 300000,
+                'GiaBan' => 350000,
             ],
         ]);
     }

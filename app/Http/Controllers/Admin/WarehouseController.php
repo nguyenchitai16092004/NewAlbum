@@ -23,14 +23,17 @@ class WarehouseController extends Controller
         'warehouses' => $warehouses
     ]);
     }
+
+    //Hiển thị Chi tiết kho 
     public function Show($id)
     {
-    $chiTietKho = ChiTietKho::join('SANPHAM', 'SANPHAM.MaSP', '=', 'sanpham_khohang.MaSP')
+    $chiTietKho = chiTietKho::join('SANPHAM', 'SANPHAM.MaSP', '=', 'sanpham_khohang.MaSP')
         ->join('KHOHANG', 'KHOHANG.MaKho', '=', 'sanpham_khohang.MaKho')
         ->where('sanpham_khohang.MaKho', '=', $id)
         ->select(
             'sanpham_khohang.*',
             'SANPHAM.TenSP',
+            'SANPHAM.GiaNhap',
             'SANPHAM.GiaBan',
             'SANPHAM.HinhAnh',
             'KHOHANG.TenKho',

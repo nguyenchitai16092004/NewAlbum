@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 use App\Models\SANPHAM;
 use App\Models\NHOMNHACCASI;
 use App\Models\LOAISP;
+use App\Models\CHITIETKHO;
+use App\Models\KHOHANG;
 use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
@@ -33,9 +35,11 @@ class ProductController extends Controller
     {
         $NhomNhacCaSi = NHOMNHACCASI::where('TrangThai', '=', '1')->get();
         $LoaiSP = LOAISP::where('TrangThai', '=', '1')->get();
+        $khohangs = KHOHANG::all(); // Lấy tất cả kho hàng
         return view('backend.pages.product.add-product', [
             'Band' => $NhomNhacCaSi,
             'Category' => $LoaiSP,
+            'Warehouses' => $khohangs,
         ]);
     }
 
@@ -49,11 +53,13 @@ class ProductController extends Controller
 
         $NhomNhacCaSi = NHOMNHACCASI::where('TrangThai', '=', 1)->get();
         $LoaiSP = LOAISP::where('TrangThai', '=', 1)->get();
+        $khohangs = KHOHANG::all(); // Lấy tất cả kho hàng
 
         return view('backend.pages.product.edit-product', [
             'products' => $products,
             'Band' => $NhomNhacCaSi,
             'Category' => $LoaiSP,
+            'Warehouses' => $khohangs,
         ]);
     }
 
@@ -86,7 +92,38 @@ class ProductController extends Controller
 
             $validated['HinhAnh'] = $TenHinhAnh;
         }
-        SANPHAM::create($validated);
+        $sanpham = SANPHAM::create($validated);
+
+        // Đồng bộ dữ liệu sang CHITIETKHO
+        foreach ($request->khos as $khoId => $data) {
+            if (isset($data['checked']) && isset($data['SoLuong']) && $data['SoLuong'] > 0) {
+                CHITIETKHO::create([
+                    'MaSP' => $sanpham->MaSP,
+                    'MaKho' => $khoId,
+                    'SoLuongTon' => $data['SoLuong'],
+                    'GiaNhap' => $validated['GiaNhap'],
+                    'GiaBan' => $validated['GiaBan'],
+                ]);
+            }
+        }
+        $khos = $request->input('khos', []);
+
+        $rules = [];
+
+        foreach ($khos as $maKho => $data) {
+            if (isset($data['checked']) && $data['checked'] == 1) {
+                // Nếu kho được chọn thì số lượng phải tồn tại và >= 1
+                $rules["khos.$maKho.SoLuong"] = 'required|integer|min:1';
+            }
+        }
+
+        $messages = [
+            'required' => 'Bạn phải nhập số lượng cho kho được chọn.',
+            'integer' => 'Số lượng phải là số nguyên.',
+            'min' => 'Số lượng phải lớn hơn hoặc bằng 1.',
+        ];
+
+        $validated = $request->validate($rules, $messages);
 
         return redirect()->route('Index_Product')->with('success', 'Product added successfully!');
     }
@@ -104,7 +141,8 @@ class ProductController extends Controller
     public function Edit(Request $request, $id)
     {
         $products = SANPHAM::findOrFail($id);
-        if ($request->input('SoLuong') < 1 && $request->input('LoaiHang') == 0) return redirect()->route('Edit_Index_Product',$id)->with('error', 'Invalid input!');
+        if ($request->input('SoLuong') < 1 && $request->input('LoaiHang') == 0)
+            return redirect()->route('Edit_Index_Product', $id)->with('error', 'Invalid input!');
 
         // Gán giá trị từ request vào sản phẩm
         $products->MaNhomNhacCaSi = $request->input('MaNhomNhacCaSi');
@@ -177,4 +215,5 @@ class ProductController extends Controller
             );
         }
     }
+
 }
