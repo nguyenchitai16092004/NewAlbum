@@ -95,7 +95,7 @@ class ProductController extends Controller
         $sanpham = SANPHAM::create($validated);
 
         // Đồng bộ dữ liệu sang CHITIETKHO
-        foreach ($request->khos as $khoId => $data) {
+        foreach ($request->khos ?? [] as $khoId => $data) {
             if (isset($data['checked']) && isset($data['SoLuong']) && $data['SoLuong'] > 0) {
                 CHITIETKHO::create([
                     'MaSP' => $sanpham->MaSP,

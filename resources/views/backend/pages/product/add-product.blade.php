@@ -13,8 +13,8 @@
                                 Product</a></li>
                     </ul>
                     <!-- Add Product Form -->
-                    <form action="{{ Route('Add_Product') }}" method="POST" enctype="multipart/form-data"
-                        class="dropzone dropzone-custom" id="addProductForm">
+                    <form action="{{ Route('Add_Product') }}" id="addProductForm" method="POST"
+                        enctype="multipart/form-data" class="dropzone dropzone-custom" id="addProductForm">
                         @csrf
                         <div class="row">
                             <!-- Left Column -->
@@ -90,10 +90,10 @@
                                             <input type="number" class="form-control mt-1 kho-soluong"
                                                 name="khos[{{ $kho->MaKho }}][SoLuong]"
                                                 placeholder="Quantity for this warehouse" min="0" disabled>
-                                            <div class="text-danger error-message" style="display: none;"></div>
+                                            <div id="checkbox-group-error" class="text-danger mb-2" style="display: none;">
+                                            </div>
                                         </div>
                                     @endforeach
-
                                 </div>
 
                                 <div class="form-group">
@@ -114,114 +114,113 @@
 </div>
 <!-- JavaScript Validation -->
 <script>
-    document.getElementById('addProductForm').addEventListener('submit', function (e) {
-        const form = e.target;
-
-        if (!form.checkValidity()) {
-            e.preventDefault();
-            form.reportValidity();
-        }
-
-        const giaNhap = parseFloat(document.getElementById('GiaNhap').value);
-        const giaBan = parseFloat(document.getElementById('GiaBan').value);
-
-        if (giaNhap >= giaBan) {
-            e.preventDefault();
-            alert('Import Price must be less than Selling Price!');
-        }
-
-        // Kiểm tra tổng số lượng ở warehouse
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('addProductForm');
+        const productTypeSelect = document.querySelector('select[name="LoaiHang"]');
         const quantityInput = document.querySelector('input[name="SoLuong"]');
-        const totalQuantity = parseInt(quantityInput.value) || 0;
 
-        let warehouseTotal = 0;
-        document.querySelectorAll('.kho-checkbox').forEach(function (checkbox) {
-            if (checkbox.checked) {
-                const input = checkbox.closest('.form-check').querySelector('.kho-soluong');
-                const qty = parseInt(input.value);
-                if (!isNaN(qty)) {
-                    warehouseTotal += qty;
+        // Xử lý loại hàng
+        function handleProductTypeChange() {
+            if (productTypeSelect.value === "1") {
+                quantityInput.value = 0;
+                quantityInput.setAttribute('readonly', true);
+            } else {
+                quantityInput.removeAttribute('readonly');
+                if (parseInt(quantityInput.value) < 1) {
+                    quantityInput.value = 1;
                 }
             }
-        });
-
-        if (warehouseTotal !== totalQuantity) {
-            e.preventDefault();
-            alert(`Total quantity for selected warehouses (${warehouseTotal}) must equal total product quantity (${totalQuantity})`);
-            return;
         }
-    });
 
+        productTypeSelect.addEventListener('change', handleProductTypeChange);
+        handleProductTypeChange(); // áp dụng khi trang load
 
-    // Xử lý khi đổi Product Type
-    const productTypeSelect = document.querySelector('select[name="LoaiHang"]');
-    const quantityInput = document.querySelector('input[name="SoLuong"]');
-
-    productTypeSelect.addEventListener('change', function () {
-        if (productTypeSelect.value === "1") {
-            quantityInput.value = 0;
-            quantityInput.setAttribute('readonly', true);
-        } else if (productTypeSelect.value === "0") {
-            quantityInput.removeAttribute('readonly');
-            if (parseInt(quantityInput.value) < 1) {
-                quantityInput.value = 1;
-            }
-        }
-    });
-
-    // Đảm bảo logic áp dụng ngay từ khi trang được tải
-    document.addEventListener('DOMContentLoaded', function () {
-        if (productTypeSelect.value === "1") {
-            quantityInput.value = 0;
-            quantityInput.setAttribute('readonly', true);
-        } else if (productTypeSelect.value === "0" && parseInt(quantityInput.value) < 1) {
-            quantityInput.value = 1;
-        }
-    });
-
-    document.querySelector('form').addEventListener('submit', function (e) {
-        let valid = true;
-
+        // Bật/tắt ô số lượng theo checkbox
         document.querySelectorAll('.kho-checkbox').forEach(checkbox => {
-            const maKho = checkbox.id.replace('kho_', '');
-            const qtyInput = document.querySelector(`input[name="khos[${maKho}][SoLuong]"]`);
-            const errorDiv = qtyInput.nextElementSibling;
+            checkbox.addEventListener('change', function () {
+                const maKho = this.id.replace('kho_', '');
+                const qtyInput = document.querySelector(`input[name="khos[${maKho}][SoLuong]"]`);
+                const errorDiv = qtyInput.nextElementSibling;
 
-            errorDiv.style.display = 'none'; // Reset lỗi
-
-            if (checkbox.checked) {
-                if (!qtyInput.value || qtyInput.value <= 0) {
-                    errorDiv.textContent = 'Please enter a valid quantity.';
-                    errorDiv.style.display = 'block';
-                    qtyInput.classList.add('is-invalid');
-                    valid = false;
+                if (this.checked) {
+                    qtyInput.disabled = false;
+                    qtyInput.focus();
                 } else {
+                    qtyInput.disabled = true;
+                    qtyInput.value = '';
+                    errorDiv.style.display = 'none';
                     qtyInput.classList.remove('is-invalid');
                 }
-            }
+            });
         });
 
-        if (!valid) {
-            e.preventDefault();
-        }
-    });
-    document.querySelectorAll('.kho-checkbox').forEach(checkbox => {
-        checkbox.addEventListener('change', function () {
-            const maKho = this.id.replace('kho_', '');
-            const qtyInput = document.querySelector(`input[name="khos[${maKho}][SoLuong]"]`);
-            const errorDiv = qtyInput.nextElementSibling;
+        // Xử lý submit
+        form.addEventListener('submit', function (e) {
+            let valid = true;
+            let atLeastOneChecked = false;
 
-            if (this.checked) {
-                qtyInput.disabled = false;
-                qtyInput.focus();
-            } else {
-                qtyInput.disabled = true;
-                qtyInput.value = '';
+            const giaNhap = parseFloat(document.getElementById('GiaNhap').value);
+            const giaBan = parseFloat(document.getElementById('GiaBan').value);
+            const totalQuantity = parseInt(quantityInput.value) || 0;
+
+            const errorGroupDiv = document.getElementById('checkbox-group-error');
+            errorGroupDiv.style.display = 'none';
+            errorGroupDiv.textContent = '';
+
+            let warehouseTotal = 0;
+
+            // Kiểm tra từng warehouse
+            document.querySelectorAll('.kho-checkbox').forEach(checkbox => {
+                const maKho = checkbox.id.replace('kho_', '');
+                const qtyInput = document.querySelector(`input[name="khos[${maKho}][SoLuong]"]`);
+                const errorDiv = qtyInput.nextElementSibling;
+
                 errorDiv.style.display = 'none';
+                qtyInput.classList.remove('is-invalid');
+
+                if (checkbox.checked) {
+                    atLeastOneChecked = true;
+
+                    const qty = parseInt(qtyInput.value);
+                    if (isNaN(qty) || qty <= 0) {
+                        errorDiv.textContent = 'Please enter a valid quantity for warehouse.';
+                        errorDiv.style.display = 'block';
+                        qtyInput.classList.add('is-invalid');
+                        valid = false;
+                    } else {
+                        warehouseTotal += qty;
+                    }
+                }
+            });
+
+            // Không chọn checkbox nào
+            if (!atLeastOneChecked) {
+                errorGroupDiv.textContent = 'Please select at least one warehouse.';
+                errorGroupDiv.style.display = 'block';
+                valid = false;
+                if (!valid) e.preventDefault();
+            }
+
+
+            // Tổng số lượng không khớp
+            if (atLeastOneChecked && valid && warehouseTotal !== totalQuantity) {
+                errorGroupDiv.textContent = 'Total quantity for selected warehouses must equal total product quantity.';
+                errorGroupDiv.style.display = 'block';
+                valid = false;
+            }
+
+
+            // Giá nhập phải < giá bán
+            if (giaNhap >= giaBan) {
+                alert('Import Price must be less than Selling Price!');
+                valid = false;
+            }
+
+            if (!valid) {
+                e.preventDefault();
             }
         });
     });
-
-
 </script>
+
 @stop
