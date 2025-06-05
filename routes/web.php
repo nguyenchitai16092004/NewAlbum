@@ -259,8 +259,12 @@ Route::prefix('/admin')->group(function () {
     });
     // Route cho kho hàng
     Route::prefix('warehouse')->group(function () {
-    Route::get('/', [WarehouseController::class, 'Index'])->name('Index_Warehouse');
-    Route::get('/warehouse-detail/{id}', [WarehouseController::class, 'Show'])->name('Index_Warehouse_Detail');
-
-});
+        Route::get('/', [WarehouseController::class, 'Index'])->name('Index_Warehouse');
+        Route::get('/warehouse-detail/{id}', [WarehouseController::class, 'Show_Detail'])->name('Index_Warehouse_Detail');
+        // Thêm kho hàng 
+        Route::get('/add-warehouse', [WarehouseController::class, 'Show'])->name('Index_Add_Warehouse');
+        Route::post('/add', [WarehouseController::class, 'Add'])->name('Add_Warehouse');
+        // Xóa kho hàng 
+        Route::delete('/delete/{id}', [WarehouseController::class, 'Delete'])->name('Delete_Warehouse');
+    });
 });
