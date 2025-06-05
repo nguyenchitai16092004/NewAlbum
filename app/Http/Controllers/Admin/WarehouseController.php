@@ -14,12 +14,12 @@ class WarehouseController extends Controller
     public function index()
     {
         $warehouses = KHOHANG::leftJoin('quanly', 'khohang.MaQL', '=', 'quanly.MaQL')
-            ->where('khohang.TrangThai', 1) // Chỉ lấy kho còn hoạt động
+            ->where('khohang.TrangThai', 1) 
             ->select(
                 'khohang.*',
-                'quanly.TenQL as TenQuanLy' // giả sử cột tên trong bảng quanly là TenQL
+                'quanly.TenQL as TenQuanLy' 
             )
-            ->paginate(5); // phân trang 5 dòng/trang
+            ->paginate(5);
 
         return view('backend.pages.Warehouse.warehouse', [
             'warehouses' => $warehouses
