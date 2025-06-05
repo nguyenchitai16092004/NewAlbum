@@ -15,6 +15,7 @@ class KhoHang extends Model
         'NgayXuat',
         'DiaChi',
         'TenKho',
+        'TrangThai',
     ];
 
     /**

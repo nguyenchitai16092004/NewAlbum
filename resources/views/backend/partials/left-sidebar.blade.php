@@ -146,7 +146,7 @@
                     <li id="removable">
                         <a  href="{{route('Logout_Admin')}}" aria-expanded="false">
                             <span class="educate-icon educate-pages icon-wrap"></span>
-                            <span class="mini-click-non">Pages</span>
+                            <span class="mini-click-non">Log Out</span>
                         </a>
                     </li>
                 </ul>

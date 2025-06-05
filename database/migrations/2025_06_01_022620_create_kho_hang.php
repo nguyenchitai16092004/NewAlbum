@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('NgayXuat');
             $table->string('DiaChi', 255);
             $table->string('TenKho', 255);
+            $table->boolean('TrangThai')->default(1);
             $table->timestamps();
 
             // Nếu muốn có khóa ngoại MaQL → bang QuanLy (hoặc bảng khác), thêm:
