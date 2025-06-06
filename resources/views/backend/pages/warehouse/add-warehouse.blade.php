@@ -33,14 +33,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="NgayNhap">Import Date</label>
-                                    <input name="NgayNhap" type="date" class="form-control" required>
+                                    <input id="NgayNhap" name="NgayNhap" type="date" class="form-control" required
+                                        min="{{ date('Y-m-d') }}">
                                 </div>
+
                             </div>
 
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="NgayXuat">Export Date</label>
-                                    <input name="NgayXuat" type="date" class="form-control" required>
+                                    <input id="NgayXuat" name="NgayXuat" type="date" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="DiaChi">Address</label>
@@ -65,26 +67,21 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const form = document.getElementById('addWarehouseForm');
+        const ngayNhap = document.getElementById('NgayNhap');
+        const ngayXuat = document.getElementById('NgayXuat');
 
-        handleProductTypeChange(); // áp dụng khi trang load
+        ngayNhap.addEventListener('change', function () {
+            if (this.value) {
+                // Chặn ngày xuất chọn trước ngày nhập (cùng ngày nhập là được chọn)
+                ngayXuat.min = this.value;
 
-        const ngayNhap = new Date(document.getElementById('NgayNhap').value);
-        const ngayXuat = new Date(document.getElementById('NgayXuat').value);
-
-        // Xử lý submit
-        form.addEventListener('submit', function (e) {
-            let valid = true;
-            let atLeastOneChecked = false;
-
-            // Ngày nhập phải < ngày xuất
-            if (ngayNhap >= ngayXuat) {
-                alert('Import Day must be less than Export Date!');
-                valid = false;
-            }
-
-            if (!valid) {
-                e.preventDefault();
+                // Nếu ngày xuất đang chọn nhỏ hơn min thì reset lại bằng min
+                if (ngayXuat.value < this.value) {
+                    ngayXuat.value = this.value;
+                }
+            } else {
+                // Nếu ngày nhập trống thì không giới hạn ngày xuất
+                ngayXuat.min = '';
             }
         });
     });

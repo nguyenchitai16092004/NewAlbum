@@ -98,17 +98,28 @@
                                         <td>{{ $item->created_at }}</td>
                                         <td>{{ $item->updated_at }}</td>
                                         <td>
+                                            @if($item->TrangThai == 1)
+                                                <span class="badge badge-success">Enable</span>
+                                            @else
+                                                <span class="badge badge-secondary">Disable</span>
+                                            @endif
+                                        </td>
+                                        <td>
                                             <a href="{{ Route('Index_Warehouse_Detail', ['id' => $item->MaKho]) }}"
                                                 class="btn btn-primary btn-sm">Detail</a>
-                                            <form action="{{ route('Delete_Warehouse', ['id' => $item->MaKho]) }}"
+                                            <form action="{{ route('Toggle_Warehouse_Status', ['id' => $item->MaKho]) }}"
                                                 method="POST" style="display:inline-block;">
                                                 @csrf
-                                                @method('DELETE')
-                                                <button data-toggle="tooltip" title="Delete" class="btn btn-danger btn-sm"
-                                                    onclick="return confirm('Are you sure you want to delete this product?');">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                                                @method('PUT')
+                                                <button data-toggle="tooltip"
+                                                    title="{{ $item->TrangThai == 1 ? 'Disable' : 'Enable' }}"
+                                                    class="btn btn-{{ $item->TrangThai == 1 ? 'warning' : 'success' }} btn-sm"
+                                                    onclick="return confirm('Are you sure you want to {{ $item->TrangThai == 1 ? 'disable' : 'enable' }} this warehouse?');">
+                                                    <i class="fa fa-{{ $item->TrangThai == 1 ? 'ban' : 'check' }}"></i>
+                                                    {{ $item->TrangThai == 1 ? 'Disable' : 'Enable' }}
                                                 </button>
                                             </form>
+
                                         </td>
 
                                         </td>

@@ -264,7 +264,8 @@ Route::prefix('/admin')->group(function () {
         // Thêm kho hàng 
         Route::get('/add-warehouse', [WarehouseController::class, 'Show'])->name('Index_Add_Warehouse');
         Route::post('/add', [WarehouseController::class, 'Add'])->name('Add_Warehouse');
-        // Xóa kho hàng 
-        Route::delete('/delete/{id}', [WarehouseController::class, 'Delete'])->name('Delete_Warehouse');
+        // Trạng thái kho hàng 
+        Route::put('/warehouse/toggle-status/{id}', [WarehouseController::class, 'toggleStatus'])->name('Toggle_Warehouse_Status');
+
     });
 });
