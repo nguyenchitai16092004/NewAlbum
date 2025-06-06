@@ -1,4 +1,4 @@
-<!-- User Login Info -->
+<!-- User Login Info 
 @if(session('success'))
     <div id="success-message" class="alert alert-success" style="margin-top:10px">
         {{ session('success') }}
@@ -15,7 +15,7 @@
     <div id="success-signout-message" class="alert alert-success" style="margin-top:10px">
         {{ session('Signoutsuccess') }}
     </div>
-@endif
+@endif-->
 
 <div class="user-login-info">
     <a href="#" id="userIcon"><img src="img/core-img/user.svg" alt="User"></a>
@@ -35,7 +35,7 @@
                 <li><a href="{{ asset('/') }}" id="loginButton">Login</a>
             @endif
                 <!-- Popup Đăng nhập-->
-                <div id="loginPopup" class="popup">
+                <!-- <div id="loginPopup" class="popup">
                     <div class="popup-content">
 
                         <span class="close">&times;</span>
@@ -47,14 +47,14 @@
                             <input type="password" id="password" name="password" placeholder="Password" required>
                             <span id="passwordError" style="color: red; display: none;">Password is not valid!</span>
                             <div class="button-container">
-                                <!-- <button id="openPopupBtn" class="btn-left">Register</button> -->
+                                 <button id="openPopupBtn" class="btn-left">Register</button> 
                                 <button type="submit" class="btn-right">Login</button>
                             </div>
                         </form>
-                        <!-- <div class="parent"><button type="button" class="parent-link" id="forgotpassButton">Forgot
-                                Password</button></div> -->
+                         <div class="parent"><button type="button" class="parent-link" id="forgotpassButton">Forgot
+                                Password</button></div> 
                     </div>
-                </div>
+                </div>-->
                 <!-- Popup Đăng ký-->
                 <!-- <div id="registerPopup" class="popup hidden">
                     <div class="popup-content register">

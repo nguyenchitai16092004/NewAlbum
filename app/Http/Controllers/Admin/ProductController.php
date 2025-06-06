@@ -35,7 +35,7 @@ class ProductController extends Controller
     {
         $NhomNhacCaSi = NHOMNHACCASI::where('TrangThai', '=', '1')->get();
         $LoaiSP = LOAISP::where('TrangThai', '=', '1')->get();
-       $khohangs = KHOHANG::where('TrangThai', 1)->get();
+        $khohangs = KHOHANG::where('TrangThai', 1)->get();
         return view('backend.pages.product.add-product', [
             'Band' => $NhomNhacCaSi,
             'Category' => $LoaiSP,
@@ -53,7 +53,7 @@ class ProductController extends Controller
 
         $NhomNhacCaSi = NHOMNHACCASI::where('TrangThai', '=', 1)->get();
         $LoaiSP = LOAISP::where('TrangThai', '=', 1)->get();
-        $khohangs = KHOHANG::all(); // Lấy tất cả kho hàng
+        $khohangs = KHOHANG::where('TrangThai', 1)->get();
 
         return view('backend.pages.product.edit-product', [
             'products' => $products,

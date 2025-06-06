@@ -33,92 +33,93 @@ use Illuminate\Support\Facades\Route;
 
 /*Route FE */
 
-Route::get('/', [HomeController::class, 'Index'])->name('Index_Home');
-
-Route::get('/single-product-details/{slug}', [ProductUserController::class, 'show'])->name('product.details');
-Route::post('/single-product-details/{slug}/comment', [ProductUserController::class, 'storeComment'])->name('product.comment');
-
-Route::get('/checkout', function () {
-    return view('frontend.pages.checkout');
-});
-
-Route::get('/blog', [BlogController::class, 'Index'])->name('Index_Blog');
-// Route để xem chi tiết bài blog
-Route::get('/blog/{MaBL}', [BlogController::class, 'show'])->name('blog.details');
-
-Route::get('/about-us', [AboutUsController::class, 'aboutUs'])->name('about-us');
-
-Route::get('/wishlist', function () {
-    return view('frontend.pages.wishlist');
-});
+// Route cho trang Home
 Route::get('/popup', function () {
     return view('frontend.partials.popup.popup');
 });
-
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/', [HomeController::class, 'Index'])->name('Index_Home');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::post('/popup', [AuthController::class, 'Login'])->name('Login_User');
-
+Route::get('/new-arrival', [HomeController::class, 'showNewArrival'])->name('new.arrival');
+Route::get('/pre-oders', [HomeController::class, 'showPreOrders'])->name('pre.oders');
+// Route cho trang Cart
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('add.to.cart');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/remove-from-cart', [CartController::class, 'removeFromCart'])->name('remove.from.cart');
 Route::post('/update-cart', [CartController::class, 'updateCart'])->name('update.cart');
 Route::post('/clear-cart', [CartController::class, 'clearCart'])->name('clear.cart');
+Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+Route::post('/cart/update-note', [CartController::class, 'updateNote'])->name('cart.updateNote');
 
+// Route cho trang WishList
+Route::get('/wishlist', function () {
+    return view('frontend.pages.wishlist');
+});
+Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+Route::post('/wishlist', [WishlistController::class, 'store'])->name('wishlist.store');
+Route::delete('/wishlist/{id}', [WishlistController::class, 'delete'])->name('wishlist.delete');
 
-Route::get('/new-arrival', [HomeController::class, 'showNewArrival'])->name('new.arrival');
-
-Route::get('/pre-oders', [HomeController::class, 'showPreOrders'])->name('pre.oders');
-
+// Route cho trang Blog
 Route::get('/our-blog-post', function () {
     return view('frontend.pages.our-blog-post');
 });
-Route::get('/oder-history', function () {
-    return view('frontend.pages.oder-history');
-});
-Route::view('/bill-management', 'backend.pages.bill.bill-management')->name('Index_Bill_Management');
-
-Route::get('/listproduct/{slug}', [ProductUserController::class, 'listByCategory'])->name('listproduct');
-
 Route::get('/our-blog-post', function () {
     return view('frontend.pages.our-blog-post');
 });
-
+Route::get('/our-blog-post', function () {
+    return view('frontend.pages.our-blog-post');
+});
+Route::get('/blog', [BlogController::class, 'Index'])->name('Index_Blog');
+Route::get('/blog/{MaBL}', [BlogController::class, 'show'])->name('blog.details');
+Route::get('/blog', [SearchController::class, 'index'])->name('blog');
+Route::get('/single-blog/{MaBL}', [BlogController::class, 'show'])->name('single-blog');
+// Route cho trang Search
 Route::get('/search', function () {
     return view('frontend.pages.search');
 });
 Route::get('/search', [SearchPaginationController::class, 'Index'])->name('Index_search');
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
+// Route cho trang Product detail
+Route::get('/single-product-details/{slug}', [ProductUserController::class, 'show'])->name('product.details');
+Route::post('/single-product-details/{slug}/comment', [ProductUserController::class, 'storeComment'])->name('product.comment');
+Route::get('/listproduct/{slug}', [ProductUserController::class, 'listByCategory'])->name('listproduct');
+
+// Route cho trang Contact
+Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
+Route::post('/contact-add', [ContactController::class, 'add'])->name('contact.add');
+
+// Route cho trang Check-out
+Route::get('/checkout', function () {
+    return view('frontend.pages.checkout');
+});
+
+// Route cho trang About-us
+Route::get('/about-us', [AboutUsController::class, 'aboutUs'])->name('about-us');
+// Route cho trang Rating
 Route::get('/rating-product', function () {
     return view('frontend.pages.rating-product');
 });
 Route::get('/rating-product', [CommentUserController::class, 'index'])->name('comments.index');
 
+// Route cho trang Order History 
+Route::get('/oder-history', function () {
+    return view('frontend.pages.oder-history');
+});
+Route::get('/hoa-don-history/{id}', [UserBillController::class, 'index'])->name('hoa_don_history');
+Route::post('/hoa-don/cancel/{id}', [UserBillController::class, 'cancel'])->name('hoa-don.cancel');
+Route::post('/checkout/place-order', [OrderController::class, 'placeOrder'])->name('checkout.placeOrder');
+Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('placeOrder');
+
+// Route cho trang Login
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/popup', [AuthController::class, 'Login'])->name('Login_User');
+// Route cho trang Sign-in
+
+
+// Route cho trang Account 
 Route::get('/account', function () {
     return view('frontend.pages.account');
 });
-Route::get('/popup', function () {
-    return view('frontend.partials.popup.popup');
-});
-Route::get('/blog', [SearchController::class, 'index'])->name('blog');
-Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
-Route::post('/contact-add', [ContactController::class, 'add'])->name('contact.add');
-Route::get('/single-blog/{MaBL}', [BlogController::class, 'show'])->name('single-blog');
-Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
-Route::post('/cart/update-note', [CartController::class, 'updateNote'])->name('cart.updateNote');
-
-Route::get('/hoa-don-history/{id}', [UserBillController::class, 'index'])->name('hoa_don_history');
-Route::post('/hoa-don/cancel/{id}', [UserBillController::class, 'cancel'])->name('hoa-don.cancel');
-
-Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
-Route::post('/wishlist', [WishlistController::class, 'store'])->name('wishlist.store');
-Route::delete('/wishlist/{id}', [WishlistController::class, 'delete'])->name('wishlist.delete');
-
-// Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
-// Route::get('/order-history', [OrderController::class, 'orderHistory'])->name('order.history');
-Route::post('/checkout/place-order', [OrderController::class, 'placeOrder'])->name('checkout.placeOrder');
-Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('placeOrder');
 
 
 Route::prefix('/admin')->group(function () {
@@ -191,6 +192,7 @@ Route::prefix('/admin')->group(function () {
 
     // Route cho quản lý hóa đơn
     Route::prefix('bill-management')->group(function () {
+        Route::view('/bill-management', 'backend.pages.bill.bill-management')->name('Index_Bill_Management');
         Route::get('/bill-management', [BillController::class, 'Index'])->name('Index_Bill_Management');
         //Chi tiết hóa đơn
         Route::get('/bill-detail-management/{id}', [BillController::class, 'Show'])->name('Index_Bill_Detail');
@@ -264,7 +266,8 @@ Route::prefix('/admin')->group(function () {
         // Thêm kho hàng 
         Route::get('/add-warehouse', [WarehouseController::class, 'Show'])->name('Index_Add_Warehouse');
         Route::post('/add', [WarehouseController::class, 'Add'])->name('Add_Warehouse');
-        // Xóa kho hàng 
-        Route::delete('/delete/{id}', [WarehouseController::class, 'Delete'])->name('Delete_Warehouse');
+        // Trạng thái kho hàng 
+        Route::put('/warehouse/toggle-status/{id}', [WarehouseController::class, 'toggleStatus'])->name('Toggle_Warehouse_Status');
+
     });
 });
