@@ -43,7 +43,7 @@ class ProductController extends Controller
         ]);
     }
 
-    public function Show_Edit($id)
+   public function Show_Edit($id)
     {
         $products = SANPHAM::join('LOAISP', 'SANPHAM.MaLoaiSP', '=', 'LOAISP.MaLoaiSP', 'left')
             ->join('NHOMNHACCASI', 'SANPHAM.MaNhomNhacCaSi', '=', 'NHOMNHACCASI.MaNhomNhacCaSi', 'left')
@@ -54,11 +54,16 @@ class ProductController extends Controller
         $NhomNhacCaSi = NHOMNHACCASI::where('TrangThai', '=', 1)->get();
         $LoaiSP = LOAISP::where('TrangThai', '=', 1)->get();
         $khohangs = KHOHANG::where('TrangThai', 1)->get();
+        $chiTietKho = CHITIETKHO::join('KhoHang', 'KhoHang.MaKho', '=', 'sanpham_khohang.MaKho')
+                         ->where('MaSP', $id)
+                         ->get();
+
 
         return view('backend.pages.product.edit-product', [
             'products' => $products,
             'Band' => $NhomNhacCaSi,
             'Category' => $LoaiSP,
+            'chiTietKho' =>  $chiTietKho,
             'Warehouses' => $khohangs,
         ]);
     }
@@ -130,9 +135,11 @@ class ProductController extends Controller
 
     public function Delete($id)
     {
-        $products = SANPHAM::findOrFail($id);
-        $products->TrangThai = 0;
-        $products->save();
+        $product = SANPHAM::findOrFail($id);
+        $product->TrangThai = 0;
+        $product->save();
+
+        CHITIETKHO::where('MaSP', $product->MaSP)->delete();
 
         return redirect()->route('Index_Product')->with('success', 'Product deleted successfully!');
     }
@@ -141,10 +148,12 @@ class ProductController extends Controller
     public function Edit(Request $request, $id)
     {
         $products = SANPHAM::findOrFail($id);
-        if ($request->input('SoLuong') < 1 && $request->input('LoaiHang') == 0)
-            return redirect()->route('Edit_Index_Product', $id)->with('error', 'Invalid input!');
 
-        // Gán giá trị từ request vào sản phẩm
+        if ($request->input('SoLuong') < 1 && $request->input('LoaiHang') == 0) {
+            return redirect()->route('Edit_Index_Product', $id)->with('error', 'Invalid input!');
+        }
+
+        // Gán các giá trị cơ bản từ request vào sản phẩm
         $products->MaNhomNhacCaSi = $request->input('MaNhomNhacCaSi');
         $products->MaLoaiSP = $request->input('MaLoaiSP');
         $products->MaSPGG = $request->input('MaSPGG');
@@ -153,10 +162,16 @@ class ProductController extends Controller
         $products->GiaBan = $request->input('GiaBan');
         $products->TieuDe = $request->input('TieuDe');
         $products->MoTa = $request->input('MoTa');
-        $products->SoLuong = $request->input('SoLuong');
         $products->LoaiHang = $request->input('LoaiHang');
 
+        // Nếu dữ liệu kho hàng tồn tại, tính tổng số lượng để gán
+        if ($request->has('warehouses')) {
+            $tongSoLuong = array_sum(array_column($request->input('warehouses'), 'SoLuong'));
+            $products->SoLuong = $tongSoLuong;
+        }
 
+
+        // Xử lý hình ảnh nếu có
         if ($request->hasFile('HinhAnh')) {
             $HinhAnh = $request->file('HinhAnh');
             $TenHinhAnh = $HinhAnh->getClientOriginalName();
@@ -167,8 +182,20 @@ class ProductController extends Controller
 
         $products->save();
 
+        // Sync warehouse quantities
+        if ($request->has('warehouses')) {
+            $warehouseData = [];
+
+            foreach ($request->input('warehouses') as $warehouseId => $details) {
+                $warehouseData[$warehouseId] = ['SoLuong' => $details['SoLuong']];
+            }
+
+            $products->warehouses()->sync($warehouseData);
+        }
+
         return redirect()->route('Index_Product')->with('success', 'Product updated successfully!');
     }
+
 
     public function Search(Request $request)
     {
