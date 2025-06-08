@@ -130,6 +130,24 @@
                     quantityInput.value = 1;
                 }
             }
+            // Bổ sung sau xử lý quantityInput
+            document.querySelectorAll('.kho-checkbox').forEach(checkbox => {
+                const maKho = checkbox.id.replace('kho_', '');
+                const qtyInput = document.querySelector(`input[name="khos[${maKho}][SoLuong]"]`);
+                const errorDiv = qtyInput.nextElementSibling;
+
+                if (productTypeSelect.value === "1") {
+                    checkbox.disabled = true;
+                    checkbox.checked = false;
+                    qtyInput.disabled = true;
+                    qtyInput.value = '';
+                    errorDiv.style.display = 'none';
+                    qtyInput.classList.remove('is-invalid');
+                } else {
+                    checkbox.disabled = false;
+                }
+            });
+
         }
 
         productTypeSelect.addEventListener('change', handleProductTypeChange);

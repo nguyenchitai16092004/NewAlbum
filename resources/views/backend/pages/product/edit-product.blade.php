@@ -77,6 +77,24 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                    <label for="MaKho">Warehouses</label>
+                                    @foreach($chiTietKho as $kho)
+                                        <div class="form-check mb-2">
+                                            <input type="checkbox" class="form-check-input kho-checkbox"
+                                                id="kho_{{ $kho->MaKho }}" name="khos[{{ $kho->MaKho }}][checked]"
+                                                value="1">
+                                            <label class="form-check-label" for="kho_{{ $kho->MaKho }}">
+                                                {{ $kho->TenKho }} - {{ $kho->DiaChi }}
+                                            </label>
+                                            <input type="number" class="form-control mt-1 kho-soluong"
+                                                name="khos[{{ $kho->MaKho }}][SoLuong]"
+                                                placeholder="Quantity for this warehouse" min="0" value="{{ $kho->SoLuongTon  }}"  disabled>
+                                            <div id="checkbox-group-error" class="text-danger mb-2" style="display: none;">
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div> 
+                                    <div class="form-group">
                                         <label for="HinhAnh">Image</label>
                                         <input name="HinhAnh" type="file" class="form-control-file">
                                     </div>
@@ -97,34 +115,142 @@
 
     <!-- JavaScript Validation -->
     <script>
-        const productTypeSelect = document.querySelector('#LoaiHang');
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('addProductForm');
+        const productTypeSelect = document.querySelector('select[name="LoaiHang"]');
         const quantityInput = document.querySelector('input[name="SoLuong"]');
 
-        // Lưu lại giá trị ban đầu của số lượng
-        let originalQuantity = quantityInput.value;
-
-        // Xử lý thay đổi Product Type
-        productTypeSelect.addEventListener('change', function () {
-            if (productTypeSelect.value === "1") { // Pre-Order
-                quantityInput.value = 0;
-                quantityInput.setAttribute('readonly', true); // Khóa số lượng
-            } else { // Available
-                quantityInput.removeAttribute('readonly'); // Mở khóa số lượng
-                quantityInput.value = originalQuantity; // Giữ lại giá trị ban đầu
-            }
-        });
-
-        // Đảm bảo trạng thái đúng khi tải trang
-        document.addEventListener('DOMContentLoaded', function () {
+        // Xử lý loại hàng
+        function handleProductTypeChange() {
             if (productTypeSelect.value === "1") {
                 quantityInput.value = 0;
                 quantityInput.setAttribute('readonly', true);
             } else {
                 quantityInput.removeAttribute('readonly');
-                quantityInput.value = originalQuantity;
+                if (parseInt(quantityInput.value) < 1) {
+                    quantityInput.value = 1;
+                }
+            }
+            // Bổ sung sau xử lý quantityInput
+            document.querySelectorAll('.kho-checkbox').forEach(checkbox => {
+                const maKho = checkbox.id.replace('kho_', '');
+                const qtyInput = document.querySelector(`input[name="khos[${maKho}][SoLuong]"]`);
+                const errorDiv = qtyInput.nextElementSibling;
+
+                if (productTypeSelect.value === "1") {
+                    checkbox.disabled = true;
+                    checkbox.checked = false;
+                    qtyInput.disabled = true;
+                    qtyInput.value = '';
+                    errorDiv.style.display = 'none';
+                    qtyInput.classList.remove('is-invalid');
+                } else {
+                    checkbox.disabled = false;
+                }
+            });
+
+        }
+
+        productTypeSelect.addEventListener('change', handleProductTypeChange);
+        handleProductTypeChange(); // áp dụng khi trang load
+
+        document.querySelectorAll('.kho-checkbox').forEach(checkbox => {
+            const maKho = checkbox.id.replace('kho_', '');
+            const qtyInput = document.querySelector(`input[name="khos[${maKho}][SoLuong]"]`);
+            const errorDiv = qtyInput?.nextElementSibling;
+
+            // Nếu đã có giá trị (ví dụ từ CSDL), bật checkbox và input
+            if (qtyInput && qtyInput.value !== '') {
+                checkbox.checked = true;
+                qtyInput.disabled = false;
+            } else {
+                qtyInput.disabled = true;
+            }
+
+            // Xử lý khi checkbox thay đổi
+            checkbox.addEventListener('change', function () {
+                if (this.checked) {
+                    qtyInput.disabled = false;
+                    qtyInput.focus();
+                } else {
+                    qtyInput.disabled = true;
+                    qtyInput.value = '';
+                    if (errorDiv) {
+                        errorDiv.style.display = 'none';
+                    }
+                    qtyInput.classList.remove('is-invalid');
+                }
+            });
+        });
+
+        // Xử lý submit
+        form.addEventListener('submit', function (e) {
+            let valid = true;
+            let atLeastOneChecked = false;
+
+            const giaNhap = parseFloat(document.getElementById('GiaNhap').value);
+            const giaBan = parseFloat(document.getElementById('GiaBan').value);
+            const totalQuantity = parseInt(quantityInput.value) || 0;
+
+            const errorGroupDiv = document.getElementById('checkbox-group-error');
+            errorGroupDiv.style.display = 'none';
+            errorGroupDiv.textContent = '';
+
+            let warehouseTotal = 0;
+
+            // Kiểm tra từng warehouse
+            document.querySelectorAll('.kho-checkbox').forEach(checkbox => {
+                const maKho = checkbox.id.replace('kho_', '');
+                const qtyInput = document.querySelector(`input[name="khos[${maKho}][SoLuong]"]`);
+                const errorDiv = qtyInput.nextElementSibling;
+
+                errorDiv.style.display = 'none';
+                qtyInput.classList.remove('is-invalid');
+
+                if (checkbox.checked) {
+                    atLeastOneChecked = true;
+
+                    const qty = parseInt(qtyInput.value);
+                    if (isNaN(qty) || qty <= 0) {
+                        errorDiv.textContent = 'Please enter a valid quantity for warehouse.';
+                        errorDiv.style.display = 'block';
+                        qtyInput.classList.add('is-invalid');
+                        valid = false;
+                    } else {
+                        warehouseTotal += qty;
+                    }
+                }
+            });
+
+            // Không chọn checkbox nào
+            if (!atLeastOneChecked) {
+                errorGroupDiv.textContent = 'Please select at least one warehouse.';
+                errorGroupDiv.style.display = 'block';
+                valid = false;
+                if (!valid) e.preventDefault();
+            }
+
+
+            // Tổng số lượng không khớp
+            if (atLeastOneChecked && valid && warehouseTotal !== totalQuantity) {
+                errorGroupDiv.textContent = 'Total quantity for selected warehouses must equal total product quantity.';
+                errorGroupDiv.style.display = 'block';
+                valid = false;
+            }
+
+
+            // Giá nhập phải < giá bán
+            if (giaNhap >= giaBan) {
+                alert('Import Price must be less than Selling Price!');
+                valid = false;
+            }
+
+            if (!valid) {
+                e.preventDefault();
             }
         });
-    </script>
+    });
+</script>
 @stop
 
 

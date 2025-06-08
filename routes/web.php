@@ -30,8 +30,10 @@ use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CommentUserController;
 use App\Http\Controllers\Admin\WarehouseController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StaffController;
 
 /*Route FE */
+
 
 // Route cho trang Home
 Route::get('/popup', function () {
@@ -59,12 +61,6 @@ Route::post('/wishlist', [WishlistController::class, 'store'])->name('wishlist.s
 Route::delete('/wishlist/{id}', [WishlistController::class, 'delete'])->name('wishlist.delete');
 
 // Route cho trang Blog
-Route::get('/our-blog-post', function () {
-    return view('frontend.pages.our-blog-post');
-});
-Route::get('/our-blog-post', function () {
-    return view('frontend.pages.our-blog-post');
-});
 Route::get('/our-blog-post', function () {
     return view('frontend.pages.our-blog-post');
 });
@@ -121,6 +117,34 @@ Route::get('/account', function () {
     return view('frontend.pages.account');
 });
 
+
+//
+Route::prefix('admin')->middleware(['admin'])->group(function () {
+    Route::prefix('product')->group(function () {
+        Route::get('/', [ProductController::class, 'Index'])->name('Index_Product');
+        // Thêm sản phẩm
+        Route::get('/add-product', [ProductController::class, 'Show'])->name('Add_Index_Product');
+        Route::post('/add', [ProductController::class, 'Add'])->name('Add_Product');
+        // Sửa sản phẩm
+        Route::get('/edit-product/{id}', [ProductController::class, 'Show_Edit'])->name('Edit_Index_Product');
+        Route::post('/edit/{id}', [ProductController::class, 'Edit'])->name('Edit_Product');
+        // Xóa sản phẩm
+        Route::delete('/delete/{id}', [ProductController::class, 'Delete'])->name('Delete_Product');
+        // Tìm kiếm sản phẩm
+        Route::get('/search-product', [ProductController::class, 'Search'])->name('Search_Product');
+    });
+    // Route cho kho hàng
+    Route::prefix('warehouse')->group(function () {
+        Route::get('/', [WarehouseController::class, 'Index'])->name('Index_Warehouse');
+        Route::get('/warehouse-detail/{id}', [WarehouseController::class, 'Show_Detail'])->name('Index_Warehouse_Detail');
+        // Thêm kho hàng 
+        Route::get('/add-warehouse', [WarehouseController::class, 'Show'])->name('Index_Add_Warehouse');
+        Route::post('/add', [WarehouseController::class, 'Add'])->name('Add_Warehouse');
+        // Trạng thái kho hàng 
+        Route::put('/warehouse/toggle-status/{id}', [WarehouseController::class, 'toggleStatus'])->name('Toggle_Warehouse_Status');
+
+    });
+});
 
 Route::prefix('/admin')->group(function () {
 
@@ -269,5 +293,14 @@ Route::prefix('/admin')->group(function () {
         // Trạng thái kho hàng 
         Route::put('/warehouse/toggle-status/{id}', [WarehouseController::class, 'toggleStatus'])->name('Toggle_Warehouse_Status');
 
+    });
+    // Route cho staff 
+    Route::prefix('staff')->middleware(['auth', 'admin'])->group(function () {
+        Route::get('/', [StaffController::class, 'index'])->name('staff.index');
+        Route::get('/create', [StaffController::class, 'create'])->name('staff.create');
+        Route::post('/store', [StaffController::class, 'store'])->name('staff.store');
+        Route::get('/edit/{id}', [StaffController::class, 'edit'])->name('staff.edit');
+        Route::put('/update/{id}', [StaffController::class, 'update'])->name('staff.update');
+        Route::delete('/delete/{id}', [StaffController::class, 'destroy'])->name('staff.destroy');
     });
 });
